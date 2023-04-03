@@ -20,7 +20,8 @@ namespace Source.Player
             if (_rigidbody.velocity.magnitude >= Speed)
                 return;
 
-            _rigidbody.velocity = new Vector3(directionX * Speed, _rigidbody.velocity.y, directionZ * Speed);
+            var direction = new Vector3(directionX, _rigidbody.velocity.y, directionZ).normalized;
+            _rigidbody.velocity = new Vector3(direction.x * Speed, direction.y, direction.z * Speed);
         }
     }
 }
