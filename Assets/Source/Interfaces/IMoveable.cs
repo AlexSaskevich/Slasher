@@ -6,6 +6,6 @@ namespace Source.Interfaces
     {
         float Speed { get; }
 
-        void Move(Vector3 direction);
+        void Move(float directionX, float directionZ);
     }
 }

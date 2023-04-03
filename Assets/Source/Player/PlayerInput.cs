@@ -20,9 +20,7 @@ namespace Source.Player
             var horizontal = Input.GetAxisRaw(InputConstants.Horizontal);
             var vertical = Input.GetAxisRaw(InputConstants.Vertical);
 
-            var direction = new Vector3(horizontal, 0, vertical);
-            
-            _playerMovement.Move(direction);
+            _playerMovement.Move(horizontal, vertical);
             _playerRotation.Rotate(horizontal, vertical);
         }
     }

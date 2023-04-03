@@ -15,9 +15,12 @@ namespace Source.Player
             _rigidbody = GetComponent<Rigidbody>();
         }
 
-        public void Move(Vector3 direction)
+        public void Move(float directionX, float directionZ)
         {
-            _rigidbody.velocity = new Vector3(direction.x * Speed, _rigidbody.velocity.y, direction.z * Speed);
+            if (_rigidbody.velocity.magnitude >= Speed)
+                return;
+
+            _rigidbody.velocity = new Vector3(directionX * Speed, _rigidbody.velocity.y, directionZ * Speed);
         }
     }
 }
