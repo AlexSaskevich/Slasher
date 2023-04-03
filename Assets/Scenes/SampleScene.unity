@@ -574,7 +574,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 490133272}
-  <Speed>k__BackingField: 0
+  <Speed>k__BackingField: 1
 --- !u!1 &1041316329
 GameObject:
   m_ObjectHideFlags: 0
