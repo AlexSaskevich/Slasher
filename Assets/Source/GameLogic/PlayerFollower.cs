@@ -7,11 +7,11 @@ namespace Source.GameLogic
     {
         [SerializeField] private Transform _player;
 
-        private Vector3 _playerPosition;
-        private Vector3 _position;
         private Vector3 _offence;
+        private Vector3 _position;
+        private Vector3 _playerPosition;
 
-        [field: SerializeField] public float Speed { get; private set; }
+        public float Speed => 1;
 
         private void Start()
         {
