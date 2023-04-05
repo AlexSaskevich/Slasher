@@ -14,8 +14,6 @@ namespace Source.Behavior_Tree.Actions
             SharedBotTarget.Value.CurrentTarget =
                 SharedBotTarget.Value.Targets[Random.Range(0, SharedBotTarget.Value.Targets.Length)];
             
-            Debug.Log(SharedBotTarget.Value.CurrentTarget.name);
-
             return SharedBotTarget.Value.CurrentTarget == null ? TaskStatus.Failure : TaskStatus.Success;
         }
     }

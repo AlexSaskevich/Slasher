@@ -1,9 +1,9 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
 using Source.Behavior_Tree.SharedVariables;
 
-namespace Source.Behavior_Tree.Actions
+namespace Source.Behavior_Tree.Conditionals
 {
-    public sealed class IsPlayerInTrigger : Conditional
+    public sealed class SeekPlayer : Conditional
     {
         public SharedBotDetectionTrigger SharedBotDetectionTrigger;
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
-namespace Source.Behavior_Tree
+namespace Source.Bot
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public sealed class BotMovement : MonoBehaviour
