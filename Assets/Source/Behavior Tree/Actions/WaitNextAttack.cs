@@ -16,9 +16,20 @@ namespace Source.Behavior_Tree.Actions
         {
             _timer += Time.deltaTime;
             
-            SharedBotMovement.Value.NavMeshAgent.destination = SharedBotTarget.Value.PlayerMovement.transform.position;
+            var enemyNavMeshDestination = SharedBotAttacker.Value.IsPlayerDetected
+                ? SharedBotMovement.Value.NavMeshAgent.transform.position
+                : SharedBotTarget.Value.PlayerMovement.transform.position;
 
-            return _timer >= SharedBotAttacker.Value.Delay ? TaskStatus.Success : TaskStatus.Running;
+            SharedBotMovement.Value.NavMeshAgent.destination = enemyNavMeshDestination;
+
+            if (_timer >= SharedBotAttacker.Value.Delay)
+            {
+                _timer = 0;
+                
+                return TaskStatus.Success;
+            }
+
+            return TaskStatus.Running;
         }
     }
 }

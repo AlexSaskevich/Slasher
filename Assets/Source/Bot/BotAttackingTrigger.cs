@@ -24,7 +24,7 @@ namespace Source.Bot
         
         private void OnTriggerEnter(Collider other)
         {
-            if (other.TryGetComponent(out PlayerMovement playerMovement))
+            if (other.TryGetComponent(out PlayerMovement playerMovement) && playerMovement.gameObject.activeSelf)
                 PlayerDetected?.Invoke();
         }
 
