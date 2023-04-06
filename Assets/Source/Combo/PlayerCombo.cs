@@ -4,12 +4,13 @@ namespace Source.Combo
 {
     public sealed class PlayerCombo : MonoBehaviour
     {
+        [SerializeField] private CollisionDetection _collisionDetection;
+
         private readonly IdleState _idleState = new IdleState();
         private State _currentState;
         private Animator _animator;
 
         public Animator Animator { get { return _animator; } }
-        public bool IsAnimationEnd { get; private set; }
 
         private void Awake()
         {
@@ -30,6 +31,16 @@ namespace Source.Combo
 
             _currentState = newState;
             newState.Enter(this);
+        }
+
+        public void StartDetectCollisions()
+        {
+            _collisionDetection.StartDetect();
+        }
+
+        public void StopDetectCollisions()
+        {
+            _collisionDetection.StopDetect();
         }
     }
 }

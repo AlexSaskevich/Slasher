@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using Source.Constants;
+﻿using Source.Constants;
+using UnityEngine;
 
 namespace Source.Combo
 {
