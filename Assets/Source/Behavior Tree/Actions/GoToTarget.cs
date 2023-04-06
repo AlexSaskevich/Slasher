@@ -6,6 +6,8 @@ namespace Source.Behavior_Tree.Actions
 {
     public sealed class GoToTarget : Action
     {
+        private const int MinDistance = 1;
+        
         public SharedBotMovement SharedBotMovement;
         public SharedBotTarget SharedBotTarget;
 
@@ -15,10 +17,9 @@ namespace Source.Behavior_Tree.Actions
             
             SharedBotMovement.Value.NavMeshAgent.destination = targetPosition;
 
-            if (Vector3.Distance(targetPosition, SharedBotMovement.Value.NavMeshAgent.transform.position) <= 1)
-                return TaskStatus.Success;
-
-            return TaskStatus.Running;
+            return Vector3.Distance(targetPosition, SharedBotMovement.Value.NavMeshAgent.transform.position) <= MinDistance
+                ? TaskStatus.Success
+                : TaskStatus.Running;
         }
     }
 }

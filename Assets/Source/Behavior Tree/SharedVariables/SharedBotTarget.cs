@@ -1,5 +1,6 @@
 ﻿using System;
 using BehaviorDesigner.Runtime;
+using Source.Bot;
 
 namespace Source.Behavior_Tree.SharedVariables
 {
