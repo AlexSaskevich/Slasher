@@ -2,11 +2,12 @@
 
 namespace Source.Combo
 {
+    [RequireComponent(typeof(Animator))]
     public sealed class PlayerCombo : MonoBehaviour
     {
-        [SerializeField] private CollisionDetection _collisionDetection;
+        [SerializeField] private Weapon _weapon;
 
-        private readonly IdleState _idleState = new IdleState();
+        private readonly IdleState _idleState = new();
         private State _currentState;
         private Animator _animator;
 
@@ -35,12 +36,12 @@ namespace Source.Combo
 
         public void StartDetectCollisions()
         {
-            _collisionDetection.StartDetect();
+            _weapon.StartDetectCollisions();
         }
 
         public void StopDetectCollisions()
         {
-            _collisionDetection.StopDetect();
+            _weapon.StopDetectCollisions();
         }
     }
 }
