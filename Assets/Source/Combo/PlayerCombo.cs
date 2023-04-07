@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Source.Combo
 {
@@ -8,21 +9,24 @@ namespace Source.Combo
         [SerializeField] private Weapon _weapon;
 
         private readonly IdleState _idleState = new();
-        private State _currentState;
         private Animator _animator;
 
+        public event UnityAction Attacked;
+        public event UnityAction StateChanged;
+
+        public State CurrentState { get; private set; }
         public Animator Animator { get { return _animator; } }
 
         private void Awake()
         {
             _animator = GetComponent<Animator>();
-            _currentState = _idleState;
-            _currentState.Enter(this);
+            CurrentState = _idleState;
+            CurrentState.Enter(this);
         }
 
         private void Update()
         {
-            _currentState.Update(this);
+            CurrentState.Update(this);
         }
 
         public void SwitchState(State newState)
@@ -30,13 +34,15 @@ namespace Source.Combo
             if (newState == null)
                 return;
 
-            _currentState = newState;
+            CurrentState = newState;
             newState.Enter(this);
+            StateChanged?.Invoke();
         }
 
         public void StartDetectCollisions()
         {
             _weapon.StartDetectCollisions();
+            Attacked?.Invoke();
         }
 
         public void StopDetectCollisions()

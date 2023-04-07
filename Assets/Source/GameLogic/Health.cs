@@ -5,10 +5,9 @@ namespace Source.GameLogic
 {
     public abstract class Health : MonoBehaviour
     {
-        [field: SerializeField] public float MaxHealth;
-
         public event UnityAction HealthChanged;
 
+        [field: SerializeField] public float MaxHealth { get; private set; }
         public float CurrentHealth { get; private set; }
 
         private void Start()
@@ -21,7 +20,7 @@ namespace Source.GameLogic
             if (damage <= 0)
                 return;
 
-            CurrentHealth -= damage;
+            CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
 
             if (CurrentHealth <= 0)
                 Die();
