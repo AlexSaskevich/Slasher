@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Source.GameLogic
 {
     public abstract class Health : MonoBehaviour
     {
-        [SerializeField] private float _maxHealth;
-        
-        private float _health;
+        [field: SerializeField] public float MaxHealth;
+
+        public event UnityAction HealthChanged;
+
+        public float CurrentHealth { get; private set; }
 
         private void Start()
         {
-            _health = _maxHealth;
+            CurrentHealth = MaxHealth;
         }
 
         public void TryTakeDamage(float damage)
@@ -18,15 +21,17 @@ namespace Source.GameLogic
             if (damage <= 0)
                 return;
 
-            _health -= damage;
+            CurrentHealth -= damage;
 
-            if (_health <= 0)
+            if (CurrentHealth <= 0)
                 Die();
+
+            HealthChanged?.Invoke();
         }
 
         public void ResetHealth()
         {
-            _health = _maxHealth;
+            CurrentHealth = MaxHealth;
         }
 
         protected abstract void Die();
