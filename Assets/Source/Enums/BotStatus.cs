@@ -1,6 +1,6 @@
-﻿namespace Source.GameLogic
+﻿namespace Source.Enums
 {
-    public enum SpawnerBotsStatus
+    public enum BotStatus
     {
         PeacefulCitizens,
         Zombie,

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Source.Enums;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -26,17 +27,17 @@ namespace Source.GameLogic
         {
             foreach (var spawner in _spawners)
             {
-                switch (spawner.SpawnerBotsStatus)
+                switch (spawner._botStatus)
                 {
-                    case SpawnerBotsStatus.PeacefulCitizens:
+                    case BotStatus.PeacefulCitizens:
                         _peacefulCitizensSpawners.Add(spawner);
                         break;
                     
-                    case SpawnerBotsStatus.Zombie:
+                    case BotStatus.Zombie:
                         _zombieSpawners.Add(spawner);
                         break;
                     
-                    case SpawnerBotsStatus.HostileCitizens:
+                    case BotStatus.HostileCitizens:
                         _hostileCitizensSpawners.Add(spawner);
                         break;
                     

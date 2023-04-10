@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Source.Enums;
+using UnityEngine;
 using UnityEngine.AI;
 
 namespace Source.Bot
@@ -7,6 +8,8 @@ namespace Source.Bot
     public sealed class BotMovement : MonoBehaviour
     {
         [SerializeField] private float _speed;
+        
+        [field: SerializeField] public BotStatus BotStatus { get; private set; }
         
         public NavMeshAgent NavMeshAgent { get; private set; }
 

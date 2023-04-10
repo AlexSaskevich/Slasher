@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Source.Bot;
+using Source.Enums;
 using Source.Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -23,7 +25,7 @@ namespace Source.GameLogic
 
         public event Action TurnedOff;
 
-        [field: SerializeField] public SpawnerBotsStatus SpawnerBotsStatus;
+        [field: SerializeField] public BotStatus _botStatus;
         
         public Wave CurrentWave { get; private set; }
         
@@ -84,11 +86,18 @@ namespace Source.GameLogic
                 throw new ArgumentNullException();
 
             var botTargets = new List<Target>();
-            
+                
             for (var i = 0; i < botTarget.TargetsCount; i++)
             {
-                var target = _targets[Random.Range(0, _targets.Count)];
-                    
+                var availableTargets =
+                    _targets.Where(target => target.Status == botMovement.BotStatus && target.IsAvailable).ToArray();
+
+                if (availableTargets.Length == 0)
+                    throw new ArgumentNullException();
+                
+                var target = availableTargets[Random.Range(0, availableTargets.Length)];
+                target.MakeUnavailable();
+                
                 botTargets.Add(target);
                 _targets.Remove(target);
             }

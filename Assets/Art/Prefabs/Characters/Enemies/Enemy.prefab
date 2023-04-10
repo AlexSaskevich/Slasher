@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 4
+  <BotStatus>k__BackingField: 0
 --- !u!114 &7176095110030211076
 MonoBehaviour:
   m_ObjectHideFlags: 0
