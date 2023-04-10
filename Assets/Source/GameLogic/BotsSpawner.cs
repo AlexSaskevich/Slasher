@@ -16,28 +16,33 @@ namespace Source.GameLogic
         [SerializeField] private PlayerMovement _playerMovement;
         [SerializeField] private PlayerHealth _playerHealth;
         [SerializeField] private float _delay;
-        
-        private Wave _currentWave;
+
         private int _currentWaveNumber;
         private int _spawnedBotsCount;
         private float _timeAfterLastBotSpawned;
 
+        public event Action TurnedOff;
+
+        [field: SerializeField] public SpawnerBotsStatus SpawnerBotsStatus;
+        
+        public Wave CurrentWave { get; private set; }
+        
         private void Start()
         {
             ResetOptions();
 
-            for (var i = 0; i < _currentWave.BotsCount; i++)
-                Init(_currentWave.BotMovements[Random.Range(0, _currentWave.BotMovements.Length)], transform.position);
+            for (var i = 0; i < CurrentWave.BotsCount; i++)
+                Init(CurrentWave.BotMovements[Random.Range(0, CurrentWave.BotMovements.Length)], transform.position);
         }
 
         private void Update()
         {
-            if(_currentWave == null)
+            if(CurrentWave == null)
                 return;
 
             _timeAfterLastBotSpawned += Time.deltaTime;
 
-            if (_timeAfterLastBotSpawned >= _currentWave.Delay)
+            if (_timeAfterLastBotSpawned >= CurrentWave.Delay)
             {
                 if (TryGetBot(out var botMovement) == false)
                     return;
@@ -47,17 +52,20 @@ namespace Source.GameLogic
                 _timeAfterLastBotSpawned = 0;
             }
 
-            if (_spawnedBotsCount < _currentWave.BotsCount)
+            if (_spawnedBotsCount < CurrentWave.BotsCount)
                 return;
             
-            _currentWave = null;
+            CurrentWave = null;
             StartCoroutine(WaitTimeBetweenWaves());
 
             if (_currentWaveNumber == _waves.Count - 1)
-                _currentWave = null;
+            {
+                CurrentWave = null;
+                TurnedOff?.Invoke();
+            }
         }
         
-        private void ResetOptions()
+        public void ResetOptions()
         {
             _spawnedBotsCount = 0;
             _currentWaveNumber = 0;
@@ -98,7 +106,7 @@ namespace Source.GameLogic
         private void SetWave(int waveNumber)
         {
             if (waveNumber >= 0 && waveNumber < _waves.Count)
-                _currentWave = _waves[waveNumber];
+                CurrentWave = _waves[waveNumber];
         }
 
         private IEnumerator WaitTimeBetweenWaves()
