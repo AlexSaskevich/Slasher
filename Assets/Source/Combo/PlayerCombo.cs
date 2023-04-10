@@ -1,33 +1,55 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
-using System.Linq;
+﻿using Source.Player;
+using System;
+using UnityEngine;
 
 namespace Source.Combo
 {
-    [RequireComponent(typeof(Animator))]
+    [RequireComponent(typeof(Animator), typeof(PlayerHealth), typeof(Rigidbody))]
     public sealed class PlayerCombo : MonoBehaviour
     {
         [SerializeField] private Weapon _weapon;
 
-        private readonly IdleState _idleState = new();
-        private Animator _animator;
+        private readonly MoveState _idleState = new();
+        private PlayerHealth _playerHealth;
 
-        public event UnityAction Attacked;
-        public event UnityAction StateChanged;
+        public event Action Attacked;
+        public event Action StateChanged;
 
         public State CurrentState { get; private set; }
-        public Animator Animator { get { return _animator; } }
+        public Animator Animator { get; private set; }
+        public Rigidbody Rigidbody { get; private set; }
+        public bool IsAttackButtonClicked { get; private set; }
 
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
+            _playerHealth = GetComponent<PlayerHealth>();
+            Animator = GetComponent<Animator>();
+            Rigidbody = GetComponent<Rigidbody>();
             CurrentState = _idleState;
             CurrentState.Enter(this);
+        }
+
+        private void OnEnable()
+        {
+            _playerHealth.HealthChanged += OnHealthChanged;
+        }
+
+        private void OnDisable()
+        {
+            _playerHealth.HealthChanged -= OnHealthChanged;
         }
 
         private void Update()
         {
             CurrentState.Update(this);
+        }
+
+        private void OnHealthChanged()
+        {
+            if (CurrentState is FinishState)
+                return;
+
+            CurrentState.Exit(this);
         }
 
         public void SwitchState(State newState)
@@ -38,6 +60,11 @@ namespace Source.Combo
             CurrentState = newState;
             newState.Enter(this);
             StateChanged?.Invoke();
+        }
+
+        public void SetAttack(bool value)
+        {
+            IsAttackButtonClicked = value;
         }
 
         public void StartDealingDamage()

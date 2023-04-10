@@ -16,21 +16,10 @@ public abstract class Bar : MonoBehaviour
 
     protected abstract void OnValueChanged();
 
-    protected void SetFillAmount(float value)
-    {
-        if (_image == null)
-            return;
-
-        if (value <= 0)
-            return;
-
-        _image.fillAmount = value;
-    }
-
     protected void StartChangeFillAmount(float value)
     {
         if (_coroutine != null)
-            StopCoroutine(ChangeFillAmount(value));
+            StopCoroutine(_coroutine);
 
         _coroutine = StartCoroutine(ChangeFillAmount(value));
     }
