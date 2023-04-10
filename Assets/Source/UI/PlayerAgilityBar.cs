@@ -26,7 +26,7 @@ namespace Source.UI
         {
             float targetValue = (float)_playerAgility.Agility / _playerAgility.MaxAgility;
 
-            SetFillAmount(targetValue);
+            StartChangeFillAmount(targetValue);
         }
     }
 }

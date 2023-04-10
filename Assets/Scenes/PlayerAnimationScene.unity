@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &37992997
 Transform:
   m_ObjectHideFlags: 0
@@ -371,13 +371,14 @@ GameObject:
   - component: {fileID: 196796937}
   - component: {fileID: 196796936}
   - component: {fileID: 196796940}
+  - component: {fileID: 196796941}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &196796936
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -470,6 +471,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
+--- !u!135 &196796941
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196796935}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &199667942
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &278177502
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -894,7 +908,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &512596138
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5615,7 +5629,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1750596749
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6449,10 +6463,10 @@ GameObject:
   - component: {fileID: 8699606707982853545}
   - component: {fileID: 8783718202874754209}
   - component: {fileID: 8783718202874754213}
+  - component: {fileID: 8783718202874754224}
   - component: {fileID: 8783718202874754212}
   - component: {fileID: 8783718202874754211}
   - component: {fileID: 8783718202874754210}
-  - component: {fileID: 8783718202874754218}
   - component: {fileID: 8783718202874754219}
   - component: {fileID: 8783718202874754220}
   - component: {fileID: 8783718202874754221}
@@ -7244,7 +7258,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8699704291232361017}
-  - component: {fileID: 8699704291232361018}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -7756,20 +7769,6 @@ Transform:
   m_Father: {fileID: 8699606707982853545}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &8699704291232361018
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8698486419447938741}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &8699706653643262685
 Transform:
   m_ObjectHideFlags: 0
@@ -8280,18 +8279,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!114 &8783718202874754218
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8696468249752981899}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a335bc65bdde2ed44a7bd847491e67cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8783718202874754219
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8330,9 +8317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6235bcbceff44d7e92cd23a203c09752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerCombo: {fileID: 8783718202874754219}
-  _increasingAgility: 0.1
-  _decreasingAgility: 20
+  _increasingAgility: 0.08
+  _decreasingAgility: 10
   <MaxAgility>k__BackingField: 100
 --- !u!114 &8783718202874754223
 MonoBehaviour:
@@ -8349,6 +8335,20 @@ MonoBehaviour:
   _increasingMana: 0.1
   _decreasingMana: 25
   <MaxMana>k__BackingField: 100
+--- !u!136 &8783718202874754224
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8696468249752981899}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &9188161185437474993
 PrefabInstance:
   m_ObjectHideFlags: 0

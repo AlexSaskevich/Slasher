@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using System;
+using UnityEngine;
 
 namespace Source.Player
 {
@@ -8,7 +8,7 @@ namespace Source.Player
         [SerializeField] private float _increasingMana;
         [SerializeField] private float _decreasingMana;
 
-        public event UnityAction ManaChanged;
+        public event Action ManaChanged;
 
         [field: SerializeField] public float MaxMana { get; private set; }
         public float Mana { get; private set; }

@@ -15,17 +15,13 @@ namespace Source.Combo
                 return;
 
             if (CheckCurrentAnimationEnd(playerCombo.Animator))
-                playerCombo.SwitchState(new IdleState());
+                playerCombo.SwitchState(new MoveState());
 
             if (playerCombo.IsAttackButtonClicked == false)
                 return;
 
             if (CheckCurrentAnimationEnd(playerCombo.Animator, AnimationConstants.SwitchAnimationTime))
                 playerCombo.SwitchState(new FinishState());
-        }
-
-        public override void Exit(PlayerCombo playerCombo)
-        {
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Source.Player
 
         private void OnStateChanged()
         {
-            if (_playerCombo.CurrentState is IdleState)
+            if (_playerCombo.CurrentState is MoveState)
             {
                 CurrentSpeed = DefaultSpeed;
                 return;

@@ -1,5 +1,4 @@
 ﻿using Source.Constants;
-using UnityEngine;
 
 namespace Source.Combo
 {
@@ -7,7 +6,6 @@ namespace Source.Combo
     {
         public override void Enter(PlayerCombo playerCombo)
         {
-            Debug.Log("In Entry state");
             playerCombo.Animator.SetTrigger(AnimationConstants.Hit1);
         }
 
@@ -17,17 +15,13 @@ namespace Source.Combo
                 return;
 
             if (CheckCurrentAnimationEnd(playerCombo.Animator))
-                playerCombo.SwitchState(new IdleState());
+                playerCombo.SwitchState(new MoveState());
 
             if (playerCombo.IsAttackButtonClicked == false)
                 return;
 
             if (CheckCurrentAnimationEnd(playerCombo.Animator, AnimationConstants.SwitchAnimationTime))
                 playerCombo.SwitchState(new ComboState());
-        }
-
-        public override void Exit(PlayerCombo playerCombo)
-        {
         }
     }
 }

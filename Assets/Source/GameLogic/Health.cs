@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using System;
+using UnityEngine;
 
 namespace Source.GameLogic
 {
     public abstract class Health : MonoBehaviour
     {
-        public event UnityAction HealthChanged;
+        public event Action HealthChanged;
 
         [field: SerializeField] public float MaxHealth { get; private set; }
         public float CurrentHealth { get; private set; }

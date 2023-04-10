@@ -1,23 +1,23 @@
-﻿using Source.Constants;
+﻿using Source.Combo;
+using Source.Constants;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace Source.Player
 {
-    [RequireComponent(typeof(PlayerMovement), typeof(PlayerRotation))]
+    [RequireComponent(typeof(PlayerMovement), typeof(PlayerRotation), typeof(PlayerCombo))]
     public sealed class PlayerInput : MonoBehaviour
     {
         [SerializeField] private Joystick _joystick;
 
         private PlayerMovement _playerMovement;
         private PlayerRotation _playerRotation;
-
-        public event UnityAction<bool> AttackButtonClicked;
+        private PlayerCombo _playerCombo;
 
         private void Awake()
         {
             _playerMovement = GetComponent<PlayerMovement>();
             _playerRotation = GetComponent<PlayerRotation>();
+            _playerCombo = GetComponent<PlayerCombo>();
         }
 
         private void Update()
@@ -36,9 +36,7 @@ namespace Source.Player
                 vertical = _joystick.Vertical;
             }
 
-            bool isAttackButtonCliked = Input.GetMouseButtonDown(0);
-            AttackButtonClicked?.Invoke(isAttackButtonCliked);
-
+            _playerCombo.SetAttack(Input.GetMouseButtonDown(0));
             _playerMovement.Move(horizontal, vertical);
             _playerRotation.Rotate(horizontal, vertical);
         }
