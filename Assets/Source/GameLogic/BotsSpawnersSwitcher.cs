@@ -27,7 +27,7 @@ namespace Source.GameLogic
         {
             foreach (var spawner in _spawners)
             {
-                switch (spawner._botStatus)
+                switch (spawner.BotStatus)
                 {
                     case BotStatus.PeacefulCitizens:
                         _peacefulCitizensSpawners.Add(spawner);

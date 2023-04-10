@@ -6,6 +6,7 @@ using Source.Bot;
 using Source.Enums;
 using Source.Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Source.GameLogic
@@ -25,7 +26,7 @@ namespace Source.GameLogic
 
         public event Action TurnedOff;
 
-        [field: SerializeField] public BotStatus _botStatus;
+        [field: SerializeField] public BotStatus BotStatus { get; private set; }
         
         public Wave CurrentWave { get; private set; }
         

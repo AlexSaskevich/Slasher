@@ -148,7 +148,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 92316699}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.958271, y: -15.813805, z: -34.71154}
+  m_LocalPosition: {x: 20.39, y: -15.813805, z: -14.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -199,9 +199,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawners:
   - {fileID: 771390153}
-  - {fileID: 1274730214}
-  - {fileID: 1959044402}
-  - {fileID: 0}
   _delay: 5
   _workingPeacefulCitizensSpawnersCount: 4
   _workingZombieSpawnersCount: 0
@@ -219,8 +216,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 771390154}
-  - {fileID: 1274730215}
-  - {fileID: 1959044403}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -262,7 +257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341456442}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.958271, y: -15.813805, z: -34.71154}
+  m_LocalPosition: {x: 21.62, y: -15.813805, z: -29.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -691,7 +686,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 551843631}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.68827, y: -15.813805, z: -22.931538}
+  m_LocalPosition: {x: 27.34, y: -15.813805, z: -34.95}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1100,7 +1095,7 @@ MonoBehaviour:
   _playerMovement: {fileID: 490133267}
   _playerHealth: {fileID: 490133275}
   _delay: 4
-  _botStatus: 0
+  <BotStatus>k__BackingField: 0
 --- !u!4 &771390154
 Transform:
   m_ObjectHideFlags: 0
@@ -1141,7 +1136,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 957156845}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.61827, y: -15.813805, z: -34.271538}
+  m_LocalPosition: {x: 11.14, y: -15.813805, z: -27.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1186,7 +1181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 959305391}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 25.958271, y: -15.813805, z: -34.71154}
+  m_LocalPosition: {x: 12.61, y: -15.813805, z: -19.55}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1550,74 +1545,6 @@ Transform:
   m_Father: {fileID: 2030398276}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1274730213
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1274730215}
-  - component: {fileID: 1274730214}
-  m_Layer: 0
-  m_Name: Spawner (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1274730214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274730213}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a07a8205099f4947a61110fba270f50c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _waves:
-  - <BotMovements>k__BackingField:
-    - {fileID: 7176095110030211082, guid: d42f6dea981f97f4da49ba78a9f36169, type: 3}
-    <BotsCount>k__BackingField: 3
-    <Delay>k__BackingField: 2
-  _spawnPoints:
-  - {fileID: 1274730215}
-  _targets:
-  - {fileID: 361666080}
-  - {fileID: 1273942205}
-  - {fileID: 1030670340}
-  - {fileID: 551843632}
-  - {fileID: 1886750003}
-  - {fileID: 341456443}
-  - {fileID: 1802209510}
-  - {fileID: 957156847}
-  - {fileID: 959305393}
-  - {fileID: 1964365895}
-  - {fileID: 1879332368}
-  - {fileID: 92316701}
-  _playerMovement: {fileID: 490133267}
-  _playerHealth: {fileID: 490133275}
-  _delay: 4
-  _botStatus: 0
---- !u!4 &1274730215
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1274730213}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.995249, y: -4.3898854, z: 14.800409}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 156528145}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1580961747
 GameObject:
   m_ObjectHideFlags: 0
@@ -1711,7 +1638,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802209508}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.68827, y: -15.813805, z: -22.931538}
+  m_LocalPosition: {x: 21.39, y: -15.813805, z: -19.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1922,7 +1849,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879332366}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.61827, y: -15.813805, z: -34.271538}
+  m_LocalPosition: {x: 4.3, y: -15.813805, z: -14.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1980,80 +1907,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886750002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.61827, y: -15.813805, z: -34.271538}
+  m_LocalPosition: {x: 4.04, y: -15.813805, z: -27.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2030398276}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1959044401
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1959044403}
-  - component: {fileID: 1959044402}
-  m_Layer: 0
-  m_Name: Spawner (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1959044402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959044401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a07a8205099f4947a61110fba270f50c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _waves:
-  - <BotMovements>k__BackingField:
-    - {fileID: 7176095110030211082, guid: d42f6dea981f97f4da49ba78a9f36169, type: 3}
-    <BotsCount>k__BackingField: 3
-    <Delay>k__BackingField: 2
-  _spawnPoints:
-  - {fileID: 1959044403}
-  _targets:
-  - {fileID: 361666080}
-  - {fileID: 1273942205}
-  - {fileID: 1030670340}
-  - {fileID: 551843632}
-  - {fileID: 1886750003}
-  - {fileID: 341456443}
-  - {fileID: 1802209510}
-  - {fileID: 957156847}
-  - {fileID: 959305393}
-  - {fileID: 1964365895}
-  - {fileID: 1879332368}
-  - {fileID: 92316701}
-  _playerMovement: {fileID: 490133267}
-  _playerHealth: {fileID: 490133275}
-  _delay: 4
-  _botStatus: 0
---- !u!4 &1959044403
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959044401}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 8.995249, y: -4.3898854, z: 14.800409}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 156528145}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1964365893
 GameObject:
@@ -2080,7 +1939,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1964365893}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 26.68827, y: -15.813805, z: -22.931538}
+  m_LocalPosition: {x: 11.03, y: -15.813805, z: -13.44}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
