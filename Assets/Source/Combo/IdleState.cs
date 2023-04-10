@@ -1,5 +1,3 @@
-using UnityEngine;
-
 namespace Source.Combo
 {
     public sealed class IdleState : State
@@ -10,18 +8,12 @@ namespace Source.Combo
 
         public override void Update(PlayerCombo playerCombo)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (playerCombo.IsAttackButtonClicked)
                 playerCombo.SwitchState(new EntryState());
         }
 
         public override void Exit(PlayerCombo playerCombo)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public override bool GetCurrentAnimationName(Animator animator)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Source.Constants;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Source.Player
 {
@@ -7,9 +8,11 @@ namespace Source.Player
     public sealed class PlayerInput : MonoBehaviour
     {
         [SerializeField] private Joystick _joystick;
-    
+
         private PlayerMovement _playerMovement;
         private PlayerRotation _playerRotation;
+
+        public event UnityAction<bool> AttackButtonClicked;
 
         private void Awake()
         {
@@ -21,7 +24,7 @@ namespace Source.Player
         {
             float horizontal;
             float vertical;
-            
+
             if (_joystick.Horizontal == 0 || _joystick.Vertical == 0)
             {
                 horizontal = Input.GetAxisRaw(InputConstants.Horizontal);
@@ -32,7 +35,10 @@ namespace Source.Player
                 horizontal = _joystick.Horizontal;
                 vertical = _joystick.Vertical;
             }
-            
+
+            bool isAttackButtonCliked = Input.GetMouseButtonDown(0);
+            AttackButtonClicked?.Invoke(isAttackButtonCliked);
+
             _playerMovement.Move(horizontal, vertical);
             _playerRotation.Rotate(horizontal, vertical);
         }
