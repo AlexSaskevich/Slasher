@@ -1,10 +1,8 @@
-﻿using UnityEngine;
-
-namespace Source.Interfaces
+﻿namespace Source.Interfaces
 {
     public interface IMoveable
     {
-        float Speed { get; }
+        float DefaultSpeed { get; }
 
         void Move(float directionX, float directionZ);
     }

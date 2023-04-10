@@ -11,7 +11,7 @@ namespace Source.GameLogic
         private Vector3 _position;
         private Vector3 _playerPosition;
 
-        public float Speed => 1;
+        public float DefaultSpeed => 1;
 
         private void Start()
         {
