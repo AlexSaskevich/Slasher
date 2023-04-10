@@ -1,22 +1,26 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 namespace Source.Player
 {
     public sealed class PlayerMana : MonoBehaviour
     {
-        [SerializeField] private float _maxMana;
         [SerializeField] private float _increasingMana;
+        [SerializeField] private float _decreasingMana;
 
+        public event UnityAction ManaChanged;
+
+        [field: SerializeField] public float MaxMana { get; private set; }
         public float Mana { get; private set; }
 
         private void Start()
         {
-            Mana = _maxMana;
+            Mana = MaxMana;
         }
 
         private void Update()
         {
-            if (Mana >= _maxMana)
+            if (Mana >= MaxMana)
                 return;
 
             Mana += _increasingMana;
@@ -27,7 +31,9 @@ namespace Source.Player
             if (value <= 0)
                 return;
 
-            Mana -= _increasingMana;
+            Mana -= _decreasingMana;
+
+            ManaChanged?.Invoke();
         }
     }
 }
