@@ -7488,7 +7488,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c10f8eb3188f04740a80f85d1397fc95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseDamage: 10
+  <DefaultDamage>k__BackingField: 10
+  <MaxDamage>k__BackingField: 100
 --- !u!137 &8745037869401653839
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

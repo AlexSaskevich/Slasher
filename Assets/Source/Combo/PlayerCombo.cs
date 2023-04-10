@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using System.Linq;
 
 namespace Source.Combo
 {
@@ -39,15 +40,28 @@ namespace Source.Combo
             StateChanged?.Invoke();
         }
 
-        public void StartDetectCollisions()
+        public void StartDealingDamage()
         {
             _weapon.StartDetectCollisions();
             Attacked?.Invoke();
         }
 
-        public void StopDetectCollisions()
+        public void StopDealingDamage()
         {
             _weapon.StopDetectCollisions();
+            _weapon.ApplyDamage(_weapon.DefaultDamage);
+        }
+
+        public void StartKill()
+        {
+            _weapon.StartDetectCollisions();
+            Attacked?.Invoke();
+        }
+
+        public void StopKill()
+        {
+            _weapon.StopDetectCollisions();
+            _weapon.ApplyDamage(_weapon.MaxDamage);
         }
     }
 }
