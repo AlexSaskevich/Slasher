@@ -1,18 +1,24 @@
 using Source.Constants;
+using Source.Player;
 using UnityEngine;
 
 namespace Source.Combo
 {
     public abstract class State
     {
-        public virtual bool CheckCurrentAnimationEnd(Animator animator, float animationEndTime = AnimationConstants.EndAnimationTime)
+        protected virtual bool CheckCurrentAnimationEnd(Animator animator, float animationEndTime = AnimationConstants.EndAnimationTime)
         {
             return animator.GetCurrentAnimatorStateInfo(0).normalizedTime > animationEndTime;
         }
 
-        public virtual bool IsCurrentAnimationName(Animator animator, string name)
+        protected virtual bool IsCurrentAnimationName(Animator animator, string name)
         {
             return animator.GetCurrentAnimatorStateInfo(0).IsName(name);
+        }
+
+        protected virtual bool IsEnoughAgility(PlayerAgility playerAgility, int hitCount)
+        {
+            return playerAgility.CurrentAgility >= playerAgility.AgilityPerHit * hitCount;
         }
 
         public virtual void Exit(PlayerCombo playerCombo)

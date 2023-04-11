@@ -18,6 +18,7 @@ namespace Source.Combo
         public State CurrentState { get; private set; }
         public Animator Animator { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
+        public PlayerAgility PlayerAgility { get; private set; }
         public bool IsAttackButtonClicked { get; private set; }
 
         private void Awake()
@@ -25,6 +26,7 @@ namespace Source.Combo
             _playerHealth = GetComponent<PlayerHealth>();
             Animator = GetComponent<Animator>();
             Rigidbody = GetComponent<Rigidbody>();
+            PlayerAgility = GetComponent<PlayerAgility>();
             CurrentState = _idleState;
             CurrentState.Enter(this);
         }

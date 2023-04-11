@@ -371,14 +371,13 @@ GameObject:
   - component: {fileID: 196796937}
   - component: {fileID: 196796936}
   - component: {fileID: 196796940}
-  - component: {fileID: 196796941}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &196796936
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -471,19 +470,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
---- !u!135 &196796941
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196796935}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &199667942
 GameObject:
   m_ObjectHideFlags: 0
@@ -513,6 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Status>k__BackingField: 0
 --- !u!4 &199667944
 Transform:
   m_ObjectHideFlags: 0
@@ -722,7 +709,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &278177502
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -908,7 +895,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &512596138
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1044,6 +1031,7 @@ MonoBehaviour:
   _playerMovement: {fileID: 8783718202874754212}
   _playerHealth: {fileID: 8783718202874754220}
   _delay: 4
+  <BotStatus>k__BackingField: 0
 --- !u!4 &555991498
 Transform:
   m_ObjectHideFlags: 0
@@ -1652,6 +1640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Status>k__BackingField: 0
 --- !u!4 &943320459
 Transform:
   m_ObjectHideFlags: 0
@@ -1953,6 +1942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Status>k__BackingField: 0
 --- !u!4 &1142611127
 Transform:
   m_ObjectHideFlags: 0
@@ -5629,7 +5619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!136 &1750596749
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8317,9 +8307,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6235bcbceff44d7e92cd23a203c09752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increasingAgility: 0.08
-  _decreasingAgility: 10
+  _increasingAgility: 0.05
   <MaxAgility>k__BackingField: 100
+  <AgilityPerHit>k__BackingField: 10
 --- !u!114 &8783718202874754223
 MonoBehaviour:
   m_ObjectHideFlags: 0

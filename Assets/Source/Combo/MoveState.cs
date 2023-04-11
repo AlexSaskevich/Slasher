@@ -1,4 +1,4 @@
-using Source.Constants;
+﻿using Source.Constants;
 using UnityEngine;
 
 namespace Source.Combo
@@ -14,7 +14,7 @@ namespace Source.Combo
             bool isRunning = playerCombo.Rigidbody.velocity.normalized.magnitude > 0;
             Animate(playerCombo.Animator, isRunning);
 
-            if (playerCombo.IsAttackButtonClicked)
+            if (playerCombo.IsAttackButtonClicked && IsEnoughAgility(playerCombo.PlayerAgility, AnimationConstants.HitCount1))
                 playerCombo.SwitchState(new EntryState());
         }
 

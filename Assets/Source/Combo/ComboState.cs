@@ -1,4 +1,4 @@
-using Source.Constants;
+﻿using Source.Constants;
 
 namespace Source.Combo
 {
@@ -6,12 +6,12 @@ namespace Source.Combo
     {
         public override void Enter(PlayerCombo playerCombo)
         {
-            playerCombo.Animator.SetTrigger(AnimationConstants.Hit2);
+            playerCombo.Animator.SetTrigger(AnimationConstants.Attack2);
         }
 
         public override void Update(PlayerCombo playerCombo)
         {
-            if (IsCurrentAnimationName(playerCombo.Animator, AnimationConstants.Hit2) == false)
+            if (IsCurrentAnimationName(playerCombo.Animator, AnimationConstants.Attack2) == false)
                 return;
 
             if (CheckCurrentAnimationEnd(playerCombo.Animator))
@@ -20,7 +20,7 @@ namespace Source.Combo
             if (playerCombo.IsAttackButtonClicked == false)
                 return;
 
-            if (CheckCurrentAnimationEnd(playerCombo.Animator, AnimationConstants.SwitchAnimationTime))
+            if (CheckCurrentAnimationEnd(playerCombo.Animator, AnimationConstants.SwitchAnimationTime) && IsEnoughAgility(playerCombo.PlayerAgility, AnimationConstants.HitCount3))
                 playerCombo.SwitchState(new FinishState());
         }
     }

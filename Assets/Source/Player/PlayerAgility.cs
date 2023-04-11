@@ -7,18 +7,18 @@ namespace Source.Player
     public sealed class PlayerAgility : MonoBehaviour
     {
         [SerializeField] private float _increasingAgility;
-        [SerializeField] private float _decreasingAgility;
 
         private PlayerCombo _playerCombo;
 
         public event Action AgilityChanged;
 
         [field: SerializeField] public float MaxAgility { get; private set; }
-        public float Agility { get; private set; }
+        [field: SerializeField] public float AgilityPerHit { get; private set; }
+        public float CurrentAgility { get; private set; }
 
         private void Awake()
         {
-            Agility = MaxAgility;
+            CurrentAgility = MaxAgility;
             _playerCombo = GetComponent<PlayerCombo>();
         }
 
@@ -34,7 +34,7 @@ namespace Source.Player
 
         private void Update()
         {
-            if (_playerCombo.CurrentState is MoveState && Agility < MaxAgility)
+            if (_playerCombo.CurrentState is MoveState && CurrentAgility < MaxAgility)
                 IncreaseAgility();
         }
 
@@ -46,20 +46,19 @@ namespace Source.Player
                 return;
             }
 
-            DecreaseAgility(_decreasingAgility);
+            DecreaseAgility(AgilityPerHit);
         }
 
         private void IncreaseAgility()
         {
-            Agility = Mathf.Clamp(Agility + _increasingAgility, 0, MaxAgility);
+            CurrentAgility = Mathf.Clamp(CurrentAgility + _increasingAgility, 0, MaxAgility);
             AgilityChanged?.Invoke();
         }
 
         private void DecreaseAgility(float value)
         {
-            Agility = Mathf.Clamp(Agility - value, 0, MaxAgility);
+            CurrentAgility = Mathf.Clamp(CurrentAgility - value, 0, MaxAgility);
             AgilityChanged?.Invoke();
-            Debug.Log(Agility);
         }
     }
 }

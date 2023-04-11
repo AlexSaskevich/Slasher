@@ -6,12 +6,12 @@ namespace Source.Combo
     {
         public override void Enter(PlayerCombo playerCombo)
         {
-            playerCombo.Animator.SetTrigger(AnimationConstants.Hit1);
+            playerCombo.Animator.SetTrigger(AnimationConstants.Attack1);
         }
 
         public override void Update(PlayerCombo playerCombo)
         {
-            if (IsCurrentAnimationName(playerCombo.Animator, AnimationConstants.Hit1) == false)
+            if (IsCurrentAnimationName(playerCombo.Animator, AnimationConstants.Attack1) == false)
                 return;
 
             if (CheckCurrentAnimationEnd(playerCombo.Animator))
@@ -20,7 +20,7 @@ namespace Source.Combo
             if (playerCombo.IsAttackButtonClicked == false)
                 return;
 
-            if (CheckCurrentAnimationEnd(playerCombo.Animator, AnimationConstants.SwitchAnimationTime))
+            if (CheckCurrentAnimationEnd(playerCombo.Animator, AnimationConstants.SwitchAnimationTime) && IsEnoughAgility(playerCombo.PlayerAgility, AnimationConstants.HitCount2))
                 playerCombo.SwitchState(new ComboState());
         }
     }

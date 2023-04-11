@@ -24,7 +24,7 @@ namespace Source.UI
 
         protected override void OnValueChanged()
         {
-            float targetValue = (float)_playerAgility.Agility / _playerAgility.MaxAgility;
+            float targetValue = (float)_playerAgility.CurrentAgility / _playerAgility.MaxAgility;
 
             StartChangeFillAmount(targetValue);
         }
