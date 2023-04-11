@@ -1,4 +1,5 @@
-﻿using BehaviorDesigner.Runtime.Tasks;
+﻿using System.Linq;
+using BehaviorDesigner.Runtime.Tasks;
 using Source.Behavior_Tree.SharedVariables;
 using UnityEngine;
 using Action = BehaviorDesigner.Runtime.Tasks.Action;
@@ -11,9 +12,13 @@ namespace Source.Behavior_Tree.Actions
 
         public override TaskStatus OnUpdate()
         {
-            SharedBotTarget.Value.CurrentTarget =
-                SharedBotTarget.Value.Targets[Random.Range(0, SharedBotTarget.Value.Targets.Length)];
+            var availableTargets =
+                SharedBotTarget.Value.Targets.Where(target => target != SharedBotTarget.Value.CurrentTarget).ToArray();
+
+            SharedBotTarget.Value.CurrentTarget = availableTargets[Random.Range(0, availableTargets.Length)];
             
+            Debug.Log(SharedBotTarget.Value.CurrentTarget);
+
             return SharedBotTarget.Value.CurrentTarget == null ? TaskStatus.Failure : TaskStatus.Success;
         }
     }
