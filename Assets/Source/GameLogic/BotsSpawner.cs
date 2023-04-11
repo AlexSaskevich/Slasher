@@ -107,10 +107,11 @@ namespace Source.GameLogic
             
             _targets.AddRange(botTargets);
             
-            if(botMovement.TryGetComponent(out BotAttacker botAttacker) == false)
-                return;
-            
-            botAttacker.Init(_playerHealth);
+            if(botMovement.TryGetComponent(out BotAttacker botAttacker))
+                botAttacker.Init(_playerHealth);
+
+            if (botMovement.TryGetComponent(out BotEscaper botEscaper))
+                botEscaper.Init(_playerMovement.transform);
         }
         
         private void SetWave(int waveNumber)

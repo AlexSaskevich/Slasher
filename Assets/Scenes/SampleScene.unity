@@ -199,8 +199,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawners:
   - {fileID: 771390153}
-  _delay: 5
-  _workingPeacefulCitizensSpawnersCount: 4
+  _delay: 6
+  _workingPeacefulCitizensSpawnersCount: 2
   _workingZombieSpawnersCount: 0
   _workingHostileCitizensSpawnersCount: 0
 --- !u!4 &156528145

@@ -108,15 +108,13 @@ namespace Source.GameLogic
         
         private void OnTurnedOff()
         {
-            if (_workingSpawners.All(spawner => spawner.CurrentWave == null))
-            {
-                if (_waitingTime != null)
-                    StopCoroutine(_waitingTime);
+            if (_workingSpawners.All(spawner => spawner.CurrentWave == null) == false)
+                return;
+            
+            if (_waitingTime != null)
+                StopCoroutine(_waitingTime);
 
-                _waitingTime = StartCoroutine(WaitTime());
-                
-                print("TurnedOff");
-            }
+            _waitingTime = StartCoroutine(WaitTime());
         }
 
         private IEnumerator WaitTime()

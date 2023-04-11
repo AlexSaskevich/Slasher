@@ -1,6 +1,14 @@
 using UnityEngine;
 
-public sealed class BotEscaper : MonoBehaviour
+namespace Source.Bot
 {
-    [field: SerializeField] public Transform Player { get; private set; }
+    public sealed class BotEscaper : MonoBehaviour
+    {
+        public Transform Player { get; private set; }
+
+        public void Init(Transform player)
+        {
+            Player = player;
+        }
+    }
 }
