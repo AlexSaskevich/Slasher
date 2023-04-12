@@ -1,4 +1,5 @@
 using Source.Constants;
+using Source.Player;
 
 namespace Source.Combo
 {
@@ -9,7 +10,7 @@ namespace Source.Combo
             playerCombo.Animator.SetTrigger(AnimationConstants.Death);
         }
 
-        public override void Update(PlayerCombo playerCombo)
+        public override void Update(PlayerCombo playerCombo, PlayerInput playerInput)
         {
         }
     }

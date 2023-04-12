@@ -11,13 +11,13 @@ namespace Source.Player
 
         private PlayerMovement _playerMovement;
         private PlayerRotation _playerRotation;
-        private PlayerCombo _playerCombo;
+
+        public bool IsAttackButtonClicked { get; private set; }
 
         private void Awake()
         {
             _playerMovement = GetComponent<PlayerMovement>();
             _playerRotation = GetComponent<PlayerRotation>();
-            _playerCombo = GetComponent<PlayerCombo>();
         }
 
         private void Update()
@@ -36,9 +36,10 @@ namespace Source.Player
                 vertical = _joystick.Vertical;
             }
 
-            _playerCombo.SetAttack(Input.GetMouseButtonDown(0));
             _playerMovement.Move(horizontal, vertical);
             _playerRotation.Rotate(horizontal, vertical);
+
+            IsAttackButtonClicked = Input.GetMouseButtonDown(0);
         }
     }
 }

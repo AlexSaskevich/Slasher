@@ -29,6 +29,6 @@ namespace Source.Combo
 
         public abstract void Enter(PlayerCombo playerCombo);
 
-        public abstract void Update(PlayerCombo playerCombo);
+        public abstract void Update(PlayerCombo playerCombo, PlayerInput playerInput);
     }
 }

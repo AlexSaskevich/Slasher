@@ -11,6 +11,7 @@ namespace Source.Combo
 
         private readonly MoveState _moveState = new();
         private PlayerHealth _playerHealth;
+        private PlayerInput _playerInput;
 
         public event Action Attacked;
         public event Action StateChanged;
@@ -19,7 +20,6 @@ namespace Source.Combo
         public Animator Animator { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
         public PlayerAgility PlayerAgility { get; private set; }
-        public bool IsAttackButtonClicked { get; private set; }
 
         private void Awake()
         {
@@ -27,6 +27,7 @@ namespace Source.Combo
             Animator = GetComponent<Animator>();
             Rigidbody = GetComponent<Rigidbody>();
             PlayerAgility = GetComponent<PlayerAgility>();
+            _playerInput = GetComponent<PlayerInput>();
             CurrentState = _moveState;
             CurrentState.Enter(this);
         }
@@ -43,7 +44,7 @@ namespace Source.Combo
 
         private void Update()
         {
-            CurrentState.Update(this);
+            CurrentState.Update(this, _playerInput);
         }
 
         private void OnHealthChanged()
@@ -68,11 +69,6 @@ namespace Source.Combo
             CurrentState = newState;
             newState.Enter(this);
             StateChanged?.Invoke();
-        }
-
-        public void SetAttack(bool value)
-        {
-            IsAttackButtonClicked = value;
         }
 
         public void StartDealingDamage()
