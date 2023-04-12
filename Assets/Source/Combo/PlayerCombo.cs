@@ -9,7 +9,7 @@ namespace Source.Combo
     {
         [SerializeField] private Weapon _weapon;
 
-        private readonly MoveState _idleState = new();
+        private readonly MoveState _moveState = new();
         private PlayerHealth _playerHealth;
 
         public event Action Attacked;
@@ -27,7 +27,7 @@ namespace Source.Combo
             Animator = GetComponent<Animator>();
             Rigidbody = GetComponent<Rigidbody>();
             PlayerAgility = GetComponent<PlayerAgility>();
-            CurrentState = _idleState;
+            CurrentState = _moveState;
             CurrentState.Enter(this);
         }
 
@@ -48,6 +48,12 @@ namespace Source.Combo
 
         private void OnHealthChanged()
         {
+            if (_playerHealth.CurrentHealth <= 0)
+            {
+                SwitchState(new DeathState());
+                return;
+            }
+
             if (CurrentState is FinishState)
                 return;
 
