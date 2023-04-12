@@ -13,6 +13,7 @@ namespace Source.Player
         private PlayerRotation _playerRotation;
 
         public bool IsAttackButtonClicked { get; private set; }
+        public bool IsRollButtonClicked { get; private set; }
 
         private void Awake()
         {
@@ -40,6 +41,7 @@ namespace Source.Player
             _playerRotation.Rotate(horizontal, vertical);
 
             IsAttackButtonClicked = Input.GetMouseButtonDown(0);
+            IsRollButtonClicked = Input.GetKeyDown(KeyCode.Space);
         }
     }
 }

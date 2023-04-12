@@ -38,6 +38,12 @@ namespace Source.Player
                 IncreaseAgility();
         }
 
+        public void DecreaseAgility(float value)
+        {
+            CurrentAgility = Mathf.Clamp(CurrentAgility - value, 0, MaxAgility);
+            AgilityChanged?.Invoke();
+        }
+
         private void OnAttacked()
         {
             if (_playerCombo.CurrentState is FinishState)
@@ -52,12 +58,6 @@ namespace Source.Player
         private void IncreaseAgility()
         {
             CurrentAgility = Mathf.Clamp(CurrentAgility + _increasingAgility, 0, MaxAgility);
-            AgilityChanged?.Invoke();
-        }
-
-        private void DecreaseAgility(float value)
-        {
-            CurrentAgility = Mathf.Clamp(CurrentAgility - value, 0, MaxAgility);
             AgilityChanged?.Invoke();
         }
     }
