@@ -1397,6 +1397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 0}
+  <AgilityPerHit>k__BackingField: 0
 --- !u!95 &490133277
 Animator:
   serializedVersion: 4
@@ -2600,7 +2601,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _increasingAgility: 0.05
   <MaxAgility>k__BackingField: 100
-  <AgilityPerHit>k__BackingField: 10
 --- !u!114 &807508593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2627,6 +2627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 2133073945}
+  <AgilityPerHit>k__BackingField: 10
 --- !u!114 &807508595
 MonoBehaviour:
   m_ObjectHideFlags: 0

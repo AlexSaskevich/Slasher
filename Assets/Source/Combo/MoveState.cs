@@ -15,7 +15,7 @@ namespace Source.Combo
             bool isRunning = playerCombo.Rigidbody.velocity.normalized.magnitude > 0;
             Animate(playerCombo.Animator, isRunning);
 
-            if (playerInput.IsAttackButtonClicked && IsEnoughAgility(playerCombo.PlayerAgility, AnimationConstants.HitCount1))
+            if (playerInput.IsAttackButtonClicked && IsEnoughAgility(playerCombo, AnimationConstants.HitCount1))
                 playerCombo.SwitchState(new EntryState());
         }
 

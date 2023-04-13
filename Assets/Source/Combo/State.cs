@@ -16,9 +16,9 @@ namespace Source.Combo
             return animator.GetCurrentAnimatorStateInfo(0).IsName(name);
         }
 
-        protected virtual bool IsEnoughAgility(PlayerAgility playerAgility, int hitCount)
+        protected virtual bool IsEnoughAgility(PlayerCombo playerCombo, int hitCount)
         {
-            return playerAgility.CurrentAgility >= playerAgility.AgilityPerHit * hitCount;
+            return playerCombo.PlayerAgility.CurrentAgility >= playerCombo.AgilityPerHit * hitCount;
         }
 
         public virtual void Exit(PlayerCombo playerCombo)

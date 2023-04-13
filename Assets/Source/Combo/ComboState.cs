@@ -21,7 +21,7 @@ namespace Source.Combo
             if (playerInput.IsAttackButtonClicked == false)
                 return;
 
-            if (CheckCurrentAnimationEnd(playerCombo.Animator, AnimationConstants.SwitchAnimationTime) && IsEnoughAgility(playerCombo.PlayerAgility, AnimationConstants.HitCount3))
+            if (CheckCurrentAnimationEnd(playerCombo.Animator, AnimationConstants.SwitchAnimationTime) && IsEnoughAgility(playerCombo, AnimationConstants.HitCount3))
                 playerCombo.SwitchState(new FinishState());
         }
     }

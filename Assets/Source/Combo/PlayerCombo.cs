@@ -13,9 +13,9 @@ namespace Source.Combo
         private PlayerHealth _playerHealth;
         private PlayerInput _playerInput;
 
-        public event Action Attacked;
         public event Action StateChanged;
 
+        [field: SerializeField] public float AgilityPerHit { get; private set; }
         public State CurrentState { get; private set; }
         public Animator Animator { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
@@ -74,7 +74,7 @@ namespace Source.Combo
         public void StartDealingDamage()
         {
             _weapon.StartDetectCollisions();
-            Attacked?.Invoke();
+            PlayerAgility.DecreaseAgility(AgilityPerHit);
         }
 
         public void StopDealingDamage()
@@ -86,7 +86,7 @@ namespace Source.Combo
         public void StartKill()
         {
             _weapon.StartDetectCollisions();
-            Attacked?.Invoke();
+            PlayerAgility.DecreaseAgility(PlayerAgility.MaxAgility);
         }
 
         public void StopKill()

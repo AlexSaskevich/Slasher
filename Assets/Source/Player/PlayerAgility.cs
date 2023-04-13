@@ -13,23 +13,12 @@ namespace Source.Player
         public event Action AgilityChanged;
 
         [field: SerializeField] public float MaxAgility { get; private set; }
-        [field: SerializeField] public float AgilityPerHit { get; private set; }
         public float CurrentAgility { get; private set; }
 
         private void Awake()
         {
             CurrentAgility = MaxAgility;
             _playerCombo = GetComponent<PlayerCombo>();
-        }
-
-        private void OnEnable()
-        {
-            _playerCombo.Attacked += OnAttacked;
-        }
-
-        private void OnDisable()
-        {
-            _playerCombo.Attacked -= OnAttacked;
         }
 
         private void Update()
@@ -42,17 +31,6 @@ namespace Source.Player
         {
             CurrentAgility = Mathf.Clamp(CurrentAgility - value, 0, MaxAgility);
             AgilityChanged?.Invoke();
-        }
-
-        private void OnAttacked()
-        {
-            if (_playerCombo.CurrentState is FinishState)
-            {
-                DecreaseAgility(MaxAgility);
-                return;
-            }
-
-            DecreaseAgility(AgilityPerHit);
         }
 
         private void IncreaseAgility()
