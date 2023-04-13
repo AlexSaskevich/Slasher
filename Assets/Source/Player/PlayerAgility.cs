@@ -35,7 +35,7 @@ namespace Source.Player
 
         private void IncreaseAgility()
         {
-            CurrentAgility = Mathf.Clamp(CurrentAgility + _increasingAgility, 0, MaxAgility);
+            CurrentAgility = Mathf.Clamp(CurrentAgility + _increasingAgility * Time.deltaTime, 0, MaxAgility);
             AgilityChanged?.Invoke();
         }
     }

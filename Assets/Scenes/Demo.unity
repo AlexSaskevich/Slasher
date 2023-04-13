@@ -458,7 +458,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &156528144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2599,7 +2599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6235bcbceff44d7e92cd23a203c09752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increasingAgility: 0.05
+  _increasingAgility: 10
   <MaxAgility>k__BackingField: 100
 --- !u!114 &807508593
 MonoBehaviour:
@@ -2746,8 +2746,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36be391d30c010d409bfdbb6840d64e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <AgilityValue>k__BackingField: 20
   <Cooldown>k__BackingField: 1
+  <AgilityValue>k__BackingField: 20
 --- !u!1 &829071813
 GameObject:
   m_ObjectHideFlags: 0
@@ -6136,7 +6136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2030398276
 Transform:
   m_ObjectHideFlags: 0
