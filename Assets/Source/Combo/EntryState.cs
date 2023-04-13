@@ -1,5 +1,6 @@
 ﻿using Source.Constants;
 using Source.Player;
+using UnityEngine;
 
 namespace Source.Combo
 {
@@ -23,6 +24,16 @@ namespace Source.Combo
 
             if (CheckCurrentAnimationEnd(playerCombo.Animator, AnimationConstants.SwitchAnimationTime) && IsEnoughAgility(playerCombo, AnimationConstants.HitCount2))
                 playerCombo.SwitchState(new ComboState());
+        }
+
+        protected override bool CheckCurrentAnimationEnd(Animator animator, float animationEndTime = AnimationConstants.EndAnimationTime)
+        {
+            return animator.GetCurrentAnimatorStateInfo(1).normalizedTime > animationEndTime;
+        }
+
+        protected override bool IsCurrentAnimationName(Animator animator, string name)
+        {
+            return animator.GetCurrentAnimatorStateInfo(1).IsName(name);
         }
     }
 }
