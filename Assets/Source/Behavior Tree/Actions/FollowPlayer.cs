@@ -1,4 +1,5 @@
-﻿using BehaviorDesigner.Runtime.Tasks;
+﻿using BehaviorDesigner.Runtime;
+using BehaviorDesigner.Runtime.Tasks;
 using Source.Behavior_Tree.SharedVariables;
 using Source.Constants;
 using UnityEngine;
@@ -11,8 +12,14 @@ namespace Source.Behavior_Tree.Actions
         public SharedBotTarget SharedBotTarget;
         public SharedBotAttacker SharedBotAttacker;
         public SharedBotAnimator SharedBotAnimator;
+        public SharedFloat NewSpeed;
 
         private float _timer;
+
+        public override void OnStart()
+        {
+            SharedBotMovement.Value.NavMeshAgent.speed = NewSpeed.Value;
+        }
 
         public override TaskStatus OnUpdate()
         {
@@ -31,7 +38,7 @@ namespace Source.Behavior_Tree.Actions
                 
                 enemyNavMeshDestination = enemyPosition;
                 
-                SharedBotAnimator.Value.Animator.SetTrigger(AnimationConstants.Shoot);
+                //SharedBotAnimator.Value.Animator.SetTrigger(AnimationConstants.Shoot);
                 
                 SharedBotAnimator.Value.Animator.SetBool(AnimationConstants.IsRunning, false);
                 SharedBotAnimator.Value.Animator.SetBool(AnimationConstants.IsWalking, false);

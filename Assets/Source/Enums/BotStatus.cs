@@ -2,8 +2,8 @@
 {
     public enum BotStatus
     {
-        PeacefulCitizens,
+        Peaceful,
         Zombie,
-        HostileCitizens
+        Hostile
     }
 }

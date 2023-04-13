@@ -29,7 +29,7 @@ namespace Source.GameLogic
             {
                 switch (spawner.BotStatus)
                 {
-                    case BotStatus.PeacefulCitizens:
+                    case BotStatus.Peaceful:
                         _peacefulCitizensSpawners.Add(spawner);
                         break;
                     
@@ -37,7 +37,7 @@ namespace Source.GameLogic
                         _zombieSpawners.Add(spawner);
                         break;
                     
-                    case BotStatus.HostileCitizens:
+                    case BotStatus.Hostile:
                         _hostileCitizensSpawners.Add(spawner);
                         break;
                     

@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce2dcd448b14261a6c461c4337300e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 4
+  _speed: 3
   <BotStatus>k__BackingField: 0
 --- !u!114 &7176095110030211076
 MonoBehaviour:

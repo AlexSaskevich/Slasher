@@ -1,5 +1,7 @@
-﻿using BehaviorDesigner.Runtime.Tasks;
+﻿using BehaviorDesigner.Runtime;
+using BehaviorDesigner.Runtime.Tasks;
 using Source.Behavior_Tree.SharedVariables;
+using Source.Constants;
 using UnityEngine;
 
 namespace Source.Behavior_Tree.Actions
@@ -8,6 +10,13 @@ namespace Source.Behavior_Tree.Actions
     {
         public SharedBotEscaper SharedBotEscaper;
         public SharedBotMovement SharedBotMovement;
+        public SharedBotAnimator SharedBotAnimator;
+        public SharedFloat NewSpeed;
+
+        public override void OnStart()
+        {
+            SharedBotMovement.Value.NavMeshAgent.speed = NewSpeed.Value;
+        }
 
         public override TaskStatus OnUpdate()
         {
@@ -17,6 +26,8 @@ namespace Source.Behavior_Tree.Actions
             Vector3 newPosition = SharedBotMovement.Value.transform.position + escapeDirection;
             SharedBotMovement.Value.NavMeshAgent.SetDestination(newPosition);
 
+            SharedBotAnimator.Value.Animator.SetBool(AnimationConstants.IsRunning, true);
+            
             return TaskStatus.Running;
         }
     }

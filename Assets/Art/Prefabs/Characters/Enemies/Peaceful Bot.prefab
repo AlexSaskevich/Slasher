@@ -1281,7 +1281,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &482306
 Transform:
   m_ObjectHideFlags: 0
@@ -1767,7 +1767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &405450
 Transform:
   m_ObjectHideFlags: 0
@@ -2789,11 +2789,11 @@ GameObject:
   - component: {fileID: 1079507709}
   - component: {fileID: 5818628035770266742}
   - component: {fileID: 3981384418562260498}
-  - component: {fileID: 1079507712}
   - component: {fileID: 1079507713}
-  - component: {fileID: 1079507717}
+  - component: {fileID: 7505774551847422908}
+  - component: {fileID: 6282358615007808936}
   m_Layer: 0
-  m_Name: Bot Enemy
+  m_Name: Peaceful Bot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2821,8 +2821,6 @@ Transform:
   - {fileID: 412406}
   - {fileID: 405450}
   - {fileID: 473440}
-  - {fileID: 579933452}
-  - {fileID: 259399790}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2836,7 +2834,7 @@ Animator:
   m_GameObject: {fileID: 191860}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 897b34267f422c1499700402763d096e, type: 3}
-  m_Controller: {fileID: 9100000, guid: 5739fef253eae7e44a68abbf737d44e3, type: 2}
+  m_Controller: {fileID: 9100000, guid: 95f37e78987dfc94a848f437d256c874, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2907,7 +2905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce2dcd448b14261a6c461c4337300e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 2.5
   <BotStatus>k__BackingField: 0
 --- !u!114 &5818628035770266742
 MonoBehaviour:
@@ -2935,23 +2933,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _viewRadius: 12
---- !u!114 &1079507712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191860}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b44ebd356014f378f9a3676cfa401df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackingRadius: 5
-  _attackingTrigger: {fileID: 259399791}
-  <Delay>k__BackingField: 3
-  _bullet: {fileID: 9207523144466313191, guid: b250fe641f22bc34bb4b10f382453ba9, type: 3}
-  _bulletSpawnPoint: {fileID: 579933452}
 --- !u!114 &1079507713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2964,7 +2945,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d769fded6e1c496ab24d18051cdbfb84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1079507717
+--- !u!114 &7505774551847422908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 175830d20c4171d479c6c1c4eaa57369, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6282358615007808936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2985,19 +2978,18 @@ MonoBehaviour:
   resetValuesOnRestart: 0
   externalBehavior: {fileID: 0}
   mBehaviorSource:
-    behaviorName: Bot Enemy
+    behaviorName: Peaceful
     behaviorDescription: 
     mTaskData:
       types: []
       parentIndex: 
       startIndex: 
       variableStartIndex: 
-      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(249.7143,48.0000076)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(3.49999714,123.6383)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(0,146.666687)"},"ID":2,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-230,150.967773)"},"ID":3,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(-296.8549,128.234818)"},"ID":4,"Name":"Inverter","Instant":true,"Children":[{"Type":"Source.Behavior_Tree.Conditionals.SeekPlayer","NodeData":{"Offset":"(5.71429157,140)"},"ID":5,"Name":"Seek
-        Player","Instant":true,"SharedBotDetectionTriggerSharedBotDetectionTrigger":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotDetectionTrigger","Name":"_botDetectionTrigger","IsShared":true,"BotDetectionTriggermValue":0}}]},{"Type":"Source.Behavior_Tree.Actions.SetBotTarget","NodeData":{"Offset":"(-126.041565,143.126892)"},"ID":6,"Name":"Set
-        Bot Target","Instant":true,"SharedBotTargetSharedBotTarget":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":1}},{"Type":"Source.Behavior_Tree.Actions.GoToTarget","NodeData":{"Offset":"(44.9801178,135.263123)"},"ID":7,"Name":"Go
-        To Target","Instant":true,"SharedBotMovementSharedBotMovement":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotMovement","Name":"_botMovement","IsShared":true,"BotMovementmValue":2},"SharedBotTargetSharedBotTarget":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":3},"SharedBotAnimatorSharedBotAnimator":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":4}},{"Type":"Source.Behavior_Tree.Actions.WaitNextTarget","NodeData":{"Offset":"(220.186279,141.9237)"},"ID":8,"Name":"Wait
-        Next Target","Instant":true,"SharedFloatMinRandomTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":3},"SharedFloatMaxRandomTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":5},"SharedBotAnimatorSharedBotAnimator":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":5},"SharedBotTargetSharedBotTarget":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":6}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(252.53894,144.335312)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"Source.Behavior_Tree.Actions.FollowPlayer","NodeData":{"Offset":"(-99.04466,153.526245)"},"ID":10,"Name":"Follow
-        Player","Instant":true,"SharedBotMovementSharedBotMovement":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotMovement","Name":"_botMovement","IsShared":true,"BotMovementmValue":7},"SharedBotTargetSharedBotTarget":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":8},"SharedBotAttackerSharedBotAttacker":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAttacker","Name":"_botAttacker","IsShared":true,"BotAttackermValue":9},"SharedBotAnimatorSharedBotAnimator":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":10}},{"Type":"Source.Behavior_Tree.Actions.Attack","NodeData":{"Offset":"(66.14312,146.583862)"},"ID":11,"Name":"Attack","Instant":true,"SharedBotAttackerSharedBotAttacker":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAttacker","Name":"_botAttacker","IsShared":true,"BotAttackermValue":11}}]}]}]},"Variables":[{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":12},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotMovement","Name":"_botMovement","IsShared":true,"BotMovementmValue":13},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotDetectionTrigger","Name":"_botDetectionTrigger","IsShared":true,"BotDetectionTriggermValue":14},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAttacker","Name":"_botAttacker","IsShared":true,"BotAttackermValue":15},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":16}]}'
+      JSONSerialization: '{"EntryTask":{"Type":"BehaviorDesigner.Runtime.Tasks.EntryTask","NodeData":{"Offset":"(425,30)"},"ID":0,"Name":"Entry","Instant":true},"RootTask":{"Type":"BehaviorDesigner.Runtime.Tasks.Repeater","NodeData":{"Offset":"(-5,120)"},"ID":1,"Name":"Repeater","Instant":true,"SharedIntcount":{"Type":"BehaviorDesigner.Runtime.SharedInt","Name":null,"Int32mValue":0},"SharedBoolrepeatForever":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"SharedBoolendOnFailure":{"Type":"BehaviorDesigner.Runtime.SharedBool","Name":null,"BooleanmValue":true},"Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Selector","NodeData":{"Offset":"(3.4258728,147.864319)"},"ID":2,"Name":"Selector","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(-185.463089,111.377869)"},"ID":3,"Name":"Sequence","Instant":true,"AbortTypeabortType":"Both","Children":[{"Type":"BehaviorDesigner.Runtime.Tasks.Inverter","NodeData":{"Offset":"(-259.667358,161.587982)"},"ID":4,"Name":"Inverter","Instant":true,"Children":[{"Type":"Source.Behavior_Tree.Conditionals.SeekPlayer","NodeData":{"Offset":"(-4.135271,132.3354)"},"ID":5,"Name":"Seek
+        Player","Instant":true,"SharedBotDetectionTriggerSharedBotDetectionTrigger":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotDetectionTrigger","Name":"_botDetectionTrigger","IsShared":true,"BotDetectionTriggermValue":0}}]},{"Type":"Source.Behavior_Tree.Actions.SetBotTarget","NodeData":{"Offset":"(-66.57431,158.585068)"},"ID":6,"Name":"Set
+        Bot Target","Instant":true,"SharedBotTargetSharedBotTarget":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":1}},{"Type":"Source.Behavior_Tree.Actions.GoToTarget","NodeData":{"Offset":"(77.49484,156.182571)"},"ID":7,"Name":"Go
+        To Target","Instant":true,"SharedBotMovementSharedBotMovement":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotMovement","Name":"_botMovement","IsShared":true,"BotMovementmValue":2},"SharedBotTargetSharedBotTarget":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":3},"SharedBotAnimatorSharedBotAnimator":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":4}},{"Type":"Source.Behavior_Tree.Actions.WaitNextTarget","NodeData":{"Offset":"(221.718735,171.562256)"},"ID":8,"Name":"Wait
+        Next Target","Instant":true,"SharedFloatMinRandomTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedFloatMaxRandomTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":7},"SharedBotAnimatorSharedBotAnimator":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":5},"SharedBotTargetSharedBotTarget":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":6}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(255.485809,119.924957)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"Source.Behavior_Tree.Actions.Escape","NodeData":{"Offset":"(6.597224,146.075623)"},"ID":10,"Name":"Escape","Instant":true,"SharedBotEscaperSharedBotEscaper":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotEscaper","Name":"_botEscaper","IsShared":true,"BotEscapermValue":7},"SharedBotMovementSharedBotMovement":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotMovement","Name":"_botMovement","IsShared":true,"BotMovementmValue":8},"SharedBotAnimatorSharedBotAnimator":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":9},"SharedFloatNewSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4}}]}]}]},"Variables":[{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":10},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotMovement","Name":"_botMovement","IsShared":true,"BotMovementmValue":11},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotDetectionTrigger","Name":"_botDetectionTrigger","IsShared":true,"BotDetectionTriggermValue":12},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotEscaper","Name":"_botEscaper","IsShared":true,"BotEscapermValue":13},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":14}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -3011,107 +3003,16 @@ MonoBehaviour:
         - {fileID: 1079507713}
         - {fileID: 1079507713}
         - {fileID: 5818628035770266742}
+        - {fileID: 7505774551847422908}
         - {fileID: 1079507709}
-        - {fileID: 5818628035770266742}
-        - {fileID: 1079507712}
         - {fileID: 1079507713}
-        - {fileID: 1079507712}
         - {fileID: 5818628035770266742}
         - {fileID: 1079507709}
         - {fileID: 3981384418562260498}
-        - {fileID: 1079507712}
+        - {fileID: 7505774551847422908}
         - {fileID: 1079507713}
         byteData: 
         byteDataArray: 
       Version: 1.7.2
   gizmoViewMode: 2
   showBehaviorDesignerGizmo: 1
---- !u!1 &259399789
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 259399790}
-  - component: {fileID: 259399792}
-  - component: {fileID: 259399791}
-  m_Layer: 0
-  m_Name: BotAttackingTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &259399790
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259399789}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 441500}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &259399792
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259399789}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &259399791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 259399789}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cf081b2baed4f14a290dede3eca3543, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &579933451
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 579933452}
-  m_Layer: 0
-  m_Name: Bullet SpawnPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &579933452
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 579933451}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.804, y: 1.336, z: 0.343}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 441500}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
