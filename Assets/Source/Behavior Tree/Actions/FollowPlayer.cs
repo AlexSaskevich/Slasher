@@ -1,5 +1,6 @@
 ﻿using BehaviorDesigner.Runtime.Tasks;
 using Source.Behavior_Tree.SharedVariables;
+using Source.Constants;
 using UnityEngine;
 
 namespace Source.Behavior_Tree.Actions
@@ -9,6 +10,7 @@ namespace Source.Behavior_Tree.Actions
         public SharedBotMovement SharedBotMovement;
         public SharedBotTarget SharedBotTarget;
         public SharedBotAttacker SharedBotAttacker;
+        public SharedBotAnimator SharedBotAnimator;
 
         private float _timer;
 
@@ -28,10 +30,17 @@ namespace Source.Behavior_Tree.Actions
                 enemyTransform.LookAt(new Vector3(playerPosition.x, enemyPosition.y, playerPosition.z));
                 
                 enemyNavMeshDestination = enemyPosition;
+                
+                SharedBotAnimator.Value.Animator.SetTrigger(AnimationConstants.Shoot);
+                
+                SharedBotAnimator.Value.Animator.SetBool(AnimationConstants.IsRunning, false);
+                SharedBotAnimator.Value.Animator.SetBool(AnimationConstants.IsWalking, false);
             }
             else
             {
                 enemyNavMeshDestination = SharedBotTarget.Value.PlayerMovement.transform.position;
+                
+                SharedBotAnimator.Value.Animator.SetBool(AnimationConstants.IsRunning, true);
             }
 
             SharedBotMovement.Value.NavMeshAgent.destination = enemyNavMeshDestination;

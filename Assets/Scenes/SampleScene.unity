@@ -1074,7 +1074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - <BotMovements>k__BackingField:
-    - {fileID: 7176095110030211082, guid: d42f6dea981f97f4da49ba78a9f36169, type: 3}
+    - {fileID: 1079507709, guid: 0156af83ca9ac704aa14a6493fe5130a, type: 3}
     <BotsCount>k__BackingField: 1
     <Delay>k__BackingField: 2
   _spawnPoints:
@@ -1299,6 +1299,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 490133272}
+  _offset: {x: 0, y: 0, z: 0}
+  <DefaultSpeed>k__BackingField: 0
 --- !u!1 &1030670339
 GameObject:
   m_ObjectHideFlags: 0

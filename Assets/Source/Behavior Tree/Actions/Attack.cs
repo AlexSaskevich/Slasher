@@ -10,6 +10,7 @@ namespace Source.Behavior_Tree.Actions
         public override TaskStatus OnUpdate()
         {
             SharedBotAttacker.Value.Attack();
+            
             return TaskStatus.Success;
         }
     }
