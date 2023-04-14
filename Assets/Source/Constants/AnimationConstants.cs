@@ -11,6 +11,7 @@ namespace Source.Constants
         public const string Roll = "Roll";
         public const string IsWalking = "IsWalking";
         public const string Shoot = "Shoot";
+        public const string Buff = "Buff";
         public const int HitCount1 = 1;
         public const int HitCount2 = 2;
         public const int HitCount3 = 3;

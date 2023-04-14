@@ -1,9 +1,12 @@
-﻿using Source.Interfaces;
+﻿using Source.Combo;
+using Source.Constants;
+using Source.Interfaces;
 using Source.Player;
 using UnityEngine;
 
 namespace Source.Skills
 {
+    [RequireComponent(typeof(Animator), typeof(PlayerMana), typeof(PlayerAgility))]
     public sealed class Buff : Skill
     {
         [SerializeField] private MonoBehaviour _buffableBehaviour;
@@ -12,6 +15,8 @@ namespace Source.Skills
 
         private IBuffable _buffable;
         private PlayerMana _playerMana;
+        private Animator _animator;
+        private PlayerCombo _playerCombo;
 
         private void OnValidate()
         {
@@ -26,6 +31,8 @@ namespace Source.Skills
         {
             _buffable = (IBuffable)_buffableBehaviour;
             _playerMana = GetComponent<PlayerMana>();
+            _animator = GetComponent<Animator>();
+            _playerCombo = GetComponent<PlayerCombo>();
             Initialization();
         }
 
@@ -40,11 +47,16 @@ namespace Source.Skills
 
         public override void TryActivate()
         {
+            if (_playerCombo.CurrentState is MoveState == false)
+                return;
+
             if (ElapsedTime < Cooldown)
                 return;
 
             if (_playerMana.CurrentMana < Cost)
                 return;
+
+            _animator.SetTrigger(AnimationConstants.Buff);
 
             _playerMana.DecreaseMana(Cost);
 
