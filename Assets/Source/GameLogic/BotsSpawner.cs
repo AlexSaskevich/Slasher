@@ -97,7 +97,7 @@ namespace Source.GameLogic
                     throw new ArgumentNullException();
                 
                 var target = availableTargets[Random.Range(0, availableTargets.Length)];
-                target.MakeUnavailable();
+                target.SetAvailableStatus(false);
                 
                 botTargets.Add(target);
                 _targets.Remove(target);

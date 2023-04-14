@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!1 &156528143
 GameObject:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ MonoBehaviour:
   _spawners:
   - {fileID: 771390153}
   _delay: 6
-  _workingPeacefulCitizensSpawnersCount: 2
+  _workingPeacefulCitizensSpawnersCount: 0
   _workingZombieSpawnersCount: 0
   _workingHostileCitizensSpawnersCount: 0
 --- !u!4 &156528145
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!4 &341456444
 Transform:
   m_ObjectHideFlags: 0
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!4 &361666081
 Transform:
   m_ObjectHideFlags: 0
@@ -678,7 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!4 &551843633
 Transform:
   m_ObjectHideFlags: 0
@@ -1075,7 +1075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - <BotMovements>k__BackingField:
-    - {fileID: 1079507709, guid: d5cb4cbe3bf65ea4e9296d3e7e67afec, type: 3}
+    - {fileID: 1079507709, guid: 6fba655b5cf44a543bfc6373fc84e24f, type: 3}
     <BotsCount>k__BackingField: 1
     <Delay>k__BackingField: 2
   _spawnPoints:
@@ -1096,7 +1096,7 @@ MonoBehaviour:
   _playerMovement: {fileID: 490133267}
   _playerHealth: {fileID: 490133275}
   _delay: 4
-  <BotStatus>k__BackingField: 0
+  <BotStatus>k__BackingField: 2
 --- !u!4 &771390154
 Transform:
   m_ObjectHideFlags: 0
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!1 &959305391
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1331,7 +1331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!4 &1030670341
 Transform:
   m_ObjectHideFlags: 0
@@ -1532,7 +1532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!4 &1273942206
 Transform:
   m_ObjectHideFlags: 0
@@ -1660,7 +1660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!1 &1819784920
 GameObject:
   m_ObjectHideFlags: 0
@@ -1871,7 +1871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!1 &1886750002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1901,7 +1901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!4 &1886750004
 Transform:
   m_ObjectHideFlags: 0
@@ -1961,7 +1961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ca3abba482544e2836eb7c4ca6498ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Status>k__BackingField: 0
+  <Status>k__BackingField: 2
 --- !u!1 &2030398275
 GameObject:
   m_ObjectHideFlags: 0

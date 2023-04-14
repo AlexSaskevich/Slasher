@@ -25,5 +25,13 @@ namespace Source.Bot
             for (var i = 0; i < Targets.Length; i++)
                 Targets[i] = targets[i];
         }
+
+        public void ClearTargets()
+        {
+            foreach (var target in Targets)
+                target.SetAvailableStatus(true);
+
+            Targets = null;
+        }
     }
 }

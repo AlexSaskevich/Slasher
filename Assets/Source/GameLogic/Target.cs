@@ -9,9 +9,9 @@ namespace Source.GameLogic
 
         public bool IsAvailable { get; private set; } = true;
 
-        public void MakeUnavailable()
+        public void SetAvailableStatus(bool state)
         {
-            IsAvailable = false;
+            IsAvailable = state;
         }
     }
 }
