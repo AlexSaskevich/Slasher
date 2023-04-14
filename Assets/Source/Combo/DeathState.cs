@@ -3,7 +3,7 @@ using Source.Player;
 
 namespace Source.Combo
 {
-    public class DeathState : State
+    public sealed class DeathState : State
     {
         public override void Enter(PlayerCombo playerCombo)
         {

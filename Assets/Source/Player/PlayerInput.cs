@@ -13,6 +13,7 @@ namespace Source.Player
         private PlayerMovement _playerMovement;
         private PlayerRotation _playerRotation;
         private Roll _roll;
+        private Buff _buff;
 
         public bool IsAttackButtonClicked { get; private set; }
 
@@ -21,6 +22,7 @@ namespace Source.Player
             _playerMovement = GetComponent<PlayerMovement>();
             _playerRotation = GetComponent<PlayerRotation>();
             _roll = GetComponent<Roll>();
+            _buff = GetComponent<Buff>();
         }
 
         private void Update()
@@ -46,6 +48,9 @@ namespace Source.Player
 
             if (Input.GetKeyDown(KeyCode.Space))
                 _roll.TryActivate();
+
+            if (Input.GetKeyDown(KeyCode.V))
+                _buff.TryActivate();
         }
     }
 }

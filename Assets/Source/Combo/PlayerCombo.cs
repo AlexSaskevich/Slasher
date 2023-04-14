@@ -80,7 +80,7 @@ namespace Source.Combo
         public void StopDealingDamage()
         {
             _weapon.StopDetectCollisions();
-            _weapon.ApplyDamage(_weapon.DefaultDamage);
+            _weapon.ApplyDamage(_weapon.FinalDamage);
         }
 
         public void StartKill()

@@ -1,30 +1,22 @@
 ﻿using Source.Combo;
 using Source.Constants;
-using Source.Interfaces;
 using Source.Player;
-using System;
 using UnityEngine;
 
 namespace Source.Skills
 {
-    public class Roll : Skill
+    [RequireComponent(typeof(PlayerInput), typeof(PlayerCombo), typeof(PlayerHealth))]
+    public sealed class Roll : Skill
     {
         private PlayerInput _playerInput;
         private PlayerCombo _playerCombo;
         private PlayerHealth _playerHealth;
-        private PlayerAgility _playerAgility;
-
-        public event Action Activated;
-        public event Action Deactivated;
-
-        [field: SerializeField] public float AgilityValue { get; private set; }
 
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
             _playerCombo = GetComponent<PlayerCombo>();
             _playerHealth = GetComponent<PlayerHealth>();
-            _playerAgility = GetComponent<PlayerAgility>();
             Initialization();
         }
 
@@ -39,20 +31,23 @@ namespace Source.Skills
             if (ElapsedTime < Cooldown)
                 return;
 
+            if (_playerCombo.PlayerAgility.CurrentAgility < Cost)
+                return;
+
             _playerCombo.Animator.SetTrigger(AnimationConstants.Roll);
 
-            _playerAgility.DecreaseAgility(AgilityValue);
+            _playerCombo.PlayerAgility.DecreaseAgility(Cost);
 
             StartTimer();
         }
 
-        public void StartSkill()
+        public void StartRoll()
         {
             _playerInput.enabled = false;
             _playerHealth.enabled = false;
         }
 
-        public void StopSkill()
+        public void StopRoll()
         {
             _playerInput.enabled = true;
             _playerHealth.enabled = true;

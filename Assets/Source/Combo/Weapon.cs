@@ -1,23 +1,27 @@
 using Source.Bot;
+using Source.Interfaces;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Source.Combo
 {
-    [RequireComponent(typeof(BoxCollider))]
-    [RequireComponent(typeof(Rigidbody))]
-    public sealed class Weapon : MonoBehaviour
+    [RequireComponent(typeof(BoxCollider), typeof(Rigidbody))]
+    public sealed class Weapon : MonoBehaviour, IBuffable
     {
         private readonly List<BotHealth> _damagedBots = new();
         private BoxCollider _boxCollider;
 
-        [field: SerializeField] public int DefaultDamage { get; private set; }
-        [field: SerializeField] public int MaxDamage { get; private set; }
+        [field: SerializeField] public float DefaultDamage { get; private set; }
+        [field: SerializeField] public float MaxDamage { get; private set; }
+        public float FinalDamage { get; private set; }
+        public bool IsBuffed { get; private set; }
 
         private void Awake()
         {
             _boxCollider = GetComponent<BoxCollider>();
             _boxCollider.enabled = false;
+            FinalDamage = DefaultDamage;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -47,6 +51,24 @@ namespace Source.Combo
                 botHealth.TryTakeDamage(damage);
 
             _damagedBots.Clear();
+        }
+
+        public void AddModifier(float modifier)
+        {
+            if (modifier == 0)
+                throw new ArgumentException();
+
+            IsBuffed = true;
+            FinalDamage *= modifier;
+        }
+
+        public void RemoveModifier(float modifier)
+        {
+            if (modifier == 0)
+                throw new ArgumentException();
+
+            IsBuffed = false;
+            FinalDamage /= modifier;
         }
     }
 }

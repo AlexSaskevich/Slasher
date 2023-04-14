@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 8014045145754614785}
   - component: {fileID: 8014045145754614814}
   - component: {fileID: 8014045145754614795}
+  - component: {fileID: 807508609}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -281,8 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d42a91a04ae473db055271c31f4403d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increasingMana: 0.1
-  _decreasingMana: 25
+  _increasingMana: 7.5
   <MaxMana>k__BackingField: 100
 --- !u!114 &8014045145754614795
 MonoBehaviour:
@@ -296,8 +296,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36be391d30c010d409bfdbb6840d64e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Cost>k__BackingField: 20
   <Cooldown>k__BackingField: 1
-  <AgilityValue>k__BackingField: 20
+--- !u!114 &807508609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8014045145754614815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65dcfda0b7f8ac84e9686ab7107d9bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Cost>k__BackingField: 30
+  <Cooldown>k__BackingField: 20
+  _buffableBehaviour: {fileID: 8014045146609878632}
+  _modifier: 2
+  _duration: 15
 --- !u!1 &8014045145764493197
 GameObject:
   m_ObjectHideFlags: 0

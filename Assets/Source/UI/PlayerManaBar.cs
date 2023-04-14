@@ -21,7 +21,7 @@ public class PlayerManaBar : Bar
 
     protected override void OnValueChanged()
     {
-        float targetValue = (float)_playerMana.Mana / _playerMana.MaxMana;
+        float targetValue = (float)_playerMana.CurrentMana / _playerMana.MaxMana;
 
         StartChangeFillAmount(targetValue);
     }

@@ -6,33 +6,32 @@ namespace Source.Player
     public sealed class PlayerMana : MonoBehaviour
     {
         [SerializeField] private float _increasingMana;
-        [SerializeField] private float _decreasingMana;
 
         public event Action ManaChanged;
 
         [field: SerializeField] public float MaxMana { get; private set; }
-        public float Mana { get; private set; }
+        public float CurrentMana { get; private set; }
 
-        private void Start()
+        private void Awake()
         {
-            Mana = MaxMana;
+            CurrentMana = MaxMana;
         }
 
         private void Update()
         {
-            if (Mana >= MaxMana)
-                return;
-
-            Mana += _increasingMana;
+            if (CurrentMana < MaxMana)
+                IncreaseMana();
         }
 
-        public void TryTakeMana(float value)
+        public void DecreaseMana(float value)
         {
-            if (value <= 0)
-                return;
+            CurrentMana = Mathf.Clamp(CurrentMana - value, 0, MaxMana);
+            ManaChanged?.Invoke();
+        }
 
-            Mana -= _decreasingMana;
-
+        private void IncreaseMana()
+        {
+            CurrentMana = Mathf.Clamp(CurrentMana + _increasingMana * Time.deltaTime, 0, MaxMana);
             ManaChanged?.Invoke();
         }
     }
