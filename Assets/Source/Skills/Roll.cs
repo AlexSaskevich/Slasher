@@ -2,6 +2,7 @@
 using Source.Constants;
 using Source.Interfaces;
 using Source.Player;
+using System;
 using UnityEngine;
 
 namespace Source.Skills
@@ -12,6 +13,9 @@ namespace Source.Skills
         private PlayerCombo _playerCombo;
         private PlayerHealth _playerHealth;
         private PlayerAgility _playerAgility;
+
+        public event Action Activated;
+        public event Action Deactivated;
 
         [field: SerializeField] public float AgilityValue { get; private set; }
 
@@ -24,7 +28,7 @@ namespace Source.Skills
             Initialization();
         }
 
-        private void Update()
+        public override void TryActivate()
         {
             if (_playerCombo.Animator.GetBool(AnimationConstants.IsRunning) == false)
                 return;
@@ -35,17 +39,11 @@ namespace Source.Skills
             if (ElapsedTime < Cooldown)
                 return;
 
-            if (_playerInput.IsRollButtonClicked && _playerAgility.CurrentAgility > AgilityValue)
-                Activate();
-        }
-
-        protected override void Activate()
-        {
             _playerCombo.Animator.SetTrigger(AnimationConstants.Roll);
 
-            StartTimer();
-
             _playerAgility.DecreaseAgility(AgilityValue);
+
+            StartTimer();
         }
 
         public void StartSkill()

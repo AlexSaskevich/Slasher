@@ -16,7 +16,7 @@ namespace Source.Interfaces
             ElapsedTime = Cooldown;
         }
 
-        protected abstract void Activate();
+        public abstract void TryActivate();
 
         protected void StartTimer()
         {

@@ -1,5 +1,6 @@
 ﻿using Source.Combo;
 using Source.Constants;
+using Source.Skills;
 using UnityEngine;
 
 namespace Source.Player
@@ -11,14 +12,15 @@ namespace Source.Player
 
         private PlayerMovement _playerMovement;
         private PlayerRotation _playerRotation;
+        private Roll _roll;
 
         public bool IsAttackButtonClicked { get; private set; }
-        public bool IsRollButtonClicked { get; private set; }
 
         private void Awake()
         {
             _playerMovement = GetComponent<PlayerMovement>();
             _playerRotation = GetComponent<PlayerRotation>();
+            _roll = GetComponent<Roll>();
         }
 
         private void Update()
@@ -41,7 +43,9 @@ namespace Source.Player
             _playerRotation.Rotate(horizontal, vertical);
 
             IsAttackButtonClicked = Input.GetMouseButtonDown(0);
-            IsRollButtonClicked = Input.GetKeyDown(KeyCode.Space);
+
+            if (Input.GetKeyDown(KeyCode.Space))
+                _roll.TryActivate();
         }
     }
 }
