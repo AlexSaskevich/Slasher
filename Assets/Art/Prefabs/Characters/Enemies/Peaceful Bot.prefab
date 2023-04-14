@@ -2792,6 +2792,7 @@ GameObject:
   - component: {fileID: 1079507713}
   - component: {fileID: 7505774551847422908}
   - component: {fileID: 6282358615007808936}
+  - component: {fileID: 8226175515181317748}
   m_Layer: 0
   m_Name: Peaceful Bot
   m_TagString: Untagged
@@ -2905,7 +2906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce2dcd448b14261a6c461c4337300e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2.5
+  _speed: 2
   <BotStatus>k__BackingField: 0
 --- !u!114 &5818628035770266742
 MonoBehaviour:
@@ -2932,7 +2933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 637f12964d9347e995e16fa308a59181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _viewRadius: 12
+  _viewRadius: 6
 --- !u!114 &1079507713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2989,7 +2990,7 @@ MonoBehaviour:
         Player","Instant":true,"SharedBotDetectionTriggerSharedBotDetectionTrigger":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotDetectionTrigger","Name":"_botDetectionTrigger","IsShared":true,"BotDetectionTriggermValue":0}}]},{"Type":"Source.Behavior_Tree.Actions.SetBotTarget","NodeData":{"Offset":"(-66.57431,158.585068)"},"ID":6,"Name":"Set
         Bot Target","Instant":true,"SharedBotTargetSharedBotTarget":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":1}},{"Type":"Source.Behavior_Tree.Actions.GoToTarget","NodeData":{"Offset":"(77.49484,156.182571)"},"ID":7,"Name":"Go
         To Target","Instant":true,"SharedBotMovementSharedBotMovement":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotMovement","Name":"_botMovement","IsShared":true,"BotMovementmValue":2},"SharedBotTargetSharedBotTarget":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":3},"SharedBotAnimatorSharedBotAnimator":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":4}},{"Type":"Source.Behavior_Tree.Actions.WaitNextTarget","NodeData":{"Offset":"(221.718735,171.562256)"},"ID":8,"Name":"Wait
-        Next Target","Instant":true,"SharedFloatMinRandomTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedFloatMaxRandomTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":7},"SharedBotAnimatorSharedBotAnimator":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":5},"SharedBotTargetSharedBotTarget":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":6}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(255.485809,119.924957)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"Source.Behavior_Tree.Actions.Escape","NodeData":{"Offset":"(6.597224,146.075623)"},"ID":10,"Name":"Escape","Instant":true,"SharedBotEscaperSharedBotEscaper":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotEscaper","Name":"_botEscaper","IsShared":true,"BotEscapermValue":7},"SharedBotMovementSharedBotMovement":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotMovement","Name":"_botMovement","IsShared":true,"BotMovementmValue":8},"SharedBotAnimatorSharedBotAnimator":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":9},"SharedFloatNewSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4}}]}]}]},"Variables":[{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":10},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotMovement","Name":"_botMovement","IsShared":true,"BotMovementmValue":11},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotDetectionTrigger","Name":"_botDetectionTrigger","IsShared":true,"BotDetectionTriggermValue":12},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotEscaper","Name":"_botEscaper","IsShared":true,"BotEscapermValue":13},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":14}]}'
+        Next Target","Instant":true,"SharedFloatMinRandomTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":4},"SharedFloatMaxRandomTime":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":7},"SharedBotAnimatorSharedBotAnimator":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":5},"SharedBotTargetSharedBotTarget":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":6}}]},{"Type":"BehaviorDesigner.Runtime.Tasks.Sequence","NodeData":{"Offset":"(255.485809,119.924957)"},"ID":9,"Name":"Sequence","Instant":true,"AbortTypeabortType":"None","Children":[{"Type":"Source.Behavior_Tree.Actions.Escape","NodeData":{"Offset":"(6.597224,146.075623)"},"ID":10,"Name":"Escape","Instant":true,"SharedBotEscaperSharedBotEscaper":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotEscaper","Name":"_botEscaper","IsShared":true,"BotEscapermValue":7},"SharedBotMovementSharedBotMovement":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotMovement","Name":"_botMovement","IsShared":true,"BotMovementmValue":8},"SharedBotAnimatorSharedBotAnimator":{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":9},"SharedFloatNewSpeed":{"Type":"BehaviorDesigner.Runtime.SharedFloat","Name":null,"SinglemValue":2.5}}]}]}]},"Variables":[{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotTarget","Name":"_botTarget","IsShared":true,"BotTargetmValue":10},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotMovement","Name":"_botMovement","IsShared":true,"BotMovementmValue":11},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotDetectionTrigger","Name":"_botDetectionTrigger","IsShared":true,"BotDetectionTriggermValue":12},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotEscaper","Name":"_botEscaper","IsShared":true,"BotEscapermValue":13},{"Type":"Source.Behavior_Tree.SharedVariables.SharedBotAnimator","Name":"_botAnimator","IsShared":true,"BotAnimatormValue":14}]}'
       fieldSerializationData:
         typeName: []
         fieldNameHash: 
@@ -3016,3 +3017,16 @@ MonoBehaviour:
       Version: 1.7.2
   gizmoViewMode: 2
   showBehaviorDesignerGizmo: 1
+--- !u!114 &8226175515181317748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f812488ab51a8c489362bde6f81d0d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 50
