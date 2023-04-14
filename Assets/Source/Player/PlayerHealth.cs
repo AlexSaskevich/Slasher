@@ -15,5 +15,13 @@ namespace Source.Player
         {
             _playerInput.enabled = false;
         }
+
+        public override void TryTakeDamage(float damage)
+        {
+            if (enabled == false)
+                return;
+
+            base.TryTakeDamage(damage);
+        }
     }
 }

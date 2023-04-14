@@ -8,6 +8,7 @@ namespace Source.Combo
         public override void Enter(PlayerCombo playerCombo)
         {
             playerCombo.Animator.SetTrigger(AnimationConstants.Death);
+            playerCombo.enabled = false;
         }
 
         public override void Update(PlayerCombo playerCombo, PlayerInput playerInput)

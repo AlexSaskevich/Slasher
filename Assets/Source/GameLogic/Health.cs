@@ -15,7 +15,7 @@ namespace Source.GameLogic
             CurrentHealth = MaxHealth;
         }
 
-        public void TryTakeDamage(float damage)
+        public virtual void TryTakeDamage(float damage)
         {
             if (damage <= 0)
                 return;
