@@ -15,6 +15,8 @@ namespace Source.Bot
         
         private void OnEnable()
         {
+            IsPlayerDetected = false;
+            
             _attackingTrigger.PlayerDetected += OnPlayerDetected;
             _attackingTrigger.PlayerLeft += OnPlayerLeft;
         }

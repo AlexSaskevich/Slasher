@@ -3444,7 +3444,7 @@ MonoBehaviour:
   _waves:
   - <BotMovements>k__BackingField:
     - {fileID: 1079507709, guid: 6fba655b5cf44a543bfc6373fc84e24f, type: 3}
-    <BotsCount>k__BackingField: 3
+    <BotsCount>k__BackingField: 1
     <Delay>k__BackingField: 2
   _spawnPoints:
   - {fileID: 1660100969}

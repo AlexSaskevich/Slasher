@@ -18,7 +18,7 @@ namespace Source.Bot
             NavMeshAgent = GetComponent<NavMeshAgent>();
         }
 
-        private void Start()
+        private void OnEnable()
         {
             NavMeshAgent.speed = _speed;
         }
