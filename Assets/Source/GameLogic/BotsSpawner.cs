@@ -6,7 +6,6 @@ using Source.Bot;
 using Source.Enums;
 using Source.Player;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Source.GameLogic
@@ -112,6 +111,9 @@ namespace Source.GameLogic
 
             if (botMovement.TryGetComponent(out BotEscaper botEscaper))
                 botEscaper.Init(_playerMovement.transform);
+            
+            if(botMovement.TryGetComponent(out BotHealth botHealth))
+                botHealth.ResetHealth();
         }
         
         private void SetWave(int waveNumber)

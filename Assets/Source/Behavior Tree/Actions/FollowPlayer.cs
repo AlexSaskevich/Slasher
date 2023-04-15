@@ -38,8 +38,6 @@ namespace Source.Behavior_Tree.Actions
                 
                 enemyNavMeshDestination = enemyPosition;
                 
-                //SharedBotAnimator.Value.Animator.SetTrigger(AnimationConstants.Shoot);
-                
                 SharedBotAnimator.Value.Animator.SetBool(AnimationConstants.IsRunning, false);
                 SharedBotAnimator.Value.Animator.SetBool(AnimationConstants.IsWalking, false);
             }

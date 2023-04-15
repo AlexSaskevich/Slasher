@@ -6,7 +6,7 @@ namespace Source.Bot
     [RequireComponent(typeof(BotTarget))]
     public class BotHealth : Health
     {
-        private BotTarget _botTarget;  
+        private BotTarget _botTarget;
         
         private void Awake()
         {

@@ -20,6 +20,7 @@ namespace Source.Behavior_Tree.Actions
             SharedBotMovement.Value.NavMeshAgent.destination = targetPosition;
 
             SharedBotAnimator.Value.Animator.SetBool(AnimationConstants.IsWalking, true);
+            SharedBotAnimator.Value.Animator.SetBool(AnimationConstants.IsRunning, false);
             
             return Vector3.Distance(targetPosition, SharedBotMovement.Value.NavMeshAgent.transform.position) <= MinDistance
                 ? TaskStatus.Success
