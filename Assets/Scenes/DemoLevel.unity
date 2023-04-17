@@ -533,8 +533,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - <BotMovements>k__BackingField:
+    - {fileID: 1079507709, guid: 34c317d4502d0434e8e1e066524089a2, type: 3}
+    - {fileID: 1079507709, guid: 0530b70b2d34d6843b7b4b65d0ac5ea4, type: 3}
+    - {fileID: 1079507709, guid: 95c39c08d1010404e9c690e68397380c, type: 3}
+    - {fileID: 1079507709, guid: 1351691d0f8983e4cbeea313e726ab92, type: 3}
+    - {fileID: 1079507709, guid: e8d050fc3d5d17b4bacf8934eb6838c5, type: 3}
     - {fileID: 1079507709, guid: d5cb4cbe3bf65ea4e9296d3e7e67afec, type: 3}
-    <BotsCount>k__BackingField: 3
+    <BotsCount>k__BackingField: 10
     <Delay>k__BackingField: 2
   _spawnPoints:
   - {fileID: 210754227}
@@ -3443,8 +3448,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - <BotMovements>k__BackingField:
+    - {fileID: 1079507709, guid: 6e755d47a2b1a964f9530a4f20c209d9, type: 3}
     - {fileID: 1079507709, guid: 6fba655b5cf44a543bfc6373fc84e24f, type: 3}
-    <BotsCount>k__BackingField: 1
+    <BotsCount>k__BackingField: 5
     <Delay>k__BackingField: 2
   _spawnPoints:
   - {fileID: 1660100969}
