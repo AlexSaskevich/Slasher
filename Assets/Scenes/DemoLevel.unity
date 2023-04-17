@@ -295,9 +295,9 @@ MonoBehaviour:
   - {fileID: 210754226}
   - {fileID: 1660100970}
   _delay: 6
-  _workingPeacefulCitizensSpawnersCount: 0
+  _workingPeacefulCitizensSpawnersCount: 1
   _workingZombieSpawnersCount: 0
-  _workingHostileCitizensSpawnersCount: 1
+  _workingHostileCitizensSpawnersCount: 0
 --- !u!4 &155494780
 Transform:
   m_ObjectHideFlags: 0

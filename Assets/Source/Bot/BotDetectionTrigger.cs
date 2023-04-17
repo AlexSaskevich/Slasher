@@ -1,5 +1,4 @@
-﻿using System;
-using Source.Player;
+﻿using Source.Player;
 using UnityEngine;
 
 namespace Source.Bot
