@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 196796937}
   - component: {fileID: 196796936}
   - component: {fileID: 196796940}
+  - component: {fileID: 196796941}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Untagged
@@ -515,6 +516,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
+--- !u!114 &196796941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196796935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47e7fe9217aea64d937bb3e7dca1846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <TargetsCount>k__BackingField: 0
 --- !u!1 &232359158
 GameObject:
   m_ObjectHideFlags: 0
@@ -703,6 +717,7 @@ GameObject:
   - component: {fileID: 278177503}
   - component: {fileID: 278177502}
   - component: {fileID: 278177506}
+  - component: {fileID: 278177507}
   m_Layer: 0
   m_Name: Enemy2
   m_TagString: Untagged
@@ -802,6 +817,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
+--- !u!114 &278177507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 278177501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47e7fe9217aea64d937bb3e7dca1846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <TargetsCount>k__BackingField: 0
 --- !u!1 &285458058
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,6 +962,7 @@ GameObject:
   - component: {fileID: 512596139}
   - component: {fileID: 512596138}
   - component: {fileID: 512596142}
+  - component: {fileID: 512596143}
   m_Layer: 0
   m_Name: Enemy3
   m_TagString: Untagged
@@ -1033,6 +1062,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
+--- !u!114 &512596143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 512596137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47e7fe9217aea64d937bb3e7dca1846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <TargetsCount>k__BackingField: 0
 --- !u!1 &552624300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1944,6 +1986,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 8699606707982853545}
+  _offset: {x: 0, y: 0, z: 0}
+  <DefaultSpeed>k__BackingField: 0
 --- !u!1001 &967976496
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2016,7 +2060,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &980478964
 Transform:
   m_ObjectHideFlags: 0
@@ -5886,6 +5930,7 @@ GameObject:
   - component: {fileID: 1750596750}
   - component: {fileID: 1750596749}
   - component: {fileID: 1750596753}
+  - component: {fileID: 1750596754}
   m_Layer: 0
   m_Name: Enemy4
   m_TagString: Untagged
@@ -5985,6 +6030,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
+--- !u!114 &1750596754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750596748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d47e7fe9217aea64d937bb3e7dca1846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <TargetsCount>k__BackingField: 0
 --- !u!1 &1757495512
 GameObject:
   m_ObjectHideFlags: 0
@@ -8735,6 +8793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _weapon: {fileID: 8711851436003210044}
+  <AgilityPerHit>k__BackingField: 0
 --- !u!114 &8783718202874754220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8762,7 +8821,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _increasingAgility: 0.05
   <MaxAgility>k__BackingField: 100
-  <AgilityPerHit>k__BackingField: 10
 --- !u!114 &8783718202874754223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8776,7 +8834,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _increasingMana: 0.1
-  _decreasingMana: 25
   <MaxMana>k__BackingField: 100
 --- !u!136 &8783718202874754224
 CapsuleCollider:
