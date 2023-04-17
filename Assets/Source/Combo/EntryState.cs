@@ -19,6 +19,9 @@ namespace Source.Combo
             if (CheckCurrentAnimationEnd(playerCombo.Animator))
                 playerCombo.SwitchState(new MoveState());
 
+            if (playerCombo.PlayerMovement.IsBuffed)
+                return;
+
             if (playerInput.IsAttackButtonClicked == false)
                 return;
 

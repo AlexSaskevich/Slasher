@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Source.Skills
 {
-    [RequireComponent(typeof(Animator), typeof(PlayerMana), typeof(PlayerAgility))]
+    [RequireComponent(typeof(Animator), typeof(PlayerMana), typeof(PlayerCombo))]
     public sealed class Buff : Skill
     {
         [SerializeField] private MonoBehaviour _buffableBehaviour;

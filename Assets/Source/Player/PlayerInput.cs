@@ -14,6 +14,7 @@ namespace Source.Player
         private PlayerRotation _playerRotation;
         private Roll _roll;
         private Buff _buff;
+        private Ultimate _ultimate;
 
         public bool IsAttackButtonClicked { get; private set; }
 
@@ -23,6 +24,7 @@ namespace Source.Player
             _playerRotation = GetComponent<PlayerRotation>();
             _roll = GetComponent<Roll>();
             _buff = GetComponent<Buff>();
+            _ultimate = GetComponent<Ultimate>();
         }
 
         private void Update()
@@ -51,6 +53,9 @@ namespace Source.Player
 
             if (Input.GetKeyDown(KeyCode.V))
                 _buff.TryActivate();
+
+            if (Input.GetKeyDown(KeyCode.F))
+                _ultimate.TryActivate();
         }
     }
 }

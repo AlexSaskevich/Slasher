@@ -20,14 +20,16 @@ namespace Source.Combo
         public Animator Animator { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
         public PlayerAgility PlayerAgility { get; private set; }
+        public PlayerMovement PlayerMovement { get; private set; }
 
         private void Awake()
         {
             _playerHealth = GetComponent<PlayerHealth>();
+            _playerInput = GetComponent<PlayerInput>();
             Animator = GetComponent<Animator>();
             Rigidbody = GetComponent<Rigidbody>();
             PlayerAgility = GetComponent<PlayerAgility>();
-            _playerInput = GetComponent<PlayerInput>();
+            PlayerMovement = GetComponent<PlayerMovement>();
             CurrentState = _moveState;
             CurrentState.Enter(this);
         }
