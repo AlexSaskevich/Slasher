@@ -50,9 +50,8 @@ namespace Source.Player
         {
             var direction = new Vector3(directionX, 0, directionZ);
             direction = Vector3.Normalize(direction);
-            direction *= FinalSpeed;
 
-            _characterController.SimpleMove(direction);
+            _characterController.Move(direction * FinalSpeed * Time.deltaTime);
         }
 
         public void AddModifier(float modifier)

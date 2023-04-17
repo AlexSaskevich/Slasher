@@ -57,10 +57,8 @@ namespace Source.Combo
                 return;
             }
 
-            if (CurrentState is FinishState)
-                return;
-
-            CurrentState.Exit(this);
+            if (CurrentState is ComboState)
+                CurrentState.Exit(this);
         }
 
         public void SwitchState(State newState)
