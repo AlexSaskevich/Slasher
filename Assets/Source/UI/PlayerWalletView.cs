@@ -8,8 +8,8 @@ namespace Source.UI
     public sealed class PlayerWalletView : MonoBehaviour
     {
         private TMP_Text _money;
-        
-        private readonly PlayerWallet _playerWallet = new();
+
+        public PlayerWallet PlayerWallet { get; private set; } = new();
 
         private void Awake()
         {
@@ -18,12 +18,12 @@ namespace Source.UI
 
         private void OnEnable()
         {
-            _playerWallet.MoneyChanged += OnMoneyChanged;
+            PlayerWallet.MoneyChanged += OnMoneyChanged;
         }
 
         private void OnDisable()
         {
-            _playerWallet.MoneyChanged -= OnMoneyChanged;
+            PlayerWallet.MoneyChanged -= OnMoneyChanged;
         }
 
         private void OnMoneyChanged(int money)

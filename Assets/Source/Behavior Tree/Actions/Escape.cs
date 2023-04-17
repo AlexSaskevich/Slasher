@@ -29,8 +29,6 @@ namespace Source.Behavior_Tree.Actions
             if (SharedBotDetectionTrigger.Value.IsPlayerLeft)
                 _timer += Time.deltaTime;
 
-            Debug.Log(_timer);
-            
             if (_timer >= TimeToReturnInWalkState.Value)
             {
                 _timer = 0;

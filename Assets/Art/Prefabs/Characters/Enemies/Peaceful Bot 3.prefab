@@ -2791,6 +2791,7 @@ GameObject:
   - component: {fileID: 7505774551847422908}
   - component: {fileID: 6282358615007808936}
   - component: {fileID: 8226175515181317748}
+  - component: {fileID: -1169107548271375100}
   m_Layer: 0
   m_Name: Peaceful Bot 3
   m_TagString: Untagged
@@ -3004,6 +3005,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 50
+--- !u!114 &-1169107548271375100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409bde5423ed42c0a441f1156bd89266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minReward: 1
+  _maxReward: 4
 --- !u!1 &1671491349871878521
 GameObject:
   m_ObjectHideFlags: 0

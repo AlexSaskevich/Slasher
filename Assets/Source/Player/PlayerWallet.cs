@@ -10,7 +10,7 @@ namespace Source.Player
 
         public void TryTakeMoney(int money)
         {
-            if(money <= 0)
+            if (money <= 0)
                 return;
 
             _currentMoney += money;

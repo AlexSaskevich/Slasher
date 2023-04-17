@@ -5,6 +5,7 @@ using System.Linq;
 using Source.Bot;
 using Source.Enums;
 using Source.Player;
+using Source.UI;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -17,6 +18,7 @@ namespace Source.GameLogic
         [SerializeField] private List<Target> _targets;
         [SerializeField] private PlayerMovement _playerMovement;
         [SerializeField] private PlayerHealth _playerHealth;
+        [SerializeField] private PlayerWalletView _playerWalletView;
         [SerializeField] private float _delay;
 
         private int _currentWaveNumber;
@@ -111,9 +113,16 @@ namespace Source.GameLogic
 
             if (botMovement.TryGetComponent(out BotEscaper botEscaper))
                 botEscaper.Init(_playerMovement.transform);
+
+            if (botMovement.TryGetComponent(out BotHealth botHealth) == false)
+                throw new ArgumentNullException();
             
-            if(botMovement.TryGetComponent(out BotHealth botHealth))
-                botHealth.ResetHealth();
+            botHealth.ResetHealth();
+
+            if (botMovement.TryGetComponent(out BotReward botReward) == false)
+                throw new ArgumentNullException();
+
+            botReward.Init(_playerWalletView);
         }
         
         private void SetWave(int waveNumber)

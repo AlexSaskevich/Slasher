@@ -1,3 +1,4 @@
+using System;
 using Source.GameLogic;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ namespace Source.Bot
     public class BotHealth : Health
     {
         private BotTarget _botTarget;
+
+        public event Action Died;
         
         private void Awake()
         {
@@ -15,9 +18,10 @@ namespace Source.Bot
 
         protected override void Die()
         {
-            gameObject.SetActive(false);
-            
+            Died?.Invoke();
             _botTarget.ClearTargets();
+            
+            gameObject.SetActive(false);
         }
     }
 }
