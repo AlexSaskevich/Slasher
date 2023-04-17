@@ -12,7 +12,7 @@ namespace Source.Combo
 
         public override void Update(PlayerCombo playerCombo, PlayerInput playerInput)
         {
-            bool isRunning = playerCombo.Rigidbody.velocity.normalized.magnitude > 0;
+            bool isRunning = playerCombo.CharacterController.velocity.magnitude > InputConstants.Epsilon;
             Animate(playerCombo.Animator, isRunning);
 
             if (playerInput.IsAttackButtonClicked && IsEnoughAgility(playerCombo, AnimationConstants.HitCount1))

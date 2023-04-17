@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Source.Combo
 {
-    [RequireComponent(typeof(Animator), typeof(PlayerHealth), typeof(Rigidbody))]
+    [RequireComponent(typeof(Animator), typeof(PlayerHealth))]
     public sealed class PlayerCombo : MonoBehaviour
     {
         [SerializeField] private Weapon _weapon;
@@ -18,7 +18,7 @@ namespace Source.Combo
         [field: SerializeField] public float AgilityPerHit { get; private set; }
         public State CurrentState { get; private set; }
         public Animator Animator { get; private set; }
-        public Rigidbody Rigidbody { get; private set; }
+        public CharacterController CharacterController { get; private set; }
         public PlayerAgility PlayerAgility { get; private set; }
         public PlayerMovement PlayerMovement { get; private set; }
 
@@ -27,7 +27,7 @@ namespace Source.Combo
             _playerHealth = GetComponent<PlayerHealth>();
             _playerInput = GetComponent<PlayerInput>();
             Animator = GetComponent<Animator>();
-            Rigidbody = GetComponent<Rigidbody>();
+            CharacterController = GetComponent<CharacterController>();
             PlayerAgility = GetComponent<PlayerAgility>();
             PlayerMovement = GetComponent<PlayerMovement>();
             CurrentState = _moveState;
