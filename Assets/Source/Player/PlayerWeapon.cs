@@ -4,10 +4,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Source.Combo
+namespace Source.Player
 {
     [RequireComponent(typeof(BoxCollider), typeof(Rigidbody))]
-    public sealed class Weapon : MonoBehaviour, IBuffable
+    public sealed class PlayerWeapon : MonoBehaviour, IBuffable
     {
         private readonly List<BotHealth> _damagedBots = new();
         private BoxCollider _boxCollider;

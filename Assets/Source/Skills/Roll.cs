@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Source.Skills
 {
-    [RequireComponent(typeof(PlayerInput), typeof(PlayerCombo), typeof(PlayerHealth))]
+    [RequireComponent(typeof(PlayerCombo), typeof(PlayerHealth))]
     public sealed class Roll : Skill
     {
         private PlayerCombo _playerCombo;

@@ -1,31 +1,40 @@
 ﻿using Source.Combo;
 using Source.Constants;
+using Source.InputSource;
+using Source.Interfaces;
 using Source.Player;
 using System.Collections;
 using UnityEngine;
 
 namespace Source.Skills
 {
-    [RequireComponent(typeof(PlayerMovement), typeof(PlayerInput), typeof(PlayerCombo))]
+    [RequireComponent(typeof(PlayerMovement), typeof(PlayerCombo))]
     public sealed class BikerUltimate : Ultimate
     {
-        [SerializeField] private Weapon _weapon;
+        [SerializeField] private PlayerWeapon _weapon;
         [SerializeField] private float _speedModifier;
         [SerializeField] private float _duration;
 
         private Coroutine _coroutine;
         private PlayerMovement _playerMovement;
-        private PlayerInput _playerInput;
+        private InputSwitcher _inputSwitcher;
+        private IInputSource _inputSource;
         private PlayerCombo _playerCombo;
 
         private void Awake()
         {
             Initialization();
+            _inputSwitcher = GetComponent<InputSwitcher>();
+            _inputSource = _inputSwitcher.InputSource;
             PlayerMana = GetComponent<PlayerMana>();
             Animator = GetComponent<Animator>();
             _playerMovement = GetComponent<PlayerMovement>();
-            _playerInput = GetComponent<PlayerInput>();
             _playerCombo = GetComponent<PlayerCombo>();
+        }
+
+        private void Start()
+        {
+            _inputSource = _inputSwitcher.InputSource;
         }
 
         private void Update()
@@ -65,9 +74,9 @@ namespace Source.Skills
         private IEnumerator ActivateUltimate()
         {
             Animator.SetTrigger(AnimationConstants.Ultimate);
-            _playerInput.enabled = false;
+            _inputSource.Disable();
             yield return new WaitUntil(() => CheckCurrentAnimationEnd());
-            _playerInput.enabled = true;
+            _inputSource.Enable();
             _playerMovement.AddModifier(_speedModifier);
             _weapon.AddModifier(_weapon.MaxDamage);
             base.TryActivate();

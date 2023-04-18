@@ -1,5 +1,5 @@
 ﻿using Source.Constants;
-using Source.Player;
+using Source.Interfaces;
 using UnityEngine;
 
 namespace Source.Combo
@@ -10,12 +10,12 @@ namespace Source.Combo
         {
         }
 
-        public override void Update(PlayerCombo playerCombo, PlayerInput playerInput)
+        public override void Update(PlayerCombo playerCombo, IInputSource inputSource)
         {
             bool isRunning = playerCombo.CharacterController.velocity.magnitude > InputConstants.Epsilon;
             Animate(playerCombo.Animator, isRunning);
 
-            if (playerInput.IsAttackButtonClicked && IsEnoughAgility(playerCombo, AnimationConstants.HitCount1))
+            if (inputSource.IsAttackButtonClicked && IsEnoughAgility(playerCombo, AnimationConstants.HitCount1))
                 playerCombo.SwitchState(new EntryState());
         }
 

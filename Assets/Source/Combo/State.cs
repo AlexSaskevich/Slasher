@@ -1,5 +1,5 @@
 using Source.Constants;
-using Source.Player;
+using Source.Interfaces;
 using UnityEngine;
 
 namespace Source.Combo
@@ -29,6 +29,6 @@ namespace Source.Combo
 
         public abstract void Enter(PlayerCombo playerCombo);
 
-        public abstract void Update(PlayerCombo playerCombo, PlayerInput playerInput);
+        public abstract void Update(PlayerCombo playerCombo, IInputSource inputSource);
     }
 }

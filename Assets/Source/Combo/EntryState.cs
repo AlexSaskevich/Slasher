@@ -1,5 +1,5 @@
 ﻿using Source.Constants;
-using Source.Player;
+using Source.Interfaces;
 using UnityEngine;
 
 namespace Source.Combo
@@ -11,7 +11,7 @@ namespace Source.Combo
             playerCombo.Animator.SetTrigger(AnimationConstants.Attack1);
         }
 
-        public override void Update(PlayerCombo playerCombo, PlayerInput playerInput)
+        public override void Update(PlayerCombo playerCombo, IInputSource inputSource)
         {
             if (IsCurrentAnimationName(playerCombo.Animator, AnimationConstants.Attack1) == false)
                 return;
@@ -22,7 +22,7 @@ namespace Source.Combo
             if (playerCombo.PlayerMovement.IsBuffed)
                 return;
 
-            if (playerInput.IsAttackButtonClicked == false)
+            if (inputSource.IsAttackButtonClicked == false)
                 return;
 
             if (CheckCurrentAnimationEnd(playerCombo.Animator, AnimationConstants.SwitchAnimationTime) && IsEnoughAgility(playerCombo, AnimationConstants.HitCount2))

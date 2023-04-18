@@ -1,4 +1,5 @@
 ﻿using Source.Combo;
+using Source.InputSource;
 using Source.Interfaces;
 using System;
 using UnityEngine;
@@ -6,10 +7,12 @@ using UnityEngine;
 namespace Source.Player
 {
     [RequireComponent(typeof(PlayerCombo), typeof(CharacterController))]
-    public sealed class PlayerMovement : MonoBehaviour, IMoveable, IBuffable
+    public sealed class PlayerMovement : MonoBehaviour, IBuffable
     {
         private PlayerCombo _playerCombo;
         private CharacterController _characterController;
+        private InputSwitcher _inputSwitcher;
+        private IInputSource _inputSource;
 
         [field: SerializeField] public float DefaultSpeed { get; private set; }
         public float FinalSpeed { get; private set; }
@@ -17,9 +20,16 @@ namespace Source.Player
 
         private void Awake()
         {
+            _inputSwitcher = GetComponent<InputSwitcher>();
+            //_inputSource = _inputSwitcher.InputSource;
             _playerCombo = GetComponent<PlayerCombo>();
             _characterController = GetComponent<CharacterController>();
             FinalSpeed = DefaultSpeed;
+        }
+
+        private void Start()
+        {
+            _inputSource = _inputSwitcher.InputSource;
         }
 
         private void OnEnable()
@@ -32,26 +42,9 @@ namespace Source.Player
             _playerCombo.StateChanged -= OnStateChanged;
         }
 
-        private void OnStateChanged()
+        private void Update()
         {
-            if (IsBuffed)
-                return;
-
-            if (_playerCombo.CurrentState is MoveState || _playerCombo.CurrentState is EntryState)
-            {
-                FinalSpeed = DefaultSpeed;
-                return;
-            }
-
-            FinalSpeed = 0;
-        }
-
-        public void Move(float directionX, float directionZ)
-        {
-            var direction = new Vector3(directionX, 0, directionZ);
-            direction = Vector3.Normalize(direction);
-
-            _characterController.Move(direction * FinalSpeed * Time.deltaTime);
+            Move();
         }
 
         public void AddModifier(float modifier)
@@ -70,6 +63,28 @@ namespace Source.Player
 
             IsBuffed = false;
             FinalSpeed /= modifier;
+        }
+
+        private void Move()
+        {
+            var direction = new Vector3(_inputSource.MovementInput.x, 0, _inputSource.MovementInput.z);
+            direction = Vector3.Normalize(direction);
+
+            _characterController.Move(direction * FinalSpeed * Time.deltaTime);
+        }
+
+        private void OnStateChanged()
+        {
+            if (IsBuffed)
+                return;
+
+            if (_playerCombo.CurrentState is MoveState || _playerCombo.CurrentState is EntryState)
+            {
+                FinalSpeed = DefaultSpeed;
+                return;
+            }
+
+            FinalSpeed = 0;
         }
     }
 }
