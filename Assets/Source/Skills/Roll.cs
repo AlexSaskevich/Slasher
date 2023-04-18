@@ -8,13 +8,13 @@ namespace Source.Skills
     [RequireComponent(typeof(PlayerInput), typeof(PlayerCombo), typeof(PlayerHealth))]
     public sealed class Roll : Skill
     {
-        private PlayerInput _playerInput;
         private PlayerCombo _playerCombo;
         private PlayerHealth _playerHealth;
 
+        public bool IsActive { get; private set; }
+
         private void Awake()
         {
-            _playerInput = GetComponent<PlayerInput>();
             _playerCombo = GetComponent<PlayerCombo>();
             _playerHealth = GetComponent<PlayerHealth>();
             Initialization();
@@ -43,13 +43,13 @@ namespace Source.Skills
 
         public void StartRoll()
         {
-            _playerInput.enabled = false;
+            IsActive = true;
             _playerHealth.enabled = false;
         }
 
         public void StopRoll()
         {
-            _playerInput.enabled = true;
+            IsActive = false;
             _playerHealth.enabled = true;
         }
     }

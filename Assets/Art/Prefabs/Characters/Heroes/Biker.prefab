@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 807508609}
   - component: {fileID: 8014045146557720179}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Biker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -45,6 +45,9 @@ namespace Source.Player
 
             _playerMovement.Move(horizontal, vertical);
             _playerRotation.Rotate(horizontal, vertical);
+            
+            if (_roll.IsActive)
+                return;
 
             IsAttackButtonClicked = Input.GetMouseButtonDown(0);
 
