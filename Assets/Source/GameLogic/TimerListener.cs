@@ -21,7 +21,8 @@ namespace Source.GameLogic
 
         private void OnDied()
         {
-            GameProgressSaver.SetTime(Timer.ScoreText);
+            if (Timer.IsTimeHighest())
+                GameProgressSaver.SetTime(Timer.ScoreText);
         }
     }
 }

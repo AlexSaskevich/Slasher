@@ -45,5 +45,10 @@ namespace Source.GameLogic
 
             return seconds.ToString().Length == 1 ? $"{minutes} : 0{seconds}" : $"{minutes} : {seconds}";
         }
+
+        public bool IsTimeHighest()
+        {
+            return _time > s_highestScore;
+        }
     }
 }
