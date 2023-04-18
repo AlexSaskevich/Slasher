@@ -18,5 +18,6 @@ namespace Source.Constants
         public const int HitCount3 = 3;
         public const float EndAnimationTime = 0.7f;
         public const float SwitchAnimationTime = 0.5f;
+        public const float FinishStateEndAnimationTime = 0.85f;
     }
 }

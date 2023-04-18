@@ -15,7 +15,7 @@ namespace Source.Combo
             if (IsCurrentAnimationName(playerCombo.Animator, AnimationConstants.Attack3) == false)
                 return;
 
-            if (CheckCurrentAnimationEnd(playerCombo.Animator))
+            if (CheckCurrentAnimationEnd(playerCombo.Animator, AnimationConstants.FinishStateEndAnimationTime))
                 playerCombo.SwitchState(new MoveState());
 
             if (inputSource.IsAttackButtonClicked == false)
