@@ -17,5 +17,13 @@ namespace Source.Player
 
             MoneyChanged?.Invoke(_currentMoney);
         }
+
+        public void TrySpendMoney(int price)
+        {
+            if (price <= 0)
+                return;
+
+            _currentMoney -= price;
+        }
     }
 }
