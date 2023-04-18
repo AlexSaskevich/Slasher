@@ -7,6 +7,8 @@ namespace Source.GameLogic
     {
         public event Action HealthChanged;
 
+        public event Action Died;
+        
         [field: SerializeField] public float MaxHealth { get; private set; }
         public float CurrentHealth { get; private set; }
 
@@ -23,7 +25,10 @@ namespace Source.GameLogic
             CurrentHealth = Mathf.Clamp(CurrentHealth - damage, 0, MaxHealth);
 
             if (CurrentHealth <= 0)
+            {
+                Died?.Invoke();
                 Die();
+            }
 
             HealthChanged?.Invoke();
         }

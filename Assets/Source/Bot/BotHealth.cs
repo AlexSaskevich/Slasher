@@ -9,8 +9,6 @@ namespace Source.Bot
     {
         private BotTarget _botTarget;
 
-        public event Action Died;
-        
         private void Awake()
         {
             _botTarget = GetComponent<BotTarget>();
@@ -18,7 +16,6 @@ namespace Source.Bot
 
         protected override void Die()
         {
-            Died?.Invoke();
             _botTarget.ClearTargets();
             
             gameObject.SetActive(false);
