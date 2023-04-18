@@ -1,19 +1,27 @@
 ﻿using Source.GameLogic;
+using Source.InputSource;
+using Source.Interfaces;
 
 namespace Source.Player
 {
     public sealed class PlayerHealth : Health
     {
-        private PlayerInput _playerInput;
+        private InputSwitcher _inputSwitcher;
+        private IInputSource _inputSource;
 
         private void Awake()
         {
-            _playerInput = GetComponent<PlayerInput>();
+            _inputSwitcher = GetComponent<InputSwitcher>();
+        }
+
+        private void Start()
+        {
+            _inputSource = _inputSwitcher.InputSource;
         }
 
         protected override void Die()
         {
-            _playerInput.enabled = false;
+            _inputSource.Disable();
         }
 
         public override void TryTakeDamage(float damage)

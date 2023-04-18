@@ -1,5 +1,5 @@
 ﻿using Source.Constants;
-using Source.Player;
+using Source.Interfaces;
 
 namespace Source.Combo
 {
@@ -10,7 +10,7 @@ namespace Source.Combo
             playerCombo.Animator.SetTrigger(AnimationConstants.Attack3);
         }
 
-        public override void Update(PlayerCombo playerCombo, PlayerInput playerInput)
+        public override void Update(PlayerCombo playerCombo, IInputSource inputSource)
         {
             if (IsCurrentAnimationName(playerCombo.Animator, AnimationConstants.Attack3) == false)
                 return;
@@ -18,7 +18,7 @@ namespace Source.Combo
             if (CheckCurrentAnimationEnd(playerCombo.Animator))
                 playerCombo.SwitchState(new MoveState());
 
-            if (playerInput.IsAttackButtonClicked == false)
+            if (inputSource.IsAttackButtonClicked == false)
                 return;
 
             if (CheckCurrentAnimationEnd(playerCombo.Animator) && IsEnoughAgility(playerCombo, AnimationConstants.HitCount1))

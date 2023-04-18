@@ -2,10 +2,10 @@
 {
     public interface IBuffable
     {
-        public bool IsBuffed { get; }
+        bool IsBuffed { get; }
 
-        public void AddModifier(float modifier);
+        void AddModifier(float modifier);
 
-        public void RemoveModifier(float modifier);
+        void RemoveModifier(float modifier);
     }
 }

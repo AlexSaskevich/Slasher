@@ -1,4 +1,6 @@
-﻿using Source.Player;
+﻿using Source.InputSource;
+using Source.Interfaces;
+using Source.Player;
 using System;
 using UnityEngine;
 
@@ -7,11 +9,12 @@ namespace Source.Combo
     [RequireComponent(typeof(Animator), typeof(PlayerHealth))]
     public sealed class PlayerCombo : MonoBehaviour
     {
-        [SerializeField] private Weapon _weapon;
+        [SerializeField] private PlayerWeapon _weapon;
 
         private readonly MoveState _moveState = new();
         private PlayerHealth _playerHealth;
-        private PlayerInput _playerInput;
+        private InputSwitcher _inputSwitcher;
+        private IInputSource _inputSource;
 
         public event Action StateChanged;
 
@@ -24,14 +27,19 @@ namespace Source.Combo
 
         private void Awake()
         {
+            _inputSwitcher = GetComponent<InputSwitcher>();
             _playerHealth = GetComponent<PlayerHealth>();
-            _playerInput = GetComponent<PlayerInput>();
             Animator = GetComponent<Animator>();
             CharacterController = GetComponent<CharacterController>();
             PlayerAgility = GetComponent<PlayerAgility>();
             PlayerMovement = GetComponent<PlayerMovement>();
             CurrentState = _moveState;
             CurrentState.Enter(this);
+        }
+
+        private void Start()
+        {
+            _inputSource = _inputSwitcher.InputSource;
         }
 
         private void OnEnable()
@@ -46,7 +54,7 @@ namespace Source.Combo
 
         private void Update()
         {
-            CurrentState.Update(this, _playerInput);
+            CurrentState.Update(this, _inputSource);
         }
 
         private void OnHealthChanged()

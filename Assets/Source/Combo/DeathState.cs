@@ -1,5 +1,5 @@
 using Source.Constants;
-using Source.Player;
+using Source.Interfaces;
 
 namespace Source.Combo
 {
@@ -11,7 +11,7 @@ namespace Source.Combo
             playerCombo.enabled = false;
         }
 
-        public override void Update(PlayerCombo playerCombo, PlayerInput playerInput)
+        public override void Update(PlayerCombo playerCombo, IInputSource inputSource)
         {
         }
     }

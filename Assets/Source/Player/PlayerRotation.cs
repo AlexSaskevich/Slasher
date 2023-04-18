@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Source.InputSource;
+using Source.Interfaces;
+using UnityEngine;
 
 namespace Source.Player
 {
@@ -6,19 +8,34 @@ namespace Source.Player
     {
         [SerializeField] private float _speed;
 
-        public void Rotate(float horizontal, float vertical)
-        {
-            if (horizontal == 0 && vertical == 0)
-                return;
-                
-            var moveDirection = new Vector3(horizontal, 0, vertical);
+        private InputSwitcher _inputSwitcher;
+        private IInputSource _inputSource;
 
-            if (Vector3.Angle(transform.forward, moveDirection) <= 0) 
+        private void Awake()
+        {
+            _inputSwitcher = GetComponent<InputSwitcher>();
+        }
+
+        private void Start()
+        {
+            _inputSource = _inputSwitcher.InputSource;
+        }
+
+        private void Update()
+        {
+            Rotate();
+        }
+
+        private void Rotate()
+        {
+            if (_inputSource.MovementInput.x == 0 && _inputSource.MovementInput.z == 0)
                 return;
-                
-            var newDirection = Vector3.RotateTowards(transform.forward, moveDirection,
-                _speed * Time.deltaTime, 0);
-            
+
+            if (Vector3.Angle(transform.forward, _inputSource.MovementInput) <= 0)
+                return;
+
+            var newDirection = Vector3.RotateTowards(transform.forward, _inputSource.MovementInput, _speed * Time.deltaTime, 0);
+
             transform.rotation = Quaternion.LookRotation(newDirection);
         }
     }
