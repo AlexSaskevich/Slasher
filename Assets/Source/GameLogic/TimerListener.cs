@@ -1,0 +1,27 @@
+﻿using Source.Player;
+using UnityEngine;
+
+namespace Source.GameLogic
+{
+    public sealed class TimerListener : MonoBehaviour
+    {
+        [SerializeField] private PlayerHealth _playerHealth;
+        
+        public Timer Timer { get; private set; } = new();
+
+        private void OnEnable()
+        {
+            _playerHealth.Died += OnDied;
+        }
+
+        private void OnDisable()
+        {
+            _playerHealth.Died -= OnDied;
+        }
+
+        private void OnDied()
+        {
+            GameProgressSaver.SetTime(Timer.ScoreText);
+        }
+    }
+}

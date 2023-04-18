@@ -1,31 +1,39 @@
 ﻿using System;
+using Source.GameLogic;
 
 namespace Source.Player
 {
     public sealed class PlayerWallet
     {
-        private int _currentMoney;
+        public int CurrentMoney { get; private set; }
 
-        public event Action<int> MoneyChanged;
+        public event Action MoneyChanged;
 
+        public PlayerWallet(int currentMoney)
+        {
+            CurrentMoney = currentMoney;
+        }
+        
         public void TryTakeMoney(int money)
         {
             if (money <= 0)
                 return;
 
-            _currentMoney += money;
+            CurrentMoney += money;
 
-            MoneyChanged?.Invoke(_currentMoney);
+            MoneyChanged?.Invoke();
+            GameProgressSaver.SetMoney(CurrentMoney);
         }
 
         public void TrySpendMoney(int price)
         {
             if (price <= 0)
                 return;
-
-            _currentMoney -= price;
             
-            MoneyChanged?.Invoke(_currentMoney);
+            CurrentMoney -= price;
+            
+            MoneyChanged?.Invoke();
+            GameProgressSaver.SetMoney(CurrentMoney);
         }
     }
 }

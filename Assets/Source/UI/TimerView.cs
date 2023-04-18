@@ -6,13 +6,20 @@ namespace Source.UI
 {
     public sealed class TimerView : MonoBehaviour
     {
-        private readonly Timer _timer = new(); 
+        [SerializeField] private TimerListener _timerListener;
         
         private TMP_Text _time;
+        private Timer _timer;
         
         private void Awake()
         {
+            _timer = _timerListener.Timer;   
             _time = GetComponent<TMP_Text>();
+        }
+
+        private void Start()
+        {
+            _time.text = GameProgressSaver.GetTime();
         }
 
         private void Update()

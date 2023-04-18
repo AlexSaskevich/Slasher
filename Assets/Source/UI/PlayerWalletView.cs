@@ -7,18 +7,24 @@ namespace Source.UI
     [RequireComponent(typeof(TMP_Text))]
     public sealed class PlayerWalletView : MonoBehaviour
     {
+        [SerializeField] private PlayerWalletListener _playerWalletListener; 
+            
         private TMP_Text _money;
 
-        public PlayerWallet PlayerWallet { get; private set; } = new();
+        public PlayerWallet PlayerWallet { get; private set; }
 
         private void Awake()
         {
+            PlayerWallet = _playerWalletListener.PlayerWallet;
+            
             _money = GetComponent<TMP_Text>();
         }
 
         private void OnEnable()
         {
             PlayerWallet.MoneyChanged += OnMoneyChanged;
+            
+            ShowMoney();
         }
 
         private void OnDisable()
@@ -26,9 +32,14 @@ namespace Source.UI
             PlayerWallet.MoneyChanged -= OnMoneyChanged;
         }
 
-        private void OnMoneyChanged(int money)
+        private void OnMoneyChanged()
         {
-            _money.text = money.ToString();
+            ShowMoney();
+        }
+
+        private void ShowMoney()
+        {
+            _money.text = PlayerWallet.CurrentMoney.ToString();
         }
     }
 }

@@ -7,11 +7,12 @@ namespace Source.GameLogic
         private const int SecondsInMinute = 60;
         
         private static float s_highestScore;
-        private static string s_scoreText;
-            
+
         private float _time;
         private int _scoreSeconds;
         private int _scoreMinutes;
+        
+        public static string ScoreText { get; private set; }
         
         public int Minutes { get; private set; }
         public int Seconds { get; private set; }
@@ -32,7 +33,7 @@ namespace Source.GameLogic
             _scoreSeconds = Seconds;
             _scoreMinutes = Minutes;
 
-            s_scoreText = _scoreSeconds.ToString().Length == 1
+            ScoreText = _scoreSeconds.ToString().Length == 1
                 ? $"{_scoreMinutes} : 0{_scoreSeconds}"
                 : $"{_scoreMinutes} : {_scoreSeconds}";
         }
