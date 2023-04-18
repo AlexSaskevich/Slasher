@@ -295,9 +295,9 @@ MonoBehaviour:
   - {fileID: 210754226}
   - {fileID: 1660100970}
   _delay: 6
-  _workingPeacefulCitizensSpawnersCount: 1
+  _workingPeacefulCitizensSpawnersCount: 0
   _workingZombieSpawnersCount: 0
-  _workingHostileCitizensSpawnersCount: 0
+  _workingHostileCitizensSpawnersCount: 1
 --- !u!4 &155494780
 Transform:
   m_ObjectHideFlags: 0
@@ -3598,9 +3598,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _waves:
   - <BotMovements>k__BackingField:
-    - {fileID: 1079507709, guid: 6e755d47a2b1a964f9530a4f20c209d9, type: 3}
-    - {fileID: 1079507709, guid: 6fba655b5cf44a543bfc6373fc84e24f, type: 3}
-    <BotsCount>k__BackingField: 5
+    - {fileID: 1079507709, guid: 0156af83ca9ac704aa14a6493fe5130a, type: 3}
+    <BotsCount>k__BackingField: 2
     <Delay>k__BackingField: 2
   _spawnPoints:
   - {fileID: 1660100969}

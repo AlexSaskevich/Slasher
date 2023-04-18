@@ -24,6 +24,8 @@ namespace Source.Player
                 return;
 
             _currentMoney -= price;
+            
+            MoneyChanged?.Invoke(_currentMoney);
         }
     }
 }
