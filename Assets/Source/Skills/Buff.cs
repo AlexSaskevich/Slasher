@@ -2,6 +2,7 @@
 using Source.Constants;
 using Source.Interfaces;
 using Source.Player;
+using System.Collections;
 using UnityEngine;
 
 namespace Source.Skills
@@ -17,6 +18,9 @@ namespace Source.Skills
         private PlayerMana _playerMana;
         private Animator _animator;
         private PlayerCombo _playerCombo;
+        private Coroutine _coroutine;
+
+        public bool IsActive { get; private set; }
 
         private void OnValidate()
         {
@@ -56,13 +60,34 @@ namespace Source.Skills
             if (_playerMana.CurrentMana < Cost)
                 return;
 
+            StartBuff();
+        }
+
+        private void StartBuff()
+        {
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+
+            _coroutine = StartCoroutine(ActivateBuff());
+        }
+
+        private IEnumerator ActivateBuff()
+        {
             _animator.SetTrigger(AnimationConstants.Buff);
-
+            IsActive = true;
+            yield return new WaitUntil(() => CheckCurrentAnimationEnd());
+            IsActive = false;
             _playerMana.DecreaseMana(Cost);
-
             _buffable.AddModifier(_modifier);
-
             StartTimer();
+        }
+
+        private bool CheckCurrentAnimationEnd()
+        {
+            var currentAnimationName = _animator.GetCurrentAnimatorStateInfo(1).IsName(AnimationConstants.Buff);
+            var isCurrentAnimationEnd = _animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= AnimationConstants.EndAnimationTime;
+
+            return currentAnimationName && isCurrentAnimationEnd;
         }
     }
 }
