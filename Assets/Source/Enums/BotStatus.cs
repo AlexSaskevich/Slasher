@@ -4,6 +4,7 @@
     {
         Peaceful,
         Zombie,
-        Hostile
+        Hostile,
+        Range
     }
 }

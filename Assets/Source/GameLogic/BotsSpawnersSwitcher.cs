@@ -12,16 +12,20 @@ namespace Source.GameLogic
     {
         [SerializeField] private List<BotsSpawner> _spawners = new();
         [SerializeField] private int _delay;
-        [SerializeField] private int _workingPeacefulCitizensSpawnersCount;
+        [SerializeField] private int _workingPeacefulSpawnersCount;
         [SerializeField] private int _workingZombieSpawnersCount;
-        [SerializeField] private int _workingHostileCitizensSpawnersCount;
+        [SerializeField] private int _workingHostileSpawnersCount;
+        [SerializeField] private int _workingRangeSpawnersCount;
+        [SerializeField] private RangeSpawnersActivator _rangeSpawnersActivator;
 
         private readonly List<BotsSpawner> _workingSpawners = new();
-        private readonly List<BotsSpawner> _peacefulCitizensSpawners = new();
+        private readonly List<BotsSpawner> _peacefulSpawners = new();
         private readonly List<BotsSpawner> _zombieSpawners = new();
-        private readonly List<BotsSpawner> _hostileCitizensSpawners = new();
+        private readonly List<BotsSpawner> _hostileSpawners = new();
+        private readonly List<BotsSpawner> _rangeSpawners = new();
 
         private Coroutine _waitingTime;
+        private bool _canSpawnRangeEnemies;
 
         private void Awake()
         {
@@ -30,7 +34,7 @@ namespace Source.GameLogic
                 switch (spawner.BotStatus)
                 {
                     case BotStatus.Peaceful:
-                        _peacefulCitizensSpawners.Add(spawner);
+                        _peacefulSpawners.Add(spawner);
                         break;
                     
                     case BotStatus.Zombie:
@@ -38,11 +42,15 @@ namespace Source.GameLogic
                         break;
                     
                     case BotStatus.Hostile:
-                        _hostileCitizensSpawners.Add(spawner);
+                        _hostileSpawners.Add(spawner);
+                        break;
+                    
+                    case BotStatus.Range:
+                        _rangeSpawners.Add(spawner);
                         break;
                     
                     default:
-                        throw new NullReferenceException();
+                        throw new ArgumentNullException();
                 }
             }
         }
@@ -51,19 +59,23 @@ namespace Source.GameLogic
         {
             foreach (var spawner in _spawners)
                 spawner.TurnedOff += OnTurnedOff;
+
+            _rangeSpawnersActivator.Activated += OnActivated;
         }
 
         private void OnDisable()
         {
             foreach (var spawner in _spawners)
                 spawner.TurnedOff -= OnTurnedOff;
+
+            _rangeSpawnersActivator.Activated -= OnActivated;
         }
 
         private void Start()
         {
             ActivateWorkingSpawners();
         }
-        
+
         private void SetWorkingSpawners(List<BotsSpawner> spawners, int spawnersCount)
         {
             while (IsWorkingSpawnersCountMore(spawners, spawnersCount))
@@ -90,10 +102,13 @@ namespace Source.GameLogic
         {
             ResetSpawners();
             
-            SetWorkingSpawners(_peacefulCitizensSpawners, _workingPeacefulCitizensSpawnersCount);
+            SetWorkingSpawners(_peacefulSpawners, _workingPeacefulSpawnersCount);
             SetWorkingSpawners(_zombieSpawners, _workingZombieSpawnersCount);
-            SetWorkingSpawners(_hostileCitizensSpawners, _workingHostileCitizensSpawnersCount);
+            SetWorkingSpawners(_hostileSpawners, _workingHostileSpawnersCount);
 
+            if (_canSpawnRangeEnemies)
+                SetWorkingSpawners(_rangeSpawners, _workingRangeSpawnersCount);
+            
             foreach (var workingSpawner in _workingSpawners)
                 workingSpawner.gameObject.SetActive(true);
         }
@@ -127,6 +142,12 @@ namespace Source.GameLogic
         private bool IsWorkingSpawnersCountMore(ICollection<BotsSpawner> spawners, int spawnersCount)
         {
             return spawnersCount > spawners.Count;
+        }
+
+        private void OnActivated(bool isActivating)
+        {
+            print("ActiVATE");
+            _canSpawnRangeEnemies = isActivating;
         }
     }
 }
