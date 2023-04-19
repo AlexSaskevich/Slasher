@@ -1,6 +1,8 @@
-﻿using Source.Interfaces;
+﻿using Source.Constants;
+using Source.Interfaces;
 using Source.Skills;
 using Source.UI.Buttons;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,6 +16,8 @@ namespace Source.InputSource
         private Roll _roll;
         private Buff _buff;
         private Ultimate _ultimate;
+        private Coroutine _coroutine;
+        private WaitForSeconds _waitForSeconds;
 
         public Vector3 MovementInput { get; private set; }
         public bool IsAttackButtonClicked { get; private set; }
@@ -23,24 +27,19 @@ namespace Source.InputSource
             _roll = GetComponent<Roll>();
             _buff = GetComponent<Buff>();
             _ultimate = GetComponent<Ultimate>();
+            _waitForSeconds = new WaitForSeconds(InputConstants.WaitTime);
         }
 
         private void OnEnable()
         {
             foreach (var button in _controlButtons)
-            {
                 button.ControlButtonPressed += OnControlButtonPressed;
-                button.ControlButtonReleased += OnControlButtonReleased;
-            }
         }
 
         private void OnDisable()
         {
             foreach (var button in _controlButtons)
-            {
                 button.ControlButtonPressed -= OnControlButtonPressed;
-                button.ControlButtonReleased -= OnControlButtonReleased;
-            }
         }
 
         private void Update()
@@ -68,20 +67,36 @@ namespace Source.InputSource
 
         private void OnControlButtonPressed(ControlButton controlButton)
         {
-            if (controlButton is AttackButton)
-                IsAttackButtonClicked = true;
-            else if (controlButton is RollButton)
-                _roll.TryActivate();
-            else if (controlButton is BuffButton)
-                _buff.TryActivate();
-            else if (controlButton is UltimateButton)
-                _ultimate.TryActivate();
+            switch (controlButton)
+            {
+                case AttackButton:
+                    IsAttackButtonClicked = true;
+                    StartWait();
+                    break;
+                case RollButton:
+                    _roll.TryActivate();
+                    break;
+                case BuffButton:
+                    _buff.TryActivate();
+                    break;
+                case UltimateButton:
+                    _ultimate.TryActivate();
+                    break;
+            }
         }
 
-        private void OnControlButtonReleased(ControlButton controlButton)
+        private void StartWait()
         {
-            if (controlButton is AttackButton)
-                IsAttackButtonClicked = false;
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+
+            _coroutine = StartCoroutine(Wait());
+        }
+
+        private IEnumerator Wait()
+        {
+            yield return _waitForSeconds;
+            IsAttackButtonClicked = false;
         }
     }
 }
