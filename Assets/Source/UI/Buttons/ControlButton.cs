@@ -1,14 +1,12 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace Source.UI.Buttons
 {
-    public class ControlButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public class ControlButton : MonoBehaviour
     {
         public event Action<ControlButton> ControlButtonPressed;
-        public event Action<ControlButton> ControlButtonReleased;
 
         protected Button Button { get; private set; }
 
@@ -17,14 +15,19 @@ namespace Source.UI.Buttons
             Button = GetComponent<Button>();
         }
 
-        public void OnPointerDown(PointerEventData eventData)
+        private void OnEnable()
         {
-            ControlButtonPressed?.Invoke(this);
+            Button.onClick.AddListener(OnControlButtonClick);
         }
 
-        public void OnPointerUp(PointerEventData eventData)
+        private void OnDisable()
         {
-            ControlButtonReleased?.Invoke(this);
+            Button.onClick.RemoveListener(OnControlButtonClick);
+        }
+
+        protected void OnControlButtonClick()
+        {
+            ControlButtonPressed?.Invoke(this);
         }
     }
 }

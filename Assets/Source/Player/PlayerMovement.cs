@@ -21,7 +21,6 @@ namespace Source.Player
         private void Awake()
         {
             _inputSwitcher = GetComponent<InputSwitcher>();
-            //_inputSource = _inputSwitcher.InputSource;
             _playerCombo = GetComponent<PlayerCombo>();
             _characterController = GetComponent<CharacterController>();
             FinalSpeed = DefaultSpeed;
