@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Source.Enums;
 using UnityEngine;
@@ -7,15 +6,12 @@ using Random = UnityEngine.Random;
 
 namespace Source.GameLogic
 {
-    public sealed class BotsSpawnersSwitcher : MonoBehaviour
+    public sealed class BotsSpawnersSwitcher : SpawnersSwitcher
     {
-        [SerializeField] private List<BotsSpawner> _spawners = new();
-        [SerializeField] private int _delay;
         [SerializeField] private int _workingPeacefulSpawnersCount;
         [SerializeField] private int _workingZombieSpawnersCount;
         [SerializeField] private int _workingHostileSpawnersCount;
 
-        private readonly List<BotsSpawner> _workingSpawners = new();
         private readonly List<BotsSpawner> _peacefulSpawners = new();
         private readonly List<BotsSpawner> _zombieSpawners = new();
         private readonly List<BotsSpawner> _hostileSpawners = new();
@@ -24,7 +20,7 @@ namespace Source.GameLogic
 
         private void Awake()
         {
-            foreach (var spawner in _spawners)
+            foreach (var spawner in GetBotsSpawners())
             {
                 switch (spawner.BotStatus)
                 {
@@ -41,21 +37,9 @@ namespace Source.GameLogic
             }
         }
 
-        private void OnEnable()
-        {
-            foreach (var spawner in _spawners)
-                spawner.TurnedOff += OnTurnedOff;
-        }
-
-        private void OnDisable()
-        {
-            foreach (var spawner in _spawners)
-                spawner.TurnedOff -= OnTurnedOff;
-        }
-
         private void Start()
         {
-            ActivateWorkingSpawners();
+            Activate();
         }
 
         private void SetWorkingSpawners(List<BotsSpawner> spawners, int spawnersCount)
@@ -73,14 +57,14 @@ namespace Source.GameLogic
             {
                 var randomSpawnerNumber = Random.Range(0, spawners.Count);
 
-                while (_workingSpawners.Any(spawner => spawner == spawners[randomSpawnerNumber]))
+                while (GetWorkingBotsSpawners().Any(spawner => spawner == spawners[randomSpawnerNumber]))
                     randomSpawnerNumber = Random.Range(0, spawners.Count);
 
-                _workingSpawners.Add(spawners[randomSpawnerNumber]);
+                GetWorkingBotsSpawners().Add(spawners[randomSpawnerNumber]);
             }
         }
 
-        private void ActivateWorkingSpawners()
+        protected override void Activate()
         {
             ResetSpawners();
 
@@ -88,34 +72,8 @@ namespace Source.GameLogic
             SetWorkingSpawners(_zombieSpawners, _workingZombieSpawnersCount);
             SetWorkingSpawners(_hostileSpawners, _workingHostileSpawnersCount);
             
-            foreach (var workingSpawner in _workingSpawners)
+            foreach (var workingSpawner in GetWorkingBotsSpawners())
                 workingSpawner.gameObject.SetActive(true);
-        }
-
-        private void ResetSpawners()
-        {
-            foreach (var spawner in _workingSpawners)
-                spawner.ResetOptions();
-            
-            _workingSpawners.Clear();
-        }
-        
-        private void OnTurnedOff()
-        {
-            if (_workingSpawners.All(spawner => spawner.CurrentWave == null) == false)
-                return;
-            
-            if (_waitingTime != null)
-                StopCoroutine(_waitingTime);
-
-            _waitingTime = StartCoroutine(WaitTime());
-        }
-
-        private IEnumerator WaitTime()
-        {
-            yield return new WaitForSeconds(_delay);
-            
-            ActivateWorkingSpawners();
         }
 
         private bool IsWorkingSpawnersCountMore(ICollection<BotsSpawner> spawners, int spawnersCount)

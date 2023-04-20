@@ -384,7 +384,7 @@ MonoBehaviour:
   _spawners:
   - {fileID: 210754226}
   - {fileID: 1660100970}
-  _delay: 6
+  <Delay>k__BackingField: 10
   _workingPeacefulSpawnersCount: 1
   _workingZombieSpawnersCount: 0
   _workingHostileSpawnersCount: 0
@@ -402,7 +402,6 @@ Transform:
   m_Children:
   - {fileID: 210754227}
   - {fileID: 1660100969}
-  - {fileID: 1957921782}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5030,12 +5029,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1957921781}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.27, y: -4.3898854, z: -10.59}
+  m_LocalPosition: {x: 8.1847515, y: 0, z: -25.390408}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 155494780}
-  m_RootOrder: 2
+  m_Father: {fileID: 2057793727}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1957921783
 MonoBehaviour:
@@ -5343,10 +5342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 048c671de7de408fb4ff1a7322611e00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rangeBotsSpawners:
+  _spawners:
   - {fileID: 1957921783}
+  <Delay>k__BackingField: 10
   _workingSpawnersCount: 1
-  _timeToActivate: 10
 --- !u!4 &2057793727
 Transform:
   m_ObjectHideFlags: 0
@@ -5358,7 +5357,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1957921782}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
