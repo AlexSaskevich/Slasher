@@ -6,6 +6,7 @@ using Source.Bot;
 using Source.Enums;
 using Source.Player;
 using Source.UI;
+using Source.UI.Views;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

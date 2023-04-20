@@ -1,28 +1,32 @@
 using Source.Player;
 using UnityEngine;
 
-public class PlayerManaBar : Bar
+namespace Source.UI.Bars
 {
-    [SerializeField] private PlayerMana _playerMana;
-    private void Awake()
+    public class PlayerManaBar : Bar
     {
-        Initialize(_playerMana.MaxMana);
-    }
+        [SerializeField] private PlayerMana _playerMana;
+        
+        private void Awake()
+        {
+            Initialize(_playerMana.MaxMana);
+        }
 
-    private void OnEnable()
-    {
-        _playerMana.ManaChanged += OnValueChanged;
-    }
+        private void OnEnable()
+        {
+            _playerMana.ManaChanged += OnValueChanged;
+        }
 
-    private void OnDisable()
-    {
-        _playerMana.ManaChanged -= OnValueChanged;
-    }
+        private void OnDisable()
+        {
+            _playerMana.ManaChanged -= OnValueChanged;
+        }
 
-    protected override void OnValueChanged()
-    {
-        float targetValue = (float)_playerMana.CurrentMana / _playerMana.MaxMana;
+        protected override void OnValueChanged()
+        {
+            var targetValue = _playerMana.CurrentMana / _playerMana.MaxMana;
 
-        StartChangeFillAmount(targetValue);
+            StartChangeFillAmount(targetValue);
+        }
     }
 }

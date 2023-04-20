@@ -1,7 +1,7 @@
 using Source.Player;
 using UnityEngine;
 
-namespace Source.UI
+namespace Source.UI.Bars
 {
     public sealed class PlayerHealthBar : Bar
     {
@@ -24,7 +24,7 @@ namespace Source.UI
 
         protected override void OnValueChanged()
         {
-            float targetValue = (float)_playerHealth.CurrentHealth / _playerHealth.MaxHealth;
+            var targetValue = _playerHealth.CurrentHealth / _playerHealth.MaxHealth;
 
             StartChangeFillAmount(targetValue);
         }

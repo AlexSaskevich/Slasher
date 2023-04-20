@@ -1,7 +1,7 @@
 using Source.Player;
 using UnityEngine;
 
-namespace Source.UI
+namespace Source.UI.Bars
 {
     public sealed class PlayerAgilityBar : Bar
     {
@@ -24,7 +24,7 @@ namespace Source.UI
 
         protected override void OnValueChanged()
         {
-            float targetValue = (float)_playerAgility.CurrentAgility / _playerAgility.MaxAgility;
+            var targetValue = _playerAgility.CurrentAgility / _playerAgility.MaxAgility;
 
             StartChangeFillAmount(targetValue);
         }

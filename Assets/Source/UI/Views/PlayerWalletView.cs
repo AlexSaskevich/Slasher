@@ -2,7 +2,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Source.UI
+namespace Source.UI.Views
 {
     [RequireComponent(typeof(TMP_Text))]
     public sealed class PlayerWalletView : MonoBehaviour
