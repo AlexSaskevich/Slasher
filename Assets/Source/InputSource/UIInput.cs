@@ -67,6 +67,11 @@ namespace Source.InputSource
 
         private void OnControlButtonPressed(ControlButton controlButton)
         {
+            if (_roll.IsActive)
+                return;
+            if (_buff.IsActive)
+                return;
+
             switch (controlButton)
             {
                 case AttackButton:
