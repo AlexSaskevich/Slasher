@@ -13,6 +13,11 @@ namespace Source.Combo
 
         public override void Update(PlayerCombo playerCombo, IInputSource inputSource)
         {
+            if (CheckAttackAnimationFromIdle(playerCombo.Animator))
+                playerCombo.PlayerMovement.SetSpeed(0);
+            else
+                playerCombo.PlayerMovement.SetSpeed(playerCombo.PlayerMovement.FinalSpeed);
+
             if (IsCurrentAnimationName(playerCombo.Animator, AnimationConstants.Attack1) == false)
                 return;
 
@@ -29,14 +34,22 @@ namespace Source.Combo
                 playerCombo.SwitchState(new ComboState());
         }
 
-        protected override bool CheckCurrentAnimationEnd(Animator animator, float animationEndTime = AnimationConstants.EndAnimationTime)
+        protected override bool CheckCurrentAnimationEnd(Animator animator, float animationEndTime = AnimationConstants.EndAnimationTime, int layerIndex = AnimationConstants.TopLayer)
         {
-            return animator.GetCurrentAnimatorStateInfo(1).normalizedTime > animationEndTime;
+            return animator.GetCurrentAnimatorStateInfo(layerIndex).normalizedTime > animationEndTime;
         }
 
-        protected override bool IsCurrentAnimationName(Animator animator, string name)
+        protected override bool IsCurrentAnimationName(Animator animator, string name, int layerIndex = AnimationConstants.TopLayer)
         {
-            return animator.GetCurrentAnimatorStateInfo(1).IsName(name);
+            return animator.GetCurrentAnimatorStateInfo(layerIndex).IsName(name);
+        }
+
+        private bool CheckAttackAnimationFromIdle(Animator animator)
+        {
+            var isIdleAnimation = IsCurrentAnimationName(animator, AnimationConstants.Idle, AnimationConstants.BaseLayer);
+            var isAttackAnimationEnd = CheckCurrentAnimationEnd(animator, AnimationConstants.IdleEndAnimationTime, AnimationConstants.BaseLayer) == false;
+
+            return isIdleAnimation & isAttackAnimationEnd;
         }
     }
 }

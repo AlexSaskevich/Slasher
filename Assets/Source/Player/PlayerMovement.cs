@@ -13,6 +13,7 @@ namespace Source.Player
         private CharacterController _characterController;
         private InputSwitcher _inputSwitcher;
         private IInputSource _inputSource;
+        private float _buffedSpeed;
 
         [field: SerializeField] public float DefaultSpeed { get; private set; }
         public float FinalSpeed { get; private set; }
@@ -53,6 +54,7 @@ namespace Source.Player
 
             IsBuffed = true;
             FinalSpeed *= modifier;
+            _buffedSpeed = FinalSpeed;
         }
 
         public void RemoveModifier(float modifier)
@@ -62,6 +64,12 @@ namespace Source.Player
 
             IsBuffed = false;
             FinalSpeed /= modifier;
+            _buffedSpeed = FinalSpeed;
+        }
+
+        public void SetSpeed(float speed)
+        {
+            FinalSpeed = IsBuffed ? _buffedSpeed : speed;
         }
 
         private void Move()

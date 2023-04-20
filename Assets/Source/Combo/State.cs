@@ -6,14 +6,14 @@ namespace Source.Combo
 {
     public abstract class State
     {
-        protected virtual bool CheckCurrentAnimationEnd(Animator animator, float animationEndTime = AnimationConstants.EndAnimationTime)
+        protected virtual bool CheckCurrentAnimationEnd(Animator animator, float animationEndTime = AnimationConstants.EndAnimationTime, int layerIndex = AnimationConstants.BaseLayer)
         {
-            return animator.GetCurrentAnimatorStateInfo(0).normalizedTime > animationEndTime;
+            return animator.GetCurrentAnimatorStateInfo(layerIndex).normalizedTime > animationEndTime;
         }
 
-        protected virtual bool IsCurrentAnimationName(Animator animator, string name)
+        protected virtual bool IsCurrentAnimationName(Animator animator, string name, int layerIndex = AnimationConstants.BaseLayer)
         {
-            return animator.GetCurrentAnimatorStateInfo(0).IsName(name);
+            return animator.GetCurrentAnimatorStateInfo(layerIndex).IsName(name);
         }
 
         protected virtual bool IsEnoughAgility(PlayerCombo playerCombo, int hitCount)
