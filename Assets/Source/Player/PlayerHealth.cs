@@ -14,8 +14,9 @@ namespace Source.Player
             _inputSwitcher = GetComponent<InputSwitcher>();
         }
 
-        private void Start()
+        protected override void Start()
         {
+            base.Start();
             _inputSource = _inputSwitcher.InputSource;
         }
 

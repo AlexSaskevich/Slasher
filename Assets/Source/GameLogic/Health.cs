@@ -12,7 +12,7 @@ namespace Source.GameLogic
         [field: SerializeField] public float MaxHealth { get; private set; }
         public float CurrentHealth { get; private set; }
 
-        private void Start()
+        protected virtual void Start()
         {
             CurrentHealth = MaxHealth;
         }
