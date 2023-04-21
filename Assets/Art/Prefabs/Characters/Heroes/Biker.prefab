@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 8014045145754614795}
   - component: {fileID: 807508609}
   - component: {fileID: 8014045146557720179}
+  - component: {fileID: 1677530834}
   m_Layer: 0
   m_Name: Biker
   m_TagString: Untagged
@@ -192,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb8097c142c2734081dba61893678d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _deviceType: 1
+  _deviceType: 3
   _joystick: {fileID: 0}
 --- !u!114 &2103242667
 MonoBehaviour:
@@ -353,6 +354,19 @@ MonoBehaviour:
   _weapon: {fileID: 8014045146609878632}
   _speedModifier: 1.5
   _duration: 5
+--- !u!114 &1677530834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8014045145754614815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c71058c2dd074dfab9e6018a3915006c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerHealth: {fileID: 8014045145754614784}
 --- !u!1 &8014045145764493197
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +573,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8014045145854492438
 Transform:
@@ -960,7 +974,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8014045146333775259
 Transform:
@@ -1181,7 +1195,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &8014045146609878639
 Transform:
