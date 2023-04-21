@@ -6,6 +6,7 @@ namespace Source.GameLogic
     {
         private const string Money = "Money";
         private const string Time = "Time";
+        private const string ZombieScore = "ZombieScore";
 
         public static void SetMoney(int money)
         {
@@ -25,6 +26,16 @@ namespace Source.GameLogic
         public static string GetTime()
         {
             return PlayerPrefs.GetString(Time);
+        }
+
+        public static void SetZombieScore(int value)
+        {
+            PlayerPrefs.SetInt(ZombieScore, value);
+        }
+
+        public static int GetZombieScore()
+        {
+            return PlayerPrefs.GetInt(ZombieScore);
         }
     }
 }
