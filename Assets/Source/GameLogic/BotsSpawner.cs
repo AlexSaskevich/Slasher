@@ -19,6 +19,7 @@ namespace Source.GameLogic
         [SerializeField] private PlayerMovement _playerMovement;
         [SerializeField] private PlayerHealth _playerHealth;
         [SerializeField] private PlayerWalletView _playerWalletView;
+        [SerializeField] private ZombieScoreListener _zombieScoreListener;
         [SerializeField] private float _delay;
 
         private int _currentWaveNumber;
@@ -118,6 +119,9 @@ namespace Source.GameLogic
                 throw new ArgumentNullException();
             
             botHealth.ResetHealth();
+
+            if (botMovement.TryGetComponent(out BotZombieHealth botZombieHealth))
+                botZombieHealth.Init(_zombieScoreListener);
 
             if (botMovement.TryGetComponent(out BotReward botReward) == false)
                 throw new ArgumentNullException();
