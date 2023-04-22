@@ -69348,8 +69348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawners:
   - {fileID: 657316504}
-  - {fileID: 657316504}
-  <Delay>k__BackingField: 30
+  - {fileID: 2115844562}
+  <Delay>k__BackingField: 5
   _workingPeacefulSpawnersCount: 1
   _workingZombieSpawnersCount: 0
   _workingHostileSpawnersCount: 1

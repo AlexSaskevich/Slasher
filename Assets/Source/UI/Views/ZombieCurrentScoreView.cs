@@ -4,12 +4,12 @@
     {
         private void OnEnable()
         {
-            ZombieScoreListener.ZombieScore.ScoreChanged += OnScoreChanged;
+            ZombieScore.ScoreChanged += OnScoreChanged;
         }
 
         private void OnDisable()
         {
-            ZombieScoreListener.ZombieScore.ScoreChanged -= OnScoreChanged;
+            ZombieScore.ScoreChanged -= OnScoreChanged;
         }
         
         private void OnScoreChanged(int score)

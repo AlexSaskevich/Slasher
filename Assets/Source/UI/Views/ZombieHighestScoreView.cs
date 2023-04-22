@@ -4,7 +4,7 @@
     {
         private void OnEnable()
         {
-            Score.text = ZombieScoreListener.ZombieScore.HighestScore.ToString();
+            Score.text = ZombieScore.HighestScore.ToString();
         }
     }
 }

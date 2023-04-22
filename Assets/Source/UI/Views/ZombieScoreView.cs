@@ -7,7 +7,7 @@ namespace Source.UI.Views
     [RequireComponent(typeof(TMP_Text))]
     public abstract class ZombieScoreView : MonoBehaviour
     {
-        [field: SerializeField] public ZombieScoreListener ZombieScoreListener { get; private set; }
+        [field: SerializeField] protected ZombieScore ZombieScore { get; private set; }
 
         protected TMP_Text Score { get; private set; }
 
@@ -15,7 +15,7 @@ namespace Source.UI.Views
         {
             Score = GetComponent<TMP_Text>();
             
-            print(ZombieScoreListener.name);
+            print(ZombieScore.name);
         }
     }
 }

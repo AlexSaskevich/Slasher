@@ -4,19 +4,17 @@ namespace Source.Bot
 {
     public sealed class BotZombieHealth : BotHealth
     {
-        private ZombieScoreListener _zombieScoreListener;
+        private ZombieScore _zombieScore;
         
-        public void Init(ZombieScoreListener zombieScoreListener)
+        public void Init(ZombieScore zombieScoreListener)
         {
-            _zombieScoreListener = zombieScoreListener;
+            _zombieScore = zombieScoreListener;
         }
         
         protected override void Die()
         {
             BotTarget.ClearTargets();
-
-            var newScore = _zombieScoreListener.ZombieScore.Score + 1;
-            _zombieScoreListener.ZombieScore.SetScore(newScore);
+            _zombieScore.SetScore(_zombieScore.Score + 1);
         }
     }
 }
