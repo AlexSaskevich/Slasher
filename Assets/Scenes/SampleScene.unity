@@ -141,7 +141,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &52748581
 RectTransform:
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2d914d55c6e44179f110d7ff7a6e159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerWalletListener: {fileID: 804038805}
+  _playerWallet: {fileID: 804038805}
 --- !u!114 &52748583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,6 +378,10 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 3881087802504352546}
+    - target: {fileID: 2103242667, guid: 14a90d406b1bcfa418af1dad6b4be16e, type: 3}
+      propertyPath: _controlButtons.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4342580106504673517, guid: 14a90d406b1bcfa418af1dad6b4be16e, type: 3}
       propertyPath: _joystick
       value: 
@@ -434,7 +438,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1677530834, guid: 14a90d406b1bcfa418af1dad6b4be16e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 14a90d406b1bcfa418af1dad6b4be16e, type: 3}
 --- !u!1 &341456442
 GameObject:
@@ -799,8 +804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waves:
-  - <BotMovements>k__BackingField:
-    - {fileID: 1079507709, guid: 7c03283073e9db448a4cc44aaf7c336e, type: 3}
+  - <BotMovements>k__BackingField: []
     <BotsCount>k__BackingField: 1
     <Delay>k__BackingField: 2
   _spawnPoints:
@@ -820,8 +824,8 @@ MonoBehaviour:
   - {fileID: 92316701}
   _playerMovement: {fileID: 804038798}
   _playerHealth: {fileID: 804038795}
-  _playerWalletView: {fileID: 52748582}
-  _zombieScoreListener: {fileID: 819246104}
+  _playerWallet: {fileID: 804038805}
+  _zombieScore: {fileID: 804038806}
   _delay: 4
   <BotStatus>k__BackingField: 1
 --- !u!4 &771390154
@@ -880,55 +884,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 804038789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c71058c2dd074dfab9e6018a3915006c, type: 3}
+  m_Script: {fileID: 11500000, guid: d4462169da55484ab39b74bb7b471fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHealth: {fileID: 804038795}
---- !u!1 &819246103
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 819246105}
-  - component: {fileID: 819246104}
-  m_Layer: 0
-  m_Name: ZombieScoreListener
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &819246104
+--- !u!114 &804038806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819246103}
+  m_GameObject: {fileID: 804038789}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d80f7f9480f441280505b3155bd20c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 06e6eea8a0cc4ab7a297a2b04a043e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHealth: {fileID: 804038795}
---- !u!4 &819246105
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 819246103}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5943465, y: -0.4096683, z: 2.926302}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &957156845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1523,7 +1493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a26ea2cb72044687aa561a49bde55b87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ZombieScoreListener>k__BackingField: {fileID: 819246104}
+  <ZombieScore>k__BackingField: {fileID: 804038806}
 --- !u!1 &1802209508
 GameObject:
   m_ObjectHideFlags: 0
@@ -1852,7 +1822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8bdaf899ede41daaa7efcba7aabcd49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ZombieScoreListener>k__BackingField: {fileID: 819246104}
+  <ZombieScore>k__BackingField: {fileID: 804038806}
 --- !u!1 &2030398275
 GameObject:
   m_ObjectHideFlags: 0

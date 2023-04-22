@@ -8,17 +8,18 @@ namespace Source.GameLogic
     public sealed class ZombieScore : MonoBehaviour
     {
         private PlayerHealth _playerHealth;
-        private int _score;
 
         public event Action<int> ScoreChanged;
 
+        public int Score { get; private set; }
         public int HighestScore { get; private set; }
-        public int Score { get; private set; } = 0;
 
         private void Awake()
         {
             _playerHealth = GetComponent<PlayerHealth>();
             HighestScore = GameProgressSaver.GetZombieScore();
+            
+            ScoreChanged?.Invoke(Score);
         }
         
         private void OnEnable()
@@ -33,17 +34,17 @@ namespace Source.GameLogic
 
         public void SetScore(int newScore)
         {
-            if (_score >= newScore)
+            if (Score >= newScore)
                 return;
 
-            _score = newScore;
-            ScoreChanged?.Invoke(_score);
+            Score = newScore;
+            ScoreChanged?.Invoke(Score);
         }
         
         private void OnDied()
         {
-            if (_score > HighestScore)
-                GameProgressSaver.SetZombieScore(_score);
+            if (Score > HighestScore)
+                GameProgressSaver.SetZombieScore(Score);
         }
     }
 }
