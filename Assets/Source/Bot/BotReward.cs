@@ -1,4 +1,4 @@
-﻿using Source.UI.Views;
+﻿using Source.Player;
 using UnityEngine;
 
 namespace Source.Bot
@@ -10,7 +10,7 @@ namespace Source.Bot
         [SerializeField] private int _maxReward;
 
         private BotHealth _botHealth;
-        private PlayerWalletView _playerWalletView;
+        private PlayerWallet _playerWallet;
         private int _reward;
 
         private void Awake()
@@ -33,14 +33,14 @@ namespace Source.Bot
             _reward = Random.Range(_minReward, _maxReward);
         }
 
-        public void Init(PlayerWalletView playerWalletView)
+        public void Init(PlayerWallet playerWallet)
         {
-            _playerWalletView = playerWalletView;
+            _playerWallet = playerWallet;
         }
         
         private void OnDied()
         {
-            _playerWalletView.PlayerWallet.TryTakeMoney(_reward);
+            _playerWallet.TryTakeMoney(_reward);
         }
     }
 }

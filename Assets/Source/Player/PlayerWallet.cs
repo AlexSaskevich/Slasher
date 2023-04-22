@@ -1,19 +1,34 @@
 ﻿using System;
 using Source.GameLogic;
+using UnityEngine;
 
 namespace Source.Player
 {
-    public sealed class PlayerWallet
+    [RequireComponent(typeof(PlayerHealth))]
+    public sealed class PlayerWallet : MonoBehaviour
     {
-        public int CurrentMoney { get; private set; }
-
+        private PlayerHealth _playerHealth;
+        
         public event Action MoneyChanged;
 
-        public PlayerWallet(int currentMoney)
+        public int CurrentMoney { get; private set; }
+
+        private void Awake()
         {
-            CurrentMoney = currentMoney;
+            _playerHealth = GetComponent<PlayerHealth>();
+            CurrentMoney = GameProgressSaver.GetMoney();
+        }
+
+        private void OnEnable()
+        {
+            _playerHealth.Died += OnDied;
         }
         
+        private void OnDisable()
+        {
+            _playerHealth.Died -= OnDied;
+        }
+
         public void TryTakeMoney(int money)
         {
             if (money <= 0)
@@ -33,6 +48,11 @@ namespace Source.Player
             CurrentMoney -= price;
             
             MoneyChanged?.Invoke();
+            GameProgressSaver.SetMoney(CurrentMoney);
+        }
+
+        private void OnDied()
+        {
             GameProgressSaver.SetMoney(CurrentMoney);
         }
     }

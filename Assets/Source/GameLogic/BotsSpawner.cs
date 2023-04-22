@@ -5,7 +5,6 @@ using System.Linq;
 using Source.Bot;
 using Source.Enums;
 using Source.Player;
-using Source.UI.Views;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -18,7 +17,7 @@ namespace Source.GameLogic
         [SerializeField] private List<Target> _targets;
         [SerializeField] private PlayerMovement _playerMovement;
         [SerializeField] private PlayerHealth _playerHealth;
-        [SerializeField] private PlayerWalletView _playerWalletView;
+        [SerializeField] private PlayerWallet _playerWallet;
         [SerializeField] private ZombieScoreListener _zombieScoreListener;
         [SerializeField] private float _delay;
 
@@ -126,7 +125,7 @@ namespace Source.GameLogic
             if (botMovement.TryGetComponent(out BotReward botReward) == false)
                 throw new ArgumentNullException();
 
-            botReward.Init(_playerWalletView);
+            botReward.Init(_playerWallet);
         }
         
         private void SetWave(int waveNumber)
