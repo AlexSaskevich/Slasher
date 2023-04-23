@@ -18,6 +18,11 @@ namespace Source.UI.Views
 
         private void Update()
         {
+            var timer = _firstGameModeBlinder.FirstGameModeTimer;
+
+            _timer.text = timer.Seconds.ToString().Length == 1
+                ? $"{timer.Minutes} : 0{timer.Seconds}"
+                : $"{timer.Minutes} : {timer.Seconds}";
         }
     }
 }
