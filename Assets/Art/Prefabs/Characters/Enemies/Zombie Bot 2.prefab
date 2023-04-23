@@ -5228,7 +5228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4004710662280972
 Transform:
   m_ObjectHideFlags: 0
@@ -7369,7 +7369,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &4585030988576674
 Transform:
   m_ObjectHideFlags: 0
@@ -8140,7 +8140,7 @@ GameObject:
   - component: {fileID: -3401489670863800675}
   - component: {fileID: 6356089351341458047}
   m_Layer: 0
-  m_Name: Zombie Bot
+  m_Name: Zombie Bot 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8324,7 +8324,7 @@ MonoBehaviour:
   _attackingRadius: 0.5
   _attackingTrigger: {fileID: 4760497369628387157}
   <Delay>k__BackingField: 2
-  _damage: 12
+  _damage: 15
 --- !u!114 &-4053311926456904880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8414,7 +8414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dec1d0dacb554ebeb5498f451642fb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 35
+  <MaxHealth>k__BackingField: 45
 --- !u!114 &6356089351341458047
 MonoBehaviour:
   m_ObjectHideFlags: 0

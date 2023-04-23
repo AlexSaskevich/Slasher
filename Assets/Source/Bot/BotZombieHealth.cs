@@ -15,6 +15,8 @@ namespace Source.Bot
         {
             BotTarget.ClearTargets();
             _zombieScore.SetScore(_zombieScore.Score + 1);
+            
+            gameObject.SetActive(false);
         }
     }
 }

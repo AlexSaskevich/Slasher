@@ -804,7 +804,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _waves:
-  - <BotMovements>k__BackingField: []
+  - <BotMovements>k__BackingField:
+    - {fileID: -3414817813121924741, guid: 3ba6740ea34059446b2030cb1cee74bc, type: 3}
     <BotsCount>k__BackingField: 1
     <Delay>k__BackingField: 2
   _spawnPoints:
