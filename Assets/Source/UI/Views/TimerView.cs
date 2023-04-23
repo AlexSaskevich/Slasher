@@ -9,11 +9,11 @@ namespace Source.UI.Views
         [SerializeField] private TimerListener _timerListener;
         
         private TMP_Text _time;
-        private Timer _timer;
+        private SecondGameModeTimer _secondGameModeTimer;
         
         private void Awake()
         {
-            _timer = _timerListener.Timer;   
+            _secondGameModeTimer = _timerListener.SecondGameModeTimer;   
             _time = GetComponent<TMP_Text>();
         }
 
@@ -24,11 +24,11 @@ namespace Source.UI.Views
 
         private void Update()
         {
-            _timer.Update(Time.deltaTime);
+            _secondGameModeTimer.Update(Time.deltaTime);
 
-            _time.text = _timer.Seconds.ToString().Length == 1
-                ? $"{_timer.Minutes} : 0{_timer.Seconds}"
-                : $"{_timer.Minutes} : {_timer.Seconds}";
+            _time.text = _secondGameModeTimer.Seconds.ToString().Length == 1
+                ? $"{_secondGameModeTimer.Minutes} : 0{_secondGameModeTimer.Seconds}"
+                : $"{_secondGameModeTimer.Minutes} : {_secondGameModeTimer.Seconds}";
         }
     }
 }

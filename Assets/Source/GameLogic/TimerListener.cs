@@ -7,7 +7,7 @@ namespace Source.GameLogic
     {
         [SerializeField] private PlayerHealth _playerHealth;
         
-        public Timer Timer { get; private set; } = new();
+        public SecondGameModeTimer SecondGameModeTimer { get; private set; } = new();
 
         private void OnEnable()
         {
@@ -21,8 +21,8 @@ namespace Source.GameLogic
 
         private void OnDied()
         {
-            if (Timer.IsTimeHighest())
-                GameProgressSaver.SetTime(Timer.ScoreText);
+            if (SecondGameModeTimer.IsTimeHighest())
+                GameProgressSaver.SetTime(SecondGameModeTimer.ScoreText);
         }
     }
 }

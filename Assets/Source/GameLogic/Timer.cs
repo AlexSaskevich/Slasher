@@ -1,43 +1,14 @@
-﻿using System;
-
-namespace Source.GameLogic
+﻿namespace Source.GameLogic
 {
-    public sealed class Timer
+    public abstract class Timer
     {
-        private const int SecondsInMinute = 60;
-        
-        private static float s_highestScore;
-
-        private float _time;
-        private int _scoreSeconds;
-        private int _scoreMinutes;
+        protected const int SecondsInMinute = 60;
         
         public static string ScoreText { get; private set; }
         
         public int Minutes { get; private set; }
         public int Seconds { get; private set; }
-
-        public void Update(float deltaTime)
-        {
-            _time += deltaTime;
-
-            Seconds = Convert.ToInt32(_time - SecondsInMinute * Minutes);
-
-            if (Seconds > SecondsInMinute)
-                Minutes++;
-
-            if (s_highestScore >= _time) 
-                return;
-            
-            s_highestScore = _time;
-            _scoreSeconds = Seconds;
-            _scoreMinutes = Minutes;
-
-            ScoreText = _scoreSeconds.ToString().Length == 1
-                ? $"{_scoreMinutes} : 0{_scoreSeconds}"
-                : $"{_scoreMinutes} : {_scoreSeconds}";
-        }
-
+        
         public static string ConvertIntToTime(int value)
         {
             var minutes = value / SecondsInMinute;
@@ -46,9 +17,30 @@ namespace Source.GameLogic
             return seconds.ToString().Length == 1 ? $"{minutes} : 0{seconds}" : $"{minutes} : {seconds}";
         }
 
-        public bool IsTimeHighest()
+        protected void SetScoreText(string scoreText)
         {
-            return _time > s_highestScore;
+            if (string.IsNullOrEmpty(scoreText))
+                return;
+
+            ScoreText = scoreText;
         }
+        
+        protected void SetSeconds(int seconds)
+        {
+            if (seconds <= Seconds)
+                return;
+            
+            Seconds = seconds;
+        }
+
+        protected void SetMinutes(int minutes)
+        {
+            if (minutes <= Minutes)
+                return;
+
+            Minutes = minutes;
+        }
+
+        public abstract void Update(float deltaTime);
     }
 }
