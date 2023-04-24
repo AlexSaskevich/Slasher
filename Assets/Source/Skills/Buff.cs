@@ -84,8 +84,8 @@ namespace Source.Skills
 
         private bool CheckCurrentAnimationEnd()
         {
-            var currentAnimationName = _animator.GetCurrentAnimatorStateInfo(1).IsName(AnimationConstants.Buff);
-            var isCurrentAnimationEnd = _animator.GetCurrentAnimatorStateInfo(1).normalizedTime >= AnimationConstants.EndAnimationTime;
+            var currentAnimationName = _animator.GetCurrentAnimatorStateInfo(AnimationConstants.TopLayer).IsName(AnimationConstants.Buff);
+            var isCurrentAnimationEnd = _animator.GetCurrentAnimatorStateInfo(AnimationConstants.TopLayer).normalizedTime >= AnimationConstants.EndAnimationTime;
 
             return currentAnimationName && isCurrentAnimationEnd;
         }

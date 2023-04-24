@@ -6,11 +6,10 @@ namespace Source.GameLogic
     public abstract class Health : MonoBehaviour
     {
         public event Action HealthChanged;
-
         public event Action Died;
-        
+
         [field: SerializeField] public float MaxHealth { get; private set; }
-        public float CurrentHealth { get; private set; }
+        public float CurrentHealth { get; protected set; }
 
         protected virtual void Start()
         {
@@ -30,6 +29,15 @@ namespace Source.GameLogic
                 Die();
             }
 
+            HealthChanged?.Invoke();
+        }
+
+        protected void TryHeal(float modifier)
+        {
+            if (modifier <= 0)
+                return;
+
+            CurrentHealth = Mathf.Clamp(CurrentHealth + modifier * Time.deltaTime, 0, MaxHealth);
             HealthChanged?.Invoke();
         }
 
