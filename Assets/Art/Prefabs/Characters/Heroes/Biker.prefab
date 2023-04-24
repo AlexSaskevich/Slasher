@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 8014045145754614795}
   - component: {fileID: 807508609}
   - component: {fileID: 8014045146557720179}
-  - component: {fileID: 1677530834}
+  - component: {fileID: 1677530840}
   m_Layer: 0
   m_Name: Biker
   m_TagString: Untagged
@@ -352,9 +352,8 @@ MonoBehaviour:
   <Cost>k__BackingField: 60
   <Cooldown>k__BackingField: 6
   _weapon: {fileID: 8014045146609878632}
-  _speedModifier: 1.5
   _duration: 5
---- !u!114 &1677530834
+--- !u!114 &1677530840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -363,10 +362,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8014045145754614815}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c71058c2dd074dfab9e6018a3915006c, type: 3}
+  m_Script: {fileID: 11500000, guid: d4462169da55484ab39b74bb7b471fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerHealth: {fileID: 8014045145754614784}
 --- !u!1 &8014045145764493197
 GameObject:
   m_ObjectHideFlags: 0

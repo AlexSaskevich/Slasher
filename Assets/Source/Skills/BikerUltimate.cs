@@ -12,7 +12,6 @@ namespace Source.Skills
     public sealed class BikerUltimate : Ultimate
     {
         [SerializeField] private PlayerWeapon _weapon;
-        [SerializeField] private float _speedModifier;
         [SerializeField] private float _duration;
 
         private Coroutine _coroutine;
@@ -43,10 +42,7 @@ namespace Source.Skills
                 return;
 
             if (ElapsedTime <= Cooldown - _duration)
-            {
-                _playerMovement.RemoveModifier(_speedModifier);
                 _weapon.RemoveModifier(_weapon.MaxDamage);
-            }
         }
 
         public override void TryActivate()
@@ -77,15 +73,14 @@ namespace Source.Skills
             _inputSource.Disable();
             yield return new WaitUntil(() => CheckCurrentAnimationEnd());
             _inputSource.Enable();
-            _playerMovement.AddModifier(_speedModifier);
             _weapon.AddModifier(_weapon.MaxDamage);
             base.TryActivate();
         }
 
         private bool CheckCurrentAnimationEnd()
         {
-            var currentAnimationName = Animator.GetCurrentAnimatorStateInfo(0).IsName(AnimationConstants.Ultimate);
-            var isCurrentAnimationEnd = Animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= AnimationConstants.EndAnimationTime;
+            var currentAnimationName = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.BaseLayer).IsName(AnimationConstants.Ultimate);
+            var isCurrentAnimationEnd = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.BaseLayer).normalizedTime >= AnimationConstants.EndAnimationTime;
 
             return currentAnimationName && isCurrentAnimationEnd;
         }
