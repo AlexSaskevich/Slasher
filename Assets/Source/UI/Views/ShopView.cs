@@ -1,9 +1,11 @@
-﻿using UnityEngine;
+﻿using Source.UI.Views;
+using UnityEngine;
 
-namespace Source.UI.Views
+namespace Assets.Source.UI.Views
 {
     [RequireComponent(typeof(CanvasGroup))]
-    public class GameModeView : UIView
+
+    public class ShopView : UIView
     {
         protected override void Awake()
         {

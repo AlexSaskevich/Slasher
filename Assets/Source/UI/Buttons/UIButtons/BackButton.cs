@@ -5,11 +5,11 @@ namespace Source.UI.Buttons.UIButtons
 {
     public sealed class BackButton : UIButton
     {
-        [SerializeField] private GameModeView _gameModeView;
+        [SerializeField] private UIView _uiViewToHide;
 
         protected override void OnUIButtonClick()
         {
-            _gameModeView.Hide();
+            _uiViewToHide.Hide();
         }
     }
 }
