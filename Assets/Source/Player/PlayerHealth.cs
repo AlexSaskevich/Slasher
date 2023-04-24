@@ -1,8 +1,7 @@
 ﻿using Source.GameLogic;
 using Source.InputSource;
 using Source.Interfaces;
-using System.Collections;
-using UnityEngine;
+using System;
 
 namespace Source.Player
 {
@@ -10,7 +9,8 @@ namespace Source.Player
     {
         private InputSwitcher _inputSwitcher;
         private IInputSource _inputSource;
-        private Coroutine _coroutine;
+        private float _healModifier;
+        private float _chanceAvoidDamage;
 
         public bool IsBuffed { get; private set; }
 
@@ -23,6 +23,17 @@ namespace Source.Player
         {
             base.Start();
             _inputSource = _inputSwitcher.InputSource;
+            _healModifier = 0;
+            _chanceAvoidDamage = 0;
+        }
+
+        private void Update()
+        {
+            if (IsBuffed == false)
+                return;
+
+            if (_healModifier > 0)
+                TryHeal(_healModifier);
         }
 
         protected override void Die()
@@ -35,36 +46,45 @@ namespace Source.Player
             if (enabled == false)
                 return;
 
+            if (_chanceAvoidDamage > 0)
+                damage *= GetFinalDamage();
+
             base.TryTakeDamage(damage);
         }
 
         public void AddModifier(float modifier)
         {
-            IsBuffed = true;
+            if (modifier <= 0)
+                throw new ArgumentException();
 
-            StartHeal(modifier);
+            if (modifier <= 1)
+                _chanceAvoidDamage += modifier;
+            else
+                _healModifier += modifier;
+
+            IsBuffed = true;
         }
 
         public void RemoveModifier(float modifier)
         {
+            if (modifier <= 0)
+                throw new ArgumentException();
+
+            if (modifier <= 1)
+                _chanceAvoidDamage -= modifier;
+            else
+                _healModifier -= modifier;
+
             IsBuffed = false;
         }
 
-        private void StartHeal(float modifier)
+        private float GetFinalDamage()
         {
-            if (_coroutine != null)
-                StopCoroutine(_coroutine);
+            const float MaxProbability = 1.0f;
+            const float MinProbability = 0.0f;
+            var randomProbability = UnityEngine.Random.Range(MinProbability, MaxProbability);
 
-            _coroutine = StartCoroutine(HealCoroutine(modifier));
-        }
-
-        private IEnumerator HealCoroutine(float modifier)
-        {
-            while (IsBuffed)
-            {
-                TryHeal(modifier);
-                yield return null;
-            }
+            return randomProbability > MaxProbability - _chanceAvoidDamage ? MinProbability : MaxProbability;
         }
     }
 }

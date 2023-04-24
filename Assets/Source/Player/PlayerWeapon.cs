@@ -55,7 +55,7 @@ namespace Source.Player
 
         public void AddModifier(float modifier)
         {
-            if (modifier == 0)
+            if (modifier <= 0)
                 throw new ArgumentException();
 
             IsBuffed = true;
@@ -64,7 +64,7 @@ namespace Source.Player
 
         public void RemoveModifier(float modifier)
         {
-            if (modifier == 0)
+            if (modifier <= 0)
                 throw new ArgumentException();
 
             IsBuffed = false;
