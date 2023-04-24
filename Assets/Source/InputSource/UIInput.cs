@@ -1,7 +1,7 @@
 ﻿using Source.Constants;
 using Source.Interfaces;
 using Source.Skills;
-using Source.UI.Buttons;
+using Source.UI.Buttons.ControlButtons;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

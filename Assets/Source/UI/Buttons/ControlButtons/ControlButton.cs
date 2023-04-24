@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Source.UI.Buttons
+namespace Source.UI.Buttons.ControlButtons
 {
     public class ControlButton : MonoBehaviour
     {
