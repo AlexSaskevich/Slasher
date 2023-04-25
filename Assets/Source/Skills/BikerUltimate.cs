@@ -1,13 +1,11 @@
 ﻿using Source.Combo;
 using Source.Constants;
-using Source.InputSource;
 using Source.Player;
 using System.Collections;
 using UnityEngine;
 
 namespace Source.Skills
 {
-    [RequireComponent(typeof(Animator), typeof(PlayerMana), typeof(InputSwitcher))]
     public sealed class BikerUltimate : Ultimate
     {
         [SerializeField] private PlayerWeapon _weapon;

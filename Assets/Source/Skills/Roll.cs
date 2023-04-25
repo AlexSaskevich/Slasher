@@ -5,38 +5,43 @@ using UnityEngine;
 
 namespace Source.Skills
 {
-    [RequireComponent(typeof(PlayerCombo), typeof(PlayerHealth))]
+    [RequireComponent(typeof(PlayerHealth), typeof(PlayerAgility))]
     public sealed class Roll : Skill
     {
-        private PlayerCombo _playerCombo;
         private PlayerHealth _playerHealth;
+        private PlayerAgility _playerAgility;
 
         public bool IsActive { get; private set; }
 
-        private void Awake()
+        protected override void Awake()
         {
-            _playerCombo = GetComponent<PlayerCombo>();
+            base.Awake();
             _playerHealth = GetComponent<PlayerHealth>();
-            Initialization();
+            _playerAgility = GetComponent<PlayerAgility>();
+        }
+
+        protected override void Start()
+        {
+            base.Start();
         }
 
         public override void TryActivate()
         {
-            if (_playerCombo.Animator.GetBool(AnimationConstants.IsRunning) == false)
+            if (Animator.GetBool(AnimationConstants.IsRunning) == false)
                 return;
 
-            if (_playerCombo.CurrentState is MoveState == false)
+            if (PlayerCombo.CurrentState is MoveState == false)
                 return;
 
             if (ElapsedTime < Cooldown)
                 return;
 
-            if (_playerCombo.PlayerAgility.CurrentAgility < Cost)
+            if (_playerAgility.CurrentAgility < Cost)
                 return;
 
-            _playerCombo.Animator.SetTrigger(AnimationConstants.Roll);
+            Animator.SetTrigger(AnimationConstants.Roll);
 
-            _playerCombo.PlayerAgility.DecreaseAgility(Cost);
+            _playerAgility.DecreaseAgility(Cost);
 
             StartTimer();
         }

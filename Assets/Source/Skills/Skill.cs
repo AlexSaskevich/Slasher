@@ -1,17 +1,27 @@
-﻿using System.Collections;
+﻿using Source.Combo;
+using System.Collections;
 using UnityEngine;
 
 namespace Source.Skills
 {
+    [RequireComponent(typeof(Animator), typeof(PlayerCombo))]
     public abstract class Skill : MonoBehaviour
     {
         private Coroutine _coroutine;
 
         [field: SerializeField] public float Cost { get; private set; }
         [field: SerializeField] public float Cooldown { get; private set; }
-        public float ElapsedTime { get; private set; }
+        protected float ElapsedTime { get; private set; }
+        protected Animator Animator { get; private set; }
+        protected PlayerCombo PlayerCombo { get; private set; }
 
-        protected void Initialization()
+        protected virtual void Awake()
+        {
+            Animator = GetComponent<Animator>();
+            PlayerCombo = GetComponent<PlayerCombo>();
+        }
+
+        protected virtual void Start()
         {
             ElapsedTime = Cooldown;
         }

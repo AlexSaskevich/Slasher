@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Source.Skills
 {
-    [RequireComponent(typeof(Animator), typeof(PlayerMana), typeof(PlayerCombo))]
+    [RequireComponent(typeof(PlayerMana))]
     public sealed class Buff : Skill
     {
         [SerializeField] private MonoBehaviour _buffableBehaviour;
@@ -16,8 +16,6 @@ namespace Source.Skills
 
         private IBuffable _buffable;
         private PlayerMana _playerMana;
-        private Animator _animator;
-        private PlayerCombo _playerCombo;
         private Coroutine _coroutine;
 
         public bool IsActive { get; private set; }
@@ -31,13 +29,16 @@ namespace Source.Skills
                 Debug.LogError(nameof(_duration) + " must be less then " + nameof(Cooldown));
         }
 
-        private void Awake()
+        protected override void Awake()
         {
+            base.Awake();
             _buffable = (IBuffable)_buffableBehaviour;
             _playerMana = GetComponent<PlayerMana>();
-            _animator = GetComponent<Animator>();
-            _playerCombo = GetComponent<PlayerCombo>();
-            Initialization();
+        }
+
+        protected override void Start()
+        {
+            base.Start();
         }
 
         private void Update()
@@ -51,7 +52,7 @@ namespace Source.Skills
 
         public override void TryActivate()
         {
-            if (_playerCombo.CurrentState is MoveState == false)
+            if (PlayerCombo.CurrentState is MoveState == false)
                 return;
 
             if (ElapsedTime < Cooldown)
@@ -73,7 +74,7 @@ namespace Source.Skills
 
         private IEnumerator ActivateBuff()
         {
-            _animator.SetTrigger(AnimationConstants.Buff);
+            Animator.SetTrigger(AnimationConstants.Buff);
             IsActive = true;
             yield return new WaitUntil(() => CheckCurrentAnimationEnd());
             IsActive = false;
@@ -84,8 +85,8 @@ namespace Source.Skills
 
         private bool CheckCurrentAnimationEnd()
         {
-            var currentAnimationName = _animator.GetCurrentAnimatorStateInfo(AnimationConstants.TopLayer).IsName(AnimationConstants.Buff);
-            var isCurrentAnimationEnd = _animator.GetCurrentAnimatorStateInfo(AnimationConstants.TopLayer).normalizedTime >= AnimationConstants.EndAnimationTime;
+            var currentAnimationName = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.TopLayer).IsName(AnimationConstants.Buff);
+            var isCurrentAnimationEnd = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.TopLayer).normalizedTime >= AnimationConstants.EndAnimationTime;
 
             return currentAnimationName && isCurrentAnimationEnd;
         }

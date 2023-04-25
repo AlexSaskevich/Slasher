@@ -1,13 +1,12 @@
 ﻿using Source.Combo;
 using Source.Constants;
-using Source.InputSource;
 using Source.Player;
 using System.Collections;
 using UnityEngine;
 
 namespace Source.Skills
 {
-    [RequireComponent(typeof(Animator), typeof(PlayerMana), typeof(InputSwitcher))]
+    [RequireComponent(typeof(PlayerHealth))]
     public sealed class MedicUltimate : Ultimate
     {
         private const float Modifier = 1;
@@ -23,7 +22,7 @@ namespace Source.Skills
             _playerHealth = GetComponent<PlayerHealth>();
         }
 
-        protected override void Start() 
+        protected override void Start()
         {
             base.Start();
         }
