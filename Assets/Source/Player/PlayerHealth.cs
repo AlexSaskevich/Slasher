@@ -2,16 +2,20 @@
 using Source.InputSource;
 using Source.Interfaces;
 using System;
+using UnityEngine;
 
 namespace Source.Player
 {
     public sealed class PlayerHealth : Health, IBuffable
     {
+        private const float MaxChanceAvoidDamage = 1f;
+        private const float MinChangeAvoidDamage = 0f;
+
         private InputSwitcher _inputSwitcher;
         private IInputSource _inputSource;
         private float _healModifier;
-        private float _chanceAvoidDamage;
 
+        public float ChanceAvoidDamage { get; private set; }
         public bool IsBuffed { get; private set; }
 
         private void Awake()
@@ -24,11 +28,14 @@ namespace Source.Player
             base.Start();
             _inputSource = _inputSwitcher.InputSource;
             _healModifier = 0;
-            _chanceAvoidDamage = 0;
+            ChanceAvoidDamage = 0;
         }
 
         private void Update()
         {
+            if (Input.GetKeyDown(KeyCode.L))
+                TryTakeDamage(10);
+
             if (IsBuffed == false)
                 return;
 
@@ -46,8 +53,16 @@ namespace Source.Player
             if (enabled == false)
                 return;
 
-            if (_chanceAvoidDamage > 0)
-                damage *= GetFinalDamage();
+            switch (ChanceAvoidDamage)
+            {
+                case MaxChanceAvoidDamage:
+                    if (CurrentHealth - damage <= 0)
+                        return;
+                    break;
+                default:
+                    damage *= GetFinalDamage();
+                    break;
+            }
 
             base.TryTakeDamage(damage);
         }
@@ -58,7 +73,7 @@ namespace Source.Player
                 throw new ArgumentException();
 
             if (modifier <= 1)
-                _chanceAvoidDamage += modifier;
+                ChanceAvoidDamage += modifier;
             else
                 _healModifier += modifier;
 
@@ -71,7 +86,7 @@ namespace Source.Player
                 throw new ArgumentException();
 
             if (modifier <= 1)
-                _chanceAvoidDamage -= modifier;
+                ChanceAvoidDamage -= modifier;
             else
                 _healModifier -= modifier;
 
@@ -80,11 +95,9 @@ namespace Source.Player
 
         private float GetFinalDamage()
         {
-            const float MaxProbability = 1.0f;
-            const float MinProbability = 0.0f;
-            var randomProbability = UnityEngine.Random.Range(MinProbability, MaxProbability);
+            var randomProbability = UnityEngine.Random.Range(MinChangeAvoidDamage, MaxChanceAvoidDamage);
 
-            return randomProbability > MaxProbability - _chanceAvoidDamage ? MinProbability : MaxProbability;
+            return randomProbability > MaxChanceAvoidDamage - ChanceAvoidDamage ? MinChangeAvoidDamage : MaxChanceAvoidDamage;
         }
     }
 }

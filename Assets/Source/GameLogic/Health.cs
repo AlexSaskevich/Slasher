@@ -9,7 +9,7 @@ namespace Source.GameLogic
         public event Action Died;
 
         [field: SerializeField] public float MaxHealth { get; private set; }
-        public float CurrentHealth { get; protected set; }
+        public float CurrentHealth { get; private set; }
 
         protected virtual void Start()
         {

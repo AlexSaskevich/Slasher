@@ -1,4 +1,5 @@
-﻿using Source.Player;
+﻿using Source.Constants;
+using Source.Player;
 using UnityEngine;
 
 namespace Source.Skills
@@ -12,6 +13,14 @@ namespace Source.Skills
         {
             PlayerMana.DecreaseMana(Cost);
             StartTimer();
+        }
+
+        protected virtual bool CheckCurrentAnimationEnd()
+        {
+            var currentAnimationName = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.BaseLayer).IsName(AnimationConstants.Ultimate);
+            var isCurrentAnimationEnd = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.BaseLayer).normalizedTime >= AnimationConstants.EndAnimationTime;
+
+            return currentAnimationName && isCurrentAnimationEnd;
         }
     }
 }
