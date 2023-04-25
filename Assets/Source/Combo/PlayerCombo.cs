@@ -45,11 +45,13 @@ namespace Source.Combo
         private void OnEnable()
         {
             _playerHealth.HealthChanged += OnHealthChanged;
+            _playerHealth.Died += OnDied;
         }
 
         private void OnDisable()
         {
             _playerHealth.HealthChanged -= OnHealthChanged;
+            _playerHealth.Died -= OnDied;
         }
 
         private void Update()
@@ -59,14 +61,13 @@ namespace Source.Combo
 
         private void OnHealthChanged()
         {
-            if (_playerHealth.CurrentHealth <= 0)
-            {
-                SwitchState(new DeathState());
-                return;
-            }
-
-            if (CurrentState is ComboState)
+            if (CurrentState is ComboState && _playerHealth.IsBuffed == false)
                 CurrentState.Exit(this);
+        }
+
+        private void OnDied()
+        {
+            SwitchState(new DeathState());
         }
 
         public void SwitchState(State newState)
