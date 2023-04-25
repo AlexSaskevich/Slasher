@@ -8,7 +8,8 @@ using UnityEngine;
 
 namespace Source.Skills
 {
-    public class MedicUltimate : Ultimate
+    [RequireComponent(typeof(Animator), typeof(PlayerMana), typeof(InputSwitcher))]
+    public sealed class MedicUltimate : Ultimate
     {
         private const float Modifier = 1;
 

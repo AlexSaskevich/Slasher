@@ -8,14 +8,13 @@ using UnityEngine;
 
 namespace Source.Skills
 {
-    [RequireComponent(typeof(PlayerMovement), typeof(PlayerCombo))]
+    [RequireComponent(typeof(Animator), typeof(PlayerMana), typeof(InputSwitcher))]
     public sealed class BikerUltimate : Ultimate
     {
         [SerializeField] private PlayerWeapon _weapon;
         [SerializeField] private float _duration;
 
         private Coroutine _coroutine;
-        private PlayerMovement _playerMovement;
         private InputSwitcher _inputSwitcher;
         private IInputSource _inputSource;
         private PlayerCombo _playerCombo;
@@ -23,11 +22,9 @@ namespace Source.Skills
         private void Awake()
         {
             Initialization();
-            _inputSwitcher = GetComponent<InputSwitcher>();
-            _inputSource = _inputSwitcher.InputSource;
-            PlayerMana = GetComponent<PlayerMana>();
             Animator = GetComponent<Animator>();
-            _playerMovement = GetComponent<PlayerMovement>();
+            PlayerMana = GetComponent<PlayerMana>();
+            _inputSwitcher = GetComponent<InputSwitcher>();
             _playerCombo = GetComponent<PlayerCombo>();
         }
 
@@ -38,7 +35,7 @@ namespace Source.Skills
 
         private void Update()
         {
-            if (_playerMovement.IsBuffed == false && _weapon.IsBuffed == false)
+            if (_weapon.IsBuffed == false)
                 return;
 
             if (ElapsedTime <= Cooldown - _duration)
@@ -75,14 +72,6 @@ namespace Source.Skills
             _inputSource.Enable();
             _weapon.AddModifier(_weapon.MaxDamage);
             base.TryActivate();
-        }
-
-        private bool CheckCurrentAnimationEnd()
-        {
-            var currentAnimationName = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.BaseLayer).IsName(AnimationConstants.Ultimate);
-            var isCurrentAnimationEnd = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.BaseLayer).normalizedTime >= AnimationConstants.EndAnimationTime;
-
-            return currentAnimationName && isCurrentAnimationEnd;
         }
     }
 }

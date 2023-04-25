@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace Source.Player
 {
+    [RequireComponent(typeof(InputSwitcher))]
     public sealed class PlayerHealth : Health, IBuffable
     {
         private const float MaxChanceAvoidDamage = 1f;
@@ -33,9 +34,6 @@ namespace Source.Player
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.L))
-                TryTakeDamage(10);
-
             if (IsBuffed == false)
                 return;
 
