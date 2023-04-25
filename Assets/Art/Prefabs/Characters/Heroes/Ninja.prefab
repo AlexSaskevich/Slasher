@@ -412,13 +412,14 @@ GameObject:
   - component: {fileID: 807465450795034213}
   - component: {fileID: 807465450795034212}
   - component: {fileID: 807465450795034215}
+  - component: {fileID: 1161594663}
   m_Layer: 0
   m_Name: Ninja
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &807465450795334331
 Transform:
   m_ObjectHideFlags: 0
@@ -626,10 +627,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Cost>k__BackingField: 20
-  <Cooldown>k__BackingField: 5
-  _buffableBehaviour: {fileID: 8410004351193275394}
-  _modifier: 2
-  _duration: 2.5
+  <Cooldown>k__BackingField: 10
+  _buffableBehaviour: {fileID: 807465450795034208}
+  _modifier: 0.3
+  _duration: 5
+--- !u!114 &1161594663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807465450795034267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30b6b5735f90d6f4aabf3ef61905c4c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Cost>k__BackingField: 20
+  <Cooldown>k__BackingField: 10
+  _playerWeapon: {fileID: 8410004351193275394}
+  _duration: 8
+  _speedModifier: 1.5
+  _damageModifier: 2
 --- !u!1 &807465450795034309
 GameObject:
   m_ObjectHideFlags: 0
