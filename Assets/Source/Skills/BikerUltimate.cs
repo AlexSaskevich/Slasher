@@ -1,7 +1,6 @@
 ﻿using Source.Combo;
 using Source.Constants;
 using Source.InputSource;
-using Source.Interfaces;
 using Source.Player;
 using System.Collections;
 using UnityEngine;
@@ -15,22 +14,15 @@ namespace Source.Skills
         [SerializeField] private float _duration;
 
         private Coroutine _coroutine;
-        private InputSwitcher _inputSwitcher;
-        private IInputSource _inputSource;
-        private PlayerCombo _playerCombo;
 
-        private void Awake()
+        protected override void Awake()
         {
-            Initialization();
-            Animator = GetComponent<Animator>();
-            PlayerMana = GetComponent<PlayerMana>();
-            _inputSwitcher = GetComponent<InputSwitcher>();
-            _playerCombo = GetComponent<PlayerCombo>();
+            base.Awake();
         }
 
-        private void Start()
+        protected override void Start()
         {
-            _inputSource = _inputSwitcher.InputSource;
+            base.Start();
         }
 
         private void Update()
@@ -50,7 +42,7 @@ namespace Source.Skills
             if (PlayerMana.CurrentMana < Cost)
                 return;
 
-            if (_playerCombo.CurrentState is MoveState == false)
+            if (PlayerCombo.CurrentState is MoveState == false)
                 return;
 
             StartUltimate();
@@ -67,9 +59,9 @@ namespace Source.Skills
         private IEnumerator ActivateUltimate()
         {
             Animator.SetTrigger(AnimationConstants.Ultimate);
-            _inputSource.Disable();
+            InputSource.Disable();
             yield return new WaitUntil(() => CheckCurrentAnimationEnd());
-            _inputSource.Enable();
+            InputSource.Enable();
             _weapon.AddModifier(_weapon.MaxDamage);
             base.TryActivate();
         }

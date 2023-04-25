@@ -1,4 +1,7 @@
-﻿using Source.Constants;
+﻿using Source.Combo;
+using Source.Constants;
+using Source.InputSource;
+using Source.Interfaces;
 using Source.Player;
 using UnityEngine;
 
@@ -8,6 +11,24 @@ namespace Source.Skills
     {
         public PlayerMana PlayerMana { get; protected set; }
         public Animator Animator { get; protected set; }
+
+        protected InputSwitcher InputSwitcher { get; private set; }
+        protected IInputSource InputSource { get; private set; }
+        protected PlayerCombo PlayerCombo { get; private set; }
+
+        protected virtual void Awake()
+        {
+            Initialization();
+            Animator = GetComponent<Animator>();
+            PlayerMana = GetComponent<PlayerMana>();
+            InputSwitcher = GetComponent<InputSwitcher>();
+            PlayerCombo = GetComponent<PlayerCombo>();
+        }
+
+        protected virtual void Start()
+        {
+            InputSource = InputSwitcher.InputSource;
+        }
 
         public override void TryActivate()
         {

@@ -70,7 +70,7 @@ namespace Source.Player
             if (modifier <= 0)
                 throw new ArgumentException();
 
-            if (modifier <= 1)
+            if (modifier <= MaxChanceAvoidDamage)
                 ChanceAvoidDamage += modifier;
             else
                 _healModifier += modifier;
@@ -83,12 +83,13 @@ namespace Source.Player
             if (modifier <= 0)
                 throw new ArgumentException();
 
-            if (modifier <= 1)
+            if (modifier <= MaxChanceAvoidDamage)
                 ChanceAvoidDamage -= modifier;
             else
+            {
                 _healModifier -= modifier;
-
-            IsBuffed = false;
+                IsBuffed = false;
+            }
         }
 
         private float GetFinalDamage()
