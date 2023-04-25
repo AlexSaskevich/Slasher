@@ -1,10 +1,11 @@
 ﻿using Source.Combo;
+using Source.Interfaces;
 using System;
 using UnityEngine;
 
 namespace Source.Player
 {
-    public sealed class PlayerAgility : MonoBehaviour
+    public sealed class PlayerAgility : MonoBehaviour, IBuffable
     {
         [SerializeField] private float _increasingAgility;
 
@@ -14,6 +15,8 @@ namespace Source.Player
 
         [field: SerializeField] public float MaxAgility { get; private set; }
         public float CurrentAgility { get; private set; }
+
+        public bool IsBuffed { get; private set; }
 
         private void Awake()
         {
@@ -29,6 +32,9 @@ namespace Source.Player
 
         public void DecreaseAgility(float value)
         {
+            if (IsBuffed)
+                value = 0;
+
             CurrentAgility = Mathf.Clamp(CurrentAgility - value, 0, MaxAgility);
             AgilityChanged?.Invoke();
         }
@@ -37,6 +43,22 @@ namespace Source.Player
         {
             CurrentAgility = Mathf.Clamp(CurrentAgility + _increasingAgility * Time.deltaTime, 0, MaxAgility);
             AgilityChanged?.Invoke();
+        }
+
+        public void AddModifier(float modifier)
+        {
+            if (modifier <= 0)
+                throw new ArgumentException();
+
+            IsBuffed = true;
+        }
+
+        public void RemoveModifier(float modifier)
+        {
+            if (modifier <= 0)
+                throw new ArgumentException();
+
+            IsBuffed = false;
         }
     }
 }

@@ -49,7 +49,7 @@ namespace Source.Player
 
         public void AddModifier(float modifier)
         {
-            if (modifier == 0)
+            if (modifier <= 0)
                 throw new ArgumentException();
 
             IsBuffed = true;
@@ -59,7 +59,7 @@ namespace Source.Player
 
         public void RemoveModifier(float modifier)
         {
-            if (modifier == 0)
+            if (modifier <= 0)
                 throw new ArgumentException();
 
             IsBuffed = false;
@@ -82,12 +82,9 @@ namespace Source.Player
 
         private void OnStateChanged()
         {
-            if (IsBuffed)
-                return;
-
             if (_playerCombo.CurrentState is MoveState || _playerCombo.CurrentState is EntryState)
             {
-                FinalSpeed = DefaultSpeed;
+                FinalSpeed = IsBuffed ? _buffedSpeed : DefaultSpeed;
                 return;
             }
 

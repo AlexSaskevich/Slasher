@@ -9,8 +9,6 @@ namespace Source.Skills
     [RequireComponent(typeof(PlayerHealth))]
     public sealed class MedicUltimate : Ultimate
     {
-        private const float Modifier = 1;
-
         [SerializeField] private float _duration;
 
         private PlayerHealth _playerHealth;
@@ -33,7 +31,7 @@ namespace Source.Skills
                 return;
 
             if (ElapsedTime <= Cooldown - _duration)
-                _playerHealth.RemoveModifier(Modifier);
+                _playerHealth.StopAvoidDamage();
         }
 
         public override void TryActivate()
@@ -64,7 +62,7 @@ namespace Source.Skills
             InputSource.Disable();
             yield return new WaitUntil(() => CheckCurrentAnimationEnd());
             InputSource.Enable();
-            _playerHealth.AddModifier(Modifier);
+            _playerHealth.StartAvoidDamage();
             base.TryActivate();
         }
     }

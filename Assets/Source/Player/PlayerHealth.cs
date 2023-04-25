@@ -34,9 +34,6 @@ namespace Source.Player
 
         private void Update()
         {
-            if (IsBuffed == false)
-                return;
-
             if (_healModifier > 0)
                 TryHeal(_healModifier);
         }
@@ -84,12 +81,21 @@ namespace Source.Player
                 throw new ArgumentException();
 
             if (modifier <= MaxChanceAvoidDamage)
-                ChanceAvoidDamage -= modifier;
+                ChanceAvoidDamage = Mathf.Clamp(ChanceAvoidDamage - modifier, MinChangeAvoidDamage, MaxChanceAvoidDamage);
             else
-            {
                 _healModifier -= modifier;
-                IsBuffed = false;
-            }
+
+            IsBuffed = false;
+        }
+
+        public void StartAvoidDamage()
+        {
+            ChanceAvoidDamage = MaxChanceAvoidDamage;
+        }
+
+        public void StopAvoidDamage()
+        {
+            ChanceAvoidDamage = MinChangeAvoidDamage;
         }
 
         private float GetFinalDamage()

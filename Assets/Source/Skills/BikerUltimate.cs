@@ -8,7 +8,7 @@ namespace Source.Skills
 {
     public sealed class BikerUltimate : Ultimate
     {
-        [SerializeField] private PlayerWeapon _weapon;
+        [SerializeField] private PlayerWeapon _playerWeapon;
         [SerializeField] private float _duration;
 
         private Coroutine _coroutine;
@@ -25,11 +25,11 @@ namespace Source.Skills
 
         private void Update()
         {
-            if (_weapon.IsBuffed == false)
+            if (_playerWeapon.IsBuffed == false)
                 return;
 
             if (ElapsedTime <= Cooldown - _duration)
-                _weapon.RemoveModifier(_weapon.MaxDamage);
+                _playerWeapon.RemoveModifier(_playerWeapon.MaxDamage);
         }
 
         public override void TryActivate()
@@ -60,7 +60,7 @@ namespace Source.Skills
             InputSource.Disable();
             yield return new WaitUntil(() => CheckCurrentAnimationEnd());
             InputSource.Enable();
-            _weapon.AddModifier(_weapon.MaxDamage);
+            _playerWeapon.AddModifier(_playerWeapon.MaxDamage);
             base.TryActivate();
         }
     }
