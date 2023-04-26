@@ -69,7 +69,11 @@ namespace Source.InputSource
         {
             if (_roll.IsActive)
                 return;
+
             if (_buff.IsActive)
+                return;
+
+            if (_ultimate.IsActive)
                 return;
 
             switch (controlButton)

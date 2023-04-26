@@ -31,6 +31,9 @@ namespace Source.InputSource
             if (_buff.IsActive)
                 return;
 
+            if (_ultimate.IsActive)
+                return;
+
             IsAttackButtonClicked = Input.GetMouseButtonDown(0);
 
             if (Input.GetKeyDown(KeyCode.Space))

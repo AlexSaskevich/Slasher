@@ -13,6 +13,7 @@ namespace Source.Constants
         public const string Shoot = "Shoot";
         public const string Buff = "Buff";
         public const string Ultimate = "Ultimate";
+        public const string IsUltimate = "IsUltimate";
         public const string Idle = "Idle";
         public const int HitCount1 = 1;
         public const int HitCount2 = 2;

@@ -8,7 +8,6 @@ namespace Source.Skills
 {
     public sealed class BikerUltimate : Ultimate
     {
-        [SerializeField] private PlayerWeapon _playerWeapon;
         [SerializeField] private float _duration;
 
         private Coroutine _coroutine;
@@ -21,15 +20,6 @@ namespace Source.Skills
         protected override void Start()
         {
             base.Start();
-        }
-
-        private void Update()
-        {
-            if (_playerWeapon.IsBuffed == false)
-                return;
-
-            if (ElapsedTime <= Cooldown - _duration)
-                _playerWeapon.RemoveModifier(_playerWeapon.MaxDamage);
         }
 
         public override void TryActivate()
@@ -56,12 +46,12 @@ namespace Source.Skills
 
         private IEnumerator ActivateUltimate()
         {
-            Animator.SetTrigger(AnimationConstants.Ultimate);
-            InputSource.Disable();
-            yield return new WaitUntil(() => CheckCurrentAnimationEnd());
-            InputSource.Enable();
-            _playerWeapon.AddModifier(_playerWeapon.MaxDamage);
+            Animator.SetBool(AnimationConstants.IsUltimate, true);
+            IsActive = true;
             base.TryActivate();
+            yield return new WaitUntil(() => ElapsedTime <= Cooldown - _duration);
+            Animator.SetBool(AnimationConstants.IsUltimate, false);
+            IsActive = false;
         }
     }
 }
