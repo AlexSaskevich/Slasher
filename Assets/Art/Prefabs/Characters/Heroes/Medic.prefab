@@ -1801,7 +1801,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5683438161955288493}
   m_LocalRotation: {x: -0.7071068, y: 0.7071068, z: 0, w: 0}
-  m_LocalPosition: {x: 0.14, y: 0.031, z: -0.003}
+  m_LocalPosition: {x: 0.09800657, y: 0.032995135, z: -0.013009072}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1958,7 +1958,7 @@ Animator:
   m_GameObject: {fileID: 5683448164920136173}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: ffdfcb810f2918b4f8fe9f917f07bc78, type: 3}
-  m_Controller: {fileID: 9100000, guid: 49811208dc5e3d445ab166fb0b798cf7, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0ff610e9d07957e4e91d64bc2c64bf61, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2138,10 +2138,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Cost>k__BackingField: 30
-  <Cooldown>k__BackingField: 10
+  <Cooldown>k__BackingField: 6
   _buffableBehaviour: {fileID: 5732483610280614470}
   _modifier: 5
-  _duration: 8
+  _duration: 5
 --- !u!114 &8837793339647539821
 MonoBehaviour:
   m_ObjectHideFlags: 0
