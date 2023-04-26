@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Source.Enums;
+using UnityEngine;
 
 namespace Source.GameLogic
 {
@@ -7,6 +8,7 @@ namespace Source.GameLogic
         private const string Money = "Money";
         private const string Time = "Time";
         private const string ZombieScore = "ZombieScore";
+        private const string PlayerHealth = "Health";
 
         public static void SetMoney(int money)
         {
@@ -36,6 +38,16 @@ namespace Source.GameLogic
         public static int GetZombieScore()
         {
             return PlayerPrefs.GetInt(ZombieScore);
+        }
+
+        public static void SetGoodLevel(GoodStatus status, int level)
+        {
+            PlayerPrefs.SetInt(status.ToString(), level);
+        }
+
+        public static int GetGoodLevel(GoodStatus status)
+        {
+            return PlayerPrefs.GetInt(status.ToString());
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Source.GameLogic
+namespace Source.GameLogic.Timers
 {
     public sealed class SecondGameModeTimer : Timer
     {

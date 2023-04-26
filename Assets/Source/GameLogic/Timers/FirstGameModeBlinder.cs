@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Source.GameLogic
+namespace Source.GameLogic.Timers
 {
     public sealed class FirstGameModeBlinder : MonoBehaviour
     {

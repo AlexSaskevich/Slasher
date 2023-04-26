@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Source.Player
 {
     [RequireComponent(typeof(InputSwitcher))]
-    public sealed class PlayerHealth : Health, IBuffable
+    public sealed class PlayerHealth : Health, IUpgradeable
     {
         private const float MaxChanceAvoidDamage = 1f;
         private const float MinChangeAvoidDamage = 0f;
@@ -81,7 +81,8 @@ namespace Source.Player
                 throw new ArgumentException();
 
             if (modifier <= MaxChanceAvoidDamage)
-                ChanceAvoidDamage = Mathf.Clamp(ChanceAvoidDamage - modifier, MinChangeAvoidDamage, MaxChanceAvoidDamage);
+                ChanceAvoidDamage =
+                    Mathf.Clamp(ChanceAvoidDamage - modifier, MinChangeAvoidDamage, MaxChanceAvoidDamage);
             else
                 _healModifier -= modifier;
 
@@ -102,7 +103,18 @@ namespace Source.Player
         {
             var randomProbability = UnityEngine.Random.Range(MinChangeAvoidDamage, MaxChanceAvoidDamage);
 
-            return randomProbability > MaxChanceAvoidDamage - ChanceAvoidDamage ? MinChangeAvoidDamage : MaxChanceAvoidDamage;
+            return randomProbability > MaxChanceAvoidDamage - ChanceAvoidDamage
+                ? MinChangeAvoidDamage
+                : MaxChanceAvoidDamage;
+        }
+
+        public void TryUpgrade(float value)
+        {
+            if (value <= 0)
+                return;
+
+            TryIncreaseMaxHealth(MaxHealth + value);
+            ResetHealth();
         }
     }
 }

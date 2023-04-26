@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Source.Player
 {
-    public sealed class PlayerAgility : MonoBehaviour, IBuffable
+    public sealed class PlayerAgility : MonoBehaviour, IBuffable, IUpgradeable
     {
         [SerializeField] private float _increasingAgility;
 
@@ -59,6 +59,15 @@ namespace Source.Player
                 throw new ArgumentException();
 
             IsBuffed = false;
+        }
+
+        public void TryUpgrade(float value)
+        {
+            if (value <= 0)
+                return;
+            
+            MaxAgility += value;
+            CurrentAgility = MaxAgility;
         }
     }
 }

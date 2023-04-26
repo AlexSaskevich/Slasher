@@ -28,6 +28,11 @@ namespace Source.UI.Views
             _playerWallet.MoneyChanged -= OnMoneyChanged;
         }
 
+        private void Start()
+        {
+            ShowMoney();
+        }
+
         private void OnMoneyChanged()
         {
             ShowMoney();
