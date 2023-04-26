@@ -31,6 +31,11 @@ namespace Source.GameLogic
 
             HealthChanged?.Invoke();
         }
+        
+        public void ResetHealth()
+        {
+            CurrentHealth = MaxHealth;
+        }
 
         protected void TryHeal(float modifier)
         {
@@ -41,9 +46,12 @@ namespace Source.GameLogic
             HealthChanged?.Invoke();
         }
 
-        public void ResetHealth()
+        protected void TryIncreaseMaxHealth(float value)
         {
-            CurrentHealth = MaxHealth;
+            if (value <= MaxHealth)
+                return;
+
+            MaxHealth = value;
         }
 
         protected abstract void Die();

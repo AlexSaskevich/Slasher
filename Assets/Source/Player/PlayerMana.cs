@@ -1,9 +1,10 @@
 ﻿using System;
+using Source.Interfaces;
 using UnityEngine;
 
 namespace Source.Player
 {
-    public sealed class PlayerMana : MonoBehaviour
+    public sealed class PlayerMana : MonoBehaviour, IUpgradeable
     {
         [SerializeField] private float _increasingMana;
 
@@ -33,6 +34,15 @@ namespace Source.Player
         {
             CurrentMana = Mathf.Clamp(CurrentMana + _increasingMana * Time.deltaTime, 0, MaxMana);
             ManaChanged?.Invoke();
+        }
+
+        public void TryUpgrade(float value)
+        {
+            if (value <= 0)
+                return;
+
+            MaxMana += value;
+            CurrentMana = MaxMana;
         }
     }
 }

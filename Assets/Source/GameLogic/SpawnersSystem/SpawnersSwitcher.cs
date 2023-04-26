@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Source.GameLogic
+namespace Source.GameLogic.SpawnersSystem
 {
     public abstract class SpawnersSwitcher : MonoBehaviour
     {

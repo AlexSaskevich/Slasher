@@ -1,4 +1,4 @@
-﻿namespace Source.GameLogic
+﻿namespace Source.GameLogic.Timers
 {
     public abstract class Timer
     {
