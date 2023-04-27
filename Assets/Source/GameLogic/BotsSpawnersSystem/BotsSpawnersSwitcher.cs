@@ -4,7 +4,7 @@ using Source.Enums;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Source.GameLogic.SpawnersSystem
+namespace Source.GameLogic.BotsSpawnersSystem
 {
     public sealed class BotsSpawnersSwitcher : SpawnersSwitcher
     {

@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 807508609}
   - component: {fileID: 8014045146557720179}
   - component: {fileID: 1677530840}
+  - component: {fileID: 1056486098840800951}
   m_Layer: 0
   m_Name: Biker
   m_TagString: Untagged
@@ -194,7 +195,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deviceType: 3
-  _joystick: {fileID: 0}
 --- !u!114 &2103242667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,12 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8245a13c61e6ed2418e27e2cffe871b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _joystick: {fileID: 0}
-  _controlButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &2210658972379986945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
+  <CharacteristicStatus>k__BackingField: 0
 --- !u!114 &8014045145754614785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _increasingAgility: 10
   <MaxAgility>k__BackingField: 100
+  <CharacteristicStatus>k__BackingField: 0
 --- !u!114 &8014045145754614814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,6 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _increasingMana: 7.5
+  <CharacteristicStatus>k__BackingField: 0
   <MaxMana>k__BackingField: 100
 --- !u!114 &8014045145754614795
 MonoBehaviour:
@@ -364,6 +361,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4462169da55484ab39b74bb7b471fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1056486098840800951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8014045145754614815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f8306361d4e95bf04f1b7b408abe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerCharacterName>k__BackingField: 0
 --- !u!1 &8014045145764493197
 GameObject:
   m_ObjectHideFlags: 0

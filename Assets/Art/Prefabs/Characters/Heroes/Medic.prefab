@@ -1924,6 +1924,7 @@ GameObject:
   - component: {fileID: 5732483610280614478}
   - component: {fileID: 5732483610280614479}
   - component: {fileID: 8837793339647539821}
+  - component: {fileID: 1153311788141393848}
   m_Layer: 0
   m_Name: Medic
   m_TagString: Untagged
@@ -1999,7 +2000,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deviceType: 3
-  _joystick: {fileID: 0}
 --- !u!114 &5732483610280614471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2012,12 +2012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8245a13c61e6ed2418e27e2cffe871b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _joystick: {fileID: 0}
-  _controlButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &5732483610280614468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2083,6 +2077,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
+  <CharacteristicStatus>k__BackingField: 0
 --- !u!114 &5732483610280614473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2097,6 +2092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _increasingAgility: 10
   <MaxAgility>k__BackingField: 100
+  <CharacteristicStatus>k__BackingField: 0
 --- !u!114 &5732483610280614472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2110,6 +2106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _increasingMana: 7.5
+  <CharacteristicStatus>k__BackingField: 0
   <MaxMana>k__BackingField: 100
 --- !u!114 &5732483610280614478
 MonoBehaviour:
@@ -2157,6 +2154,19 @@ MonoBehaviour:
   <Cost>k__BackingField: 30
   <Cooldown>k__BackingField: 10
   _duration: 8
+--- !u!114 &1153311788141393848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683448164920136173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f8306361d4e95bf04f1b7b408abe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerCharacterName>k__BackingField: 1
 --- !u!1 &5683467216692641245
 GameObject:
   m_ObjectHideFlags: 0

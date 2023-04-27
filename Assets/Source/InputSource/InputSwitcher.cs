@@ -7,7 +7,8 @@ namespace Source.InputSource
     public class InputSwitcher : MonoBehaviour
     {
         [SerializeField] private DeviceType _deviceType;
-        [SerializeField] private Joystick _joystick;
+        
+        private Joystick _joystick;
 
         public IInputSource InputSource { get; private set; }
 
@@ -16,6 +17,11 @@ namespace Source.InputSource
             GetInputSource();
         }
 
+        public void Init(Joystick joystick)
+        {
+            _joystick = joystick;
+        }
+        
         private void GetInputSource()
         {
             switch (_deviceType)
@@ -27,6 +33,7 @@ namespace Source.InputSource
                     uiInput.enabled = false;
                     _joystick.gameObject.SetActive(false);
                     break;
+                
                 default:
                     InputSource = GetComponent<UIInput>();
                     var keyboardInput = GetComponent<KeyboardInput>();

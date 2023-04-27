@@ -413,6 +413,7 @@ GameObject:
   - component: {fileID: 807465450795034212}
   - component: {fileID: 807465450795034215}
   - component: {fileID: 1161594663}
+  - component: {fileID: 7354259675585591176}
   m_Layer: 0
   m_Name: Ninja
   m_TagString: Untagged
@@ -488,7 +489,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _deviceType: 3
-  _joystick: {fileID: 0}
 --- !u!114 &807465450795034268
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,12 +501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8245a13c61e6ed2418e27e2cffe871b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _joystick: {fileID: 0}
-  _controlButtons:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &807465450795034271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -572,6 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
+  <CharacteristicStatus>k__BackingField: 0
 --- !u!114 &807465450795034210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,6 +581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _increasingAgility: 10
   <MaxAgility>k__BackingField: 100
+  <CharacteristicStatus>k__BackingField: 0
 --- !u!114 &807465450795034213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -599,6 +595,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _increasingMana: 10
+  <CharacteristicStatus>k__BackingField: 0
   <MaxMana>k__BackingField: 100
 --- !u!114 &807465450795034212
 MonoBehaviour:
@@ -649,6 +646,19 @@ MonoBehaviour:
   _duration: 8
   _speedModifier: 1.5
   _damageModifier: 2
+--- !u!114 &7354259675585591176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807465450795034267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771f8306361d4e95bf04f1b7b408abe6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <PlayerCharacterName>k__BackingField: 2
 --- !u!1 &807465450795034309
 GameObject:
   m_ObjectHideFlags: 0

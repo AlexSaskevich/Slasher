@@ -10,9 +10,8 @@ namespace Source.InputSource
 {
     public class UIInput : MonoBehaviour, IInputSource
     {
-        [SerializeField] private Joystick _joystick;
-        [SerializeField] private List<ControlButton> _controlButtons;
-
+        private List<ControlButton> _controlButtons;
+        private Joystick _joystick;
         private Roll _roll;
         private Buff _buff;
         private Ultimate _ultimate;
@@ -47,6 +46,16 @@ namespace Source.InputSource
             MovementInput = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
         }
 
+        public void Init(Joystick joystick, List<ControlButton> controlButtons)
+        {
+            _joystick = joystick;
+
+            _controlButtons = new List<ControlButton>(controlButtons.Count);
+            
+            for (var i = 0; i < _controlButtons.Count; i++)
+                _controlButtons[i] = controlButtons[i];
+        }
+        
         public void HideButtons()
         {
             foreach (var button in _controlButtons)

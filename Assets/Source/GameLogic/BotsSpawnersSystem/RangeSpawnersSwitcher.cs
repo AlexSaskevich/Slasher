@@ -2,7 +2,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Source.GameLogic.SpawnersSystem
+namespace Source.GameLogic.BotsSpawnersSystem
 {
     public sealed class RangeSpawnersSwitcher : SpawnersSwitcher
     {
