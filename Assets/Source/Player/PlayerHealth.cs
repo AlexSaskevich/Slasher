@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Source.Player
 {
     [RequireComponent(typeof(InputSwitcher))]
-    public sealed class PlayerHealth : Health, IUpgradeable
+    public sealed class PlayerHealth : Health, IBuffable, IUpgradeable
     {
         private const float MaxChanceAvoidDamage = 1f;
         private const float MinChangeAvoidDamage = 0f;
