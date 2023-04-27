@@ -1,8 +1,9 @@
-﻿using TMPro;
+﻿using Source.GameLogic.Goods;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Source.GameLogic.Goods
+namespace Source.UI.Views
 {
     [RequireComponent(typeof(GoodBlinder),typeof(Button))]
     public sealed class GoodView : MonoBehaviour
@@ -21,24 +22,24 @@ namespace Source.GameLogic.Goods
         private void OnEnable()
         {
             _button.onClick.AddListener(OnClick);
-            _goodBlinder.Good.LevelMaxed += OnLevelMaxed;
         }
         
         private void OnDisable()
         {
             _button.onClick.RemoveListener(OnClick);
-            _goodBlinder.Good.LevelMaxed -= OnLevelMaxed;
         }
 
         private void Start()
         {
             ShowLevel();
+            TryTurnOff();
         }
 
         private void OnClick()
         {
             _goodBlinder.Good.TryBuy();
             ShowLevel();
+            TryTurnOff();
         }
 
         private void ShowLevel()
@@ -46,9 +47,10 @@ namespace Source.GameLogic.Goods
             _level.text = _goodBlinder.Good.Level.ToString();
         }
 
-        private void OnLevelMaxed()
+        private void TryTurnOff()
         {
-            _button.interactable = false;
+            if (_goodBlinder.Good.IsMaxLevel())
+                _button.interactable = false;
         }
     }
 }

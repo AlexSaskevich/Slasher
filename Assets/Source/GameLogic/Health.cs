@@ -54,6 +54,14 @@ namespace Source.GameLogic
             MaxHealth = value;
         }
 
+        protected void TrySetMaxHealth(float value)
+        {
+            if (value <= 0)
+                return;
+
+            MaxHealth = value;
+        }
+
         protected abstract void Die();
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Source.Combo;
 using Source.Interfaces;
 using System;
+using Source.Enums;
+using Source.GameLogic;
 using UnityEngine;
 
 namespace Source.Player
@@ -14,13 +16,21 @@ namespace Source.Player
         public event Action AgilityChanged;
 
         [field: SerializeField] public float MaxAgility { get; private set; }
+        [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; set; }
+        
         public float CurrentAgility { get; private set; }
 
         public bool IsBuffed { get; private set; }
 
         private void Awake()
         {
+            var maxAgility = GameProgressSaver.GetPlayerCharacteristic(CharacteristicStatus);
+
+            if (maxAgility > 0)
+                MaxAgility = maxAgility;
+            
             CurrentAgility = MaxAgility;
+            
             _playerCombo = GetComponent<PlayerCombo>();
         }
 
@@ -68,6 +78,11 @@ namespace Source.Player
             
             MaxAgility += value;
             CurrentAgility = MaxAgility;
+        }
+
+        public float GetUpgradedCharacteristic()
+        {
+            return MaxAgility;
         }
     }
 }

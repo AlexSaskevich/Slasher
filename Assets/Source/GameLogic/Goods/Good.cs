@@ -16,8 +16,6 @@ namespace Source.GameLogic.Goods
         private readonly int _increasedValue;
         private readonly int _price;
 
-        public event Action LevelMaxed;
-        
         public Good(int level, int increasedValue, IUpgradeable upgradeable, int price, PlayerWallet playerWallet, GoodStatus goodStatus)
         {
             Level = level;
@@ -29,7 +27,7 @@ namespace Source.GameLogic.Goods
         }
         
         public int Level { get; private set; }
-
+        
         public void TryBuy()
         {
             if (_playerWallet.CurrentMoney >= _price)
@@ -39,14 +37,20 @@ namespace Source.GameLogic.Goods
                 
                 Level++;
                 GameProgressSaver.SetGoodLevel(_goodStatus, Level);
-                
-                if (Level == MaxLevel)
-                    LevelMaxed?.Invoke();
+
+                var value = _upgradeable.GetUpgradedCharacteristic();
+
+                GameProgressSaver.SetPlayerCharacteristic(_upgradeable.CharacteristicStatus, value);              
             }
             else
             {
                 Debug.Log("No money");
             }
+        }
+
+        public bool IsMaxLevel()
+        {
+            return Level >= MaxLevel;
         }
     }
 }

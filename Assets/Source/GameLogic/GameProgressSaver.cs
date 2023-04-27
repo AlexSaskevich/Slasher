@@ -8,7 +8,6 @@ namespace Source.GameLogic
         private const string Money = "Money";
         private const string Time = "Time";
         private const string ZombieScore = "ZombieScore";
-        private const string PlayerHealth = "Health";
 
         public static void SetMoney(int money)
         {
@@ -48,6 +47,16 @@ namespace Source.GameLogic
         public static int GetGoodLevel(GoodStatus status)
         {
             return PlayerPrefs.GetInt(status.ToString());
+        }
+
+        public static void SetPlayerCharacteristic(CharacteristicStatus characteristicStatus, float value)
+        {
+            PlayerPrefs.SetFloat(characteristicStatus.ToString(), value);
+        }
+
+        public static float GetPlayerCharacteristic(CharacteristicStatus characteristicStatus)
+        {
+            return PlayerPrefs.GetFloat(characteristicStatus.ToString());
         }
     }
 }

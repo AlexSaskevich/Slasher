@@ -2,6 +2,7 @@
 using Source.InputSource;
 using Source.Interfaces;
 using System;
+using Source.Enums;
 using UnityEngine;
 
 namespace Source.Player
@@ -16,11 +17,18 @@ namespace Source.Player
         private IInputSource _inputSource;
         private float _healModifier;
 
+        [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; set; }
+        
         public float ChanceAvoidDamage { get; private set; }
         public bool IsBuffed { get; private set; }
 
         private void Awake()
         {
+            var maxHealth = GameProgressSaver.GetPlayerCharacteristic(CharacteristicStatus);
+            
+            if(maxHealth > 0)
+                TrySetMaxHealth(maxHealth);
+                
             _inputSwitcher = GetComponent<InputSwitcher>();
         }
 
@@ -98,14 +106,10 @@ namespace Source.Player
         {
             ChanceAvoidDamage = MinChangeAvoidDamage;
         }
-
-        private float GetFinalDamage()
+        
+        public float GetUpgradedCharacteristic()
         {
-            var randomProbability = UnityEngine.Random.Range(MinChangeAvoidDamage, MaxChanceAvoidDamage);
-
-            return randomProbability > MaxChanceAvoidDamage - ChanceAvoidDamage
-                ? MinChangeAvoidDamage
-                : MaxChanceAvoidDamage;
+            return MaxHealth;
         }
 
         public void TryUpgrade(float value)
@@ -115,6 +119,15 @@ namespace Source.Player
 
             TryIncreaseMaxHealth(MaxHealth + value);
             ResetHealth();
+        }
+
+        private float GetFinalDamage()
+        {
+            var randomProbability = UnityEngine.Random.Range(MinChangeAvoidDamage, MaxChanceAvoidDamage);
+
+            return randomProbability > MaxChanceAvoidDamage - ChanceAvoidDamage
+                ? MinChangeAvoidDamage
+                : MaxChanceAvoidDamage;
         }
     }
 }

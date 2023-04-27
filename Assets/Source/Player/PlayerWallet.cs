@@ -16,9 +16,7 @@ namespace Source.Player
         private void Awake()
         {
             _playerHealth = GetComponent<PlayerHealth>();
-            GameProgressSaver.SetMoney(10000000);
             CurrentMoney = GameProgressSaver.GetMoney();
-            print(CurrentMoney);
         }
 
         private void OnEnable()

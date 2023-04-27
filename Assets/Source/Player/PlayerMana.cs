@@ -1,4 +1,6 @@
 ﻿using System;
+using Source.Enums;
+using Source.GameLogic;
 using Source.Interfaces;
 using UnityEngine;
 
@@ -10,11 +12,18 @@ namespace Source.Player
 
         public event Action ManaChanged;
 
+        [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; set; }
         [field: SerializeField] public float MaxMana { get; private set; }
+        
         public float CurrentMana { get; private set; }
 
         private void Awake()
         {
+            var maxMana = GameProgressSaver.GetPlayerCharacteristic(CharacteristicStatus);
+
+            if (maxMana > 0)
+                MaxMana = maxMana;
+            
             CurrentMana = MaxMana;
         }
 
@@ -30,12 +39,6 @@ namespace Source.Player
             ManaChanged?.Invoke();
         }
 
-        private void IncreaseMana()
-        {
-            CurrentMana = Mathf.Clamp(CurrentMana + _increasingMana * Time.deltaTime, 0, MaxMana);
-            ManaChanged?.Invoke();
-        }
-
         public void TryUpgrade(float value)
         {
             if (value <= 0)
@@ -43,6 +46,17 @@ namespace Source.Player
 
             MaxMana += value;
             CurrentMana = MaxMana;
+        }
+
+        public float GetUpgradedCharacteristic()
+        {
+            return MaxMana;
+        }
+        
+        private void IncreaseMana()
+        {
+            CurrentMana = Mathf.Clamp(CurrentMana + _increasingMana * Time.deltaTime, 0, MaxMana);
+            ManaChanged?.Invoke();
         }
     }
 }
