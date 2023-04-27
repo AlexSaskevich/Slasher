@@ -5,7 +5,7 @@ namespace Source.UI.Bars
 {
     public sealed class PlayerHealthBar : Bar
     {
-        [SerializeField] private PlayerHealth _playerHealth;
+        private PlayerHealth _playerHealth;
 
         private void Awake()
         {
@@ -20,6 +20,11 @@ namespace Source.UI.Bars
         private void OnDisable()
         {
             _playerHealth.HealthChanged -= OnValueChanged;
+        }
+
+        public void Init(PlayerHealth playerHealth)
+        {
+            _playerHealth = playerHealth;
         }
 
         protected override void OnValueChanged()

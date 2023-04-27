@@ -15,12 +15,12 @@ namespace Source.GameLogic.BotsSpawnersSystem
         [SerializeField] private List<Wave> _waves = new();
         [SerializeField] private Transform[] _spawnPoints;
         [SerializeField] private List<Target> _targets;
-        [SerializeField] private PlayerMovement _playerMovement;
-        [SerializeField] private PlayerHealth _playerHealth;
-        [SerializeField] private PlayerWallet _playerWallet;
-        [SerializeField] private ZombieScore _zombieScore;
         [SerializeField] private float _delay;
-
+        
+        private PlayerMovement _playerMovement;
+        private PlayerHealth _playerHealth;
+        private PlayerWallet _playerWallet;
+        private ZombieScore _zombieScore;
         private int _currentWaveNumber;
         private int _spawnedBotsCount;
         private float _timeAfterLastBotSpawned;
@@ -67,6 +67,15 @@ namespace Source.GameLogic.BotsSpawnersSystem
                 CurrentWave = null;
                 TurnedOff?.Invoke();
             }
+        }
+
+        public void Init(PlayerMovement playerMovement, PlayerHealth playerHealth, PlayerWallet playerWallet,
+            ZombieScore zombieScore)
+        {
+            _playerMovement = playerMovement;
+            _playerHealth = playerHealth;
+            _playerWallet = playerWallet;
+            _zombieScore = zombieScore;
         }
         
         public void ResetOptions()

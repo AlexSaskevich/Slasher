@@ -5,7 +5,7 @@ namespace Source.UI.Bars
 {
     public class PlayerManaBar : Bar
     {
-        [SerializeField] private PlayerMana _playerMana;
+        private PlayerMana _playerMana;
         
         private void Awake()
         {
@@ -22,6 +22,11 @@ namespace Source.UI.Bars
             _playerMana.ManaChanged -= OnValueChanged;
         }
 
+        public void Init(PlayerMana playerMana)
+        {
+            _playerMana = playerMana;
+        }
+        
         protected override void OnValueChanged()
         {
             var targetValue = _playerMana.CurrentMana / _playerMana.MaxMana;

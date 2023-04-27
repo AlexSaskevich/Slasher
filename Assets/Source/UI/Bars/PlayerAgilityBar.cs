@@ -5,7 +5,7 @@ namespace Source.UI.Bars
 {
     public sealed class PlayerAgilityBar : Bar
     {
-        [SerializeField] private PlayerAgility _playerAgility;
+        private PlayerAgility _playerAgility;
 
         private void Awake()
         {
@@ -22,6 +22,11 @@ namespace Source.UI.Bars
             _playerAgility.AgilityChanged -= OnValueChanged;
         }
 
+        public void Init(PlayerAgility playerAgility)
+        {
+            _playerAgility = playerAgility;
+        }
+        
         protected override void OnValueChanged()
         {
             var targetValue = _playerAgility.CurrentAgility / _playerAgility.MaxAgility;

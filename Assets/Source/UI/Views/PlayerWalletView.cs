@@ -7,7 +7,7 @@ namespace Source.UI.Views
     [RequireComponent(typeof(TMP_Text))]
     public sealed class PlayerWalletView : MonoBehaviour
     {
-        [SerializeField] private PlayerWallet _playerWallet; 
+        private PlayerWallet _playerWallet; 
             
         private TMP_Text _money;
 
@@ -31,6 +31,11 @@ namespace Source.UI.Views
         private void Start()
         {
             ShowMoney();
+        }
+
+        public void Init(PlayerWallet playerWallet)
+        {
+            _playerWallet = playerWallet;
         }
 
         private void OnMoneyChanged()
