@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 namespace Source.UI.Buttons.UIButtons
 {
+    [RequireComponent(typeof(Button))]
     public abstract class UIButton : MonoBehaviour
     {
         private Button _button;
@@ -14,14 +15,14 @@ namespace Source.UI.Buttons.UIButtons
 
         private void OnEnable()
         {
-            _button.onClick.AddListener(OnUIButtonClick);
+            _button.onClick.AddListener(OnButtonClick);
         }
 
         private void OnDisable()
         {
-            _button.onClick.RemoveListener(OnUIButtonClick);
+            _button.onClick.RemoveListener(OnButtonClick);
         }
 
-        protected abstract void OnUIButtonClick();
+        protected abstract void OnButtonClick();
     }
 }

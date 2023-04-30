@@ -5,7 +5,7 @@ namespace Source.UI.Buttons.UIButtons
 {
     public sealed class ZombieModeButton : UIButton
     {
-        protected override void OnUIButtonClick()
+        protected override void OnButtonClick()
         {
             SceneManager.LoadScene(GameModeConstants.ZombieMode);
         }
