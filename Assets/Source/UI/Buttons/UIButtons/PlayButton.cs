@@ -7,7 +7,7 @@ namespace Source.UI.Buttons.UIButtons
     {
         [SerializeField] private GameModeView _gameModeView;
 
-        protected override void OnUIButtonClick()
+        protected override void OnButtonClick()
         {
             _gameModeView.Show();
         }

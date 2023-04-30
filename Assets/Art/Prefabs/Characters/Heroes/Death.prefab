@@ -1929,6 +1929,7 @@ GameObject:
   - component: {fileID: 626354353590910990}
   - component: {fileID: 626354353590910991}
   - component: {fileID: 6973243805678024416}
+  - component: {fileID: 4838721501812216029}
   m_Layer: 0
   m_Name: Death
   m_TagString: Untagged
@@ -2171,6 +2172,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerCharacterName>k__BackingField: 3
+--- !u!114 &4838721501812216029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626354353600354597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4462169da55484ab39b74bb7b471fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &626354353600354839
 GameObject:
   m_ObjectHideFlags: 0

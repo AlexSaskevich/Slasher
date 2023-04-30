@@ -7,7 +7,7 @@ namespace Source.UI.Buttons.UIButtons
     {
         [SerializeField] private ShopView _shopView;
 
-        protected override void OnUIButtonClick()
+        protected override void OnButtonClick()
         {
             _shopView.Show();
         }

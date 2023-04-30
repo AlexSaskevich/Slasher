@@ -7,7 +7,7 @@ namespace Source.UI.Buttons.UIButtons
     {
         [SerializeField] private UIView _uiViewToHide;
 
-        protected override void OnUIButtonClick()
+        protected override void OnButtonClick()
         {
             _uiViewToHide.Hide();
         }

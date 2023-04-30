@@ -60,14 +60,14 @@ namespace Source.GameLogic
             return PlayerPrefs.GetFloat(characteristicStatus.ToString());
         }
 
-        public static void SetCurrentCharacterName(PlayerCharacterName playerCharacterName)
+        public static void SetCurrentCharacterIndex(int playerCharacterName)
         {
-            PlayerPrefs.SetString(PlayerCharacter, playerCharacterName.ToString());
+            PlayerPrefs.SetInt(PlayerCharacter, playerCharacterName);
         }
 
-        public static string GetCurrentCharacterName()
+        public static int GetCurrentCharacterIndex()
         {
-            return PlayerPrefs.GetString(PlayerCharacter);
+            return PlayerPrefs.GetInt(PlayerCharacter);
         }
     }
 }

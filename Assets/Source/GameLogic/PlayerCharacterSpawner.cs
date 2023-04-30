@@ -7,6 +7,7 @@ using Source.InputSource;
 using Source.Player;
 using Source.UI.Bars;
 using Source.UI.Buttons.ControlButtons;
+using Source.UI.Buttons.UIButtons;
 using Source.UI.Views;
 using UnityEngine;
 
@@ -22,13 +23,39 @@ namespace Source.GameLogic
         [SerializeField] private PlayerHealthBar _playerHealthBar;
         [SerializeField] private PlayerManaBar _playerManaBar;
         [SerializeField] private PlayerWalletView _playerWalletView;
-        [SerializeField] private List<BotsSpawner> _botsSpawners;
+        [SerializeField] private List<BotsSpawner> _botsSpawners = new();
+        [SerializeField] private List<CharacterButton> _characterButtons = new();
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
+        
+        private PlayerCharacter _currentCharacter;
 
         private void Awake()
         {
             InitPlayerCharacters();
+            SetCurrentPlayer();
+        }
+
+        private void OnEnable()
+        {
+            if (_characterButtons.Count == 0)
+                return;
+
+            foreach (var characterButton in _characterButtons)
+                characterButton.CharacterChanged += OnCharacterChanged;
+        }
+
+        private void OnDisable()
+        {
+            if (_characterButtons.Count == 0)
+                return;
+            
+            foreach (var characterButton in _characterButtons)
+                characterButton.CharacterChanged -= OnCharacterChanged;
+        }
+
+        private void OnCharacterChanged()
+        {
             SetCurrentPlayer();
         }
 
@@ -54,29 +81,34 @@ namespace Source.GameLogic
                 character.gameObject.SetActive(false);
             }
         }
-
+        
         private void SetCurrentPlayer()
         {
-            var currentCharacterName = GameProgressSaver.GetCurrentCharacterName();
-
-            if (string.IsNullOrEmpty(currentCharacterName))
-                currentCharacterName = PlayerCharacterName.Biker.ToString();
-
-            var playerCharacter = _playerCharacters.FirstOrDefault(character =>
-                character.PlayerCharacterName.ToString() == currentCharacterName);
+            if (_currentCharacter != null)
+                _currentCharacter.gameObject.SetActive(false);
+            
+            var currentCharacterName = GameProgressSaver.GetCurrentCharacterIndex();
+            
+            var playerCharacter =
+                _playerCharacters.FirstOrDefault(
+                    character => (int)character.PlayerCharacterName == currentCharacterName);
 
             if (playerCharacter == null)
                 throw new ArgumentNullException();
 
+            _currentCharacter = playerCharacter;
             InitObjects(playerCharacter);
-
+            
             playerCharacter.gameObject.SetActive(true);
+            GameProgressSaver.SetCurrentCharacterIndex((int)playerCharacter.PlayerCharacterName);
         }
 
         private void InitObjects(PlayerCharacter playerCharacter)
         {
             if (_playerFollower != null)
+            {
                 _playerFollower.Init(playerCharacter.transform);
+            }
 
             if (_playerAgilityBar != null)
             {
@@ -108,9 +140,12 @@ namespace Source.GameLogic
                     throw new ArgumentNullException();
 
                 _playerWalletView.Init(playerWallet);
-            }            
+            }
+
+            if (_botsSpawners.Count == 0)
+                return;
             
-            foreach (var botsSpawner in _botsSpawners)
+            foreach (var botsSpawner in _botsSpawners.Where(botsSpawner => botsSpawner != null))
             {
                 if (playerCharacter.TryGetComponent(out PlayerMovement playerMovement) == false)
                     throw new ArgumentNullException();
