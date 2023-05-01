@@ -6,21 +6,21 @@ namespace Source.UI.Buttons.UIButtons
     [RequireComponent(typeof(Button))]
     public abstract class UIButton : MonoBehaviour
     {
-        private Button _button;
+        protected Button Button { get; private set; }
 
         private void Awake()
         {
-            _button = GetComponent<Button>();
+            Button = GetComponent<Button>();
         }
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
-            _button.onClick.AddListener(OnButtonClick);
+            Button.onClick.AddListener(OnButtonClick);
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
-            _button.onClick.RemoveListener(OnButtonClick);
+            Button.onClick.RemoveListener(OnButtonClick);
         }
 
         protected abstract void OnButtonClick();

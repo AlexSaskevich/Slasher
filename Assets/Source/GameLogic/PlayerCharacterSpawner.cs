@@ -24,6 +24,7 @@ namespace Source.GameLogic
         [SerializeField] private PlayerManaBar _playerManaBar;
         [SerializeField] private PlayerWalletView _playerWalletView;
         [SerializeField] private List<BotsSpawner> _botsSpawners = new();
+        [SerializeField] private BuyCharacterButton _buyCharacterButton;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
         
@@ -37,6 +38,16 @@ namespace Source.GameLogic
             SetCurrentPlayer();
         }
 
+        private void OnEnable()
+        {
+            _buyCharacterButton.CharacterSet += OnCharacterSet;
+        }
+
+        private void OnDisable()
+        {
+            _buyCharacterButton.CharacterSet -= OnCharacterSet;
+        }
+
         public IEnumerable<PlayerCharacter> GetPlayerCharacters()
         {
             return _playerCharacters;
@@ -48,6 +59,11 @@ namespace Source.GameLogic
                 return null;
 
             return _playerCharacters[index];
+        }
+
+        private void OnCharacterSet()
+        {
+            SetCurrentPlayer();
         }
         
         private void InitPlayerCharacters()
@@ -131,6 +147,14 @@ namespace Source.GameLogic
                     throw new ArgumentNullException();
 
                 _playerWalletView.Init(playerWallet);
+            }
+
+            if (_buyCharacterButton != null)
+            {
+                if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
+                    throw new ArgumentNullException();
+
+                _buyCharacterButton.Init(playerWallet);
             }
 
             if (_botsSpawners.Count == 0)

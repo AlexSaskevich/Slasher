@@ -660,6 +660,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerCharacterName>k__BackingField: 2
+  <Price>k__BackingField: 650
 --- !u!114 &3829767947446394798
 MonoBehaviour:
   m_ObjectHideFlags: 0
