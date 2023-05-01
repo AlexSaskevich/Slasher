@@ -31,18 +31,27 @@ namespace Source.InputSource
 
         private void OnEnable()
         {
+            if (_controlButtons == null)
+                return;
+
             foreach (var button in _controlButtons)
                 button.ControlButtonPressed += OnControlButtonPressed;
         }
 
         private void OnDisable()
         {
+            if (_controlButtons == null)
+                return;
+
             foreach (var button in _controlButtons)
                 button.ControlButtonPressed -= OnControlButtonPressed;
         }
 
         private void Update()
         {
+            if (_joystick == null)
+                return;
+
             MovementInput = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
         }
 
@@ -51,13 +60,16 @@ namespace Source.InputSource
             _joystick = joystick;
 
             _controlButtons = new List<ControlButton>(controlButtons.Count);
-            
+
             for (var i = 0; i < _controlButtons.Count; i++)
                 _controlButtons[i] = controlButtons[i];
         }
-        
+
         public void HideButtons()
         {
+            if (_controlButtons == null)
+                return;
+
             foreach (var button in _controlButtons)
                 button.gameObject.SetActive(false);
         }
