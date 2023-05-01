@@ -1,24 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Source.Enums;
 using Source.GameLogic;
+using UnityEngine;
 
 namespace Source.UI.Buttons.UIButtons
 {
     public abstract class CharacterButton : UIButton
     {
-        public event Action CharacterChanged;
-
+        [SerializeField] private PlayerCharacterSpawner _playerCharacterSpawner;
+        
         protected void ChooseCharacter(bool isScrollingForward)
         {
+            var playerCharacters = _playerCharacterSpawner.GetPlayerCharacters();
+            
             var playerCharacterNames = new List<int>
             {
                 (int)PlayerCharacterName.Biker, (int)PlayerCharacterName.Medic, (int)PlayerCharacterName.Ninja,
                 (int)PlayerCharacterName.Death
             };
-            
-            var currentPlayerCharacter = GameProgressSaver.GetCurrentCharacterIndex();
-            var index = playerCharacterNames.IndexOf(currentPlayerCharacter);
+
+            var currentPlayerCharacter = playerCharacters.FirstOrDefault(character => character.gameObject.activeSelf);
+
+            if (currentPlayerCharacter == null)
+                throw new ArgumentNullException();
+
+            var currentPlayerCharacterName = (int)currentPlayerCharacter.PlayerCharacterName;
+            var index = playerCharacterNames.IndexOf(currentPlayerCharacterName);
 
             int newIndex;
 
@@ -27,9 +36,13 @@ namespace Source.UI.Buttons.UIButtons
             else
                 newIndex = index == 0 ? playerCharacterNames.Count - 1 : index - 1;
 
-            GameProgressSaver.SetCurrentCharacterIndex(playerCharacterNames[newIndex]);
+            var newPlayerCharacter = _playerCharacterSpawner.TryGetPlayerCharacterByIndex(newIndex);
             
-            CharacterChanged?.Invoke();
+            if (newPlayerCharacter == null)
+                throw new ArgumentNullException();
+            
+            currentPlayerCharacter.gameObject.SetActive(false);
+            newPlayerCharacter.gameObject.SetActive(true);
         }
     }
 }

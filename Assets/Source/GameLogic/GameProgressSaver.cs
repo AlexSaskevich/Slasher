@@ -69,5 +69,19 @@ namespace Source.GameLogic
         {
             return PlayerPrefs.GetInt(PlayerCharacter);
         }
+
+        public static void SetCharacterBoughtStatus(PlayerCharacterName playerCharacterName, bool isBought)
+        {
+            var boughtStatus = isBought ? 1 : 0;
+
+            PlayerPrefs.SetInt(playerCharacterName.ToString(), boughtStatus);
+        }
+
+        public static bool GetCharacterBoughtStatus(PlayerCharacterName playerCharacterName)
+        {
+            var boughtStatus = PlayerPrefs.GetInt(playerCharacterName.ToString());
+
+            return boughtStatus != 0;
+        }
     }
 }

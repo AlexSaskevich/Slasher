@@ -24,7 +24,6 @@ namespace Source.GameLogic
         [SerializeField] private PlayerManaBar _playerManaBar;
         [SerializeField] private PlayerWalletView _playerWalletView;
         [SerializeField] private List<BotsSpawner> _botsSpawners = new();
-        [SerializeField] private List<CharacterButton> _characterButtons = new();
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
         
@@ -32,33 +31,25 @@ namespace Source.GameLogic
 
         private void Awake()
         {
+            GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Biker, true);
+
             InitPlayerCharacters();
             SetCurrentPlayer();
         }
 
-        private void OnEnable()
+        public IEnumerable<PlayerCharacter> GetPlayerCharacters()
         {
-            if (_characterButtons.Count == 0)
-                return;
-
-            foreach (var characterButton in _characterButtons)
-                characterButton.CharacterChanged += OnCharacterChanged;
+            return _playerCharacters;
         }
 
-        private void OnDisable()
+        public PlayerCharacter TryGetPlayerCharacterByIndex(int index)
         {
-            if (_characterButtons.Count == 0)
-                return;
-            
-            foreach (var characterButton in _characterButtons)
-                characterButton.CharacterChanged -= OnCharacterChanged;
-        }
+            if (index < 0 || index >= _playerCharacters.Count)
+                return null;
 
-        private void OnCharacterChanged()
-        {
-            SetCurrentPlayer();
+            return _playerCharacters[index];
         }
-
+        
         private void InitPlayerCharacters()
         {
             foreach (var playerCharacter in _prefabs)
