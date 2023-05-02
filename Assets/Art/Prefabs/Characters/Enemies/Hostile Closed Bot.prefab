@@ -1728,6 +1728,7 @@ GameObject:
   - component: {fileID: -1992423325666666745}
   - component: {fileID: 2346962193955887691}
   - component: {fileID: 2144765768}
+  - component: {fileID: 3496217329586660954}
   m_Layer: 0
   m_Name: Hostile Closed Bot
   m_TagString: Untagged
@@ -1994,6 +1995,24 @@ MonoBehaviour:
   - {fileID: 259399792}
   - {fileID: 8933584274995013605}
   _force: 150
+  _timeToDestroy: 5
+--- !u!114 &3496217329586660954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718661310f774477acd20f2d725d413d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colliders:
+  - {fileID: 1079507707}
+  - {fileID: 2346962193955887691}
+  - {fileID: 8933584274995013605}
+  - {fileID: 259399792}
 --- !u!1 &259399789
 GameObject:
   m_ObjectHideFlags: 0

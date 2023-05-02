@@ -1665,6 +1665,7 @@ GameObject:
   - component: {fileID: -3401489670863800675}
   - component: {fileID: 6356089351341458047}
   - component: {fileID: 1338548787}
+  - component: {fileID: 4464546549383179095}
   m_Layer: 0
   m_Name: Zombie Bot
   m_TagString: Untagged
@@ -1930,6 +1931,24 @@ MonoBehaviour:
   - {fileID: 6473389078864354327}
   - {fileID: 5144124079586228928}
   _force: 150
+  _timeToDestroy: 5
+--- !u!114 &4464546549383179095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922703142909278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718661310f774477acd20f2d725d413d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colliders:
+  - {fileID: 5144124079586228928}
+  - {fileID: 6473389078864354327}
+  - {fileID: 7233833771927619296}
+  - {fileID: 6730005011207186237}
 --- !u!1 &1934420352407756
 GameObject:
   m_ObjectHideFlags: 0

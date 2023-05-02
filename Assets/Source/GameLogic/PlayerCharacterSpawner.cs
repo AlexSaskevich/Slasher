@@ -40,12 +40,14 @@ namespace Source.GameLogic
 
         private void OnEnable()
         {
-            _buyCharacterButton.CharacterSet += OnCharacterSet;
+            if (_buyCharacterButton != null)
+                _buyCharacterButton.CharacterSet += OnCharacterSet;
         }
 
         private void OnDisable()
         {
-            _buyCharacterButton.CharacterSet -= OnCharacterSet;
+            if (_buyCharacterButton != null)
+                _buyCharacterButton.CharacterSet -= OnCharacterSet;
         }
 
         public IEnumerable<PlayerCharacter> GetPlayerCharacters()

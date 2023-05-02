@@ -2377,6 +2377,8 @@ GameObject:
   - component: {fileID: -4201488116553895674}
   - component: {fileID: 2248149732311660264}
   - component: {fileID: 319968110}
+  - component: {fileID: 3132899488644662420}
+  - component: {fileID: -8904277683768066215}
   m_Layer: 0
   m_Name: Range Bot 1
   m_TagString: Untagged
@@ -2629,6 +2631,38 @@ MonoBehaviour:
   - {fileID: 282400978854931309}
   - {fileID: 7962174599688891174}
   _force: 150
+  _timeToDestroy: 5
+--- !u!114 &3132899488644662420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775214464343450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718661310f774477acd20f2d725d413d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colliders:
+  - {fileID: -8904277683768066215}
+  - {fileID: 7893144535155494940}
+  - {fileID: 7962174599688891174}
+  - {fileID: 282400978854931309}
+--- !u!136 &-8904277683768066215
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775214464343450}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.74
+  m_Height: 2.72
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.61, z: 0}
 --- !u!1 &1776847333147734
 GameObject:
   m_ObjectHideFlags: 0

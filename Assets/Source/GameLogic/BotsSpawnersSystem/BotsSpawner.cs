@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Source.Bot;
+using Source.Bot.Slicing;
 using Source.Enums;
 using Source.Player;
 using UnityEngine;
@@ -134,6 +135,10 @@ namespace Source.GameLogic.BotsSpawnersSystem
             if (botMovement.TryGetComponent(out BotReward botReward) == false)
                 throw new ArgumentNullException();
 
+            if (botMovement.TryGetComponent(out BotSlicer botSlicer) == false)
+                throw new ArgumentNullException();
+            
+            botSlicer.ConstructParts();            
             botReward.Init(_playerWallet);
         }
         

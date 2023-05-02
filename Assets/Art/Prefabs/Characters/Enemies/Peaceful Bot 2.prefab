@@ -1728,6 +1728,7 @@ GameObject:
   - component: {fileID: 5070913137057919630}
   - component: {fileID: 9022127034839869652}
   - component: {fileID: 1025261269}
+  - component: {fileID: 3496217329586660954}
   m_Layer: 0
   m_Name: Peaceful Bot 2
   m_TagString: Untagged
@@ -1985,6 +1986,23 @@ MonoBehaviour:
   - {fileID: 5070913137057919630}
   - {fileID: 66579384486123326}
   _force: 150
+  _timeToDestroy: 5
+--- !u!114 &3496217329586660954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 718661310f774477acd20f2d725d413d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _colliders:
+  - {fileID: 5070913137057919630}
+  - {fileID: 1079507707}
+  - {fileID: 66579384486123326}
 --- !u!1 &407024551603845147
 GameObject:
   m_ObjectHideFlags: 0
