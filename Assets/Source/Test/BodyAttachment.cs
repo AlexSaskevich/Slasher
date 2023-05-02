@@ -1,6 +1,6 @@
 ﻿namespace Source.Test
 {
-    public class BodyAttachment : Attachment
+    public sealed class BodyAttachment : Attachment
     {
     }
 }
