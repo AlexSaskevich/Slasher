@@ -5,6 +5,8 @@
         protected override void Die()
         {
             BotTarget.ClearTargets();
+            
+            gameObject.SetActive(false);
         }
     }
 }

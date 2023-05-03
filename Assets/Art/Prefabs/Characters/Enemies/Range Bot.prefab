@@ -2641,7 +2641,7 @@ MonoBehaviour:
   - {fileID: 1326325988}
   - {fileID: 1326325985}
   _force: 150
-  _timeToDestroy: 5
+  _hasAttachments: 1
 --- !u!114 &3132899488644662420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2654,11 +2654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718661310f774477acd20f2d725d413d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colliders:
-  - {fileID: 7893144535155494940}
-  - {fileID: 8479693833170061290}
-  - {fileID: 282400978854931309}
-  - {fileID: 7962174599688891174}
 --- !u!1 &1776847333147734
 GameObject:
   m_ObjectHideFlags: 0
