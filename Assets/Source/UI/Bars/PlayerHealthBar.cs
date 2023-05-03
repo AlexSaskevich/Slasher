@@ -1,21 +1,10 @@
-using Source.Player;
-using UnityEngine;
+﻿using Source.Player;
 
 namespace Source.UI.Bars
 {
     public sealed class PlayerHealthBar : Bar
     {
         private PlayerHealth _playerHealth;
-
-        private void Awake()
-        {
-            Initialize(_playerHealth.MaxHealth);
-        }
-
-        private void OnEnable()
-        {
-            _playerHealth.HealthChanged += OnValueChanged;
-        }
 
         private void OnDisable()
         {
@@ -25,6 +14,7 @@ namespace Source.UI.Bars
         public void Init(PlayerHealth playerHealth)
         {
             _playerHealth = playerHealth;
+            _playerHealth.HealthChanged += OnValueChanged;
         }
 
         protected override void OnValueChanged()

@@ -1,21 +1,10 @@
-using Source.Player;
-using UnityEngine;
+﻿using Source.Player;
 
 namespace Source.UI.Bars
 {
-    public class PlayerManaBar : Bar
+    public sealed class PlayerManaBar : Bar
     {
         private PlayerMana _playerMana;
-        
-        private void Awake()
-        {
-            Initialize(_playerMana.MaxMana);
-        }
-
-        private void OnEnable()
-        {
-            _playerMana.ManaChanged += OnValueChanged;
-        }
 
         private void OnDisable()
         {
@@ -25,8 +14,9 @@ namespace Source.UI.Bars
         public void Init(PlayerMana playerMana)
         {
             _playerMana = playerMana;
+            _playerMana.ManaChanged += OnValueChanged;
         }
-        
+
         protected override void OnValueChanged()
         {
             var targetValue = _playerMana.CurrentMana / _playerMana.MaxMana;

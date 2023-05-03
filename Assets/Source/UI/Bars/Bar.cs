@@ -6,14 +6,16 @@ namespace Source.UI.Bars
 {
     public abstract class Bar : MonoBehaviour
     {
+        private const float MaxFillAmount = 1;
+
         [SerializeField] private float _fillingSpeed;
         [SerializeField] private Image _image;
 
         private Coroutine _coroutine;
 
-        protected void Initialize(float maxValue)
+        private void Start()
         {
-            _image.fillAmount = maxValue;
+            _image.fillAmount = MaxFillAmount;
         }
 
         protected abstract void OnValueChanged();

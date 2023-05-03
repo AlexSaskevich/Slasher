@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Source.Enums;
+﻿using Source.Enums;
 using Source.GameLogic.BotsSpawnersSystem;
 using Source.InputSource;
 using Source.Player;
@@ -9,6 +6,9 @@ using Source.UI.Bars;
 using Source.UI.Buttons.ControlButtons;
 using Source.UI.Buttons.UIButtons;
 using Source.UI.Views;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Source.GameLogic
@@ -27,7 +27,7 @@ namespace Source.GameLogic
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
-        
+
         private PlayerCharacter _currentCharacter;
 
         private void Awake()
@@ -67,7 +67,7 @@ namespace Source.GameLogic
         {
             SetCurrentPlayer();
         }
-        
+
         private void InitPlayerCharacters()
         {
             foreach (var playerCharacter in _prefabs)
@@ -90,14 +90,14 @@ namespace Source.GameLogic
                 character.gameObject.SetActive(false);
             }
         }
-        
+
         private void SetCurrentPlayer()
         {
             if (_currentCharacter != null)
                 _currentCharacter.gameObject.SetActive(false);
-            
+
             var currentCharacterName = GameProgressSaver.GetCurrentCharacterIndex();
-            
+
             var playerCharacter =
                 _playerCharacters.FirstOrDefault(
                     character => (int)character.PlayerCharacterName == currentCharacterName);
@@ -107,7 +107,7 @@ namespace Source.GameLogic
 
             _currentCharacter = playerCharacter;
             InitObjects(playerCharacter);
-            
+
             playerCharacter.gameObject.SetActive(true);
             GameProgressSaver.SetCurrentCharacterIndex((int)playerCharacter.PlayerCharacterName);
         }
@@ -115,9 +115,7 @@ namespace Source.GameLogic
         private void InitObjects(PlayerCharacter playerCharacter)
         {
             if (_playerFollower != null)
-            {
                 _playerFollower.Init(playerCharacter.transform);
-            }
 
             if (_playerAgilityBar != null)
             {
@@ -131,11 +129,11 @@ namespace Source.GameLogic
             {
                 if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
                     throw new ArgumentNullException();
-                
+
                 _playerHealthBar.Init(playerHealth);
             }
 
-            if (_playerHealthBar != null)
+            if (_playerManaBar != null)
             {
                 if (playerCharacter.TryGetComponent(out PlayerMana playerMana) == false)
                     throw new ArgumentNullException();
@@ -161,12 +159,12 @@ namespace Source.GameLogic
 
             if (_botsSpawners.Count == 0)
                 return;
-            
+
             foreach (var botsSpawner in _botsSpawners.Where(botsSpawner => botsSpawner != null))
             {
                 if (playerCharacter.TryGetComponent(out PlayerMovement playerMovement) == false)
                     throw new ArgumentNullException();
-                
+
                 if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
                     throw new ArgumentNullException();
 
