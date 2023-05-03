@@ -9,7 +9,7 @@ using Source.Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Source.GameLogic.BotsSpawnersSystem
+namespace Source.GameLogic.BotsSpawners
 {
     public sealed class BotsSpawner : BotsPool
     {

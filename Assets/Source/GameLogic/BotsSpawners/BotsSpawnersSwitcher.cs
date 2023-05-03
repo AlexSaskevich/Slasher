@@ -4,7 +4,7 @@ using Source.Enums;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Source.GameLogic.BotsSpawnersSystem
+namespace Source.GameLogic.BotsSpawners
 {
     public sealed class BotsSpawnersSwitcher : SpawnersSwitcher
     {
@@ -60,7 +60,7 @@ namespace Source.GameLogic.BotsSpawnersSystem
                 while (GetWorkingBotsSpawners().Any(spawner => spawner == spawners[randomSpawnerNumber]))
                     randomSpawnerNumber = Random.Range(0, spawners.Count);
 
-                GetWorkingBotsSpawners().Add(spawners[randomSpawnerNumber]);
+                AddWorkingSpawner(spawners[randomSpawnerNumber]);
             }
         }
 

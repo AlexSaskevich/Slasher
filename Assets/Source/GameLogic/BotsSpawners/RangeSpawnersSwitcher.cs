@@ -1,32 +1,28 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using UnityEngine;
 
-namespace Source.GameLogic.BotsSpawnersSystem
+namespace Source.GameLogic.BotsSpawners
 {
     public sealed class RangeSpawnersSwitcher : SpawnersSwitcher
     {
         [SerializeField] private int _workingSpawnersCount;
 
-        private readonly List<BotsSpawner> _workingSpawners = new();
-
-        private Coroutine _coroutine;
         private float _timer;
 
         private void Update()
         {
             _timer += Time.deltaTime;
 
-            if (_timer < Delay || _workingSpawners.Count > 0)
+            if (_timer < Delay || GetWorkingBotsSpawnersCount() > 0)
                 return;
             
-            Activate();
             _timer = 0;
+            Activate();
         }
 
         private void SetSpawners()
         {
-            while (_workingSpawnersCount > GetBotsSpawners().Count)
+            while (_workingSpawnersCount > GetBotsSpawnersCount())
                 _workingSpawnersCount--;
 
             if (_workingSpawnersCount == 0)
@@ -34,12 +30,12 @@ namespace Source.GameLogic.BotsSpawnersSystem
             
             for (var i = 0; i < _workingSpawnersCount; i++)
             {
-                var randomSpawnerNumber = Random.Range(0, GetBotsSpawners().Count);
+                var randomSpawnerNumber = Random.Range(0, GetBotsSpawnersCount());
 
-                while (_workingSpawners.Any(spawner => spawner == GetBotsSpawners()[randomSpawnerNumber]))
-                    randomSpawnerNumber = Random.Range(0, GetBotsSpawners().Count);
+                while (GetWorkingBotsSpawners().Any(spawner => spawner == TryGetBotsSpawner(randomSpawnerNumber)))
+                    randomSpawnerNumber = Random.Range(0, GetBotsSpawnersCount());
 
-                _workingSpawners.Add(GetBotsSpawners()[randomSpawnerNumber]);
+                AddWorkingSpawner(TryGetBotsSpawner(randomSpawnerNumber));
             }
         }
 
@@ -48,7 +44,7 @@ namespace Source.GameLogic.BotsSpawnersSystem
             ResetSpawners();
             SetSpawners();
 
-            foreach (var workingSpawner in _workingSpawners)
+            foreach (var workingSpawner in GetWorkingBotsSpawners())
                 workingSpawner.gameObject.SetActive(true);
         }
     }

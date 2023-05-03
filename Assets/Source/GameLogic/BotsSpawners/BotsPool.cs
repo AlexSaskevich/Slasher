@@ -3,7 +3,7 @@ using System.Linq;
 using Source.Bot;
 using UnityEngine;
 
-namespace Source.GameLogic.BotsSpawnersSystem
+namespace Source.GameLogic.BotsSpawners
 {
     public abstract class BotsPool : MonoBehaviour
     {

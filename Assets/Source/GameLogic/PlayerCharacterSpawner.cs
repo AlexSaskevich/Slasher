@@ -1,5 +1,4 @@
 ﻿using Source.Enums;
-using Source.GameLogic.BotsSpawnersSystem;
 using Source.InputSource;
 using Source.Player;
 using Source.UI.Bars;
@@ -9,6 +8,7 @@ using Source.UI.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Source.GameLogic.BotsSpawners;
 using UnityEngine;
 
 namespace Source.GameLogic

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-namespace Source.GameLogic.BotsSpawnersSystem
+namespace Source.GameLogic.BotsSpawners
 {
     public abstract class SpawnersSwitcher : MonoBehaviour
     {
@@ -53,15 +53,38 @@ namespace Source.GameLogic.BotsSpawnersSystem
             Activate();
         }
 
-        protected List<BotsSpawner> GetBotsSpawners()
+        protected IEnumerable<BotsSpawner> GetBotsSpawners()
         {
             return _spawners;
         }
         
-        protected List<BotsSpawner> GetWorkingBotsSpawners()
+        protected IEnumerable<BotsSpawner> GetWorkingBotsSpawners()
         {                                            
             return _workingSpawners;                        
-        }                         
+        }
+
+        protected BotsSpawner TryGetBotsSpawner(int index)
+        {
+            if (index < 0 || index >= _spawners.Count)
+                return null;
+
+            return _spawners[index];
+        }
+
+        protected int GetBotsSpawnersCount()
+        {
+            return _spawners.Count;
+        }
+
+        protected int GetWorkingBotsSpawnersCount()
+        {
+            return _workingSpawners.Count;
+        }
+
+        protected void AddWorkingSpawner(BotsSpawner botsSpawner)
+        {
+            _workingSpawners.Add(botsSpawner);
+        }
         
         protected abstract void Activate();
     }
