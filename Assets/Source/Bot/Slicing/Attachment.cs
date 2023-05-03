@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Source.Bot.Slicing
 {
-    public abstract class Attachment : MonoBehaviour
+    public class Attachment : MonoBehaviour
     {
     }
 }

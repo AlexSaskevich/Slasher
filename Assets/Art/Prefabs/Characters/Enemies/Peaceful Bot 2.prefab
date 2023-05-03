@@ -1719,13 +1719,13 @@ GameObject:
   - component: {fileID: 9582704}
   - component: {fileID: 1079507707}
   - component: {fileID: 1079507708}
+  - component: {fileID: 5070913137057919630}
   - component: {fileID: 1079507709}
   - component: {fileID: 5818628035770266742}
   - component: {fileID: 1079507713}
   - component: {fileID: 7505774551847422908}
   - component: {fileID: 6282358615007808936}
   - component: {fileID: -422748752641013390}
-  - component: {fileID: 5070913137057919630}
   - component: {fileID: 9022127034839869652}
   - component: {fileID: 1025261269}
   - component: {fileID: 3496217329586660954}
@@ -1810,6 +1810,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &5070913137057919630
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.74
+  m_Height: 2.72
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.61, z: 0}
 --- !u!114 &1079507709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1935,20 +1949,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minReward: 1
   _maxReward: 4
---- !u!136 &5070913137057919630
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191860}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.74
-  m_Height: 2.72
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.61, z: 0}
 --- !u!114 &9022127034839869652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1981,10 +1981,6 @@ MonoBehaviour:
   - {fileID: 5835772783469695219}
   - {fileID: 5343012582300918266}
   - {fileID: 5812203595306337142}
-  _colliders:
-  - {fileID: 1079507707}
-  - {fileID: 5070913137057919630}
-  - {fileID: 66579384486123326}
   _force: 150
   _timeToDestroy: 5
 --- !u!114 &3496217329586660954
@@ -2000,8 +1996,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colliders:
-  - {fileID: 5070913137057919630}
   - {fileID: 1079507707}
+  - {fileID: 5070913137057919630}
   - {fileID: 66579384486123326}
 --- !u!1 &407024551603845147
 GameObject:

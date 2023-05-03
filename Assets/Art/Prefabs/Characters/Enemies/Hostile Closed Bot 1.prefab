@@ -1718,6 +1718,7 @@ GameObject:
   - component: {fileID: 9582704}
   - component: {fileID: 1079507707}
   - component: {fileID: 1079507708}
+  - component: {fileID: 2115458461045430779}
   - component: {fileID: 1079507709}
   - component: {fileID: 5818628035770266742}
   - component: {fileID: 1079507713}
@@ -1725,7 +1726,6 @@ GameObject:
   - component: {fileID: 1079507717}
   - component: {fileID: 5731186080693742225}
   - component: {fileID: 2730075092512492139}
-  - component: {fileID: 2115458461045430779}
   - component: {fileID: 922703007}
   - component: {fileID: 3496217329586660954}
   m_Layer: 0
@@ -1810,6 +1810,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &2115458461045430779
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.74
+  m_Height: 2.72
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.61, z: 0}
 --- !u!114 &1079507709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1955,20 +1969,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minReward: 5
   _maxReward: 8
---- !u!136 &2115458461045430779
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191860}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.74
-  m_Height: 2.72
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.61, z: 0}
 --- !u!114 &922703007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1987,11 +1987,6 @@ MonoBehaviour:
   - {fileID: 8963399876557144927}
   - {fileID: 5835772783795706005}
   - {fileID: 8481594556644211009}
-  _colliders:
-  - {fileID: 1079507707}
-  - {fileID: 2115458461045430779}
-  - {fileID: 259399792}
-  - {fileID: 8930913739115078288}
   _force: 150
   _timeToDestroy: 5
 --- !u!114 &3496217329586660954
@@ -2007,7 +2002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colliders:
-  - {fileID: 2115458461045430779}
+  - {fileID: 1079507707}
   - {fileID: 2115458461045430779}
   - {fileID: 259399792}
   - {fileID: 8930913739115078288}

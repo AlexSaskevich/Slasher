@@ -1718,6 +1718,7 @@ GameObject:
   - component: {fileID: 9582704}
   - component: {fileID: 1079507707}
   - component: {fileID: 1079507708}
+  - component: {fileID: 8345570105710590255}
   - component: {fileID: 1079507709}
   - component: {fileID: 5818628035770266742}
   - component: {fileID: 1079507713}
@@ -1725,7 +1726,6 @@ GameObject:
   - component: {fileID: 6282358615007808936}
   - component: {fileID: 8226175515181317748}
   - component: {fileID: 7283278654029763101}
-  - component: {fileID: 8345570105710590255}
   - component: {fileID: 1789561907}
   - component: {fileID: 3496217329586660954}
   m_Layer: 0
@@ -1809,6 +1809,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &8345570105710590255
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191860}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.74
+  m_Height: 2.72
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.61, z: 0}
 --- !u!114 &1079507709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1947,20 +1961,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minReward: 1
   _maxReward: 4
---- !u!136 &8345570105710590255
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191860}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.74
-  m_Height: 2.72
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.61, z: 0}
 --- !u!114 &1789561907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1979,10 +1979,6 @@ MonoBehaviour:
   - {fileID: 8219301319679138783}
   - {fileID: 7676255302212623011}
   - {fileID: 9030433057777642325}
-  _colliders:
-  - {fileID: 1079507707}
-  - {fileID: 8345570105710590255}
-  - {fileID: 8998601231991266657}
   _force: 150
   _timeToDestroy: 5
 --- !u!114 &3496217329586660954
@@ -1998,9 +1994,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _colliders:
-  - {fileID: 8998601231991266657}
-  - {fileID: 8345570105710590255}
   - {fileID: 1079507707}
+  - {fileID: 8345570105710590255}
+  - {fileID: 8998601231991266657}
 --- !u!1 &2744254668636594043
 GameObject:
   m_ObjectHideFlags: 0
