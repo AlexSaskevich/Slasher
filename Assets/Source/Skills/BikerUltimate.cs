@@ -11,10 +11,22 @@ namespace Source.Skills
         [SerializeField] private float _duration;
 
         private Coroutine _coroutine;
+        private PlayerHealth _playerHealth;
 
         protected override void Awake()
         {
             base.Awake();
+            _playerHealth = GetComponent<PlayerHealth>();
+        }
+
+        private void OnEnable()
+        {
+            _playerHealth.Died += OnDied;
+        }
+
+        private void OnDisable()
+        {
+            _playerHealth.Died -= OnDied;
         }
 
         protected override void Start()
@@ -52,6 +64,12 @@ namespace Source.Skills
             yield return new WaitUntil(() => ElapsedTime <= Cooldown - _duration);
             Animator.SetBool(AnimationConstants.IsUltimate, false);
             IsActive = false;
+        }
+
+        private void OnDied()
+        {
+            StopCoroutine(_coroutine);
+            Animator.SetBool(AnimationConstants.IsUltimate, false);
         }
     }
 }
