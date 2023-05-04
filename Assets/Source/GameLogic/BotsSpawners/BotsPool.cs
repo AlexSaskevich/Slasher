@@ -23,5 +23,10 @@ namespace Source.GameLogic.BotsSpawners
 
             return botMovement != null;
         }
+
+        protected IEnumerable<BotMovement> GetPool()
+        {
+            return _pool;
+        }
     }
 }

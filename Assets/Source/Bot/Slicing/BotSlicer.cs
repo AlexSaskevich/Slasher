@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Source.Bot.Slicing
 {
@@ -9,13 +11,11 @@ namespace Source.Bot.Slicing
         [SerializeField] private float _force;
         [SerializeField] private bool _hasAttachments;
 
-        private Vector3[] _partsPositions;
-        private Transform[] _partsParents;
-        private Quaternion[] _partsRotations;
+        private readonly List<Rigidbody> _pool = new();
+
         private BotHealth _botHealth;
         private BotAttachmentsHandler _botAttachmentsHandler;
         private Coroutine _coroutine;
-        private float _timer;
 
         private void Awake()
         {
@@ -37,36 +37,31 @@ namespace Source.Bot.Slicing
 
         private void Start()
         {
-            InitParts();
+            DisableParts();
+            CreateParts();
         }
 
-        public void ConstructParts()
+        private void ConstructParts()
         {
-            if (_partsPositions == null)
-                return;
-
-            for (var i = 0; i < _partsPositions.Length; i++)
+            for (var i = 0; i < _pool.Count; i++)
             {
-                _parts[i].gameObject.SetActive(false);
+                var part = _pool[i];
+                part.gameObject.SetActive(false);
 
-                _parts[i].transform.SetParent(_partsParents[i]);
-                _parts[i].transform.SetLocalPositionAndRotation(_partsPositions[i], _partsRotations[i]);
+                part.transform.SetParent(_parts[i].transform.parent);
+                part.transform.SetLocalPositionAndRotation(_parts[i].transform.localPosition,
+                    _parts[i].transform.localRotation);
             }
         }
 
-        private void InitParts()
+        private void CreateParts()
         {
-            _partsPositions = new Vector3[_parts.Length];
-            _partsRotations = new Quaternion[_parts.Length];
-            _partsParents = new Transform[_parts.Length];
-
-            for (var i = 0; i < _parts.Length; i++)
+            foreach (var part in _parts)
             {
-                _parts[i].gameObject.SetActive(false);
-
-                _partsParents[i] = _parts[i].transform.parent;
-                _partsPositions[i] = _parts[i].transform.localPosition;
-                _partsRotations[i] = _parts[i].transform.localRotation;
+                var newPart = Instantiate(part, part.position, part.rotation, part.transform.parent);
+                newPart.gameObject.SetActive(false);
+                
+                _pool.Add(newPart);
             }
         }
 
@@ -78,12 +73,19 @@ namespace Source.Bot.Slicing
             if (_hasAttachments)
                 _botAttachmentsHandler.DisableAttachments();
 
+            ConstructParts();
             EnableBotSlices();
         }
 
-        private void EnableBotSlices()
+        private void DisableParts()
         {
             foreach (var part in _parts)
+                part.gameObject.SetActive(false);
+        }
+        
+        private void EnableBotSlices()
+        {
+            foreach (var part in _pool)
             {
                 part.gameObject.SetActive(true);
                 part.transform.parent = null;

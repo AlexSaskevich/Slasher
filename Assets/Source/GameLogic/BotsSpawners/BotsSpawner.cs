@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Source.Bot;
-using Source.Bot.Slicing;
 using Source.Enums;
 using Source.Player;
 using UnityEngine;
@@ -25,49 +24,63 @@ namespace Source.GameLogic.BotsSpawners
         private int _currentWaveNumber;
         private int _spawnedBotsCount;
         private float _timeAfterLastBotSpawned;
-
+        private Coroutine _coroutine;
+        
         public event Action TurnedOff;
 
         [field: SerializeField] public BotStatus BotStatus { get; private set; }
         
         public Wave CurrentWave { get; private set; }
-        
+
         private void Start()
         {
             ResetOptions();
 
             for (var i = 0; i < CurrentWave.BotsCount; i++)
-                Init(CurrentWave.BotMovements[Random.Range(0, CurrentWave.BotMovements.Length)], transform.position);
+            {
+                var index = Random.Range(0, CurrentWave.GetBotsMovementsLength());
+                var botMovement = CurrentWave.TryGetBotMovement(index);
+                
+                if (botMovement == null)
+                    throw new ArgumentNullException();
+
+                Init(botMovement, transform.position);
+            }
         }
 
         private void Update()
         {
-            if(CurrentWave == null)
+            if (CurrentWave == null)
                 return;
 
             _timeAfterLastBotSpawned += Time.deltaTime;
-
+            
             if (_timeAfterLastBotSpawned >= CurrentWave.Delay)
             {
                 if (TryGetBot(out var botMovement) == false)
                     return;
+
+                _timeAfterLastBotSpawned = 0;
                 
                 SetBot(botMovement);
                 _spawnedBotsCount++;
-                _timeAfterLastBotSpawned = 0;
             }
 
             if (_spawnedBotsCount < CurrentWave.BotsCount)
                 return;
             
             CurrentWave = null;
-            StartCoroutine(WaitTimeBetweenWaves());
 
-            if (_currentWaveNumber == _waves.Count - 1)
-            {
-                CurrentWave = null;
-                TurnedOff?.Invoke();
-            }
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+
+            _coroutine = StartCoroutine(WaitTimeBetweenWaves());
+
+            if (_currentWaveNumber != _waves.Count - 1)
+                return;
+            
+            CurrentWave = null;
+            TurnedOff?.Invoke();
         }
 
         public void Init(PlayerMovement playerMovement, PlayerHealth playerHealth, PlayerWallet playerWallet,
@@ -84,7 +97,7 @@ namespace Source.GameLogic.BotsSpawners
             _spawnedBotsCount = 0;
             _currentWaveNumber = 0;
             
-            SetWave(_currentWaveNumber);
+            TrySetWave(_currentWaveNumber);
         }
 
         private void SetBot(BotMovement botMovement)
@@ -135,35 +148,25 @@ namespace Source.GameLogic.BotsSpawners
             if (botMovement.TryGetComponent(out BotReward botReward) == false)
                 throw new ArgumentNullException();
 
-            if (botMovement.TryGetComponent(out BotSlicer botSlicer) == false)
-                throw new ArgumentNullException();
-            
-            botSlicer.ConstructParts();            
             botReward.Init(_playerWallet);
         }
         
-        private void SetWave(int waveNumber)
+        private void TrySetWave(int waveNumber)
         {
-            if (waveNumber >= 0 && waveNumber < _waves.Count)
-                CurrentWave = _waves[waveNumber];
+            if (waveNumber < 0 || waveNumber >= _waves.Count)
+                return;
+
+            CurrentWave = _waves[waveNumber];
         }
 
         private IEnumerator WaitTimeBetweenWaves()
         {
             yield return new WaitForSeconds(_delay);
-
+            
             _spawnedBotsCount = 0;
             _currentWaveNumber++;
             
-            SetWave(_currentWaveNumber);
+            TrySetWave(_currentWaveNumber);
         }
     }
-
-    [Serializable]
-    public sealed class Wave
-    {
-        [field: SerializeField] public BotMovement[] BotMovements { get; private set; }
-        [field: SerializeField] public int BotsCount { get; private set; }
-        [field: SerializeField] public float Delay { get; private set; }
-    } 
 }
