@@ -1,6 +1,9 @@
-﻿using Source.Enums;
+﻿using Assets.Source.UI.Views;
+using Source.Enums;
+using Source.GameLogic.BotsSpawners;
 using Source.InputSource;
 using Source.Player;
+using Source.Skills;
 using Source.UI.Bars;
 using Source.UI.Buttons.ControlButtons;
 using Source.UI.Buttons.UIButtons;
@@ -8,7 +11,6 @@ using Source.UI.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Source.GameLogic.BotsSpawners;
 using UnityEngine;
 
 namespace Source.GameLogic
@@ -23,6 +25,8 @@ namespace Source.GameLogic
         [SerializeField] private PlayerHealthBar _playerHealthBar;
         [SerializeField] private PlayerManaBar _playerManaBar;
         [SerializeField] private PlayerWalletView _playerWalletView;
+        [SerializeField] private BuffCooldownView _buffCooldownView;
+        [SerializeField] private BuffEffectView _buffEffectView;
         [SerializeField] private List<BotsSpawner> _botsSpawners = new();
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
 
@@ -147,6 +151,15 @@ namespace Source.GameLogic
                     throw new ArgumentNullException();
 
                 _playerWalletView.Init(playerWallet);
+            }
+
+            if (_buffCooldownView != null && _buffEffectView != null)
+            {
+                if (playerCharacter.TryGetComponent(out Buff buff) == false)
+                    throw new ArgumentNullException();
+
+                _buffCooldownView.Init(buff);
+                _buffEffectView.Init(buff);
             }
 
             if (_buyCharacterButton != null)

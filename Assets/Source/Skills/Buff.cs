@@ -12,12 +12,12 @@ namespace Source.Skills
     {
         [SerializeField] private MonoBehaviour _buffableBehaviour;
         [SerializeField] private float _modifier;
-        [SerializeField] private float _duration;
 
         private IBuffable _buffable;
         private PlayerMana _playerMana;
         private Coroutine _coroutine;
 
+        [field: SerializeField] public float Duration { get; private set; }
         public bool IsActive { get; private set; }
 
         private void OnValidate()
@@ -25,8 +25,8 @@ namespace Source.Skills
             if (_buffableBehaviour && _buffableBehaviour is IBuffable == false)
                 Debug.LogError(nameof(_buffableBehaviour) + " needs to implement " + nameof(IBuffable));
 
-            if (_duration > Cooldown)
-                Debug.LogError(nameof(_duration) + " must be less then " + nameof(Cooldown));
+            if (Duration > Cooldown)
+                Debug.LogError(nameof(Duration) + " must be less then " + nameof(Cooldown));
         }
 
         protected override void Awake()
@@ -46,7 +46,7 @@ namespace Source.Skills
             if (_buffable.IsBuffed == false)
                 return;
 
-            if (ElapsedTime <= Cooldown - _duration)
+            if (ElapsedTime <= Cooldown - Duration)
                 _buffable.RemoveModifier(_modifier);
         }
 

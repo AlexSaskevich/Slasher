@@ -333,7 +333,7 @@ MonoBehaviour:
   <Cooldown>k__BackingField: 10
   _buffableBehaviour: {fileID: 8014045146609878632}
   _modifier: 2
-  _duration: 9
+  <Duration>k__BackingField: 9
 --- !u!114 &8014045146557720179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,6 +374,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerCharacterName>k__BackingField: 0
+  <Price>k__BackingField: 0
 --- !u!1 &8014045145764493197
 GameObject:
   m_ObjectHideFlags: 0

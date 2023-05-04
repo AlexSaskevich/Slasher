@@ -2139,7 +2139,7 @@ MonoBehaviour:
   <Cooldown>k__BackingField: 6
   _buffableBehaviour: {fileID: 5732483610280614470}
   _modifier: 5
-  _duration: 5
+  <Duration>k__BackingField: 5
 --- !u!114 &8837793339647539821
 MonoBehaviour:
   m_ObjectHideFlags: 0
