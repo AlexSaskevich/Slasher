@@ -17,6 +17,7 @@ namespace Source.Skills
         private PlayerMana _playerMana;
         private Coroutine _coroutine;
 
+        public override bool CanUsed { get => _playerMana.CurrentMana >= Cost; }
         public bool IsActive { get; private set; }
 
         private void OnValidate()
@@ -57,7 +58,7 @@ namespace Source.Skills
             if (ElapsedTime < Cooldown)
                 return;
 
-            if (_playerMana.CurrentValue < Cost)
+            if (CanUsed == false)
                 return;
 
             StartBuff();

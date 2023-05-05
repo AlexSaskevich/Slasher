@@ -1,10 +1,6 @@
 ﻿namespace Source.UI.Views.SkillViews
 {
-    public sealed class RollCooldownView : SkillView
+    public sealed class RollCooldownView : SkillCooldownView
     {
-        protected override void OnStarted()
-        {
-            StartFillImage(Skill.Cooldown);
-        }
     }
 }

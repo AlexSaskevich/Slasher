@@ -13,7 +13,7 @@ namespace Source.UI.Views.SkillViews
         private TMP_Text _text;
         private Coroutine _coroutine;
 
-        [field: SerializeField] public Image Image { get; protected set; }
+        [field: SerializeField] public Image ImageToFill { get; protected set; }
         public Skill Skill { get; private set; }
 
         protected override void Awake()
@@ -32,7 +32,7 @@ namespace Source.UI.Views.SkillViews
             if (_text != null)
                 _text.text = string.Empty;
 
-            Image.fillAmount = MinFillAmount;
+            ImageToFill.fillAmount = MinFillAmount;
         }
 
         public void Init(Skill skill)
@@ -57,7 +57,7 @@ namespace Source.UI.Views.SkillViews
 
             while (totalTime >= 0)
             {
-                Image.fillAmount = totalTime / countdownTime;
+                ImageToFill.fillAmount = totalTime / countdownTime;
                 totalTime -= Time.deltaTime;
 
                 if (_text != null)
@@ -69,7 +69,7 @@ namespace Source.UI.Views.SkillViews
             if (_text != null)
                 _text.text = string.Empty;
 
-            Image.fillAmount = MinFillAmount;
+            ImageToFill.fillAmount = MinFillAmount;
         }
     }
 }

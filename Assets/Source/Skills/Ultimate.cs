@@ -9,6 +9,7 @@ namespace Source.Skills
     [RequireComponent(typeof(PlayerMana), typeof(InputSwitcher))]
     public abstract class Ultimate : Skill
     {
+        public override bool CanUsed => PlayerMana.CurrentMana >= Cost;
         public bool IsActive { get; protected set; }
         protected PlayerMana PlayerMana { get; private set; }
         protected InputSwitcher InputSwitcher { get; private set; }

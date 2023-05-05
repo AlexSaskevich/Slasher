@@ -15,6 +15,7 @@ namespace Source.Skills
         [field:SerializeField] public float Duration { get; protected set; }
         [field: SerializeField] public float Cost { get; private set; }
         [field: SerializeField] public float Cooldown { get; private set; }
+        public abstract bool CanUsed { get; }
         public float ElapsedTime { get; private set; }
         protected Animator Animator { get; private set; }
         protected PlayerCombo PlayerCombo { get; private set; }

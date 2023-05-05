@@ -1,12 +1,6 @@
-﻿using Source.Skills;
-
-namespace Source.UI.Views.SkillViews
+﻿namespace Source.UI.Views.SkillViews
 {
-    public sealed class UltimateCooldownView : SkillView
+    public sealed class UltimateCooldownView : SkillCooldownView
     {
-        protected override void OnStarted()
-        {
-            StartFillImage(Skill.Cooldown);
-        }
     }
 }
