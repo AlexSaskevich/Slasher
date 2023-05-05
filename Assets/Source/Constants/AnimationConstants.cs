@@ -24,5 +24,7 @@ namespace Source.Constants
         public const float IdleEndAnimationTime = 1.0f;
         public const int BaseLayer = 0;
         public const int TopLayer = 1;
+        public const float RollWithJumpDuration = 0.73f;
+        public const float RollDuration = 0.5f;
     }
 }

@@ -628,7 +628,7 @@ MonoBehaviour:
   <Cooldown>k__BackingField: 10
   _buffableBehaviour: {fileID: 807465450795034208}
   _modifier: 0.3
-  _duration: 5
+  <Duration>k__BackingField: 7
 --- !u!114 &1161594663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -643,8 +643,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Cost>k__BackingField: 20
   <Cooldown>k__BackingField: 10
+  <Duration>k__BackingField: 5
   _playerWeapon: {fileID: 8410004351193275394}
-  _duration: 8
   _speedModifier: 1.5
   _damageModifier: 2
 --- !u!114 &7354259675585591176

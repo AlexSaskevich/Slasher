@@ -1,4 +1,5 @@
 ﻿using Source.Combo;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,9 +10,12 @@ namespace Source.Skills
     {
         private Coroutine _coroutine;
 
+        public event Action TimerStarted;
+
+        [field:SerializeField] public float Duration { get; protected set; }
         [field: SerializeField] public float Cost { get; private set; }
         [field: SerializeField] public float Cooldown { get; private set; }
-        protected float ElapsedTime { get; private set; }
+        public float ElapsedTime { get; private set; }
         protected Animator Animator { get; private set; }
         protected PlayerCombo PlayerCombo { get; private set; }
 
@@ -38,6 +42,8 @@ namespace Source.Skills
 
         private IEnumerator CalculateTime()
         {
+            TimerStarted?.Invoke();
+
             while (ElapsedTime > 0)
             {
                 ElapsedTime = Mathf.Clamp(ElapsedTime - Time.deltaTime, 0, float.MaxValue);

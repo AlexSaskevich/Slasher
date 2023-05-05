@@ -1,14 +1,16 @@
 ﻿using Source.Enums;
+using Source.GameLogic.BotsSpawners;
 using Source.InputSource;
 using Source.Player;
+using Source.Skills;
 using Source.UI.Bars;
 using Source.UI.Buttons.ControlButtons;
 using Source.UI.Buttons.UIButtons;
 using Source.UI.Views;
+using Source.UI.Views.SkillViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Source.GameLogic.BotsSpawners;
 using UnityEngine;
 
 namespace Source.GameLogic
@@ -23,6 +25,12 @@ namespace Source.GameLogic
         [SerializeField] private PlayerHealthBar _playerHealthBar;
         [SerializeField] private PlayerManaBar _playerManaBar;
         [SerializeField] private PlayerWalletView _playerWalletView;
+        [SerializeField] private BuffCooldownView _buffCooldownView;
+        [SerializeField] private BuffEffectView _buffEffectView;
+        [SerializeField] private UltimateCooldownView _ultimateCooldownView;
+        [SerializeField] private UltimateEffectView _ultimateEffectView;
+        [SerializeField] private RollCooldownView _rollCooldownView;
+        [SerializeField] private RollEffectView _rollEffectView;
         [SerializeField] private List<BotsSpawner> _botsSpawners = new();
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
 
@@ -147,6 +155,33 @@ namespace Source.GameLogic
                     throw new ArgumentNullException();
 
                 _playerWalletView.Init(playerWallet);
+            }
+
+            if (_buffCooldownView != null && _buffEffectView != null)
+            {
+                if (playerCharacter.TryGetComponent(out Buff buff) == false)
+                    throw new ArgumentNullException();
+
+                _buffCooldownView.Init(buff);
+                _buffEffectView.Init(buff);
+            }
+
+            if (_ultimateCooldownView != null && _ultimateEffectView != null)
+            {
+                if (playerCharacter.TryGetComponent(out Ultimate ultimate) == false)
+                    throw new ArgumentNullException();
+
+                _ultimateCooldownView.Init(ultimate);
+                _ultimateEffectView.Init(ultimate);
+            }
+
+            if (_rollCooldownView != null && _rollEffectView != null)
+            {
+                if (playerCharacter.TryGetComponent(out Roll roll) == false)
+                    throw new ArgumentNullException();
+
+                _rollCooldownView.Init(roll);
+                _rollEffectView.Init(roll);
             }
 
             if (_buyCharacterButton != null)

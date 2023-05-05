@@ -9,8 +9,6 @@ namespace Source.Skills
     [RequireComponent(typeof(PlayerHealth))]
     public sealed class MedicUltimate : Ultimate
     {
-        [SerializeField] private float _duration;
-
         private PlayerHealth _playerHealth;
         private Coroutine _coroutine;
 
@@ -20,17 +18,12 @@ namespace Source.Skills
             _playerHealth = GetComponent<PlayerHealth>();
         }
 
-        protected override void Start()
-        {
-            base.Start();
-        }
-
         private void Update()
         {
             if (_playerHealth.ChanceAvoidDamage == 0)
                 return;
 
-            if (ElapsedTime <= Cooldown - _duration)
+            if (ElapsedTime <= Cooldown - Duration)
                 _playerHealth.StopAvoidDamage();
         }
 
