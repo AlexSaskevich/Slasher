@@ -9,6 +9,7 @@ namespace Source.Skills
     [RequireComponent(typeof(PlayerMana), typeof(InputSwitcher))]
     public abstract class Ultimate : Skill
     {
+        [field: SerializeField] public float Duration { get; private set; }
         public bool IsActive { get; protected set; }
         protected PlayerMana PlayerMana { get; private set; }
         protected InputSwitcher InputSwitcher { get; private set; }

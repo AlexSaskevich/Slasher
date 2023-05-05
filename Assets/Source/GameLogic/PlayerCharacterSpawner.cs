@@ -1,5 +1,4 @@
-﻿using Assets.Source.UI.Views;
-using Source.Enums;
+﻿using Source.Enums;
 using Source.GameLogic.BotsSpawners;
 using Source.InputSource;
 using Source.Player;
@@ -27,6 +26,10 @@ namespace Source.GameLogic
         [SerializeField] private PlayerWalletView _playerWalletView;
         [SerializeField] private BuffCooldownView _buffCooldownView;
         [SerializeField] private BuffEffectView _buffEffectView;
+        [SerializeField] private UltimateCooldownView _ultimateCooldownView;
+        [SerializeField] private UltimateEffectView _ultimateEffectView;
+        [SerializeField] private RollCooldownView _rollCooldownView;
+        [SerializeField] private RollEffectView _rollEffectView;
         [SerializeField] private List<BotsSpawner> _botsSpawners = new();
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
 
@@ -160,6 +163,24 @@ namespace Source.GameLogic
 
                 _buffCooldownView.Init(buff);
                 _buffEffectView.Init(buff);
+            }
+
+            if (_ultimateCooldownView != null && _ultimateEffectView != null)
+            {
+                if (playerCharacter.TryGetComponent(out Ultimate ultimte) == false)
+                    throw new ArgumentNullException();
+
+                _ultimateCooldownView.Init(ultimte);
+                _ultimateEffectView.Init(ultimte);
+            }
+
+            if (_rollCooldownView != null && _rollEffectView != null)
+            {
+                if (playerCharacter.TryGetComponent(out Roll roll) == false)
+                    throw new ArgumentNullException();
+
+                _rollCooldownView.Init(roll);
+                _rollEffectView.Init(roll);
             }
 
             if (_buyCharacterButton != null)

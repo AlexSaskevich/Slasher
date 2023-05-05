@@ -8,8 +8,6 @@ namespace Source.Skills
 {
     public sealed class BikerUltimate : Ultimate
     {
-        [SerializeField] private float _duration;
-
         private Coroutine _coroutine;
         private PlayerHealth _playerHealth;
 
@@ -27,11 +25,6 @@ namespace Source.Skills
         private void OnDisable()
         {
             _playerHealth.Died -= OnDied;
-        }
-
-        protected override void Start()
-        {
-            base.Start();
         }
 
         public override void TryActivate()
@@ -61,7 +54,7 @@ namespace Source.Skills
             Animator.SetBool(AnimationConstants.IsUltimate, true);
             IsActive = true;
             base.TryActivate();
-            yield return new WaitUntil(() => ElapsedTime <= Cooldown - _duration);
+            yield return new WaitUntil(() => ElapsedTime <= Cooldown - Duration);
             Animator.SetBool(AnimationConstants.IsUltimate, false);
             IsActive = false;
         }

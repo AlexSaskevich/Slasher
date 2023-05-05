@@ -9,7 +9,6 @@ namespace Source.Skills
     public class NinjaUltimate : Ultimate
     {
         [SerializeField] private PlayerWeapon _playerWeapon;
-        [SerializeField] private float _duration;
         [SerializeField] private float _speedModifier;
         [SerializeField] private float _damageModifier;
 
@@ -25,17 +24,12 @@ namespace Source.Skills
             _playerAgility = GetComponent<PlayerAgility>();
         }
 
-        protected override void Start()
-        {
-            base.Start();
-        }
-
         private void Update()
         {
             if (_playerMovement.IsBuffed == false)
                 return;
 
-            if (ElapsedTime <= Cooldown - _duration)
+            if (ElapsedTime <= Cooldown - Duration)
             {
                 _playerMovement.RemoveModifier(_speedModifier);
                 _playerAgility.RemoveModifier(Mathf.Epsilon);

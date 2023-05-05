@@ -333,7 +333,7 @@ MonoBehaviour:
   <Cooldown>k__BackingField: 10
   _buffableBehaviour: {fileID: 8014045146609878632}
   _modifier: 2
-  <Duration>k__BackingField: 9
+  <Duration>k__BackingField: 7
 --- !u!114 &8014045146557720179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Cost>k__BackingField: 60
   <Cooldown>k__BackingField: 6
-  _duration: 5
+  <Duration>k__BackingField: 3
 --- !u!114 &1677530840
 MonoBehaviour:
   m_ObjectHideFlags: 0

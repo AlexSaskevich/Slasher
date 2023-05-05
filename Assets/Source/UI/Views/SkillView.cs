@@ -9,7 +9,6 @@ namespace Source.UI.Views
     public abstract class SkillView : UIView
     {
         protected const float MinFillAmount = 0f;
-        protected const float MaxFillAmount = 1f;
 
         private TMP_Text _text;
         private Coroutine _coroutine;
@@ -31,6 +30,7 @@ namespace Source.UI.Views
         protected virtual void Start()
         {
             _text.text = string.Empty;
+            Image.fillAmount = MinFillAmount;
         }
 
         public void Init(Buff buff)
@@ -62,6 +62,7 @@ namespace Source.UI.Views
             }
 
             _text.text = string.Empty;
+            Image.fillAmount = MinFillAmount;
         }
     }
 }

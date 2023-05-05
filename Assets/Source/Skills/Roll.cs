@@ -20,11 +20,6 @@ namespace Source.Skills
             _playerAgility = GetComponent<PlayerAgility>();
         }
 
-        protected override void Start()
-        {
-            base.Start();
-        }
-
         public override void TryActivate()
         {
             if (Animator.GetBool(AnimationConstants.IsRunning) == false)
