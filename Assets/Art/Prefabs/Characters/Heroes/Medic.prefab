@@ -2092,7 +2092,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _increasingAgility: 10
-  <MaxValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 100
   <CharacteristicStatus>k__BackingField: 2
 --- !u!114 &5732483610280614472
 MonoBehaviour:
@@ -2108,7 +2108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _increasingMana: 7.5
   <CharacteristicStatus>k__BackingField: 1
-  <MaxValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 100
 --- !u!114 &5732483610280614478
 MonoBehaviour:
   m_ObjectHideFlags: 0

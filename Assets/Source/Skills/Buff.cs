@@ -17,7 +17,7 @@ namespace Source.Skills
         private PlayerMana _playerMana;
         private Coroutine _coroutine;
 
-        public override bool CanUsed { get => _playerMana.CurrentMana >= Cost; }
+        public override bool CanUsed { get => _playerMana.CurrentValue >= Cost; }
         public bool IsActive { get; private set; }
 
         private void OnValidate()
