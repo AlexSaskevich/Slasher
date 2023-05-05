@@ -7,6 +7,7 @@ using Source.UI.Bars;
 using Source.UI.Buttons.ControlButtons;
 using Source.UI.Buttons.UIButtons;
 using Source.UI.Views;
+using Source.UI.Views.SkillViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -167,11 +168,11 @@ namespace Source.GameLogic
 
             if (_ultimateCooldownView != null && _ultimateEffectView != null)
             {
-                if (playerCharacter.TryGetComponent(out Ultimate ultimte) == false)
+                if (playerCharacter.TryGetComponent(out Ultimate ultimate) == false)
                     throw new ArgumentNullException();
 
-                _ultimateCooldownView.Init(ultimte);
-                _ultimateEffectView.Init(ultimte);
+                _ultimateCooldownView.Init(ultimate);
+                _ultimateEffectView.Init(ultimate);
             }
 
             if (_rollCooldownView != null && _rollEffectView != null)

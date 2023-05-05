@@ -17,7 +17,6 @@ namespace Source.Skills
         private PlayerMana _playerMana;
         private Coroutine _coroutine;
 
-        [field: SerializeField] public float Duration { get; private set; }
         public bool IsActive { get; private set; }
 
         private void OnValidate()

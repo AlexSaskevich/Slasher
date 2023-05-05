@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36be391d30c010d409bfdbb6840d64e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Duration>k__BackingField: 0
   <Cost>k__BackingField: 20
   <Cooldown>k__BackingField: 1
 --- !u!114 &807508609
@@ -329,11 +330,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65dcfda0b7f8ac84e9686ab7107d9bd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Duration>k__BackingField: 7
   <Cost>k__BackingField: 30
   <Cooldown>k__BackingField: 10
   _buffableBehaviour: {fileID: 8014045146609878632}
   _modifier: 2
-  <Duration>k__BackingField: 7
 --- !u!114 &8014045146557720179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -346,9 +347,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 041934e595fe5dd49b5445de5c9c7943, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Duration>k__BackingField: 3
   <Cost>k__BackingField: 60
   <Cooldown>k__BackingField: 6
-  <Duration>k__BackingField: 3
 --- !u!114 &1677530840
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ namespace Source.Skills
 
         public event Action TimerStarted;
 
+        [field:SerializeField] public float Duration { get; protected set; }
         [field: SerializeField] public float Cost { get; private set; }
         [field: SerializeField] public float Cooldown { get; private set; }
         public float ElapsedTime { get; private set; }
