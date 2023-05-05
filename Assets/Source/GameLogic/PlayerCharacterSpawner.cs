@@ -43,9 +43,6 @@ namespace Source.GameLogic
         private void Awake()
         {
             GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Biker, true);
-            GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Medic, false);
-            GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Ninja, false);
-            GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Death, false);
 
             InitPlayerCharacters();
             SetCurrentPlayer();
