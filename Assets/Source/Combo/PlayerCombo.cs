@@ -95,7 +95,7 @@ namespace Source.Combo
         public void StartKill()
         {
             _weapon.StartDetectCollisions();
-            PlayerAgility.DecreaseAgility(PlayerAgility.MaxAgility);
+            PlayerAgility.DecreaseAgility(PlayerAgility.MaxValue);
         }
 
         public void StopKill()

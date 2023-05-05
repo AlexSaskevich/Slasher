@@ -19,17 +19,20 @@ namespace Source.Player
 
         [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; set; }
         
+        public float MaxValue { get; private set; }
         public float ChanceAvoidDamage { get; private set; }
         public bool IsBuffed { get; private set; }
 
         private void Awake()
         {
             var maxHealth = GameProgressSaver.GetPlayerCharacteristic(CharacteristicStatus);
-            
-            if(maxHealth > 0)
+
+            if (maxHealth > 0)
                 TrySetMaxHealth(maxHealth);
                 
             _inputSwitcher = GetComponent<InputSwitcher>();
+
+            MaxValue = maxHealth;
         }
 
         protected override void Start()
@@ -62,6 +65,7 @@ namespace Source.Player
                     if (CurrentHealth - damage <= 0)
                         return;
                     break;
+                
                 default:
                     damage *= GetFinalDamage();
                     break;
@@ -118,6 +122,8 @@ namespace Source.Player
                 return;
 
             TryIncreaseMaxHealth(MaxHealth + value);
+            MaxValue = MaxHealth;
+            
             ResetHealth();
         }
 

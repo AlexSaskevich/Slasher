@@ -57,7 +57,7 @@ namespace Source.Skills
             if (ElapsedTime < Cooldown)
                 return;
 
-            if (_playerMana.CurrentMana < Cost)
+            if (_playerMana.CurrentValue < Cost)
                 return;
 
             StartBuff();

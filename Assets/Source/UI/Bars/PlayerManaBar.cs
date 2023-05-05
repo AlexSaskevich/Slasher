@@ -19,7 +19,7 @@ namespace Source.UI.Bars
 
         protected override void OnValueChanged()
         {
-            var targetValue = _playerMana.CurrentMana / _playerMana.MaxMana;
+            var targetValue = _playerMana.CurrentValue / _playerMana.MaxValue;
 
             StartChangeFillAmount(targetValue);
         }

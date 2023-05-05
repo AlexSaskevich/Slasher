@@ -11,15 +11,16 @@ using Source.UI.Views.SkillViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Source.GameLogic.Goods;
 using UnityEngine;
 
 namespace Source.GameLogic
 {
     public sealed class PlayerCharacterSpawner : MonoBehaviour
     {
-        [SerializeField] private List<PlayerCharacter> _prefabs = new();
+        [SerializeField] private List<PlayerCharacter> _prefabs;
         [SerializeField] private Joystick _joystick;
-        [SerializeField] private List<ControlButton> _controlButtons = new();
+        [SerializeField] private List<ControlButton> _controlButtons;
         [SerializeField] private PlayerFollower _playerFollower;
         [SerializeField] private PlayerAgilityBar _playerAgilityBar;
         [SerializeField] private PlayerHealthBar _playerHealthBar;
@@ -31,8 +32,9 @@ namespace Source.GameLogic
         [SerializeField] private UltimateEffectView _ultimateEffectView;
         [SerializeField] private RollCooldownView _rollCooldownView;
         [SerializeField] private RollEffectView _rollEffectView;
-        [SerializeField] private List<BotsSpawner> _botsSpawners = new();
+        [SerializeField] private List<BotsSpawner> _botsSpawners;
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
+        [SerializeField] private List<BoostBlinder> _boostBlinders;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -192,6 +194,42 @@ namespace Source.GameLogic
                 _buyCharacterButton.Init(playerWallet);
             }
 
+            foreach (var boostBlinder in _boostBlinders)
+            {
+                if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
+                    throw new ArgumentNullException();
+
+                switch (boostBlinder.GoodStatus)
+                {
+                    case GoodStatus.HealthUpgradeable:
+                    {
+                        if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
+                            throw new ArgumentNullException();
+                    
+                        boostBlinder.Init(playerWallet, playerHealth);
+                        break;
+                    }
+                    case GoodStatus.ManaUpgradeable:
+                    {
+                        if (playerCharacter.TryGetComponent(out PlayerMana playerMana) == false)
+                            throw new ArgumentNullException();
+
+                        boostBlinder.Init(playerWallet, playerMana);
+                        break;
+                    }
+                    case GoodStatus.AgilityUpgradeable:
+                    {
+                        if (playerCharacter.TryGetComponent(out PlayerAgility playerAgility) == false)
+                            throw new ArgumentNullException();
+
+                        boostBlinder.Init(playerWallet, playerAgility);
+                        break;
+                    }
+                    default:
+                        throw new ArgumentNullException();
+                }
+            }
+            
             if (_botsSpawners.Count == 0)
                 return;
 

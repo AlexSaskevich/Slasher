@@ -32,7 +32,7 @@ namespace Source.Skills
             if (ElapsedTime < Cooldown)
                 return;
 
-            if (PlayerMana.CurrentMana < Cost)
+            if (PlayerMana.CurrentValue < Cost)
                 return;
 
             if (PlayerCombo.CurrentState is MoveState == false)

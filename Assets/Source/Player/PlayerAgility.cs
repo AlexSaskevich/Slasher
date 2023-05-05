@@ -15,7 +15,7 @@ namespace Source.Player
 
         public event Action AgilityChanged;
 
-        [field: SerializeField] public float MaxAgility { get; private set; }
+        [field: SerializeField] public float MaxValue { get; private set; }
         [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; set; }
         
         public float CurrentAgility { get; private set; }
@@ -27,16 +27,16 @@ namespace Source.Player
             var maxAgility = GameProgressSaver.GetPlayerCharacteristic(CharacteristicStatus);
 
             if (maxAgility > 0)
-                MaxAgility = maxAgility;
+                MaxValue = maxAgility;
             
-            CurrentAgility = MaxAgility;
+            CurrentAgility = MaxValue;
             
             _playerCombo = GetComponent<PlayerCombo>();
         }
 
         private void Update()
         {
-            if (_playerCombo.CurrentState is MoveState && CurrentAgility < MaxAgility)
+            if (_playerCombo.CurrentState is MoveState && CurrentAgility < MaxValue)
                 IncreaseAgility();
         }
 
@@ -45,13 +45,13 @@ namespace Source.Player
             if (IsBuffed)
                 value = 0;
 
-            CurrentAgility = Mathf.Clamp(CurrentAgility - value, 0, MaxAgility);
+            CurrentAgility = Mathf.Clamp(CurrentAgility - value, 0, MaxValue);
             AgilityChanged?.Invoke();
         }
 
         private void IncreaseAgility()
         {
-            CurrentAgility = Mathf.Clamp(CurrentAgility + _increasingAgility * Time.deltaTime, 0, MaxAgility);
+            CurrentAgility = Mathf.Clamp(CurrentAgility + _increasingAgility * Time.deltaTime, 0, MaxValue);
             AgilityChanged?.Invoke();
         }
 
@@ -76,13 +76,13 @@ namespace Source.Player
             if (value <= 0)
                 return;
             
-            MaxAgility += value;
-            CurrentAgility = MaxAgility;
+            MaxValue += value;
+            CurrentAgility = MaxValue;
         }
 
         public float GetUpgradedCharacteristic()
         {
-            return MaxAgility;
+            return MaxValue;
         }
     }
 }

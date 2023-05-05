@@ -19,7 +19,7 @@ namespace Source.UI.Bars
 
         protected override void OnValueChanged()
         {
-            var targetValue = _playerAgility.CurrentAgility / _playerAgility.MaxAgility;
+            var targetValue = _playerAgility.CurrentAgility / _playerAgility.MaxValue;
 
             StartChangeFillAmount(targetValue);
         }

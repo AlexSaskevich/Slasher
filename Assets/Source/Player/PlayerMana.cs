@@ -12,30 +12,30 @@ namespace Source.Player
 
         public event Action ManaChanged;
 
-        [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; set; }
-        [field: SerializeField] public float MaxMana { get; private set; }
+        [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; private set; }
+        [field: SerializeField] public float MaxValue { get; private set; }
         
-        public float CurrentMana { get; private set; }
+        public float CurrentValue { get; private set; }
 
         private void Awake()
         {
             var maxMana = GameProgressSaver.GetPlayerCharacteristic(CharacteristicStatus);
 
             if (maxMana > 0)
-                MaxMana = maxMana;
+                MaxValue = maxMana;
             
-            CurrentMana = MaxMana;
+            CurrentValue = MaxValue;
         }
 
         private void Update()
         {
-            if (CurrentMana < MaxMana)
+            if (CurrentValue < MaxValue)
                 IncreaseMana();
         }
 
         public void DecreaseMana(float value)
         {
-            CurrentMana = Mathf.Clamp(CurrentMana - value, 0, MaxMana);
+            CurrentValue = Mathf.Clamp(CurrentValue - value, 0, MaxValue);
             ManaChanged?.Invoke();
         }
 
@@ -44,18 +44,18 @@ namespace Source.Player
             if (value <= 0)
                 return;
 
-            MaxMana += value;
-            CurrentMana = MaxMana;
+            MaxValue += value;
+            CurrentValue = MaxValue;
         }
 
         public float GetUpgradedCharacteristic()
         {
-            return MaxMana;
+            return MaxValue;
         }
         
         private void IncreaseMana()
         {
-            CurrentMana = Mathf.Clamp(CurrentMana + _increasingMana * Time.deltaTime, 0, MaxMana);
+            CurrentValue = Mathf.Clamp(CurrentValue + _increasingMana * Time.deltaTime, 0, MaxValue);
             ManaChanged?.Invoke();
         }
     }

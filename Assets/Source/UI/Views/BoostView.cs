@@ -5,17 +5,18 @@ using UnityEngine.UI;
 
 namespace Source.UI.Views
 {
-    [RequireComponent(typeof(GoodBlinder),typeof(Button))]
-    public sealed class GoodView : MonoBehaviour
+    [RequireComponent(typeof(BoostBlinder),typeof(Button))]
+    public sealed class BoostView : MonoBehaviour
     {
         [SerializeField] private TMP_Text _level;
+        [SerializeField] private TMP_Text _characteristic;
         
-        private GoodBlinder _goodBlinder;
+        private BoostBlinder _boostBlinder;
         private Button _button;
 
         private void Awake()
         {
-            _goodBlinder = GetComponent<GoodBlinder>();
+            _boostBlinder = GetComponent<BoostBlinder>();
             _button = GetComponent<Button>();
         }
 
@@ -32,24 +33,34 @@ namespace Source.UI.Views
         private void Start()
         {
             ShowLevel();
+            ShowCharacteristic();
             TryTurnOff();
         }
 
         private void OnClick()
         {
-            _goodBlinder.Good.TryBuy();
+            _boostBlinder.Boost.TryBuy();
+            
             ShowLevel();
+            ShowCharacteristic();
             TryTurnOff();
+        }
+
+        private void ShowCharacteristic()
+        {
+            _characteristic.text = _boostBlinder.Boost.IsMaxLevel()
+                ? $"{_boostBlinder.Boost.Upgradeable.MaxValue}"
+                : $"{_boostBlinder.Boost.Upgradeable.MaxValue} / +{_boostBlinder.Boost.IncreasedValue}";
         }
 
         private void ShowLevel()
         {
-            _level.text = _goodBlinder.Good.Level.ToString();
+            _level.text = _boostBlinder.Boost.Level.ToString();
         }
 
         private void TryTurnOff()
         {
-            if (_goodBlinder.Good.IsMaxLevel())
+            if (_boostBlinder.Boost.IsMaxLevel())
                 _button.interactable = false;
         }
     }
