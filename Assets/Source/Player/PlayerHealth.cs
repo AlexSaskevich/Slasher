@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Source.Player
 {
-    [RequireComponent(typeof(InputSwitcher))]
+    [RequireComponent(typeof(InputSwitcher), typeof(PlayerCharacterName))]
     public sealed class PlayerHealth : Health, IBuffable, IUpgradeable
     {
         private const float MaxChanceAvoidDamage = 1f;
@@ -16,8 +16,9 @@ namespace Source.Player
         private InputSwitcher _inputSwitcher;
         private IInputSource _inputSource;
         private float _healModifier;
+        private PlayerCharacter _playerCharacter;
 
-        [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; set; }
+         [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; set; }
         
         public float MaxValue { get; private set; }
         public float ChanceAvoidDamage { get; private set; }
@@ -25,13 +26,19 @@ namespace Source.Player
 
         private void Awake()
         {
-            var maxHealth = GameProgressSaver.GetPlayerCharacteristic(CharacteristicStatus);
-
-            if (maxHealth > 0)
-                TrySetMaxHealth(maxHealth);
-                
+            _playerCharacter = GetComponent<PlayerCharacter>();
             _inputSwitcher = GetComponent<InputSwitcher>();
+            
+            var maxHealth =
+                GameProgressSaver.GetPlayerCharacteristic(_playerCharacter.PlayerCharacterName, CharacteristicStatus);
 
+            if (maxHealth <= 0)
+            {
+                MaxValue = MaxHealth;
+                return;
+            }
+            
+            TrySetMaxHealth(maxHealth);
             MaxValue = maxHealth;
         }
 

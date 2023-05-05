@@ -602,6 +602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _level: {fileID: 213914987}
   _characteristic: {fileID: 1346814064}
+  _buyCharacterButton: {fileID: 760692895}
 --- !u!114 &42585529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4763,6 +4764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _level: {fileID: 1720384827}
   _characteristic: {fileID: 2067403758}
+  _buyCharacterButton: {fileID: 760692895}
 --- !u!114 &1076740834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6530,6 +6532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _level: {fileID: 1624116690}
   _characteristic: {fileID: 1043313397}
+  _buyCharacterButton: {fileID: 760692895}
 --- !u!114 &1678635679
 MonoBehaviour:
   m_ObjectHideFlags: 0

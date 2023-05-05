@@ -6,9 +6,12 @@ using UnityEngine;
 
 namespace Source.Player
 {
+    [RequireComponent(typeof(PlayerCharacter))]
     public sealed class PlayerMana : MonoBehaviour, IUpgradeable
     {
         [SerializeField] private float _increasingMana;
+
+        private PlayerCharacter _playerCharacter;
 
         public event Action ManaChanged;
 
@@ -19,7 +22,9 @@ namespace Source.Player
 
         private void Awake()
         {
-            var maxMana = GameProgressSaver.GetPlayerCharacteristic(CharacteristicStatus);
+            _playerCharacter = GetComponent<PlayerCharacter>();
+            var maxMana =
+                GameProgressSaver.GetPlayerCharacteristic(_playerCharacter.PlayerCharacterName, CharacteristicStatus);
 
             if (maxMana > 0)
                 MaxValue = maxMana;

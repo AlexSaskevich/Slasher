@@ -40,24 +40,26 @@ namespace Source.GameLogic
             return PlayerPrefs.GetInt(ZombieScore);
         }
 
-        public static void SetGoodLevel(GoodStatus status, int level)
+        public static void SetBoosterLevel(PlayerCharacterName playerCharacterName, GoodStatus status, int level)
         {
-            PlayerPrefs.SetInt(status.ToString(), level);
+            PlayerPrefs.SetInt(playerCharacterName + status.ToString(), level);
         }
 
-        public static int GetGoodLevel(GoodStatus status)
+        public static int GetBoosterLevel(PlayerCharacterName playerCharacterName, GoodStatus status)
         {
-            return PlayerPrefs.GetInt(status.ToString());
+            return PlayerPrefs.GetInt(playerCharacterName + status.ToString());
         }
 
-        public static void SetPlayerCharacteristic(CharacteristicStatus characteristicStatus, float value)
+        public static void SetPlayerCharacteristic(PlayerCharacterName playerCharacterName,
+            CharacteristicStatus characteristicStatus, float value)
         {
-            PlayerPrefs.SetFloat(characteristicStatus.ToString(), value);
+            PlayerPrefs.SetFloat(playerCharacterName + characteristicStatus.ToString(), value);
         }
 
-        public static float GetPlayerCharacteristic(CharacteristicStatus characteristicStatus)
+        public static float GetPlayerCharacteristic(PlayerCharacterName playerCharacterName,
+            CharacteristicStatus characteristicStatus)
         {
-            return PlayerPrefs.GetFloat(characteristicStatus.ToString());
+            return PlayerPrefs.GetFloat(playerCharacterName + characteristicStatus.ToString());
         }
 
         public static void SetCurrentCharacterIndex(int playerCharacterName)

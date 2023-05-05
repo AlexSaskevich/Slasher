@@ -1,4 +1,7 @@
-﻿using Source.GameLogic.Goods;
+﻿using System.Collections.Generic;
+using Source.GameLogic.Boosters;
+using Source.Player;
+using Source.UI.Buttons.UIButtons;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,7 +13,9 @@ namespace Source.UI.Views
     {
         [SerializeField] private TMP_Text _level;
         [SerializeField] private TMP_Text _characteristic;
-        
+        [SerializeField] private BuyCharacterButton _buyCharacterButton;
+
+        private IEnumerable<PlayerCharacter> _playerCharacters;
         private BoostBlinder _boostBlinder;
         private Button _button;
 
@@ -23,24 +28,34 @@ namespace Source.UI.Views
         private void OnEnable()
         {
             _button.onClick.AddListener(OnClick);
+            _buyCharacterButton.CharacterSet += OnCharacterSet;
         }
-        
+
         private void OnDisable()
         {
             _button.onClick.RemoveListener(OnClick);
+            _buyCharacterButton.CharacterSet -= OnCharacterSet;
         }
 
         private void Start()
         {
-            ShowLevel();
-            ShowCharacteristic();
-            TryTurnOff();
+            Activate();
+        }
+        
+        private void OnCharacterSet()
+        {
+            Activate();
         }
 
         private void OnClick()
         {
             _boostBlinder.Boost.TryBuy();
-            
+
+            Activate();
+        }
+
+        private void Activate()
+        {
             ShowLevel();
             ShowCharacteristic();
             TryTurnOff();

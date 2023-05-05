@@ -7,11 +7,13 @@ using UnityEngine;
 
 namespace Source.Player
 {
+    [RequireComponent(typeof(PlayerCharacter))]
     public sealed class PlayerAgility : MonoBehaviour, IBuffable, IUpgradeable
     {
         [SerializeField] private float _increasingAgility;
 
         private PlayerCombo _playerCombo;
+        private PlayerCharacter _playerCharacter;
 
         public event Action AgilityChanged;
 
@@ -24,14 +26,16 @@ namespace Source.Player
 
         private void Awake()
         {
-            var maxAgility = GameProgressSaver.GetPlayerCharacteristic(CharacteristicStatus);
+            _playerCharacter = GetComponent<PlayerCharacter>();
+            _playerCombo = GetComponent<PlayerCombo>();
+            
+            var maxAgility =
+                GameProgressSaver.GetPlayerCharacteristic(_playerCharacter.PlayerCharacterName, CharacteristicStatus);
 
             if (maxAgility > 0)
                 MaxValue = maxAgility;
             
             CurrentAgility = MaxValue;
-            
-            _playerCombo = GetComponent<PlayerCombo>();
         }
 
         private void Update()

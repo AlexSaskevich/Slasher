@@ -2,7 +2,7 @@
 using Source.Interfaces;
 using Source.Player;
 
-namespace Source.GameLogic.Goods
+namespace Source.GameLogic.Boosters
 {
     public sealed class Boost
     {
@@ -11,9 +11,10 @@ namespace Source.GameLogic.Goods
         private readonly PlayerWallet _playerWallet;
         private readonly GoodStatus _goodStatus;
         private readonly int _price;
+        private readonly PlayerCharacterName _playerCharacterName;
 
         public Boost(int level, int increasedValue, IUpgradeable upgradeable, int price, PlayerWallet playerWallet,
-            GoodStatus goodStatus)
+            GoodStatus goodStatus, PlayerCharacterName playerCharacterName)
         {
             Level = level;
             IncreasedValue = increasedValue;
@@ -21,6 +22,7 @@ namespace Source.GameLogic.Goods
             _price = price;
             _playerWallet = playerWallet;
             _goodStatus = goodStatus;
+            _playerCharacterName = playerCharacterName;
         }
         
         public IUpgradeable Upgradeable { get; }
@@ -36,11 +38,11 @@ namespace Source.GameLogic.Goods
             _playerWallet.TrySpendMoney(_price);
                 
             Level++;
-            GameProgressSaver.SetGoodLevel(_goodStatus, Level);
+            GameProgressSaver.SetBoosterLevel(_playerCharacterName, _goodStatus, Level);
 
             var value = Upgradeable.GetUpgradedCharacteristic();
 
-            GameProgressSaver.SetPlayerCharacteristic(Upgradeable.CharacteristicStatus, value);
+            GameProgressSaver.SetPlayerCharacteristic(_playerCharacterName, Upgradeable.CharacteristicStatus, value);
         }
 
         public bool IsMaxLevel()

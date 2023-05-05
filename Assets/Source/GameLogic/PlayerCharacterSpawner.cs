@@ -11,7 +11,7 @@ using Source.UI.Views.SkillViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Source.GameLogic.Goods;
+using Source.GameLogic.Boosters;
 using UnityEngine;
 
 namespace Source.GameLogic
@@ -43,6 +43,9 @@ namespace Source.GameLogic
         private void Awake()
         {
             GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Biker, true);
+            GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Medic, false);
+            GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Ninja, false);
+            GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Death, false);
 
             InitPlayerCharacters();
             SetCurrentPlayer();
@@ -205,8 +208,8 @@ namespace Source.GameLogic
                     {
                         if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
                             throw new ArgumentNullException();
-                    
-                        boostBlinder.Init(playerWallet, playerHealth);
+
+                        boostBlinder.Init(playerWallet, playerHealth, playerCharacter.PlayerCharacterName);
                         break;
                     }
                     case GoodStatus.ManaUpgradeable:
@@ -214,7 +217,7 @@ namespace Source.GameLogic
                         if (playerCharacter.TryGetComponent(out PlayerMana playerMana) == false)
                             throw new ArgumentNullException();
 
-                        boostBlinder.Init(playerWallet, playerMana);
+                        boostBlinder.Init(playerWallet, playerMana, playerCharacter.PlayerCharacterName);
                         break;
                     }
                     case GoodStatus.AgilityUpgradeable:
@@ -222,14 +225,14 @@ namespace Source.GameLogic
                         if (playerCharacter.TryGetComponent(out PlayerAgility playerAgility) == false)
                             throw new ArgumentNullException();
 
-                        boostBlinder.Init(playerWallet, playerAgility);
+                        boostBlinder.Init(playerWallet, playerAgility, playerCharacter.PlayerCharacterName);
                         break;
                     }
                     default:
                         throw new ArgumentNullException();
                 }
             }
-            
+
             if (_botsSpawners.Count == 0)
                 return;
 
