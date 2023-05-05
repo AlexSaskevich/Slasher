@@ -1,10 +1,6 @@
 ﻿namespace Source.UI.Views.SkillViews
 {
-    public sealed class BuffCooldownView : SkillView
+    public sealed class BuffCooldownView : SkillCooldownView
     {
-        protected override void OnStarted()
-        {
-            StartFillImage(Skill.Cooldown);
-        }
     }
 }

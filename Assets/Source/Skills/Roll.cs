@@ -12,6 +12,7 @@ namespace Source.Skills
         private PlayerHealth _playerHealth;
         private PlayerAgility _playerAgility;
 
+        public override bool CanUsed { get => _playerAgility.CurrentAgility >= Cost; }
         public bool IsActive { get; private set; }
 
         private void OnValidate()
@@ -46,7 +47,7 @@ namespace Source.Skills
             if (ElapsedTime < Cooldown)
                 return;
 
-            if (_playerAgility.CurrentAgility < Cost)
+            if (CanUsed == false)
                 return;
 
             Animator.SetTrigger(AnimationConstants.Roll);
