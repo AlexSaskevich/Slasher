@@ -58,15 +58,15 @@ namespace Source.Player
                 TryHeal(_healModifier);
         }
 
+        public void Init(AdShower adShower)
+        {
+            _adShower = adShower;
+        }
+
         protected override void Die()
         {
             _inputSource.Disable();
             _adShower.Show();
-        }
-
-        public void Init(AdShower adShower)
-        {
-            _adShower = adShower;
         }
 
         public override void TryTakeDamage(float damage)
