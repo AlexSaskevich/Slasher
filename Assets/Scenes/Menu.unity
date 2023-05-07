@@ -404,6 +404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 41835384}
   - component: {fileID: 41835385}
+  - component: {fileID: 41835386}
   m_Layer: 0
   m_Name: PlayerSpawner
   m_TagString: Untagged
@@ -445,6 +446,19 @@ MonoBehaviour:
   - {fileID: 6973243805678024416, guid: 511ce605d08eb6046a2a8fb5ff1b7d0b, type: 3}
   _joystick: {fileID: 0}
   _controlButtons: []
+  _adShower: {fileID: 0}
+--- !u!114 &41835386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 41835383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c43b67fb3b4f4748b7d8138ffafa7102, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   _playerFollower: {fileID: 0}
   _playerAgilityBar: {fileID: 0}
   _playerHealthBar: {fileID: 0}
@@ -463,7 +477,6 @@ MonoBehaviour:
   - {fileID: 1076740834}
   - {fileID: 1678635679}
   _moneyButton: {fileID: 503596938}
-  _adShower: {fileID: 0}
 --- !u!1 &42585523
 GameObject:
   m_ObjectHideFlags: 0
