@@ -7,7 +7,7 @@ namespace Source.UI.Buttons.UIButtons
     {
         protected override void OnButtonClick()
         {
-            SceneManager.LoadScene(GameModeConstants.SurvivalMode);
+            SceneManager.LoadScene(ScenesNames.SurvivalMode);
         }
     }
 }

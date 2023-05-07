@@ -7,7 +7,7 @@ namespace Source.UI.Buttons.UIButtons
     {
         protected override void OnButtonClick()
         {
-            SceneManager.LoadScene(GameModeConstants.PeacefulMode);
+            SceneManager.LoadScene(ScenesNames.PeacefulMode);
         }
     }
 }

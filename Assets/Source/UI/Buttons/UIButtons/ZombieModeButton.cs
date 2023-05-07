@@ -7,7 +7,7 @@ namespace Source.UI.Buttons.UIButtons
     {
         protected override void OnButtonClick()
         {
-            SceneManager.LoadScene(GameModeConstants.ZombieMode);
+            SceneManager.LoadScene(ScenesNames.ZombieMode);
         }
     }
 }

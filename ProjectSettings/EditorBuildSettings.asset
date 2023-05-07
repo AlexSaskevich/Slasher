@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/SDKInitScene.unity
+    guid: 9b7887f941d469e4cacadea216ebdd67
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: bdb1634f5d491984c96776e7a5247e20
   - enabled: 1

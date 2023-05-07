@@ -35,6 +35,7 @@ namespace Source.GameLogic
         [SerializeField] private List<BotsSpawner> _botsSpawners;
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
         [SerializeField] private List<BoostBlinder> _boostBlinders;
+        [SerializeField] private MoneyButton _moneyButton;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -194,6 +195,14 @@ namespace Source.GameLogic
                 _buyCharacterButton.Init(playerWallet);
             }
 
+            if (_moneyButton != null)
+            {
+                if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
+                    throw new ArgumentNullException();
+
+                _moneyButton.Init(playerWallet);
+            }
+            
             foreach (var boostBlinder in _boostBlinders)
             {
                 if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
