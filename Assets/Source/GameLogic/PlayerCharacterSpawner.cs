@@ -12,6 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Source.GameLogic.Boosters;
+using Source.Yandex;
 using UnityEngine;
 
 namespace Source.GameLogic
@@ -36,6 +37,7 @@ namespace Source.GameLogic
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
         [SerializeField] private List<BoostBlinder> _boostBlinders;
         [SerializeField] private MoneyButton _moneyButton;
+        [SerializeField] private AdShower _adShower;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -91,12 +93,18 @@ namespace Source.GameLogic
                 if (character.TryGetComponent(out UIInput uiInput) == false)
                     throw new ArgumentNullException();
 
+                if (character.TryGetComponent(out PlayerHealth playerHealth) == false)
+                    throw new ArgumentNullException();
+
                 if (_joystick != null)
                     inputSwitcher.Init(_joystick);
 
                 if (_joystick != null && _controlButtons.Count != 0)
                     uiInput.Init(_joystick, _controlButtons);
 
+                if (_adShower != null)
+                    playerHealth.Init(_adShower);
+                
                 _playerCharacters.Add(character);
                 character.gameObject.SetActive(false);
             }

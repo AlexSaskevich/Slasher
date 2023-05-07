@@ -3,6 +3,7 @@ using Source.InputSource;
 using Source.Interfaces;
 using System;
 using Source.Enums;
+using Source.Yandex;
 using UnityEngine;
 
 namespace Source.Player
@@ -15,8 +16,9 @@ namespace Source.Player
 
         private InputSwitcher _inputSwitcher;
         private IInputSource _inputSource;
-        private float _healModifier;
         private PlayerCharacter _playerCharacter;
+        private AdShower _adShower;
+        private float _healModifier;
 
          [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; set; }
         
@@ -59,6 +61,12 @@ namespace Source.Player
         protected override void Die()
         {
             _inputSource.Disable();
+            _adShower.Show();
+        }
+
+        public void Init(AdShower adShower)
+        {
+            _adShower = adShower;
         }
 
         public override void TryTakeDamage(float damage)
