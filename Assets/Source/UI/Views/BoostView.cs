@@ -14,6 +14,7 @@ namespace Source.UI.Views
         [SerializeField] private TMP_Text _level;
         [SerializeField] private TMP_Text _characteristic;
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
+        [SerializeField] private TMP_Text _price;
 
         private IEnumerable<PlayerCharacter> _playerCharacters;
         private BoostBlinder _boostBlinder;
@@ -58,6 +59,7 @@ namespace Source.UI.Views
         {
             ShowLevel();
             ShowCharacteristic();
+            ShowPrice();
             TryTurnOff();
         }
 
@@ -66,6 +68,11 @@ namespace Source.UI.Views
             _characteristic.text = _boostBlinder.Boost.IsMaxLevel()
                 ? $"{_boostBlinder.Boost.Upgradeable.MaxValue}"
                 : $"{_boostBlinder.Boost.Upgradeable.MaxValue} / +{_boostBlinder.Boost.IncreasedValue}";
+        }
+
+        private void ShowPrice()
+        {
+            _price.text = _boostBlinder.Boost.IsMaxLevel() ? null : _boostBlinder.Boost.Price.ToString();
         }
 
         private void ShowLevel()
