@@ -16,12 +16,13 @@ namespace Source.Player
         private void Awake()
         {
             _playerHealth = GetComponent<PlayerHealth>();
-            CurrentMoney = GameProgressSaver.GetMoney();
         }
 
         private void OnEnable()
         {
             _playerHealth.Died += OnDied;
+            
+            CurrentMoney = GameProgressSaver.GetMoney();
         }
         
         private void OnDisable()
@@ -36,8 +37,8 @@ namespace Source.Player
 
             CurrentMoney += money;
 
-            MoneyChanged?.Invoke();
             GameProgressSaver.SetMoney(CurrentMoney);
+            MoneyChanged?.Invoke();
         }
 
         public void TrySpendMoney(int price)
@@ -47,8 +48,8 @@ namespace Source.Player
             
             CurrentMoney -= price;
             
-            MoneyChanged?.Invoke();
             GameProgressSaver.SetMoney(CurrentMoney);
+            MoneyChanged?.Invoke();
         }
 
         private void OnDied()

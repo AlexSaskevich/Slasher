@@ -34,8 +34,8 @@ namespace Source.GameLogic.Boosters
             if (_playerWallet.CurrentMoney < Price)
                 return;
             
-            Upgradeable.TryUpgrade(IncreasedValue + IncreasedValue * Level);
             _playerWallet.TrySpendMoney(Price);
+            Upgradeable.TryUpgrade(IncreasedValue + IncreasedValue * Level);
                 
             Level++;
             GameProgressSaver.SetBoosterLevel(_playerCharacterName, _goodStatus, Level);

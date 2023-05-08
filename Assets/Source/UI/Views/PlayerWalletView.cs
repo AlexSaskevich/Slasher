@@ -1,4 +1,5 @@
-﻿using Source.Player;
+﻿using Source.GameLogic;
+using Source.Player;
 using TMPro;
 using UnityEngine;
 
