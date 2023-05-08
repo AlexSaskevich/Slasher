@@ -23,7 +23,7 @@ namespace Source.GameLogic
 
         public event Action<PlayerCharacter> PlayerSet;
 
-        private void Awake()
+        private void Start()
         {
             GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Biker, true);
 

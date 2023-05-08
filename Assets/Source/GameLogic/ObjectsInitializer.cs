@@ -52,6 +52,8 @@ namespace Source.GameLogic
         {
             if (_buyCharacterButton != null)
                 _buyCharacterButton.CharacterSet -= OnCharacterSet;
+                
+            _playerCharacterSpawner.PlayerSet -= OnPlayerSet;
         }
 
         private void OnCharacterSet()
