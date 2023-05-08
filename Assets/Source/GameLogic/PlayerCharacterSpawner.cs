@@ -46,7 +46,6 @@ namespace Source.GameLogic
         private void Awake()
         {
             GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Biker, true);
-            GameProgressSaver.SetMoney(1000);
             
             InitPlayerCharacters();
             SetCurrentPlayer();
@@ -62,11 +61,6 @@ namespace Source.GameLogic
         {
             if (_buyCharacterButton != null)
                 _buyCharacterButton.CharacterSet -= OnCharacterSet;
-        }
-
-        private void Update()
-        {
-            print(GameProgressSaver.GetMoney());
         }
 
         public IEnumerable<PlayerCharacter> GetPlayerCharacters()
