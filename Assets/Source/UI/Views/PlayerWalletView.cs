@@ -1,5 +1,4 @@
-﻿using Source.GameLogic;
-using Source.Player;
+﻿using Source.Player;
 using TMPro;
 using UnityEngine;
 
@@ -17,13 +16,6 @@ namespace Source.UI.Views
             _money = GetComponent<TMP_Text>();
         }
 
-        private void OnEnable()
-        {
-            _playerWallet.MoneyChanged += OnMoneyChanged;
-            
-            ShowMoney();
-        }
-
         private void OnDisable()
         {
             _playerWallet.MoneyChanged -= OnMoneyChanged;
@@ -37,6 +29,8 @@ namespace Source.UI.Views
         public void Init(PlayerWallet playerWallet)
         {
             _playerWallet = playerWallet;
+            
+            _playerWallet.MoneyChanged += OnMoneyChanged;
         }
 
         private void OnMoneyChanged()

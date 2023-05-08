@@ -1,4 +1,5 @@
 ﻿using Source.GameLogic.Boosters;
+using Source.Player;
 using Source.UI.Buttons.UIButtons;
 using TMPro;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace Source.UI.Views
 
         private BoostBlinder _boostBlinder;
         private Button _button;
+        private PlayerWallet _playerWallet;
 
         private void Awake()
         {
@@ -27,11 +29,6 @@ namespace Source.UI.Views
         {
             _button.onClick.AddListener(OnClick);
             _buyCharacterButton.CharacterSet += OnCharacterSet;
-
-            var playerWallet = _boostBlinder.Boost.Wallet;
-
-            if (playerWallet != null)
-                playerWallet.MoneyChanged += OnMoneyChanged;
         }
 
         private void OnDisable()
@@ -39,15 +36,19 @@ namespace Source.UI.Views
             _button.onClick.RemoveListener(OnClick);
             _buyCharacterButton.CharacterSet -= OnCharacterSet;
             
-            var playerWallet = _boostBlinder.Boost.Wallet;
-
-            if (playerWallet != null)
-                _boostBlinder.Boost.Wallet.MoneyChanged -= OnMoneyChanged;
+            _playerWallet.MoneyChanged -= OnMoneyChanged;
         }
 
         private void Start()
         {
             Activate();
+        }
+
+        public void Init(PlayerWallet playerWallet)
+        {
+            _playerWallet = playerWallet;
+
+            _playerWallet.MoneyChanged += OnMoneyChanged;
         }
 
         private void OnMoneyChanged()

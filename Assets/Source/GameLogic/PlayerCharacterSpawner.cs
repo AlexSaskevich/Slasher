@@ -46,7 +46,7 @@ namespace Source.GameLogic
         private void Awake()
         {
             GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Biker, true);
-            GameProgressSaver.SetMoney(50);
+            GameProgressSaver.SetMoney(1000);
             
             InitPlayerCharacters();
             SetCurrentPlayer();
@@ -62,6 +62,11 @@ namespace Source.GameLogic
         {
             if (_buyCharacterButton != null)
                 _buyCharacterButton.CharacterSet -= OnCharacterSet;
+        }
+
+        private void Update()
+        {
+            print(GameProgressSaver.GetMoney());
         }
 
         public IEnumerable<PlayerCharacter> GetPlayerCharacters()
@@ -94,6 +99,12 @@ namespace Source.GameLogic
             _currentCharacter = playerCharacter;
 
             InitObjects(playerCharacter);
+
+            if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
+                throw new ArgumentNullException();
+            
+            playerWallet.Init();
+            
             playerCharacter.gameObject.SetActive(true);
             GameProgressSaver.SetCurrentCharacterIndex((int)playerCharacter.PlayerCharacterName);
         }
@@ -217,7 +228,7 @@ namespace Source.GameLogic
             {
                 if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
                     throw new ArgumentNullException();
-
+                
                 switch (boostBlinder.GoodStatus)
                 {
                     case GoodStatus.HealthUpgradeable:
@@ -247,6 +258,11 @@ namespace Source.GameLogic
                     default:
                         throw new ArgumentNullException();
                 }
+
+                if (boostBlinder.TryGetComponent(out BoostView boostView) == false)
+                    throw new ArgumentNullException();
+
+                boostView.Init(playerWallet);
             }
 
             if (_botsSpawners.Count == 0)

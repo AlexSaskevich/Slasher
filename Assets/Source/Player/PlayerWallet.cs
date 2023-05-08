@@ -21,13 +21,16 @@ namespace Source.Player
         private void OnEnable()
         {
             _playerHealth.Died += OnDied;
-            
-            CurrentMoney = GameProgressSaver.GetMoney();
         }
         
         private void OnDisable()
         {
             _playerHealth.Died -= OnDied;
+        }
+
+        public void Init()
+        {
+            CurrentMoney = GameProgressSaver.GetMoney();
         }
 
         public void TryTakeMoney(int money)
