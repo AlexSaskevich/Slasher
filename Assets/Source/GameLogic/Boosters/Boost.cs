@@ -8,7 +8,6 @@ namespace Source.GameLogic.Boosters
     {
         private const int MaxLevel = 5;
 
-        private readonly PlayerWallet _playerWallet;
         private readonly GoodStatus _goodStatus;
         private readonly PlayerCharacterName _playerCharacterName;
 
@@ -19,11 +18,12 @@ namespace Source.GameLogic.Boosters
             IncreasedValue = increasedValue;
             Upgradeable = upgradeable;
             Price = price;
-            _playerWallet = playerWallet;
+            Wallet = playerWallet;
             _goodStatus = goodStatus;
             _playerCharacterName = playerCharacterName;
         }
         
+        public PlayerWallet Wallet { get; }
         public int Price { get; }
         public IUpgradeable Upgradeable { get; }
         public int IncreasedValue { get; }
@@ -31,10 +31,10 @@ namespace Source.GameLogic.Boosters
         
         public void TryBuy()
         {
-            if (_playerWallet.CurrentMoney < Price)
+            if (Wallet.CurrentMoney < Price)
                 return;
             
-            _playerWallet.TrySpendMoney(Price);
+            Wallet.TrySpendMoney(Price);
             Upgradeable.TryUpgrade(IncreasedValue + IncreasedValue * Level);
                 
             Level++;

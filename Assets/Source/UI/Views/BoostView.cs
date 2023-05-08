@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using Source.GameLogic.Boosters;
-using Source.Player;
+﻿using Source.GameLogic.Boosters;
 using Source.UI.Buttons.UIButtons;
 using TMPro;
 using UnityEngine;
@@ -16,7 +14,6 @@ namespace Source.UI.Views
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
         [SerializeField] private TMP_Text _price;
 
-        private IEnumerable<PlayerCharacter> _playerCharacters;
         private BoostBlinder _boostBlinder;
         private Button _button;
 
@@ -30,19 +27,34 @@ namespace Source.UI.Views
         {
             _button.onClick.AddListener(OnClick);
             _buyCharacterButton.CharacterSet += OnCharacterSet;
+
+            var playerWallet = _boostBlinder.Boost.Wallet;
+
+            if (playerWallet != null)
+                playerWallet.MoneyChanged += OnMoneyChanged;
         }
 
         private void OnDisable()
         {
             _button.onClick.RemoveListener(OnClick);
             _buyCharacterButton.CharacterSet -= OnCharacterSet;
+            
+            var playerWallet = _boostBlinder.Boost.Wallet;
+
+            if (playerWallet != null)
+                _boostBlinder.Boost.Wallet.MoneyChanged -= OnMoneyChanged;
         }
 
         private void Start()
         {
             Activate();
         }
-        
+
+        private void OnMoneyChanged()
+        {
+            Activate();
+        }
+
         private void OnCharacterSet()
         {
             Activate();
@@ -83,7 +95,12 @@ namespace Source.UI.Views
         private void TryTurnOff()
         {
             if (_boostBlinder.Boost.IsMaxLevel())
+            {
                 _button.interactable = false;
+                return;
+            }
+
+            _button.interactable = _boostBlinder.Boost.Wallet.CurrentMoney >= _boostBlinder.Boost.Price;
         }
     }
 }
