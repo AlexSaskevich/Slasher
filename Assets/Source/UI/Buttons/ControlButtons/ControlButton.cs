@@ -6,26 +6,26 @@ namespace Source.UI.Buttons.ControlButtons
 {
     public class ControlButton : MonoBehaviour
     {
+        private Button _button;
+        
         public event Action<ControlButton> ControlButtonPressed;
-
-        protected Button Button { get; private set; }
 
         private void Awake()
         {
-            Button = GetComponent<Button>();
+            _button = GetComponent<Button>();
         }
 
         private void OnEnable()
         {
-            Button.onClick.AddListener(OnControlButtonClick);
+            _button.onClick.AddListener(OnControlButtonClick);
         }
 
         private void OnDisable()
         {
-            Button.onClick.RemoveListener(OnControlButtonClick);
+            _button.onClick.RemoveListener(OnControlButtonClick);
         }
 
-        protected void OnControlButtonClick()
+        private void OnControlButtonClick()
         {
             ControlButtonPressed?.Invoke(this);
         }

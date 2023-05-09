@@ -64,11 +64,6 @@ namespace Source.GameLogic
                 _buyCharacterButton.CharacterSet -= OnCharacterSet;
         }
 
-        private void Update()
-        {
-            print(GameProgressSaver.GetMoney());
-        }
-
         public IEnumerable<PlayerCharacter> GetPlayerCharacters()
         {
             return _playerCharacters;
@@ -141,7 +136,6 @@ namespace Source.GameLogic
                 _playerCharacters.Add(character);
                 character.gameObject.SetActive(false);
             }
-
         }
 
         private void InitObjects(PlayerCharacter playerCharacter)

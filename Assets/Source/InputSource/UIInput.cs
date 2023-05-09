@@ -55,14 +55,14 @@ namespace Source.InputSource
             MovementInput = new Vector3(_joystick.Horizontal, 0, _joystick.Vertical);
         }
 
-        public void Init(Joystick joystick, List<ControlButton> controlButtons)
+        public void Init(Joystick joystick, IEnumerable<ControlButton> controlButtons)
         {
             _joystick = joystick;
 
-            _controlButtons = new List<ControlButton>(controlButtons.Count);
+            _controlButtons = new List<ControlButton>();
 
-            for (var i = 0; i < _controlButtons.Count; i++)
-                _controlButtons[i] = controlButtons[i];
+            foreach (var controlButton in controlButtons)
+                _controlButtons.Add(controlButton);
         }
 
         public void HideButtons()
