@@ -8,13 +8,14 @@ namespace Source.UI.Views.SkillViews
 {
     public abstract class SkillView : UIView
     {
-        protected const float MinFillAmount = 0f;
+        private const float MinFillAmount = 0f;
 
         private TMP_Text _text;
         private Coroutine _coroutine;
 
         [field: SerializeField] public Image ImageToFill { get; protected set; }
-        public Skill Skill { get; private set; }
+        
+        protected Skill Skill { get; private set; }
 
         protected override void Awake()
         {

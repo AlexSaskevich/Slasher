@@ -135,7 +135,6 @@ namespace Source.GameLogic
                 _playerCharacters.Add(character);
                 character.gameObject.SetActive(false);
             }
-
         }
 
         private void InitObjects(PlayerCharacter playerCharacter)
