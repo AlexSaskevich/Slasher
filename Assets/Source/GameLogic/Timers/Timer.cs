@@ -33,6 +33,11 @@
             Seconds = seconds;
         }
 
+        protected void ResetSeconds()
+        {
+            Seconds = 0;
+        }
+
         protected void SetMinutes(int minutes)
         {
             if (minutes <= Minutes)

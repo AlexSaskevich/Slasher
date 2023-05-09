@@ -26,9 +26,12 @@ namespace Source.GameLogic.Timers
 
             if (Seconds % _border == 0 && Seconds != 0)
                 BorderReached?.Invoke();
-            
+
             if (Seconds > SecondsInMinute)
+            {
                 SetMinutes(Minutes + 1);
+                ResetSeconds();
+            }
 
             if (s_highestScore >= _time) 
                 return;
