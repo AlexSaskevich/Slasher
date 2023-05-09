@@ -14,14 +14,14 @@ namespace Source.GameLogic.BotsSpawners
         private Coroutine _coroutine;
         
         [field: SerializeField] public float Delay { get; private set; }
-        
-        private void OnEnable()
+
+        protected virtual void OnEnable()
         {
             foreach (var spawner in _spawners)
                 spawner.TurnedOff += OnTurnedOff;
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             foreach (var spawner in _spawners)
                 spawner.TurnedOff -= OnTurnedOff;

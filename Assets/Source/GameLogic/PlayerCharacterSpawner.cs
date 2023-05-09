@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Source.GameLogic.Boosters;
 using Source.GameLogic.BotsSpawners;
+using Source.GameLogic.Timers;
 using Source.Skills;
 using Source.UI.Bars;
 using Source.UI.Buttons.UIButtons;
@@ -38,6 +39,8 @@ namespace Source.GameLogic
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
         [SerializeField] private List<BoostBlinder> _boostBlinders;
         [SerializeField] private MoneyButton _moneyButton;
+        [SerializeField] private TimerListener _timerListener;
+        [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -215,6 +218,14 @@ namespace Source.GameLogic
                     throw new ArgumentNullException();
 
                 _moneyButton.Init(playerWallet);
+            }
+
+            if (_timerListener != null && _rangeSpawnersSwitcher != null)
+            {
+                if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
+                    throw new ArgumentNullException();
+
+                _timerListener.Init(_rangeSpawnersSwitcher.Delay, playerHealth);
             }
 
             foreach (var boostBlinder in _boostBlinders)

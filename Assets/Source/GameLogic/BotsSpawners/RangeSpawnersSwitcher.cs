@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Source.GameLogic.Timers;
 using UnityEngine;
 
 namespace Source.GameLogic.BotsSpawners
@@ -6,17 +7,32 @@ namespace Source.GameLogic.BotsSpawners
     public sealed class RangeSpawnersSwitcher : SpawnersSwitcher
     {
         [SerializeField] private int _workingSpawnersCount;
-
+        [SerializeField] private TimerListener _timerListener;
+        
         private float _timer;
 
-        private void Update()
+        protected override void OnEnable()
         {
-            _timer += Time.deltaTime;
+            base.OnEnable();
 
-            if (_timer < Delay || GetWorkingBotsSpawnersCount() > 0)
-                return;
-            
-            _timer = 0;
+            _timerListener.Initialized += OnInitialized;
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+
+            _timerListener.Initialized -= OnInitialized;
+            _timerListener.SecondGameModeTimer.BorderReached -= OnBorderReached;
+        }
+
+        private void OnInitialized()
+        {
+            _timerListener.SecondGameModeTimer.BorderReached += OnBorderReached;
+        }
+
+        private void OnBorderReached()
+        {
             Activate();
         }
 

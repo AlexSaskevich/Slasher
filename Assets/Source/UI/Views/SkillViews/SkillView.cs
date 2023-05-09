@@ -42,8 +42,6 @@ namespace Source.UI.Views.SkillViews
             Skill.TimerStarted += OnStarted;
         }
 
-        protected abstract void OnStarted();
-
         protected void StartFillImage(float countdownTime)
         {
             if (_coroutine != null)
@@ -72,5 +70,7 @@ namespace Source.UI.Views.SkillViews
 
             ImageToFill.fillAmount = MinFillAmount;
         }
+        
+        protected abstract void OnStarted();
     }
 }
