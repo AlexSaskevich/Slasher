@@ -145,126 +145,88 @@ namespace Source.GameLogic
 
         private void InitObjects(PlayerCharacter playerCharacter)
         {
+            if (playerCharacter.TryGetComponent(out PlayerAgility playerAgility) == false)
+                throw new ArgumentNullException();
+            
+            if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
+                throw new ArgumentNullException();
+            
+            if (playerCharacter.TryGetComponent(out PlayerMana playerMana) == false)
+                throw new ArgumentNullException();
+            
+            if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
+                throw new ArgumentNullException();
+            
+            if (playerCharacter.TryGetComponent(out Buff buff) == false)
+                throw new ArgumentNullException();
+            
+            if (playerCharacter.TryGetComponent(out Ultimate ultimate) == false)
+                throw new ArgumentNullException();
+            
+            if (playerCharacter.TryGetComponent(out Roll roll) == false)
+                throw new ArgumentNullException();
+            
+            if (playerCharacter.TryGetComponent(out PlayerMovement playerMovement) == false)
+                throw new ArgumentNullException();
+            
             if (_playerFollower != null)
                 _playerFollower.Init(playerCharacter.transform);
 
             if (_playerAgilityBar != null)
-            {
-                if (playerCharacter.TryGetComponent(out PlayerAgility playerAgility) == false)
-                    throw new ArgumentNullException();
-
-                if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
-                    throw new ArgumentNullException();
-
                 _playerAgilityBar.Init(playerHealth, playerAgility);
-            }
 
             if (_playerHealthBar != null)
-            {
-                if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
-                    throw new ArgumentNullException();
-
                 _playerHealthBar.Init(playerHealth);
-            }
 
             if (_playerManaBar != null)
-            {
-                if (playerCharacter.TryGetComponent(out PlayerMana playerMana) == false)
-                    throw new ArgumentNullException();
-
-                if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
-                    throw new ArgumentNullException();
-
                 _playerManaBar.Init(playerHealth, playerMana);
-            }
 
             if (_playerWalletView != null)
-            {
-                if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
-                    throw new ArgumentNullException();
-
                 _playerWalletView.Init(playerWallet);
-            }
+
+            if (_buyCharacterButton != null)
+                _buyCharacterButton.Init(playerWallet);
+            
+            if (_moneyButton != null)
+                _moneyButton.Init(playerWallet);
+
+            if (_timerBlinder != null && _rangeSpawnersSwitcher != null)
+                _timerBlinder.Init(_rangeSpawnersSwitcher.Delay, playerHealth);
 
             if (_buffCooldownView != null && _buffEffectView != null)
             {
-                if (playerCharacter.TryGetComponent(out Buff buff) == false)
-                    throw new ArgumentNullException();
-
                 _buffCooldownView.Init(buff);
                 _buffEffectView.Init(buff);
             }
 
             if (_ultimateCooldownView != null && _ultimateEffectView != null)
             {
-                if (playerCharacter.TryGetComponent(out Ultimate ultimate) == false)
-                    throw new ArgumentNullException();
-
                 _ultimateCooldownView.Init(ultimate);
                 _ultimateEffectView.Init(ultimate);
             }
 
             if (_rollCooldownView != null && _rollEffectView != null)
             {
-                if (playerCharacter.TryGetComponent(out Roll roll) == false)
-                    throw new ArgumentNullException();
-
                 _rollCooldownView.Init(roll);
                 _rollEffectView.Init(roll);
             }
 
-            if (_buyCharacterButton != null)
-            {
-                if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
-                    throw new ArgumentNullException();
-
-                _buyCharacterButton.Init(playerWallet);
-            }
-
-            if (_moneyButton != null)
-            {
-                if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
-                    throw new ArgumentNullException();
-
-                _moneyButton.Init(playerWallet);
-            }
-
-            if (_timerBlinder != null && _rangeSpawnersSwitcher != null)
-            {
-                if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
-                    throw new ArgumentNullException();
-
-                _timerBlinder.Init(_rangeSpawnersSwitcher.Delay, playerHealth);
-            }
-
             foreach (var boostBlinder in _boostBlinders)
             {
-                if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
-                    throw new ArgumentNullException();
-                
                 switch (boostBlinder.GoodStatus)
                 {
                     case GoodStatus.HealthUpgradeable:
                     {
-                        if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
-                            throw new ArgumentNullException();
-
                         boostBlinder.Init(playerWallet, playerHealth, playerCharacter.PlayerCharacterName);
                         break;
                     }
                     case GoodStatus.ManaUpgradeable:
                     {
-                        if (playerCharacter.TryGetComponent(out PlayerMana playerMana) == false)
-                            throw new ArgumentNullException();
-
                         boostBlinder.Init(playerWallet, playerMana, playerCharacter.PlayerCharacterName);
                         break;
                     }
                     case GoodStatus.AgilityUpgradeable:
                     {
-                        if (playerCharacter.TryGetComponent(out PlayerAgility playerAgility) == false)
-                            throw new ArgumentNullException();
-
                         boostBlinder.Init(playerWallet, playerAgility, playerCharacter.PlayerCharacterName);
                         break;
                     }
@@ -278,20 +240,8 @@ namespace Source.GameLogic
                 boostView.Init(playerWallet);
             }
 
-            if (_botsSpawners.Count == 0)
-                return;
-
             foreach (var botsSpawner in _botsSpawners.Where(botsSpawner => botsSpawner != null))
             {
-                if (playerCharacter.TryGetComponent(out PlayerMovement playerMovement) == false)
-                    throw new ArgumentNullException();
-
-                if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
-                    throw new ArgumentNullException();
-
-                if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
-                    throw new ArgumentNullException();
-
                 botsSpawner.Init(playerMovement, playerHealth, playerWallet,
                     playerCharacter.TryGetComponent(out ZombieScore zombieScore) ? zombieScore : null);
             }
