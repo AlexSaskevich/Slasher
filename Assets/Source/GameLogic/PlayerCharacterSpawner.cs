@@ -15,7 +15,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Source.GameLogic
 {
@@ -40,7 +39,7 @@ namespace Source.GameLogic
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
         [SerializeField] private List<BoostBlinder> _boostBlinders;
         [SerializeField] private MoneyButton _moneyButton;
-        [FormerlySerializedAs("_timerListener")] [SerializeField] private TimerBlinder _timerBlinder;
+        [SerializeField] private TimerBlinder _timerBlinder;
         [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
