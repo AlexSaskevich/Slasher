@@ -1,14 +1,13 @@
 ﻿using System.Linq;
 using Source.GameLogic.Timers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Source.GameLogic.BotsSpawners
 {
     public sealed class RangeSpawnersSwitcher : SpawnersSwitcher
     {
         [SerializeField] private int _workingSpawnersCount;
-        [FormerlySerializedAs("_timerListener")] [SerializeField] private TimerBlinder _timerBlinder;
+        [SerializeField] private TimerBlinder _timerBlinder;
         
         private float _timer;
 
