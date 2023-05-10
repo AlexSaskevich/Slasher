@@ -40,7 +40,8 @@ namespace Source.GameLogic
         [SerializeField] private List<BoostBlinder> _boostBlinders;
         [SerializeField] private MoneyButton _moneyButton;
         [SerializeField] private TimerBlinder _timerBlinder;
-        [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher;
+        [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher; 
+        [SerializeField] private Transform _playerSpawnPoint;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -113,9 +114,11 @@ namespace Source.GameLogic
 
         private void InitPlayerCharacters()
         {
+            var spawnPoint = _playerSpawnPoint == null ? Vector3.zero : _playerSpawnPoint.position;
+            
             foreach (var playerCharacter in _prefabs)
             {
-                var character = Instantiate(playerCharacter, Vector3.zero, Quaternion.identity, null);
+                var character = Instantiate(playerCharacter, spawnPoint, Quaternion.identity, null);
 
                 if (character.TryGetComponent(out InputSwitcher inputSwitcher) == false)
                     throw new ArgumentNullException();
