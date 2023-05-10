@@ -66,7 +66,7 @@ namespace Source.Player
         protected override void Die()
         {
             _inputSource.Disable();
-            _adShower.Show();
+            //_adShower.Show();
         }
 
         public override void TryTakeDamage(float damage)

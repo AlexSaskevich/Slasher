@@ -61,7 +61,9 @@ namespace Source.Skills
 
         private void OnDied()
         {
-            StopCoroutine(_coroutine);
+            if (_coroutine != null)
+                StopCoroutine(_coroutine);
+            
             Animator.SetBool(AnimationConstants.IsUltimate, false);
         }
     }

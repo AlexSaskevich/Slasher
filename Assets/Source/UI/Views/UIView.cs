@@ -3,7 +3,6 @@
 namespace Source.UI.Views
 {
     [RequireComponent(typeof(CanvasGroup))]
-
     public class UIView : MonoBehaviour
     {
         private CanvasGroup _canvasGroup;

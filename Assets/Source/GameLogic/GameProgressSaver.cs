@@ -6,6 +6,7 @@ namespace Source.GameLogic
     public static class GameProgressSaver
     {
         private const string Money = "Money";
+        private const string TimeText = "TimeText";
         private const string Time = "Time";
         private const string ZombieScore = "ZombieScore";
         private const string PlayerCharacter = "PlayerCharacter";
@@ -20,14 +21,24 @@ namespace Source.GameLogic
             return PlayerPrefs.GetInt(Money);
         }
 
-        public static void SetTime(string time)
+        public static void SetTime(float time)
         {
-            PlayerPrefs.SetString(Time, time);
+            PlayerPrefs.SetFloat(Time, time);
         }
 
-        public static string GetTime()
+        public static float GetTime()
         {
-            return PlayerPrefs.GetString(Time);
+            return PlayerPrefs.GetFloat(Time);
+        }
+        
+        public static void SetTimeText(string time)
+        {
+            PlayerPrefs.SetString(TimeText, time);
+        }
+
+        public static string GetTimeText()
+        {
+            return PlayerPrefs.GetString(TimeText);
         }
 
         public static void SetZombieScore(int value)

@@ -15,6 +15,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Source.GameLogic
 {
@@ -39,7 +40,7 @@ namespace Source.GameLogic
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
         [SerializeField] private List<BoostBlinder> _boostBlinders;
         [SerializeField] private MoneyButton _moneyButton;
-        [SerializeField] private TimerListener _timerListener;
+        [FormerlySerializedAs("_timerListener")] [SerializeField] private TimerBlinder _timerBlinder;
         [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
@@ -226,12 +227,12 @@ namespace Source.GameLogic
                 _moneyButton.Init(playerWallet);
             }
 
-            if (_timerListener != null && _rangeSpawnersSwitcher != null)
+            if (_timerBlinder != null && _rangeSpawnersSwitcher != null)
             {
                 if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
                     throw new ArgumentNullException();
 
-                _timerListener.Init(_rangeSpawnersSwitcher.Delay, playerHealth);
+                _timerBlinder.Init(_rangeSpawnersSwitcher.Delay, playerHealth);
             }
 
             foreach (var boostBlinder in _boostBlinders)

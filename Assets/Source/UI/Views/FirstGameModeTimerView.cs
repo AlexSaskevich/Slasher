@@ -1,5 +1,4 @@
-﻿using Source.GameLogic;
-using Source.GameLogic.Timers;
+﻿using Source.GameLogic.Timers;
 using TMPro;
 using UnityEngine;
 

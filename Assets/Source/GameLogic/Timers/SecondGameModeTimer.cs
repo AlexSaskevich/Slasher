@@ -1,23 +1,25 @@
 ﻿using System;
+using UnityEngine;
 
 namespace Source.GameLogic.Timers
 {
     public sealed class SecondGameModeTimer : Timer
     {
         private readonly int _border;
-        
-        private static float s_highestScore;
 
         private float _time;
         private int _scoreSeconds;
         private int _scoreMinutes;
 
-        public SecondGameModeTimer(int border)
+        public SecondGameModeTimer(int border, float highestScore)
         {
             _border = border;
+            HighestScore = highestScore;
         }
 
         public event Action BorderReached;
+        
+        public static float HighestScore { get; private set; }
         
         public override void Update(float deltaTime)
         {
@@ -27,16 +29,19 @@ namespace Source.GameLogic.Timers
             if (Seconds % _border == 0 && Seconds != 0)
                 BorderReached?.Invoke();
 
-            if (Seconds > SecondsInMinute)
-            {
-                SetMinutes(Minutes + 1);
-                ResetSeconds();
-            }
-
-            if (s_highestScore >= _time) 
+            if (Seconds < SecondsInMinute)
                 return;
             
-            s_highestScore = _time;
+            SetMinutes(Minutes + 1);
+            ResetSeconds();
+        }
+
+        public void SetHighestScore()
+        {
+            if (HighestScore >= _time)
+                return;
+
+            HighestScore = _time;
             _scoreSeconds = Seconds;
             _scoreMinutes = Minutes;
 
@@ -47,7 +52,7 @@ namespace Source.GameLogic.Timers
 
         public bool IsTimeHighest()
         {
-            return _time > s_highestScore;
+            return _time > HighestScore;
         }
     }
 }
