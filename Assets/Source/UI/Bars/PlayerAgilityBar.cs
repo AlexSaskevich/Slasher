@@ -1,3 +1,4 @@
+using Source.Interfaces;
 using Source.Player;
 
 namespace Source.UI.Bars
@@ -11,9 +12,14 @@ namespace Source.UI.Bars
             _playerAgility.AgilityChanged -= OnValueChanged;
         }
 
-        public void Init(PlayerAgility playerAgility)
+        public override void Init(PlayerHealth playerHealth, IUpgradeable upgradeable = null)
         {
-            _playerAgility = playerAgility;
+            base.Init(playerHealth, upgradeable);
+
+            if (upgradeable == null)
+                return;
+
+            _playerAgility = (PlayerAgility)upgradeable;
             _playerAgility.AgilityChanged += OnValueChanged;
         }
 

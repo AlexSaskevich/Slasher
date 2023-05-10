@@ -1,25 +1,24 @@
-﻿using Source.Player;
+﻿using Source.Interfaces;
+using Source.Player;
 
 namespace Source.UI.Bars
 {
     public sealed class PlayerHealthBar : Bar
     {
-        private PlayerHealth _playerHealth;
-
         private void OnDisable()
         {
-            _playerHealth.HealthChanged -= OnValueChanged;
+            PlayerHealth.HealthChanged -= OnValueChanged;
         }
 
-        public void Init(PlayerHealth playerHealth)
+        public override void Init(PlayerHealth playerHealth, IUpgradeable upgradeable = null)
         {
-            _playerHealth = playerHealth;
-            _playerHealth.HealthChanged += OnValueChanged;
+            base.Init(playerHealth);
+            PlayerHealth.HealthChanged += OnValueChanged;
         }
 
         protected override void OnValueChanged()
         {
-            var targetValue = _playerHealth.CurrentHealth / _playerHealth.MaxHealth;
+            var targetValue = PlayerHealth.CurrentHealth / PlayerHealth.MaxHealth;
 
             StartChangeFillAmount(targetValue);
         }

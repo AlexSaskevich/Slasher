@@ -1,19 +1,19 @@
 ﻿using Source.Enums;
-using Source.InputSource;
-using Source.Player;
-using Source.UI.Buttons.ControlButtons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Source.GameLogic.Boosters;
 using Source.GameLogic.BotsSpawners;
 using Source.GameLogic.Timers;
+using Source.InputSource;
+using Source.Player;
 using Source.Skills;
 using Source.UI.Bars;
+using Source.UI.Buttons.ControlButtons;
 using Source.UI.Buttons.UIButtons;
 using Source.UI.Views;
 using Source.UI.Views.SkillViews;
 using Source.Yandex;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Source.GameLogic
@@ -150,7 +150,10 @@ namespace Source.GameLogic
                 if (playerCharacter.TryGetComponent(out PlayerAgility playerAgility) == false)
                     throw new ArgumentNullException();
 
-                _playerAgilityBar.Init(playerAgility);
+                if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
+                    throw new ArgumentNullException();
+
+                _playerAgilityBar.Init(playerHealth, playerAgility);
             }
 
             if (_playerHealthBar != null)
@@ -166,7 +169,10 @@ namespace Source.GameLogic
                 if (playerCharacter.TryGetComponent(out PlayerMana playerMana) == false)
                     throw new ArgumentNullException();
 
-                _playerManaBar.Init(playerMana);
+                if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
+                    throw new ArgumentNullException();
+
+                _playerManaBar.Init(playerHealth, playerMana);
             }
 
             if (_playerWalletView != null)

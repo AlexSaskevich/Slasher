@@ -1,4 +1,5 @@
-﻿using Source.Player;
+﻿using Source.Interfaces;
+using Source.Player;
 
 namespace Source.UI.Bars
 {
@@ -11,9 +12,14 @@ namespace Source.UI.Bars
             _playerMana.ManaChanged -= OnValueChanged;
         }
 
-        public void Init(PlayerMana playerMana)
+        public override void Init(PlayerHealth playerHealth, IUpgradeable upgradeable = null)
         {
-            _playerMana = playerMana;
+            base.Init(playerHealth, upgradeable);
+
+            if (upgradeable == null)
+                return;
+
+            _playerMana = (PlayerMana)upgradeable;
             _playerMana.ManaChanged += OnValueChanged;
         }
 

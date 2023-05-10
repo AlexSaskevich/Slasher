@@ -40,6 +40,9 @@ namespace Source.Player
 
         private void Update()
         {
+            if (_playerCombo.CurrentState is DeathState)
+                return;
+
             if (_playerCombo.CurrentState is MoveState && CurrentAgility < MaxValue)
                 IncreaseAgility();
         }

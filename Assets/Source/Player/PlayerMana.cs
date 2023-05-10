@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Source.Combo;
 using Source.Enums;
 using Source.GameLogic;
 using Source.Interfaces;
+using System;
 using UnityEngine;
 
 namespace Source.Player
@@ -12,6 +13,7 @@ namespace Source.Player
         [SerializeField] private float _increasingMana;
 
         private PlayerCharacter _playerCharacter;
+        private PlayerCombo _playerCombo;
 
         public event Action ManaChanged;
 
@@ -23,6 +25,8 @@ namespace Source.Player
         private void Awake()
         {
             _playerCharacter = GetComponent<PlayerCharacter>();
+            _playerCombo = GetComponent<PlayerCombo>();
+
             var maxMana =
                 GameProgressSaver.GetPlayerCharacteristic(_playerCharacter.PlayerCharacterName, CharacteristicStatus);
 
@@ -34,6 +38,9 @@ namespace Source.Player
 
         private void Update()
         {
+            if (_playerCombo.CurrentState is DeathState)
+                return;
+            
             if (CurrentValue < MaxValue)
                 IncreaseMana();
         }

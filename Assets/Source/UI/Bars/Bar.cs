@@ -1,3 +1,5 @@
+using Source.Interfaces;
+using Source.Player;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,9 +15,22 @@ namespace Source.UI.Bars
 
         private Coroutine _coroutine;
 
+        protected PlayerHealth PlayerHealth { get; private set; }
+
+        private void OnDisable()
+        {
+            PlayerHealth.Died -= OnDied;
+        }
+
         private void Start()
         {
             _image.fillAmount = MaxFillAmount;
+        }
+
+        public virtual void Init(PlayerHealth playerHealth, IUpgradeable upgradeable = null)
+        {
+            PlayerHealth = playerHealth;
+            PlayerHealth.Died += OnDied;
         }
 
         protected abstract void OnValueChanged();
@@ -36,6 +51,11 @@ namespace Source.UI.Bars
 
                 yield return null;
             }
+        }
+
+        private void OnDied()
+        {
+            StartChangeFillAmount(0);
         }
     }
 }
