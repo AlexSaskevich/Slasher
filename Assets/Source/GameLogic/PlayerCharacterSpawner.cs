@@ -16,12 +16,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using DeviceType = Agava.YandexGames.DeviceType;
 
 namespace Source.GameLogic
 {
     public sealed class PlayerCharacterSpawner : MonoBehaviour
     {
-        [SerializeField] private Agava.YandexGames.DeviceType _device;
+        [SerializeField] private DeviceType _device;
         [SerializeField] private List<PlayerCharacter> _prefabs;
         [SerializeField] private Joystick _joystick;
         [SerializeField] private List<ControlButton> _controlButtons;
@@ -132,14 +133,15 @@ namespace Source.GameLogic
                 if (character.TryGetComponent(out PlayerHealth playerHealth) == false)
                     throw new ArgumentNullException();
 
-#if UNITY_WEBGL && !UNITY_EDITOR
-                inputSwitcher.Init(Device.Type);
-#endif
-
                 if (_joystick != null && _controlButtons != null)
                     uiInput.Init(_joystick, _controlButtons);
 
-                inputSwitcher.Init(_device);
+                //inputSwitcher.Init(_device);
+                inputSwitcher.Init(Agava.YandexGames.Device.Type);
+
+//#if UNITY_WEBGL && !UNITY_EDITOR
+//                  inputSwitcher.Init(Agava.YandexGames.Device.Type);
+//#endif
 
                 if (_adShower != null)
                     playerHealth.Init(_adShower);

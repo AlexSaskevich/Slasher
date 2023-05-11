@@ -1,5 +1,6 @@
 using Source.Interfaces;
 using UnityEngine;
+using DeviceType = Agava.YandexGames.DeviceType;
 
 namespace Source.InputSource
 {
@@ -8,11 +9,16 @@ namespace Source.InputSource
     {
         public IInputSource InputSource { get; private set; }
 
-        public void Init(Agava.YandexGames.DeviceType deviceType)
+        public void Init(DeviceType deviceType)
         {
-            switch (deviceType) 
+            GetInputSource(deviceType);
+        }
+
+        private void GetInputSource(DeviceType deviceType)
+        {
+            switch (deviceType)
             {
-                case Agava.YandexGames.DeviceType.Desktop:
+                case DeviceType.Desktop:
                     InputSource = GetComponent<KeyboardInput>();
                     DisableUIInput();
                     break;

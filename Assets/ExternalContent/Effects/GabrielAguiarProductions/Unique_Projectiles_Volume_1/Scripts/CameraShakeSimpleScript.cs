@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class CameraShakeSimpleScript : MonoBehaviour
 {
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0052:Remove unread private members", Justification = "<Pending>")]
-    private bool isRunning = false;
     private Animation anim;
 
     void Start()
@@ -23,13 +21,10 @@ public class CameraShakeSimpleScript : MonoBehaviour
     //other shake option
     public void ShakeCaller(float amount, float duration)
     {
-        StartCoroutine(Shake(amount, duration));
     }
 
     IEnumerator Shake(float amount, float duration)
     {
-        isRunning = true;
-
         Vector3 originalPos = transform.localPosition;
         int counter = 0;
 
@@ -48,7 +43,5 @@ public class CameraShakeSimpleScript : MonoBehaviour
         }
 
         transform.localPosition = originalPos;
-
-        isRunning = false;
     }
 }

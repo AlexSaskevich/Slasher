@@ -28,7 +28,7 @@ namespace Source.UI.Views.SkillViews.CooldownViews
             base.Init(skill, inputSource);
 
             if (inputSource is UIInput)
-                Hide();
+                gameObject.SetActive(false);
         }
 
         protected override void OnStarted()

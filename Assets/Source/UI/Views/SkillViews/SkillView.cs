@@ -1,5 +1,4 @@
-﻿using Source.InputSource;
-using Source.Interfaces;
+﻿using Source.Interfaces;
 using Source.Skills;
 using System.Collections;
 using TMPro;
@@ -16,7 +15,7 @@ namespace Source.UI.Views.SkillViews
         private Coroutine _coroutine;
 
         [field: SerializeField] public Image ImageToFill { get; protected set; }
-        
+
         protected Skill Skill { get; private set; }
 
         protected override void Awake()
@@ -46,6 +45,9 @@ namespace Source.UI.Views.SkillViews
 
         protected void StartFillImage(float countdownTime)
         {
+            if (isActiveAndEnabled == false)
+                return;
+
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
 
@@ -72,7 +74,7 @@ namespace Source.UI.Views.SkillViews
 
             ImageToFill.fillAmount = MinFillAmount;
         }
-        
+
         protected abstract void OnStarted();
     }
 }
