@@ -1,4 +1,6 @@
-﻿using Source.Skills;
+﻿using Source.InputSource;
+using Source.Interfaces;
+using Source.Skills;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -36,7 +38,7 @@ namespace Source.UI.Views.SkillViews
             ImageToFill.fillAmount = MinFillAmount;
         }
 
-        public void Init(Skill skill)
+        public virtual void Init(Skill skill, IInputSource inputSource)
         {
             Skill = skill;
             Skill.TimerStarted += OnStarted;

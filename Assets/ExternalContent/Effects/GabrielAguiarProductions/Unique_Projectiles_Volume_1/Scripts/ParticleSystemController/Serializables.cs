@@ -1,9 +1,10 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
+using UnityEngine;
 
-namespace GAP_ParticleSystemController{
+namespace GAP_ParticleSystemController
+{
 
-	[Serializable]
+    [Serializable]
 	public class SerializableMinMaxGradient{
 		public SerializableColor color;
 		public SerializableColor colorMax;
@@ -192,8 +193,10 @@ namespace GAP_ParticleSystemController{
 		public SerializableKeyFrames (Keyframe keyFrame){
 			inTangent = keyFrame.inTangent;
 			outTangent = keyFrame.outTangent;
-			tangentMode = keyFrame.tangentMode;
-			time = keyFrame.time;
+#pragma warning disable CS0618 // Type or member is obsolete
+            tangentMode = keyFrame.tangentMode;
+#pragma warning restore CS0618 // Type or member is obsolete
+            time = keyFrame.time;
 			value = keyFrame.value;
 		}
 
@@ -202,8 +205,10 @@ namespace GAP_ParticleSystemController{
 
 			kf.inTangent = inTangent;
 			kf.outTangent = outTangent;
-			kf.tangentMode = tangentMode;
-			kf.time = time;
+#pragma warning disable CS0618 // Type or member is obsolete
+            kf.tangentMode = tangentMode;
+#pragma warning restore CS0618 // Type or member is obsolete
+            kf.time = time;
 			kf.value = value;
 
 			return kf;

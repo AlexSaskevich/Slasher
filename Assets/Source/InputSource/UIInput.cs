@@ -65,13 +65,15 @@ namespace Source.InputSource
                 _controlButtons.Add(controlButton);
         }
 
-        public void HideButtons()
+        public void Hide()
         {
             if (_controlButtons == null)
                 return;
 
             foreach (var button in _controlButtons)
                 button.gameObject.SetActive(false);
+
+            _joystick.gameObject.SetActive(false);
         }
 
         public void Disable()

@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Reflection;
+using UnityEngine;
 
 namespace GAP_ParticleSystemController
 {
 
-	public static class SaveParticleSystemScript{		
+    public static class SaveParticleSystemScript{		
 
 		public static void SaveVFX (GameObject prefabVFX, List<ParticleSystemOriginalSettings> psOriginalSettingsList) {
 #if UNITY_2018_3_OR_NEWER
@@ -88,8 +86,10 @@ namespace GAP_ParticleSystemController
         static string GetPrefabFolder2018_3 (GameObject prefabVFX)
         {
 #if UNITY_EDITOR
-			string prefabPath = UnityEditor.SceneManagement.PrefabStageUtility.GetPrefabStage(prefabVFX).prefabAssetPath;
-			string prefabFolderPath = Path.GetDirectoryName (prefabPath);
+#pragma warning disable CS0618 // Type or member is obsolete
+            string prefabPath = UnityEditor.SceneManagement.PrefabStageUtility.GetPrefabStage(prefabVFX).prefabAssetPath;
+#pragma warning restore CS0618 // Type or member is obsolete
+            string prefabFolderPath = Path.GetDirectoryName (prefabPath);
 			return prefabFolderPath;
 #else
             return null;
@@ -102,7 +102,9 @@ namespace GAP_ParticleSystemController
         {
 #if UNITY_EDITOR
             var prefabStage = UnityEditor.SceneManagement.PrefabStageUtility.GetPrefabStage(prefab);
+#pragma warning disable CS0618 // Type or member is obsolete
             UnityEditor.PrefabUtility.SaveAsPrefabAsset(prefabStage.prefabContentsRoot, prefabStage.prefabAssetPath);
+#pragma warning restore CS0618 // Type or member is obsolete
 #endif
         }
 #endif

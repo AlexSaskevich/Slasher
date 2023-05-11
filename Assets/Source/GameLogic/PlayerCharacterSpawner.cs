@@ -9,7 +9,8 @@ using Source.UI.Bars;
 using Source.UI.Buttons.ControlButtons;
 using Source.UI.Buttons.UIButtons;
 using Source.UI.Views;
-using Source.UI.Views.SkillViews;
+using Source.UI.Views.SkillViews.CooldownViews;
+using Source.UI.Views.SkillViews.DuarationViews;
 using Source.Yandex;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace Source.GameLogic
 {
     public sealed class PlayerCharacterSpawner : MonoBehaviour
     {
+        [SerializeField] private Agava.YandexGames.DeviceType _device;
         [SerializeField] private List<PlayerCharacter> _prefabs;
         [SerializeField] private Joystick _joystick;
         [SerializeField] private List<ControlButton> _controlButtons;
@@ -30,17 +32,17 @@ namespace Source.GameLogic
         [SerializeField] private PlayerManaBar _playerManaBar;
         [SerializeField] private PlayerWalletView _playerWalletView;
         [SerializeField] private BuffCooldownView _buffCooldownView;
-        [SerializeField] private BuffEffectView _buffEffectView;
         [SerializeField] private UltimateCooldownView _ultimateCooldownView;
-        [SerializeField] private UltimateEffectView _ultimateEffectView;
         [SerializeField] private RollCooldownView _rollCooldownView;
-        [SerializeField] private RollEffectView _rollEffectView;
+        [SerializeField] private BuffDurationView _buffDurationView;
+        [SerializeField] private UltimateDurationView _ultimateDurationView;
+        [SerializeField] private RollDurationView _rollDurationView;
         [SerializeField] private List<BotsSpawner> _botsSpawners;
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
         [SerializeField] private List<BoostBlinder> _boostBlinders;
         [SerializeField] private MoneyButton _moneyButton;
         [SerializeField] private TimerBlinder _timerBlinder;
-        [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher; 
+        [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher;
         [SerializeField] private Transform _playerSpawnPoint;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
@@ -50,7 +52,7 @@ namespace Source.GameLogic
         private void Awake()
         {
             GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Biker, true);
-            
+
             InitPlayerCharacters();
             SetCurrentPlayer();
         }
@@ -100,9 +102,9 @@ namespace Source.GameLogic
 
             if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
                 throw new ArgumentNullException();
-            
+
             playerWallet.Init();
-            
+
             playerCharacter.gameObject.SetActive(true);
             GameProgressSaver.SetCurrentCharacterIndex((int)playerCharacter.PlayerCharacterName);
         }
@@ -115,7 +117,7 @@ namespace Source.GameLogic
         private void InitPlayerCharacters()
         {
             var spawnPoint = _playerSpawnPoint == null ? Vector3.zero : _playerSpawnPoint.position;
-            
+
             foreach (var playerCharacter in _prefabs)
             {
                 var character = Instantiate(playerCharacter, spawnPoint, Quaternion.identity, null);
@@ -129,11 +131,14 @@ namespace Source.GameLogic
                 if (character.TryGetComponent(out PlayerHealth playerHealth) == false)
                     throw new ArgumentNullException();
 
-                if (_joystick != null)
-                    inputSwitcher.Init(_joystick);
+#if UNITY_WEBGL && !UNITY_EDITOR
+                inputSwitcher.Init(Device.Type);
+#endif
 
-                if (_joystick != null && _controlButtons.Count != 0)
+                if (_joystick != null && _controlButtons != null)
                     uiInput.Init(_joystick, _controlButtons);
+
+                inputSwitcher.Init(_device);
 
                 if (_adShower != null)
                     playerHealth.Init(_adShower);
@@ -147,28 +152,31 @@ namespace Source.GameLogic
         {
             if (playerCharacter.TryGetComponent(out PlayerAgility playerAgility) == false)
                 throw new ArgumentNullException();
-            
+
             if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
                 throw new ArgumentNullException();
-            
+
             if (playerCharacter.TryGetComponent(out PlayerMana playerMana) == false)
                 throw new ArgumentNullException();
-            
+
             if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
                 throw new ArgumentNullException();
-            
+
             if (playerCharacter.TryGetComponent(out Buff buff) == false)
                 throw new ArgumentNullException();
-            
+
             if (playerCharacter.TryGetComponent(out Ultimate ultimate) == false)
                 throw new ArgumentNullException();
-            
+
             if (playerCharacter.TryGetComponent(out Roll roll) == false)
                 throw new ArgumentNullException();
-            
+
             if (playerCharacter.TryGetComponent(out PlayerMovement playerMovement) == false)
                 throw new ArgumentNullException();
-            
+
+            if(playerCharacter.TryGetComponent(out InputSwitcher inputSwitcher) == false)
+                throw new ArgumentNullException();
+
             if (_playerFollower != null)
                 _playerFollower.Init(playerCharacter.transform);
 
@@ -186,29 +194,29 @@ namespace Source.GameLogic
 
             if (_buyCharacterButton != null)
                 _buyCharacterButton.Init(playerWallet);
-            
+
             if (_moneyButton != null)
                 _moneyButton.Init(playerWallet);
 
             if (_timerBlinder != null && _rangeSpawnersSwitcher != null)
                 _timerBlinder.Init(_rangeSpawnersSwitcher.Delay, playerHealth);
 
-            if (_buffCooldownView != null && _buffEffectView != null)
+            if (_buffCooldownView != null && _buffDurationView != null)
             {
-                _buffCooldownView.Init(buff);
-                _buffEffectView.Init(buff);
+                _buffCooldownView.Init(buff, inputSwitcher.InputSource);
+                _buffDurationView.Init(buff, inputSwitcher.InputSource);
             }
 
-            if (_ultimateCooldownView != null && _ultimateEffectView != null)
+            if (_ultimateCooldownView != null && _ultimateDurationView != null)
             {
-                _ultimateCooldownView.Init(ultimate);
-                _ultimateEffectView.Init(ultimate);
+                _ultimateCooldownView.Init(ultimate, inputSwitcher.InputSource);
+                _ultimateDurationView.Init(ultimate, inputSwitcher.InputSource);
             }
 
-            if (_rollCooldownView != null && _rollEffectView != null)
+            if (_rollCooldownView != null && _rollDurationView != null)
             {
-                _rollCooldownView.Init(roll);
-                _rollEffectView.Init(roll);
+                _rollCooldownView.Init(roll, inputSwitcher.InputSource);
+                _rollDurationView.Init(roll, inputSwitcher.InputSource);
             }
 
             foreach (var boostBlinder in _boostBlinders)
@@ -216,20 +224,20 @@ namespace Source.GameLogic
                 switch (boostBlinder.GoodStatus)
                 {
                     case GoodStatus.HealthUpgradeable:
-                    {
-                        boostBlinder.Init(playerWallet, playerHealth, playerCharacter.PlayerCharacterName);
-                        break;
-                    }
+                        {
+                            boostBlinder.Init(playerWallet, playerHealth, playerCharacter.PlayerCharacterName);
+                            break;
+                        }
                     case GoodStatus.ManaUpgradeable:
-                    {
-                        boostBlinder.Init(playerWallet, playerMana, playerCharacter.PlayerCharacterName);
-                        break;
-                    }
+                        {
+                            boostBlinder.Init(playerWallet, playerMana, playerCharacter.PlayerCharacterName);
+                            break;
+                        }
                     case GoodStatus.AgilityUpgradeable:
-                    {
-                        boostBlinder.Init(playerWallet, playerAgility, playerCharacter.PlayerCharacterName);
-                        break;
-                    }
+                        {
+                            boostBlinder.Init(playerWallet, playerAgility, playerCharacter.PlayerCharacterName);
+                            break;
+                        }
                     default:
                         throw new ArgumentNullException();
                 }

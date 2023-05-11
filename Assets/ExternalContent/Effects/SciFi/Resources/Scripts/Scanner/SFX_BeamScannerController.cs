@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 // ReSharper disable once CheckNamespace
 namespace QFX.SFX
@@ -16,10 +15,14 @@ namespace QFX.SFX
 
         public bool OverrideColor;
 
+#pragma warning disable CS0618 // Type or member is obsolete
         [ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)]
+#pragma warning restore CS0618 // Type or member is obsolete
         public Color NormalColor;
 
+#pragma warning disable CS0618 // Type or member is obsolete
         [ColorUsageAttribute(true, true, 0f, 8f, 0.125f, 3f)]
+#pragma warning restore CS0618 // Type or member is obsolete
         public Color DetectionColor;
 
         private Material _scannerMaterial;
