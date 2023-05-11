@@ -136,12 +136,8 @@ namespace Source.GameLogic
                 if (_joystick != null && _controlButtons != null)
                     uiInput.Init(_joystick, _controlButtons);
 
-                //inputSwitcher.Init(_device);
-                inputSwitcher.Init(Agava.YandexGames.Device.Type);
-
-//#if UNITY_WEBGL && !UNITY_EDITOR
-//                  inputSwitcher.Init(Agava.YandexGames.Device.Type);
-//#endif
+                inputSwitcher.Init(_device);
+                //inputSwitcher.Init(Agava.YandexGames.Device.Type);
 
                 if (_adShower != null)
                     playerHealth.Init(_adShower);
