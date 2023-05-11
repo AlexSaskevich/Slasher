@@ -63960,6 +63960,7 @@ MonoBehaviour:
   _timerBlinder: {fileID: 754281334}
   _rangeSpawnersSwitcher: {fileID: 320684383}
   _playerSpawnPoint: {fileID: 0}
+  _zombieScoreView: {fileID: 0}
 --- !u!4 &981228480
 Transform:
   m_ObjectHideFlags: 0
