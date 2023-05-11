@@ -44,6 +44,7 @@ namespace Source.GameLogic
         [SerializeField] private TimerBlinder _timerBlinder;
         [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher;
         [SerializeField] private Transform _playerSpawnPoint;
+        [SerializeField] private ZombieScoreView _zombieScoreView;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -174,7 +175,7 @@ namespace Source.GameLogic
             if (playerCharacter.TryGetComponent(out PlayerMovement playerMovement) == false)
                 throw new ArgumentNullException();
 
-            if(playerCharacter.TryGetComponent(out InputSwitcher inputSwitcher) == false)
+            if (playerCharacter.TryGetComponent(out InputSwitcher inputSwitcher) == false)
                 throw new ArgumentNullException();
 
             if (_playerFollower != null)
@@ -218,6 +219,9 @@ namespace Source.GameLogic
                 _rollCooldownView.Init(roll, inputSwitcher.InputSource);
                 _rollDurationView.Init(roll, inputSwitcher.InputSource);
             }
+
+            if (playerCharacter.TryGetComponent(out ZombieScore score) && _zombieScoreView != null)
+                _zombieScoreView.Init(score);
 
             foreach (var boostBlinder in _boostBlinders)
             {

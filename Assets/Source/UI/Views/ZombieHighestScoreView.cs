@@ -2,7 +2,7 @@
 {
     public sealed class ZombieHighestScoreView : ZombieScoreView
     {
-        private void OnEnable()
+        protected override void Init()
         {
             Score.text = ZombieScore.HighestScore.ToString();
         }

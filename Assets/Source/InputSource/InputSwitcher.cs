@@ -14,7 +14,7 @@ namespace Source.InputSource
             {
                 case Agava.YandexGames.DeviceType.Desktop:
                     InputSource = GetComponent<KeyboardInput>();
-                    DisableUIINput();
+                    DisableUIInput();
                     break;
                 default:
                     InputSource = GetComponent<UIInput>();
@@ -23,7 +23,7 @@ namespace Source.InputSource
             }
         }
 
-        private void DisableUIINput()
+        private void DisableUIInput()
         {
             var uiInput = GetComponent<UIInput>();
             uiInput.Hide();
