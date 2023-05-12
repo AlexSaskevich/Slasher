@@ -46,6 +46,8 @@ namespace Source.GameLogic
         [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher;
         [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private ZombieScoreView _zombieScoreView;
+        [SerializeField] private Vector3 _lookingPosition;
+        [SerializeField] private bool _isSceneMainMenu;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -106,6 +108,15 @@ namespace Source.GameLogic
                 throw new ArgumentNullException();
 
             playerWallet.Init();
+            
+            if (_isSceneMainMenu)
+            {
+                if (playerCharacter.TryGetComponent(out KeyboardInput keyboardInput) == false)
+                    throw new ArgumentNullException();
+
+                keyboardInput.enabled = false;
+                playerCharacter.transform.Rotate(_lookingPosition);
+            }
 
             playerCharacter.gameObject.SetActive(true);
             GameProgressSaver.SetCurrentCharacterIndex((int)playerCharacter.PlayerCharacterName);

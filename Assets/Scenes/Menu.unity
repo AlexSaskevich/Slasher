@@ -536,6 +536,8 @@ MonoBehaviour:
   _rangeSpawnersSwitcher: {fileID: 0}
   _playerSpawnPoint: {fileID: 1542672077}
   _zombieScoreView: {fileID: 511413025}
+  _lookingPosition: {x: 0, y: -165, z: 0}
+  _isSceneMainMenu: 1
 --- !u!1 &42585523
 GameObject:
   m_ObjectHideFlags: 0
