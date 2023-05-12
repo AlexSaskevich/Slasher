@@ -56,6 +56,7 @@ namespace Source.GameLogic
         private void Awake()
         {
             GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Biker, true);
+            GameProgressSaver.SetMoney(10000);
 
             InitPlayerCharacters();
             SetCurrentPlayer();
@@ -86,6 +87,14 @@ namespace Source.GameLogic
             return _playerCharacters[index];
         }
 
+        public void RotateCharacter(PlayerCharacter playerCharacter)
+        {
+            const int WRotation = 1;
+
+            playerCharacter.transform.rotation =
+                new Quaternion(_lookingPosition.x, _lookingPosition.y, _lookingPosition.z, WRotation);
+        }
+
         private void SetCurrentPlayer()
         {
             if (_currentCharacter != null)
@@ -109,13 +118,17 @@ namespace Source.GameLogic
 
             playerWallet.Init();
             
+            if (playerCharacter.TryGetComponent(out KeyboardInput keyboardInput) == false)
+                throw new ArgumentNullException();
+            
             if (_isSceneMainMenu)
             {
-                if (playerCharacter.TryGetComponent(out KeyboardInput keyboardInput) == false)
-                    throw new ArgumentNullException();
-
                 keyboardInput.enabled = false;
-                playerCharacter.transform.Rotate(_lookingPosition);
+                RotateCharacter(playerCharacter);
+            }
+            else
+            {
+                keyboardInput.enabled = true;
             }
 
             playerCharacter.gameObject.SetActive(true);
@@ -152,7 +165,7 @@ namespace Source.GameLogic
 
                 if (_adShower != null)
                     playerHealth.Init(_adShower);
-
+                
                 _playerCharacters.Add(character);
                 character.gameObject.SetActive(false);
             }

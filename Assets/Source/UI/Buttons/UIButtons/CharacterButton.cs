@@ -53,6 +53,8 @@ namespace Source.UI.Buttons.UIButtons
             
             if (newPlayerCharacter == null)
                 throw new ArgumentNullException();
+
+            _playerCharacterSpawner.RotateCharacter(newPlayerCharacter);
             
             currentPlayerCharacter.gameObject.SetActive(false);
             newPlayerCharacter.gameObject.SetActive(true);
