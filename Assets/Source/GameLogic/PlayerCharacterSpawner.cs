@@ -15,6 +15,7 @@ using Source.Yandex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Source.UI.Buttons.Panels;
 using UnityEngine;
 using DeviceType = Agava.YandexGames.DeviceType;
 
@@ -46,6 +47,7 @@ namespace Source.GameLogic
         [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher;
         [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private ZombieScoreView _zombieScoreView;
+        [SerializeField] private DeathPanel _deathPanel;
         [SerializeField] private Vector3 _lookingPosition;
         [SerializeField] private bool _isSceneMainMenu;
 
@@ -56,7 +58,6 @@ namespace Source.GameLogic
         private void Awake()
         {
             GameProgressSaver.SetCharacterBoughtStatus(PlayerCharacterName.Biker, true);
-            GameProgressSaver.SetMoney(10000);
 
             InitPlayerCharacters();
             SetCurrentPlayer();
@@ -224,6 +225,12 @@ namespace Source.GameLogic
             if (_timerBlinder != null && _rangeSpawnersSwitcher != null)
                 _timerBlinder.Init(_rangeSpawnersSwitcher.Delay, playerHealth);
 
+            if (_deathPanel != null)
+                _deathPanel.Init(playerHealth);
+
+            if (playerCharacter.TryGetComponent(out ZombieScore score) && _zombieScoreView != null)
+                _zombieScoreView.Init(score);
+
             if (_buffCooldownView != null && _buffDurationView != null)
             {
                 _buffCooldownView.Init(buff, inputSwitcher.InputSource);
@@ -241,9 +248,6 @@ namespace Source.GameLogic
                 _rollCooldownView.Init(roll, inputSwitcher.InputSource);
                 _rollDurationView.Init(roll, inputSwitcher.InputSource);
             }
-
-            if (playerCharacter.TryGetComponent(out ZombieScore score) && _zombieScoreView != null)
-                _zombieScoreView.Init(score);
 
             foreach (var boostBlinder in _boostBlinders)
             {
