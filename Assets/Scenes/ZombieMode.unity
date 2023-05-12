@@ -22095,7 +22095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4228315601439626, guid: 5a255a12ee34f3b4d979b7662aa64608, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -50.160004
+      value: -42.29
       objectReference: {fileID: 0}
     - target: {fileID: 4228315601439626, guid: 5a255a12ee34f3b4d979b7662aa64608, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25895,8 +25895,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 8.108536, y: 4.1457143, z: 10.112503}
-  m_Center: {x: -2.0696564, y: 1.6082096, z: -0.60278606}
+  m_Size: {x: 8.108536, y: 4.1457143, z: 12.196935}
+  m_Center: {x: -2.0696564, y: 1.6082096, z: 0.43942976}
 --- !u!65 &663227609
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50205,7 +50205,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.09
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
