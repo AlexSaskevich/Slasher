@@ -15,7 +15,8 @@ using Source.Yandex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Source.UI.Buttons.Panels;
+using Source.Combo;
+using Source.UI.Panels;
 using UnityEngine;
 using DeviceType = Agava.YandexGames.DeviceType;
 
@@ -48,6 +49,7 @@ namespace Source.GameLogic
         [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private ZombieScoreView _zombieScoreView;
         [SerializeField] private DeathPanel _deathPanel;
+        [SerializeField] private RegenerationButton _regenerationButton;
         [SerializeField] private Vector3 _lookingPosition;
         [SerializeField] private bool _isSceneMainMenu;
 
@@ -201,6 +203,15 @@ namespace Source.GameLogic
             if (playerCharacter.TryGetComponent(out InputSwitcher inputSwitcher) == false)
                 throw new ArgumentNullException();
 
+            if (playerCharacter.TryGetComponent(out PlayerCombo playerCombo) == false)
+                throw new ArgumentNullException();
+
+            if (playerCharacter.TryGetComponent(out Animator animator) == false)
+                throw new ArgumentNullException();
+
+            if (playerCharacter.TryGetComponent(out PlayerDeathAnimation playerDeathAnimation) == false)
+                throw new ArgumentNullException();
+
             if (_playerFollower != null)
                 _playerFollower.Init(playerCharacter.transform);
 
@@ -226,7 +237,13 @@ namespace Source.GameLogic
                 _timerBlinder.Init(_rangeSpawnersSwitcher.Delay, playerHealth);
 
             if (_deathPanel != null)
-                _deathPanel.Init(playerHealth);
+                _deathPanel.Init(playerHealth, inputSwitcher, playerDeathAnimation.GetLenght());
+
+            if (_regenerationButton != null)
+            {
+                _regenerationButton.Init(playerHealth, playerCombo, inputSwitcher.InputSource, animator, playerMana,
+                    playerAgility);
+            }
 
             if (playerCharacter.TryGetComponent(out ZombieScore score) && _zombieScoreView != null)
                 _zombieScoreView.Init(score);

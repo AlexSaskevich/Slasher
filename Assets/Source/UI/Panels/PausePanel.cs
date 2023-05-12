@@ -1,7 +1,7 @@
 ﻿using Source.UI.Buttons.UIButtons;
 using UnityEngine;
 
-namespace Source.UI.Buttons.Panels
+namespace Source.UI.Panels
 {
     public sealed class PausePanel : MonoBehaviour
     {

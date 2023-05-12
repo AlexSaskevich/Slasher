@@ -34,6 +34,11 @@ namespace Source.GameLogic.Timers
                 SecondGameModeTimer.Update(Time.deltaTime);
         }
 
+        public void SetPlayerAlive()
+        {
+            _isPlayerDied = false;
+        }
+        
         private void OnDied()
         {
             _isPlayerDied = true;

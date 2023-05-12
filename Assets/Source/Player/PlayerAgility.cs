@@ -29,13 +29,7 @@ namespace Source.Player
             _playerCharacter = GetComponent<PlayerCharacter>();
             _playerCombo = GetComponent<PlayerCombo>();
             
-            var maxAgility =
-                GameProgressSaver.GetPlayerCharacteristic(_playerCharacter.PlayerCharacterName, CharacteristicStatus);
-
-            if (maxAgility > 0)
-                MaxValue = maxAgility;
-            
-            CurrentAgility = MaxValue;
+            ResetAgility();
         }
 
         private void Update()
@@ -45,6 +39,19 @@ namespace Source.Player
 
             if (_playerCombo.CurrentState is MoveState && CurrentAgility < MaxValue)
                 IncreaseAgility();
+        }
+
+        public void ResetAgility()
+        {
+            var maxAgility =
+                GameProgressSaver.GetPlayerCharacteristic(_playerCharacter.PlayerCharacterName, CharacteristicStatus);
+
+            if (maxAgility > 0)
+                MaxValue = maxAgility;
+
+            CurrentAgility = MaxValue;
+
+            AgilityChanged?.Invoke();
         }
 
         public void DecreaseAgility(float value)

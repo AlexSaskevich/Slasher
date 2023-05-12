@@ -53,7 +53,7 @@ namespace Source.Skills
         {
             Animator.SetTrigger(AnimationConstants.Ultimate);
             InputSource.Disable();
-            yield return new WaitUntil(() => CheckCurrentAnimationEnd());
+            yield return new WaitUntil(CheckCurrentAnimationEnd);
             InputSource.Enable();
             _playerHealth.StartAvoidDamage();
             base.TryActivate();

@@ -13,7 +13,7 @@ namespace Source.GameLogic
 
         protected virtual void Start()
         {
-            CurrentHealth = MaxHealth;
+            ResetHealth();
         }
 
         public virtual void TryTakeDamage(float damage)
@@ -35,6 +35,7 @@ namespace Source.GameLogic
         public void ResetHealth()
         {
             CurrentHealth = MaxHealth;
+            HealthChanged?.Invoke();
         }
 
         protected void TryHeal(float modifier)

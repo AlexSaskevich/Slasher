@@ -11,7 +11,6 @@ namespace Source.Combo
     {
         [SerializeField] private PlayerWeapon _weapon;
 
-        private readonly MoveState _moveState = new();
         private PlayerHealth _playerHealth;
         private InputSwitcher _inputSwitcher;
         private IInputSource _inputSource;
@@ -19,6 +18,8 @@ namespace Source.Combo
         public event Action StateChanged;
 
         [field: SerializeField] public float AgilityPerHit { get; private set; }
+        
+        public MoveState MoveState { get; } = new();
         public State CurrentState { get; private set; }
         public Animator Animator { get; private set; }
         public CharacterController CharacterController { get; private set; }
@@ -33,7 +34,7 @@ namespace Source.Combo
             CharacterController = GetComponent<CharacterController>();
             PlayerAgility = GetComponent<PlayerAgility>();
             PlayerMovement = GetComponent<PlayerMovement>();
-            CurrentState = _moveState;
+            CurrentState = MoveState;
             CurrentState.Enter(this);
         }
 

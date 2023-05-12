@@ -1,4 +1,4 @@
-﻿using Source.UI.Buttons.Panels;
+﻿using Source.UI.Panels;
 using UnityEngine;
 
 namespace Source.UI.Buttons.UIButtons

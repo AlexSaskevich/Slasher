@@ -12,7 +12,7 @@ namespace Source.UI.Buttons.UIButtons
         {
             Button = GetComponent<Button>();
         }
-
+        
         protected virtual void OnEnable()
         {
             Button.onClick.AddListener(OnButtonClick);

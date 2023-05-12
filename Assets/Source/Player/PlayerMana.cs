@@ -27,13 +27,7 @@ namespace Source.Player
             _playerCharacter = GetComponent<PlayerCharacter>();
             _playerCombo = GetComponent<PlayerCombo>();
 
-            var maxMana =
-                GameProgressSaver.GetPlayerCharacteristic(_playerCharacter.PlayerCharacterName, CharacteristicStatus);
-
-            if (maxMana > 0)
-                MaxValue = maxMana;
-            
-            CurrentValue = MaxValue;
+            ResetMana();
         }
 
         private void Update()
@@ -43,6 +37,19 @@ namespace Source.Player
             
             if (CurrentValue < MaxValue)
                 IncreaseMana();
+        }
+
+        public void ResetMana()
+        {
+            var maxMana =
+                GameProgressSaver.GetPlayerCharacteristic(_playerCharacter.PlayerCharacterName, CharacteristicStatus);
+
+            if (maxMana > 0)
+                MaxValue = maxMana;
+
+            CurrentValue = MaxValue;
+            
+            ManaChanged?.Invoke();
         }
 
         public void DecreaseMana(float value)

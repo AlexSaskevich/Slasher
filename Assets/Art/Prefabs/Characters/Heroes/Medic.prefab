@@ -1927,6 +1927,7 @@ GameObject:
   - component: {fileID: 1153311788141393848}
   - component: {fileID: 1497334505472578510}
   - component: {fileID: 7250767712898956235}
+  - component: {fileID: 394245787623678692}
   m_Layer: 0
   m_Name: Medic
   m_TagString: Untagged
@@ -2194,6 +2195,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e6eea8a0cc4ab7a297a2b04a043e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &394245787623678692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683448164920136173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd671c62a72c4926be69727b91a469f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _death: {fileID: 7400000, guid: d4f31f35bf4aa9b4bb7789387c757b5f, type: 2}
 --- !u!1 &5683467216692641245
 GameObject:
   m_ObjectHideFlags: 0

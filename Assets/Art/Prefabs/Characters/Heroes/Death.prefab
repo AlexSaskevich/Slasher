@@ -1931,6 +1931,7 @@ GameObject:
   - component: {fileID: 6973243805678024416}
   - component: {fileID: 4838721501812216029}
   - component: {fileID: 5322194737669819891}
+  - component: {fileID: 8590242977342070968}
   m_Layer: 0
   m_Name: Death
   m_TagString: Untagged
@@ -2198,6 +2199,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e6eea8a0cc4ab7a297a2b04a043e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8590242977342070968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 626354353600354597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd671c62a72c4926be69727b91a469f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _death: {fileID: 7400000, guid: 8164a4d8c5b98ee4b85c3d47f49fe2f9, type: 2}
 --- !u!1 &626354353600354839
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,11 @@ namespace Source.UI.Buttons.UIButtons
             Restart();
         }
 
+        public void SetInteractableState(bool state)
+        {
+            Button.interactable = state;
+        }
+        
         private void Restart()
         {
             Time.timeScale = 1;

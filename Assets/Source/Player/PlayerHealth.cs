@@ -20,7 +20,7 @@ namespace Source.Player
         private AdShower _adShower;
         private float _healModifier;
 
-         [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; set; }
+        [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; private set; }
         
         public float MaxValue { get; private set; }
         public float ChanceAvoidDamage { get; private set; }
@@ -66,7 +66,7 @@ namespace Source.Player
         protected override void Die()
         {
             _inputSource.Disable();
-            //_adShower.Show();
+            _adShower.Show();
         }
 
         public override void TryTakeDamage(float damage)
