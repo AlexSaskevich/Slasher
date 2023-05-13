@@ -2199,10 +2199,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1649376b21d5497096d268f8e0ee055e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawners: []
-  <Delay>k__BackingField: 0
+  _spawners:
+  - {fileID: 2070475663}
+  - {fileID: 332727713}
+  - {fileID: 1690917444}
+  <Delay>k__BackingField: 15
   _workingPeacefulSpawnersCount: 0
-  _workingZombieSpawnersCount: 0
+  _workingZombieSpawnersCount: 3
   _workingHostileSpawnersCount: 0
 --- !u!4 &236402468
 Transform:
@@ -11151,8 +11154,13 @@ MonoBehaviour:
   _rangeSpawnersSwitcher: {fileID: 0}
   _playerSpawnPoint: {fileID: 913283135}
   _zombieScoreView: {fileID: 451745087}
+  _deathPanel: {fileID: 0}
+  _regenerationButton: {fileID: 0}
   _lookingPosition: {x: 0, y: 0, z: 0}
   _isSceneMainMenu: 0
+  _buffCooldownMobileView: {fileID: 0}
+  _ultimateCooldownMobileView: {fileID: 0}
+  _rollCooldownMobileView: {fileID: 0}
 --- !u!4 &1605441541
 Transform:
   m_ObjectHideFlags: 0
@@ -91751,6 +91759,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44ccd85f2b491d41b65e6421da8f942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
 --- !u!224 &3597441552606160745
 RectTransform:
   m_ObjectHideFlags: 0
@@ -91886,6 +91895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f448ba445d322ed4c964eb59955e5512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
 --- !u!224 &3597441552652787589
 RectTransform:
   m_ObjectHideFlags: 0
@@ -92544,6 +92554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5687eb7c74badd241b9d27f96aca531d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
 --- !u!224 &3597441552917929719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -93965,6 +93976,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c55ccccc7c279e4fb16a1f23c38e1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _button: {fileID: 0}
 --- !u!222 &3597441553701844434
 CanvasRenderer:
   m_ObjectHideFlags: 0
