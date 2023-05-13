@@ -272,8 +272,13 @@ namespace Source.GameLogic
                 _rollDurationView.Init(roll, inputSwitcher.InputSource, ultimate, buff, roll);
             }
 
-            var attackButton = (AttackButton)_controlButtons.Find(controlButton => controlButton is AttackButton);
-            attackButton.Init(ultimate, buff, roll, playerCombo);
+            if (_controlButtons != null)
+            {
+                var attackButton = (AttackButton)_controlButtons.Find(controlButton => controlButton is AttackButton);
+
+                if (attackButton != null)
+                    attackButton.Init(ultimate, buff, roll, playerCombo);
+            }
 
             foreach (var boostBlinder in _boostBlinders)
             {
