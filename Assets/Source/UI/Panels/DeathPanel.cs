@@ -1,7 +1,9 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Source.InputSource;
 using Source.Player;
 using Source.UI.Buttons.UIButtons;
+using Source.UI.Views.SkillViews;
 using UnityEngine;
 
 namespace Source.UI.Panels
@@ -10,10 +12,13 @@ namespace Source.UI.Panels
     public sealed class DeathPanel : MonoBehaviour
     {
         [SerializeField] private PauseButton _pauseButton;
-        [SerializeField] private Joystick _joystick;
         [SerializeField] private RestartButton _restartButton;
         [SerializeField] private RegenerationButton _regenerationButton;
-        
+        [SerializeField] private ExitButton _exitButton;
+        [SerializeField] private KeyboardInputPanel _keyboardInputPanel;
+        [SerializeField] private UIInputPanel _uiInputPanel;
+        [SerializeField] private List<SkillView> _skillViews;
+
         private CanvasGroup _canvasGroup;
         private PlayerHealth _playerHealth;
         private InputSwitcher _inputSwitcher;
@@ -42,9 +47,9 @@ namespace Source.UI.Panels
         {
             _restartButton.transform.SetParent(transform);
             _regenerationButton.transform.SetParent(transform);
-            
-            _restartButton.SetInteractableState(false);
-            _regenerationButton.SetInteractableState(false);
+            _exitButton.transform.SetParent(transform);
+
+            _canvasGroup.interactable = false;
         }
 
         public void Init(PlayerHealth playerHealth, InputSwitcher inputSwitcher, float delay)
@@ -60,12 +65,16 @@ namespace Source.UI.Panels
         {
             Time.timeScale = 1;
             _canvasGroup.alpha = 0;
-            
-            _restartButton.SetInteractableState(false);
-            _regenerationButton.SetInteractableState(false);
-            
+
+            _canvasGroup.interactable = false;
+
             if (_inputSwitcher.InputSource is UIInput)
-                _joystick.gameObject.SetActive(true);
+                _uiInputPanel.gameObject.SetActive(true);
+            else
+                _keyboardInputPanel.gameObject.SetActive(true);     
+            
+            foreach (var skillView in _skillViews)
+                skillView.gameObject.SetActive(true);
 
             _pauseButton.gameObject.SetActive(true);
         }
@@ -85,14 +94,18 @@ namespace Source.UI.Panels
             Time.timeScale = 0;
             _canvasGroup.alpha = 1;
 
-            _restartButton.SetInteractableState(true);
+            _canvasGroup.interactable = true;
 
-            if (_regenerationButton.IsClicked == false)
-                _regenerationButton.SetInteractableState(true);
+            _regenerationButton.SetInteractableState(_regenerationButton.IsClicked == false);
 
             if (_inputSwitcher.InputSource is UIInput)
-                _joystick.gameObject.SetActive(false);
+                _uiInputPanel.gameObject.SetActive(false);
+            else
+                _keyboardInputPanel.gameObject.SetActive(false);
             
+            foreach (var skillView in _skillViews)
+                skillView.gameObject.SetActive(false);
+
             _pauseButton.gameObject.SetActive(false);
 
             _isCoroutineStarted = false;

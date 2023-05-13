@@ -1,4 +1,4 @@
-﻿namespace Source.UI.Views.SkillViews.DuarationViews
+﻿namespace Source.UI.Views.SkillViews.DurationViews
 {
     public sealed class RollDurationView : SkillView
     {

@@ -12,11 +12,11 @@ using Source.UI.Buttons.UIButtons;
 using Source.UI.Panels;
 using Source.UI.Views;
 using Source.UI.Views.SkillViews.CooldownViews;
-using Source.UI.Views.SkillViews.DuarationViews;
 using Source.Yandex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Source.UI.Views.SkillViews.DurationViews;
 using UnityEngine;
 using DeviceType = Agava.YandexGames.DeviceType;
 
