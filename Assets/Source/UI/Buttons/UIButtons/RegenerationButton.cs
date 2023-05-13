@@ -61,7 +61,7 @@ namespace Source.UI.Buttons.UIButtons
             _timerBlinder.SetPlayerAlive();
             
             PlayerRegenerated?.Invoke();
-            //_adShower.Show();
+            _adShower.Show();
         }
     }
 }
