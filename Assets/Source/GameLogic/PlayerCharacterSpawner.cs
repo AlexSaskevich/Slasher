@@ -34,9 +34,12 @@ namespace Source.GameLogic
         [SerializeField] private PlayerHealthBar _playerHealthBar;
         [SerializeField] private PlayerManaBar _playerManaBar;
         [SerializeField] private PlayerWalletView _playerWalletView;
-        [SerializeField] private BuffCooldownView _buffCooldownView;
-        [SerializeField] private UltimateCooldownView _ultimateCooldownView;
-        [SerializeField] private RollCooldownView _rollCooldownView;
+        [SerializeField] private BuffCooldownPCView _buffCooldownPCView;
+        [SerializeField] private UltimateCooldownPCView _ultimateCooldownPCView;
+        [SerializeField] private RollCooldownPCView _rollCooldownPCView;
+        [SerializeField] private BuffCooldownMobileView _buffCooldownMobileView;
+        [SerializeField] private UltimateCooldownMobileView _ultimateCooldownMobileView;
+        [SerializeField] private RollCooldownMobileView _rollCooldownMobileView;
         [SerializeField] private BuffDurationView _buffDurationView;
         [SerializeField] private UltimateDurationView _ultimateDurationView;
         [SerializeField] private RollDurationView _rollDurationView;
@@ -52,10 +55,6 @@ namespace Source.GameLogic
         [SerializeField] private RegenerationButton _regenerationButton;
         [SerializeField] private Vector3 _lookingPosition;
         [SerializeField] private bool _isSceneMainMenu;
-
-        [SerializeField] private BuffCooldownMobileView _buffCooldownMobileView;
-        [SerializeField] private UltimateCooldownMobileView _ultimateCooldownMobileView;
-        [SerializeField] private RollCooldownMobileView _rollCooldownMobileView;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -252,24 +251,24 @@ namespace Source.GameLogic
             if (playerCharacter.TryGetComponent(out ZombieScore score) && _zombieScoreView != null)
                 _zombieScoreView.Init(score);
 
-            if (_buffCooldownView != null && _buffDurationView != null)
+            if (_buffCooldownPCView != null && _buffDurationView != null)
             {
                 _buffCooldownMobileView.Init(buff, inputSwitcher.InputSource);
-                _buffCooldownView.Init(buff, inputSwitcher.InputSource);
+                _buffCooldownPCView.Init(buff, inputSwitcher.InputSource);
                 _buffDurationView.Init(buff, inputSwitcher.InputSource);
             }
 
-            if (_ultimateCooldownView != null && _ultimateDurationView != null)
+            if (_ultimateCooldownPCView != null && _ultimateDurationView != null)
             {
                 _ultimateCooldownMobileView.Init(ultimate, inputSwitcher.InputSource);
-                _ultimateCooldownView.Init(ultimate, inputSwitcher.InputSource);
+                _ultimateCooldownPCView.Init(ultimate, inputSwitcher.InputSource);
                 _ultimateDurationView.Init(ultimate, inputSwitcher.InputSource);
             }
 
-            if (_rollCooldownView != null && _rollDurationView != null)
+            if (_rollCooldownPCView != null && _rollDurationView != null)
             {
                 _rollCooldownMobileView.Init(roll, inputSwitcher.InputSource);
-                _rollCooldownView.Init(roll, inputSwitcher.InputSource);
+                _rollCooldownPCView.Init(roll, inputSwitcher.InputSource);
                 _rollDurationView.Init(roll, inputSwitcher.InputSource);
             }
 

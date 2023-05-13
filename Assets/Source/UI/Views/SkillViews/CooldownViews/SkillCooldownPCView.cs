@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace Source.UI.Views.SkillViews.CooldownViews
 {
-    public class SkillCooldownView : SkillView
+    public class SkillCooldownPCView : SkillView
     {
         [SerializeField] private Image _icon;
 

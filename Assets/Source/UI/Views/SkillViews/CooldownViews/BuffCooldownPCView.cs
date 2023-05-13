@@ -1,6 +1,6 @@
 ﻿namespace Source.UI.Views.SkillViews.CooldownViews
 {
-    public sealed class BuffCooldownView : SkillCooldownView
+    public sealed class BuffCooldownPCView : SkillCooldownPCView
     {
     }
 }
