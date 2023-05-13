@@ -2,5 +2,9 @@
 {
     public sealed class BuffCooldownMobileView : SkillCooldownMobileView
     {
+        private void Update()
+        {
+            Button.interactable = Skill.CanUsed && ImageToFill.fillAmount == MaxFillAmount && !Ultimate.IsActive && !Roll.IsActive;
+        }
     }
 }

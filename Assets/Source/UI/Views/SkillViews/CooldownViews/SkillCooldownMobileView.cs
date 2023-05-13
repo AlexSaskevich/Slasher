@@ -1,4 +1,5 @@
-﻿using Source.Skills;
+﻿using Source.Interfaces;
+using Source.Skills;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,9 +7,13 @@ namespace Source.UI.Views.SkillViews.CooldownViews
 {
     public class SkillCooldownMobileView : SkillView
     {
-        private const float MaxFillAmount = 1f;
+        protected const float MaxFillAmount = 1f;
 
-        [SerializeField] private Button _button;
+        [SerializeField] protected Button Button;
+
+        protected Ultimate Ultimate { get; private set; }
+        protected Buff Buff { get; private set; }
+        protected Roll Roll { get; private set; }
 
         protected override void Start()
         {
@@ -17,9 +22,13 @@ namespace Source.UI.Views.SkillViews.CooldownViews
             ImageToFill.fillAmount = MaxFillAmount;
         }
 
-        private void Update()
+        public override void Init(Skill skill, IInputSource inputSource, Ultimate ultimate, Buff buff, Roll roll)
         {
-            _button.interactable = Skill.CanUsed && ImageToFill.fillAmount == MaxFillAmount;
+            base.Init(skill, inputSource, ultimate, buff, roll);
+
+            Ultimate = ultimate;
+            Buff = buff;
+            Roll = roll;
         }
 
         protected override void OnStarted()

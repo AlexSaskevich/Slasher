@@ -23,9 +23,9 @@ namespace Source.UI.Views.SkillViews.CooldownViews
             _icon.color = Skill.CanUsed ? _startColor : Color.gray;
         }
 
-        public override void Init(Skill skill, IInputSource inputSource)
+        public override void Init(Skill skill, IInputSource inputSource, Ultimate ultimate, Buff buff, Roll roll)
         {
-            base.Init(skill, inputSource);
+            base.Init(skill, inputSource, ultimate, buff, roll);
 
             if (inputSource is UIInput)
                 gameObject.SetActive(false);

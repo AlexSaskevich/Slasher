@@ -6,18 +6,18 @@ namespace Source.UI.Buttons.ControlButtons
 {
     public class ControlButton : MonoBehaviour
     {
-        [SerializeField] private Button _button;
-
         public event Action<ControlButton> ControlButtonPressed;
+
+        [field: SerializeField] public Button Button { get; private set; }
 
         private void OnEnable()
         {
-            _button.onClick.AddListener(OnControlButtonClick);
+            Button.onClick.AddListener(OnControlButtonClick);
         }
 
         private void OnDisable()
         {
-            _button.onClick.RemoveListener(OnControlButtonClick);
+            Button.onClick.RemoveListener(OnControlButtonClick);
         }
 
         private void OnControlButtonClick()

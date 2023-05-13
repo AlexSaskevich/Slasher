@@ -12,11 +12,11 @@ using Source.UI.Buttons.UIButtons;
 using Source.UI.Panels;
 using Source.UI.Views;
 using Source.UI.Views.SkillViews.CooldownViews;
+using Source.UI.Views.SkillViews.DurationViews;
 using Source.Yandex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Source.UI.Views.SkillViews.DurationViews;
 using UnityEngine;
 using DeviceType = Agava.YandexGames.DeviceType;
 
@@ -123,10 +123,10 @@ namespace Source.GameLogic
                 throw new ArgumentNullException();
 
             playerWallet.Init();
-            
+
             if (playerCharacter.TryGetComponent(out KeyboardInput keyboardInput) == false)
                 throw new ArgumentNullException();
-            
+
             if (_isSceneMainMenu)
             {
                 keyboardInput.enabled = false;
@@ -171,7 +171,7 @@ namespace Source.GameLogic
 
                 if (_adShower != null)
                     playerHealth.Init(_adShower);
-                
+
                 _playerCharacters.Add(character);
                 character.gameObject.SetActive(false);
             }
@@ -253,24 +253,27 @@ namespace Source.GameLogic
 
             if (_buffCooldownPCView != null && _buffDurationView != null)
             {
-                _buffCooldownMobileView.Init(buff, inputSwitcher.InputSource);
-                _buffCooldownPCView.Init(buff, inputSwitcher.InputSource);
-                _buffDurationView.Init(buff, inputSwitcher.InputSource);
+                _buffCooldownMobileView.Init(buff, inputSwitcher.InputSource, ultimate, buff, roll);
+                _buffCooldownPCView.Init(buff, inputSwitcher.InputSource, ultimate, buff, roll);
+                _buffDurationView.Init(buff, inputSwitcher.InputSource, ultimate, buff, roll);
             }
 
             if (_ultimateCooldownPCView != null && _ultimateDurationView != null)
             {
-                _ultimateCooldownMobileView.Init(ultimate, inputSwitcher.InputSource);
-                _ultimateCooldownPCView.Init(ultimate, inputSwitcher.InputSource);
-                _ultimateDurationView.Init(ultimate, inputSwitcher.InputSource);
+                _ultimateCooldownMobileView.Init(ultimate, inputSwitcher.InputSource, ultimate, buff, roll);
+                _ultimateCooldownPCView.Init(ultimate, inputSwitcher.InputSource, ultimate, buff, roll);
+                _ultimateDurationView.Init(ultimate, inputSwitcher.InputSource, ultimate, buff, roll);
             }
 
             if (_rollCooldownPCView != null && _rollDurationView != null)
             {
-                _rollCooldownMobileView.Init(roll, inputSwitcher.InputSource);
-                _rollCooldownPCView.Init(roll, inputSwitcher.InputSource);
-                _rollDurationView.Init(roll, inputSwitcher.InputSource);
+                _rollCooldownMobileView.Init(roll, inputSwitcher.InputSource, ultimate, buff, roll);
+                _rollCooldownPCView.Init(roll, inputSwitcher.InputSource, ultimate, buff, roll);
+                _rollDurationView.Init(roll, inputSwitcher.InputSource, ultimate, buff, roll);
             }
+
+            var attackButton = (AttackButton)_controlButtons.Find(controlButton => controlButton is AttackButton);
+            attackButton.Init(ultimate, buff, roll, playerCombo);
 
             foreach (var boostBlinder in _boostBlinders)
             {

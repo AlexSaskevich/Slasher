@@ -19794,6 +19794,7 @@ GameObject:
   - component: {fileID: 310649387}
   - component: {fileID: 310649386}
   - component: {fileID: 310649385}
+  - component: {fileID: 310649390}
   m_Layer: 5
   m_Name: AttackButton
   m_TagString: Untagged
@@ -19819,7 +19820,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 859.76935, y: -440.1299}
+  m_AnchoredPosition: {x: -43.848022, y: 53.484314}
   m_SizeDelta: {x: 247, y: 215.159}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &310649385
@@ -19834,7 +19835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f448ba445d322ed4c964eb59955e5512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 310649386}
+  <Button>k__BackingField: {fileID: 310649386}
 --- !u!114 &310649386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19917,6 +19918,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 310649383}
   m_CullTransparentMesh: 1
+--- !u!225 &310649390
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 310649383}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!23 &310748317
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25533,7 +25546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchorMax.x
@@ -25553,11 +25566,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1059.6
+      value: 1109.6
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080.5
+      value: 1079.8
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_LocalPosition.x
@@ -25589,11 +25602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -909.7695
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -490.13
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -26034,11 +26047,11 @@ RectTransform:
   - {fileID: 59191866}
   - {fileID: 1581261694}
   m_Father: {fileID: 645212622}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 561.2213, y: -419.61798}
+  m_AnchoredPosition: {x: -342.39606, y: 73.99634}
   m_SizeDelta: {x: 199.903, y: 174.134}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &399284933
@@ -26053,7 +26066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44ccd85f2b491d41b65e6421da8f942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 399284934}
+  <Button>k__BackingField: {fileID: 399284934}
 --- !u!114 &399284934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26161,7 +26174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ImageToFill>k__BackingField: {fileID: 59191867}
-  _button: {fileID: 399284934}
+  Button: {fileID: 399284934}
 --- !u!1 &400110187
 GameObject:
   m_ObjectHideFlags: 0
@@ -41237,18 +41250,18 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 392967553}
   - {fileID: 1346226299}
   - {fileID: 399284932}
   - {fileID: 1635410778}
-  - {fileID: 392967553}
   - {fileID: 310649384}
   m_Father: {fileID: 1493423786}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &645212623
 MonoBehaviour:
@@ -68933,7 +68946,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: -440.1299}
+  m_AnchoredPosition: {x: 0, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!225 &1064598074
@@ -85980,11 +85993,11 @@ RectTransform:
   - {fileID: 1549064172}
   - {fileID: 281191222}
   m_Father: {fileID: 645212622}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 636.2213, y: -219.61795}
+  m_AnchoredPosition: {x: -267.39606, y: 273.99625}
   m_SizeDelta: {x: 199.903, y: 174.134}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1346226300
@@ -85999,7 +86012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c55ccccc7c279e4fb16a1f23c38e1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 1346226301}
+  <Button>k__BackingField: {fileID: 1346226301}
 --- !u!114 &1346226301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86095,7 +86108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ImageToFill>k__BackingField: {fileID: 1549064173}
-  _button: {fileID: 1346226301}
+  Button: {fileID: 1346226301}
 --- !u!225 &1346226305
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -92915,7 +92928,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -250, y: -440.1299}
+  m_AnchoredPosition: {x: -250, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!225 &1459507794
@@ -105166,11 +105179,11 @@ RectTransform:
   - {fileID: 432281972}
   - {fileID: 648927113}
   m_Father: {fileID: 645212622}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 836.2206, y: -144.61691}
+  m_AnchoredPosition: {x: -67.39691, y: 348.99734}
   m_SizeDelta: {x: 199.903, y: 174.134}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1635410779
@@ -105185,7 +105198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5687eb7c74badd241b9d27f96aca531d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 1635410780}
+  <Button>k__BackingField: {fileID: 1635410780}
 --- !u!114 &1635410780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105281,7 +105294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <ImageToFill>k__BackingField: {fileID: 432281973}
-  _button: {fileID: 1635410780}
+  Button: {fileID: 1635410780}
 --- !u!225 &1635410784
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -129198,7 +129211,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.5
+  m_FillAmount: 1
   m_FillClockwise: 0
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -131925,7 +131938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 250, y: -440.1299}
+  m_AnchoredPosition: {x: 250, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!225 &2018933266
@@ -135697,10 +135710,10 @@ RectTransform:
   m_Father: {fileID: 1493423786}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2064247364
 MonoBehaviour:

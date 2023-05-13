@@ -38,7 +38,7 @@ namespace Source.UI.Views.SkillViews
             ImageToFill.fillAmount = MinFillAmount;
         }
 
-        public virtual void Init(Skill skill, IInputSource inputSource)
+        public virtual void Init(Skill skill, IInputSource inputSource, Ultimate ultimate, Buff buff, Roll roll)
         {
             Skill = skill;
             Skill.TimerStarted += OnStarted;
