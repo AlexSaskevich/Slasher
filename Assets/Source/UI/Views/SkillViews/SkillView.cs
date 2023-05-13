@@ -26,7 +26,8 @@ namespace Source.UI.Views.SkillViews
 
         private void OnDisable()
         {
-            Skill.TimerStarted -= OnStarted;
+            if (Skill != null)
+                Skill.TimerStarted -= OnStarted;
         }
 
         protected virtual void Start()
@@ -43,7 +44,7 @@ namespace Source.UI.Views.SkillViews
             Skill.TimerStarted += OnStarted;
         }
 
-        protected void StartFillImage(float countdownTime)
+        protected void StartFillImage(float countdownTime, float targetFillAmount = MinFillAmount)
         {
             if (isActiveAndEnabled == false)
                 return;
@@ -51,10 +52,10 @@ namespace Source.UI.Views.SkillViews
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
 
-            _coroutine = StartCoroutine(FillImage(countdownTime));
+            _coroutine = StartCoroutine(FillImage(countdownTime, targetFillAmount));
         }
 
-        private IEnumerator FillImage(float countdownTime)
+        private IEnumerator FillImage(float countdownTime, float targetFillAmount = MinFillAmount)
         {
             float totalTime = countdownTime;
 
@@ -72,7 +73,7 @@ namespace Source.UI.Views.SkillViews
             if (_text != null)
                 _text.text = string.Empty;
 
-            ImageToFill.fillAmount = MinFillAmount;
+            ImageToFill.fillAmount = targetFillAmount;
         }
 
         protected abstract void OnStarted();

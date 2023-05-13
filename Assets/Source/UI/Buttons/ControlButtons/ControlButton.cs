@@ -6,14 +6,9 @@ namespace Source.UI.Buttons.ControlButtons
 {
     public class ControlButton : MonoBehaviour
     {
-        private Button _button;
-        
-        public event Action<ControlButton> ControlButtonPressed;
+        [SerializeField] private Button _button;
 
-        private void Awake()
-        {
-            _button = GetComponent<Button>();
-        }
+        public event Action<ControlButton> ControlButtonPressed;
 
         private void OnEnable()
         {
