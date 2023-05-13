@@ -1,4 +1,5 @@
-﻿using Source.Enums;
+﻿using Source.Combo;
+using Source.Enums;
 using Source.GameLogic.Boosters;
 using Source.GameLogic.BotsSpawners;
 using Source.GameLogic.Timers;
@@ -8,6 +9,7 @@ using Source.Skills;
 using Source.UI.Bars;
 using Source.UI.Buttons.ControlButtons;
 using Source.UI.Buttons.UIButtons;
+using Source.UI.Panels;
 using Source.UI.Views;
 using Source.UI.Views.SkillViews.CooldownViews;
 using Source.UI.Views.SkillViews.DuarationViews;
@@ -15,8 +17,6 @@ using Source.Yandex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Source.Combo;
-using Source.UI.Panels;
 using UnityEngine;
 using DeviceType = Agava.YandexGames.DeviceType;
 
@@ -52,6 +52,10 @@ namespace Source.GameLogic
         [SerializeField] private RegenerationButton _regenerationButton;
         [SerializeField] private Vector3 _lookingPosition;
         [SerializeField] private bool _isSceneMainMenu;
+
+        [SerializeField] private BuffCooldownMobileView _buffCooldownMobileView;
+        [SerializeField] private UltimateCooldownMobileView _ultimateCooldownMobileView;
+        [SerializeField] private RollCooldownMobileView _rollCooldownMobileView;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -250,18 +254,21 @@ namespace Source.GameLogic
 
             if (_buffCooldownView != null && _buffDurationView != null)
             {
+                _buffCooldownMobileView.Init(buff, inputSwitcher.InputSource);
                 _buffCooldownView.Init(buff, inputSwitcher.InputSource);
                 _buffDurationView.Init(buff, inputSwitcher.InputSource);
             }
 
             if (_ultimateCooldownView != null && _ultimateDurationView != null)
             {
+                _ultimateCooldownMobileView.Init(ultimate, inputSwitcher.InputSource);
                 _ultimateCooldownView.Init(ultimate, inputSwitcher.InputSource);
                 _ultimateDurationView.Init(ultimate, inputSwitcher.InputSource);
             }
 
             if (_rollCooldownView != null && _rollDurationView != null)
             {
+                _rollCooldownMobileView.Init(roll, inputSwitcher.InputSource);
                 _rollCooldownView.Init(roll, inputSwitcher.InputSource);
                 _rollDurationView.Init(roll, inputSwitcher.InputSource);
             }
