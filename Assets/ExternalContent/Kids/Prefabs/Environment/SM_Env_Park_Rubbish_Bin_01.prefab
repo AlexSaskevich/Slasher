@@ -1,19 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!64 &5036562603768019953
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6843881476028777955}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 43259928954040824, guid: b1757de1e1780f64181de5a0869ab8aa, type: 2}
 --- !u!1001 &6843881476028875587
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23,11 +9,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
       propertyPath: m_Name
-      value: SM_Env_Park_Rubbish_Bin_01
+      value: SM_Env_Park_Rubbish_Bin_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 15.43
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -35,27 +25,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -77,7 +63,19 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
 --- !u!1 &6843881476028777955 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 8aac738503535ac43a04467f3c024fb6,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 8aac738503535ac43a04467f3c024fb6, type: 3}
   m_PrefabInstance: {fileID: 6843881476028875587}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &1079702915
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6843881476028777955}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.58406734, y: 2.2704668, z: 0.55548096}
+  m_Center: {x: 0, y: 1.007741, z: 0}
