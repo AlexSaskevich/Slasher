@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using DeviceType = Agava.YandexGames.DeviceType;
 
 namespace Source.GameLogic
@@ -51,8 +52,9 @@ namespace Source.GameLogic
         [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher;
         [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private ZombieScoreView _zombieScoreView;
-        [SerializeField] private DeathPanel _deathPanel;
+        [FormerlySerializedAs("_deathPanel")] [SerializeField] private DeathScreen _deathScreen;
         [SerializeField] private RegenerationButton _regenerationButton;
+        [FormerlySerializedAs("_endScreenScreen")] [FormerlySerializedAs("_endScreenPanel")] [SerializeField] private EndScreen _endScreen;
         [SerializeField] private Vector3 _lookingPosition;
         [SerializeField] private bool _isSceneMainMenu;
 
@@ -239,8 +241,11 @@ namespace Source.GameLogic
             if (_timerBlinder != null && _rangeSpawnersSwitcher != null)
                 _timerBlinder.Init(_rangeSpawnersSwitcher.Delay, playerHealth);
 
-            if (_deathPanel != null)
-                _deathPanel.Init(playerHealth, inputSwitcher, playerDeathAnimation.GetLenght());
+            if (_deathScreen != null)
+                _deathScreen.Init(inputSwitcher, playerHealth, playerDeathAnimation.GetLenght());
+
+            if (_endScreen != null)
+                _endScreen.Init(inputSwitcher);
 
             if (_regenerationButton != null)
             {

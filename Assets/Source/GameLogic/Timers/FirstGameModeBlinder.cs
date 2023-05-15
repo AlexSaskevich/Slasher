@@ -13,24 +13,9 @@ namespace Source.GameLogic.Timers
             FirstGameModeTimer = new FirstGameModeTimer(_time);
         }
 
-        private void OnEnable()
-        {
-            FirstGameModeTimer.Ended += OnEnded;
-        }
-
-        private void OnDisable()
-        {
-            FirstGameModeTimer.Ended -= OnEnded;
-        }
-
         private void Update()
         {
             FirstGameModeTimer.Update(Time.deltaTime);
-        }
-
-        private void OnEnded()
-        {
-            Time.timeScale = 0;
         }
     }
 }

@@ -8,7 +8,6 @@ namespace Source.UI.Views
     public sealed class FirstGameModeTimerView : MonoBehaviour
     {
         private FirstGameModeBlinder _firstGameModeBlinder;
-
         private TMP_Text _timer;
         
         private void Awake()
