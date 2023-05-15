@@ -409,8 +409,8 @@ MonoBehaviour:
   _rangeSpawnersSwitcher: {fileID: 0}
   _playerSpawnPoint: {fileID: 1542672077}
   _scoreViews:
-  - {fileID: 511413028}
   - {fileID: 792319235}
+  - {fileID: 511413028}
   _deathScreen: {fileID: 0}
   _regenerationButton: {fileID: 0}
   _endScreen: {fileID: 0}

@@ -35,10 +35,7 @@ namespace Source.GameLogic.Scores
         private void OnEnded()
         {
             if (CurrentScore > HighestScore)
-            {
-                print("AKLDFHJAHFJK");
                 GameProgressSaver.SetTimeModeScore(CurrentScore);
-            }
         }
     }
 }

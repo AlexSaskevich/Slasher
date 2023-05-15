@@ -7,8 +7,6 @@ namespace Source.GameLogic.Scores
     [RequireComponent(typeof(PlayerHealth))]
     public abstract class Score : MonoBehaviour
     {
-        private PlayerHealth _playerHealth;
-        
         public event Action<int> ScoreChanged;
         
         public int CurrentScore { get; private set; }

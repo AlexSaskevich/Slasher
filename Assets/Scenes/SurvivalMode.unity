@@ -64396,6 +64396,7 @@ MonoBehaviour:
   _deathScreen: {fileID: 1571126852}
   _regenerationButton: {fileID: 546118379}
   _endScreen: {fileID: 0}
+  _firstGameModeBlinder: {fileID: 0}
   _lookingPosition: {x: 0, y: 0, z: 0}
   _isSceneMainMenu: 0
   _isGameModeIsTimeMode: 0
