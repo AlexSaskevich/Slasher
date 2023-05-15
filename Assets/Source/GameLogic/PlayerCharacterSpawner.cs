@@ -17,8 +17,9 @@ using Source.Yandex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Source.GameLogic.Scores;
+using Source.UI.Views.ScoreViews;
 using UnityEngine;
-using UnityEngine.Serialization;
 using DeviceType = Agava.YandexGames.DeviceType;
 
 namespace Source.GameLogic
@@ -51,12 +52,14 @@ namespace Source.GameLogic
         [SerializeField] private TimerBlinder _timerBlinder;
         [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher;
         [SerializeField] private Transform _playerSpawnPoint;
-        [SerializeField] private ZombieScoreView _zombieScoreView;
-        [FormerlySerializedAs("_deathPanel")] [SerializeField] private DeathScreen _deathScreen;
+        [SerializeField] private List<ScoreView> _scoreViews;
+        [SerializeField] private DeathScreen _deathScreen;
         [SerializeField] private RegenerationButton _regenerationButton;
-        [FormerlySerializedAs("_endScreenScreen")] [FormerlySerializedAs("_endScreenPanel")] [SerializeField] private EndScreen _endScreen;
+        [SerializeField] private EndScreen _endScreen;
+        [SerializeField] private FirstGameModeBlinder _firstGameModeBlinder;
         [SerializeField] private Vector3 _lookingPosition;
         [SerializeField] private bool _isSceneMainMenu;
+        [SerializeField] private bool _isGameModeIsTimeMode;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -165,6 +168,12 @@ namespace Source.GameLogic
                 if (character.TryGetComponent(out PlayerHealth playerHealth) == false)
                     throw new ArgumentNullException();
 
+                if (character.TryGetComponent(out TimeModeScore timeModeScore) == false)
+                    throw new ArgumentNullException();
+
+                if (_firstGameModeBlinder != null)
+                    timeModeScore.Init(_firstGameModeBlinder);
+                    
                 if (_joystick != null && _controlButtons != null)
                     uiInput.Init(_joystick, _controlButtons);
 
@@ -246,15 +255,36 @@ namespace Source.GameLogic
 
             if (_endScreen != null)
                 _endScreen.Init(inputSwitcher);
-
+            
             if (_regenerationButton != null)
             {
                 _regenerationButton.Init(playerHealth, playerCombo, inputSwitcher.InputSource, animator, playerMana,
                     playerAgility);
             }
 
-            if (playerCharacter.TryGetComponent(out ZombieScore score) && _zombieScoreView != null)
-                _zombieScoreView.Init(score);
+            if (playerCharacter.TryGetComponent(out ZombieScore score) &&
+                playerCharacter.TryGetComponent(out TimeModeScore timeScore) && _scoreViews.Count > 0)
+            {
+                foreach (var scoreView in _scoreViews)
+                {
+                    if (scoreView == null)
+                        return;
+                    
+                    switch (scoreView)
+                    {
+                        case ZombieCurrentScoreView or ZombieHighestScoreView:
+                            scoreView.Init(score);
+                            break;
+                    
+                        case TimeModeCurrentScoreView or TimeModeHighestScoreView:
+                            scoreView.Init(timeScore);
+                            break;
+                    
+                        default:
+                            throw new ArgumentNullException();
+                    }
+                }
+            }
 
             if (_buffCooldownPCView != null && _buffDurationView != null)
             {
@@ -290,20 +320,17 @@ namespace Source.GameLogic
                 switch (boostBlinder.GoodStatus)
                 {
                     case GoodStatus.HealthUpgradeable:
-                        {
                             boostBlinder.Init(playerWallet, playerHealth, playerCharacter.PlayerCharacterName);
                             break;
-                        }
+                    
                     case GoodStatus.ManaUpgradeable:
-                        {
                             boostBlinder.Init(playerWallet, playerMana, playerCharacter.PlayerCharacterName);
                             break;
-                        }
+                    
                     case GoodStatus.AgilityUpgradeable:
-                        {
                             boostBlinder.Init(playerWallet, playerAgility, playerCharacter.PlayerCharacterName);
                             break;
-                        }
+                    
                     default:
                         throw new ArgumentNullException();
                 }
@@ -317,7 +344,9 @@ namespace Source.GameLogic
             foreach (var botsSpawner in _botsSpawners.Where(botsSpawner => botsSpawner != null))
             {
                 botsSpawner.Init(playerMovement, playerHealth, playerWallet,
-                    playerCharacter.TryGetComponent(out ZombieScore zombieScore) ? zombieScore : null);
+                    playerCharacter.TryGetComponent(out ZombieScore zombieScore) ? zombieScore : null,
+                    playerCharacter.TryGetComponent(out TimeModeScore timeModeScore) ? timeModeScore : null,
+                    _isGameModeIsTimeMode);
             }
         }
     }

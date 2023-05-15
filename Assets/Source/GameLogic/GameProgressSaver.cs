@@ -10,6 +10,7 @@ namespace Source.GameLogic
         private const string Time = "Time";
         private const string ZombieScore = "ZombieScore";
         private const string PlayerCharacter = "PlayerCharacter";
+        private const string TimeModeScore = "TimeModeScore";
 
         public static void SetMoney(int money)
         {
@@ -95,6 +96,16 @@ namespace Source.GameLogic
             var boughtStatus = PlayerPrefs.GetInt(playerCharacterName.ToString());
 
             return boughtStatus != 0;
+        }
+
+        public static void SetTimeModeScore(int score)
+        {
+            PlayerPrefs.SetInt(TimeModeScore, score);
+        }
+
+        public static int GetTimeModeScore()
+        {
+            return PlayerPrefs.GetInt(TimeModeScore);
         }
     }
 }

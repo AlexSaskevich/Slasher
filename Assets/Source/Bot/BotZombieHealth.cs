@@ -1,4 +1,4 @@
-﻿using Source.GameLogic;
+﻿using Source.GameLogic.Scores;
 
 namespace Source.Bot
 {
@@ -14,7 +14,7 @@ namespace Source.Bot
         protected override void Die()
         {
             BotTarget.ClearTargets();
-            _zombieScore.SetScore(_zombieScore.Score + 1);
+            _zombieScore.SetScore(_zombieScore.CurrentScore + 1);
             
             gameObject.SetActive(false);
         }

@@ -3895,10 +3895,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 451745083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8bdaf899ede41daaa7efcba7aabcd49, type: 3}
+  m_Script: {fileID: 11500000, guid: fd8de72b9fc142a7814d03e74f1b118a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Score>k__BackingField: {fileID: 451745085}
+  <ScoreText>k__BackingField: {fileID: 451745085}
 --- !u!65 &460661370
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11137,9 +11137,12 @@ MonoBehaviour:
   _playerHealthBar: {fileID: 3597441552511723220}
   _playerManaBar: {fileID: 3597441552976344672}
   _playerWalletView: {fileID: 0}
-  _buffCooldownView: {fileID: 3597441553664258040}
-  _ultimateCooldownView: {fileID: 3597441552213411728}
-  _rollCooldownView: {fileID: 3597441553301964728}
+  _buffCooldownPCView: {fileID: 0}
+  _ultimateCooldownPCView: {fileID: 0}
+  _rollCooldownPCView: {fileID: 0}
+  _buffCooldownMobileView: {fileID: 0}
+  _ultimateCooldownMobileView: {fileID: 0}
+  _rollCooldownMobileView: {fileID: 0}
   _buffDurationView: {fileID: 3597441553487467015}
   _ultimateDurationView: {fileID: 3597441552128572318}
   _rollDurationView: {fileID: 3597441552946468489}
@@ -11153,14 +11156,14 @@ MonoBehaviour:
   _timerBlinder: {fileID: 0}
   _rangeSpawnersSwitcher: {fileID: 0}
   _playerSpawnPoint: {fileID: 913283135}
-  _zombieScoreView: {fileID: 451745087}
-  _deathPanel: {fileID: 0}
+  _scoreViews:
+  - {fileID: 451745087}
+  _deathScreen: {fileID: 0}
   _regenerationButton: {fileID: 0}
+  _endScreen: {fileID: 0}
   _lookingPosition: {x: 0, y: 0, z: 0}
   _isSceneMainMenu: 0
-  _buffCooldownMobileView: {fileID: 0}
-  _ultimateCooldownMobileView: {fileID: 0}
-  _rollCooldownMobileView: {fileID: 0}
+  _isGameModeIsTimeMode: 0
 --- !u!4 &1605441541
 Transform:
   m_ObjectHideFlags: 0
@@ -91759,7 +91762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a44ccd85f2b491d41b65e6421da8f942, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
+  <Button>k__BackingField: {fileID: 0}
 --- !u!224 &3597441552606160745
 RectTransform:
   m_ObjectHideFlags: 0
@@ -91895,7 +91898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f448ba445d322ed4c964eb59955e5512, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
+  <Button>k__BackingField: {fileID: 0}
 --- !u!224 &3597441552652787589
 RectTransform:
   m_ObjectHideFlags: 0
@@ -92554,7 +92557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5687eb7c74badd241b9d27f96aca531d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
+  <Button>k__BackingField: {fileID: 0}
 --- !u!224 &3597441552917929719
 RectTransform:
   m_ObjectHideFlags: 0
@@ -93976,7 +93979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c55ccccc7c279e4fb16a1f23c38e1c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _button: {fileID: 0}
+  <Button>k__BackingField: {fileID: 0}
 --- !u!222 &3597441553701844434
 CanvasRenderer:
   m_ObjectHideFlags: 0

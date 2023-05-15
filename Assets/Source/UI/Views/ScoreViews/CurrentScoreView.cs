@@ -1,27 +1,27 @@
-﻿namespace Source.UI.Views
+﻿namespace Source.UI.Views.ScoreViews
 {
-    public sealed class ZombieCurrentScoreView : ZombieScoreView
+    public abstract class CurrentScoreView : ScoreView
     {
         private const string StartScore = "0";
         
         private void OnEnable()
         {
-            Score.text = StartScore;
+            ScoreText.text = StartScore;
         }
 
         private void OnDisable()
         {
-            ZombieScore.ScoreChanged -= OnScoreChanged;
+            Score.ScoreChanged -= OnScoreChanged;
         }
 
         protected override void Init()
         {
-            ZombieScore.ScoreChanged += OnScoreChanged;
+            Score.ScoreChanged += OnScoreChanged;
         }
         
         private void OnScoreChanged(int score)
         {
-            Score.text = score.ToString();
+            ScoreText.text = score.ToString();
         }
     }
 }

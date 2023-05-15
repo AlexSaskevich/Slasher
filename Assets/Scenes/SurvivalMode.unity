@@ -64392,12 +64392,13 @@ MonoBehaviour:
   _timerBlinder: {fileID: 754281334}
   _rangeSpawnersSwitcher: {fileID: 320684383}
   _playerSpawnPoint: {fileID: 0}
-  _zombieScoreView: {fileID: 0}
+  _scoreViews: []
   _deathScreen: {fileID: 1571126852}
   _regenerationButton: {fileID: 546118379}
   _endScreen: {fileID: 0}
   _lookingPosition: {x: 0, y: 0, z: 0}
   _isSceneMainMenu: 0
+  _isGameModeIsTimeMode: 0
 --- !u!4 &981228480
 Transform:
   m_ObjectHideFlags: 0
