@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Source.InputSource;
 using Source.UI.Buttons.UIButtons;
+using Source.UI.Views;
 using Source.UI.Views.SkillViews;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Source.UI.Panels
 {
     public abstract class GameScreen : MonoBehaviour
     {
+        [SerializeField] private CharacterFrameView _characterFrameView;
         [SerializeField] private PauseButton _pauseButton;
         [SerializeField] private KeyboardInputPanel _keyboardInputPanel;
         [SerializeField] private UIInputPanel _uiInputPanel;
@@ -40,6 +42,11 @@ namespace Source.UI.Panels
                 skillView.gameObject.SetActive(state);
             
             _pauseButton.gameObject.SetActive(state);
+
+            if (state)
+                _characterFrameView.Show();
+            else
+                _characterFrameView.Hide();
         }
     }
 }

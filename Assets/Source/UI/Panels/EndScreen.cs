@@ -1,10 +1,12 @@
 ﻿using Source.GameLogic.Timers;
+using Source.Yandex;
 using UnityEngine;
 
 namespace Source.UI.Panels
 {
     public sealed class EndScreen : GameScreen
     {
+        [SerializeField] private AdShower _adShower;
         [SerializeField] private FirstGameModeBlinder _firstGameModeBlinder;
 
         private void OnEnable()
@@ -30,6 +32,8 @@ namespace Source.UI.Panels
             CanvasGroup.interactable = true;
             
             SetObjectsActiveState(false);
+            
+            _adShower.Show();
         }
     }
 }

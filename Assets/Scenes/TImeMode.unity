@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8cd32357d8438ab806d89eab7970be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: 60
+  _time: 10
 --- !u!1 &22996103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1261,6 +1261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbb4b335eab428894f30605d08379c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterFrameView: {fileID: 396510471}
   _pauseButton: {fileID: 1914178967}
   _keyboardInputPanel: {fileID: 248159226}
   _uiInputPanel: {fileID: 1371937664}
@@ -2535,6 +2536,8 @@ GameObject:
   - component: {fileID: 396510468}
   - component: {fileID: 396510470}
   - component: {fileID: 396510469}
+  - component: {fileID: 396510472}
+  - component: {fileID: 396510471}
   m_Layer: 5
   m_Name: CharacterFrame
   m_TagString: Untagged
@@ -2603,6 +2606,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 396510467}
   m_CullTransparentMesh: 1
+--- !u!114 &396510471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396510467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50a10aef6ef74efd929153f9c4265845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &396510472
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396510467}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &398781829
 GameObject:
   m_ObjectHideFlags: 0
@@ -8320,6 +8347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5da128e2cf694e95bb021db09bfa948f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterFrameView: {fileID: 396510471}
   _pauseButton: {fileID: 1914178967}
   _keyboardInputPanel: {fileID: 248159226}
   _uiInputPanel: {fileID: 1371937664}
@@ -8327,6 +8355,7 @@ MonoBehaviour:
   - {fileID: 637572307}
   - {fileID: 1151726298}
   - {fileID: 1986213185}
+  _adShower: {fileID: 1114266425}
   _firstGameModeBlinder: {fileID: 8311371}
 --- !u!1 &1293590496
 GameObject:
