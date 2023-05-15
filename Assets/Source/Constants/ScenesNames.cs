@@ -4,7 +4,7 @@
     {
         public const string SurvivalMode = "SurvivalMode";
         public const string ZombieMode = "ZombieMode";
-        public const string PeacefulMode = "PeacefulMode";
+        public const string TimeMode = "TimeMode";
         public const string MainMenu = "Menu";
     }
 }

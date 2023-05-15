@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: bdb1634f5d491984c96776e7a5247e20
   - enabled: 1
+    path: Assets/Scenes/TImeMode.unity
+    guid: 15937fbd3c87d5748bedcb0dbc30a253
+  - enabled: 1
     path: Assets/Scenes/SurvivalMode.unity
     guid: 0493ac334bdd482478ef152738f64d2e
   - enabled: 1
