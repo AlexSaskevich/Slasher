@@ -25,9 +25,9 @@
             ScoreText = scoreText;
         }
         
-        protected void SetSeconds(int seconds)
+        protected void TrySetSeconds(int seconds)
         {
-            if (seconds <= Seconds)
+            if (seconds < 0)
                 return;
             
             Seconds = seconds;

@@ -24,7 +24,7 @@ namespace Source.GameLogic.Timers
         public override void Update(float deltaTime)
         {
             _time += deltaTime;
-            SetSeconds(Convert.ToInt32(_time - SecondsInMinute * Minutes));
+            TrySetSeconds(Convert.ToInt32(_time - SecondsInMinute * Minutes));
 
             if (Seconds % _border == 0 && Seconds != 0)
                 BorderReached?.Invoke();

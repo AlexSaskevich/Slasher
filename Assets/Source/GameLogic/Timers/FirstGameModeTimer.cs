@@ -4,8 +4,9 @@ namespace Source.GameLogic.Timers
 {
     public sealed class FirstGameModeTimer : Timer
     {
-        private float _time;
         private readonly float _startTime;
+        
+        private float _time;
         
         public FirstGameModeTimer(float time)
         {
@@ -18,7 +19,8 @@ namespace Source.GameLogic.Timers
         public override void Update(float deltaTime)
         {
             _time -= deltaTime;
-
+            TrySetSeconds(Convert.ToInt32(_time - SecondsInMinute * Minutes));
+                
             if (_time > 0)
                 return;
             
