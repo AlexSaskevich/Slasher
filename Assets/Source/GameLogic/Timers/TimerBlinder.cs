@@ -1,11 +1,15 @@
 ﻿using System;
+using Source.Enums;
 using Source.Player;
+using Source.Yandex;
 using UnityEngine;
 
 namespace Source.GameLogic.Timers
 {
     public sealed class TimerBlinder : MonoBehaviour
     {
+        [SerializeField] private LeaderboardName _leaderboardName;
+        
         private PlayerHealth _playerHealth;
         private bool _isPlayerDied;
 
@@ -50,6 +54,7 @@ namespace Source.GameLogic.Timers
             
             GameProgressSaver.SetTime(SecondGameModeTimer.HighestScore);
             GameProgressSaver.SetTimeText(Timer.ScoreText);
+            Leaderboard.AddPlayer(Convert.ToInt32(SecondGameModeTimer.HighestScore), _leaderboardName.ToString());
         }
     }
 }

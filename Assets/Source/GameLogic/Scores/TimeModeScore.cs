@@ -1,5 +1,6 @@
 ﻿using Source.GameLogic.Timers;
 using Source.Player;
+using Source.Yandex;
 using UnityEngine;
 
 namespace Source.GameLogic.Scores
@@ -34,8 +35,11 @@ namespace Source.GameLogic.Scores
 
         private void OnEnded()
         {
-            if (CurrentScore > HighestScore)
-                GameProgressSaver.SetTimeModeScore(CurrentScore);
+            if (CurrentScore <= HighestScore)
+                return;
+            
+            GameProgressSaver.SetTimeModeScore(CurrentScore);
+            Leaderboard.AddPlayer(CurrentScore, LeaderboardName.ToString());
         }
     }
 }
