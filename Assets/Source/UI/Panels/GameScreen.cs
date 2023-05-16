@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using Source.InputSource;
+﻿using Source.InputSource;
 using Source.UI.Buttons.UIButtons;
 using Source.UI.Views;
 using Source.UI.Views.SkillViews;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Source.UI.Panels
@@ -11,42 +11,67 @@ namespace Source.UI.Panels
     {
         [SerializeField] private CharacterFrameView _characterFrameView;
         [SerializeField] private PauseButton _pauseButton;
-        [SerializeField] private KeyboardInputPanel _keyboardInputPanel;
-        [SerializeField] private UIInputPanel _uiInputPanel;
+        [SerializeField] private KeyboardInputView _keyboardInputView;
+        [SerializeField] private UIInputView _uiInputView;
         [SerializeField] private List<SkillView> _skillViews;
 
         private InputSwitcher _inputSwitcher;
-        
+
         protected CanvasGroup CanvasGroup { get; private set; }
-        
+
         private void Awake()
         {
             CanvasGroup = GetComponent<CanvasGroup>();
 
             CanvasGroup.alpha = 0;
         }
-        
+
         public void Init(InputSwitcher inputSwitcher)
         {
             _inputSwitcher = inputSwitcher;
         }
-        
+
         protected void SetObjectsActiveState(bool state)
         {
-            if (_inputSwitcher.InputSource is UIInput)
-                _uiInputPanel.gameObject.SetActive(state);
-            else
-                _keyboardInputPanel.gameObject.SetActive(state);     
-            
-            foreach (var skillView in _skillViews)
-                skillView.gameObject.SetActive(state);
-            
-            _pauseButton.gameObject.SetActive(state);
+            switch (state)
+            {
+                case true:
+                    ShowObjects();
+                    break;
+                case false:
+                    HideObjects();
+                    break;
+            }
+        }
 
-            if (state)
-                _characterFrameView.Show();
+        private void ShowObjects()
+        {
+            if (_inputSwitcher.InputSource is UIInput)
+                _uiInputView.Show();
             else
-                _characterFrameView.Hide();
+                _keyboardInputView.Show();
+
+            foreach (var skillView in _skillViews)
+                skillView.Show();
+
+            _pauseButton.gameObject.SetActive(true);
+
+            _characterFrameView.Show();
+        }
+
+        private void HideObjects()
+        {
+            if (_inputSwitcher.InputSource is UIInput)
+                _uiInputView.Hide();
+            else
+                _keyboardInputView.Hide();
+
+            foreach (var skillView in _skillViews)
+                skillView.Hide();
+
+            _pauseButton.gameObject.SetActive(false);
+
+            _characterFrameView.Hide();
         }
     }
 }

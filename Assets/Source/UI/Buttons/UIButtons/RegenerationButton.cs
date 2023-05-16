@@ -1,9 +1,9 @@
-﻿using System;
-using Source.Combo;
+﻿using Source.Combo;
 using Source.GameLogic.Timers;
 using Source.Interfaces;
 using Source.Player;
 using Source.Yandex;
+using System;
 using UnityEngine;
 
 namespace Source.UI.Buttons.UIButtons
@@ -12,7 +12,7 @@ namespace Source.UI.Buttons.UIButtons
     {
         [SerializeField] private TimerBlinder _timerBlinder;
         [SerializeField] private AdShower _adShower;
-        
+
         private PlayerHealth _playerHealth;
         private PlayerCombo _playerCombo;
         private IInputSource _inputSource;
@@ -21,9 +21,9 @@ namespace Source.UI.Buttons.UIButtons
         private PlayerAgility _playerAgility;
 
         public event Action PlayerRegenerated;
-        
+
         public bool IsClicked { get; private set; }
-        
+
         protected override void OnButtonClick()
         {
             RegeneratePlayer();
@@ -48,20 +48,20 @@ namespace Source.UI.Buttons.UIButtons
         private void RegeneratePlayer()
         {
             IsClicked = true;
-            
+
             _playerHealth.ResetHealth();
             _playerMana.ResetMana();
             _playerAgility.ResetAgility();
-            
+
             _playerCombo.enabled = true;
             _playerCombo.SwitchState(_playerCombo.MoveState);
             _inputSource.Enable();
-            
+
             _animator.Rebind();
             _timerBlinder.SetPlayerAlive();
-            
+
             PlayerRegenerated?.Invoke();
-            _adShower.Show();
+            //_adShower.Show();
         }
     }
 }

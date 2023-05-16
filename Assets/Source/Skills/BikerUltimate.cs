@@ -63,7 +63,9 @@ namespace Source.Skills
         {
             if (_coroutine != null)
                 StopCoroutine(_coroutine);
-            
+
+            IsActive = false;
+
             Animator.SetBool(AnimationConstants.IsUltimate, false);
         }
     }
