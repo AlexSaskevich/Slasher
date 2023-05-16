@@ -1315,7 +1315,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 110342558}
   m_LocalRotation: {x: 0.46174863, y: 0, z: 0, w: 0.8870109}
-  m_LocalPosition: {x: 0, y: 7, z: -5}
+  m_LocalPosition: {x: -5.64, y: 7, z: 28.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1931,9 +1931,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 158845063}
+  - component: {fileID: 158845065}
   - component: {fileID: 158845064}
   m_Layer: 5
-  m_Name: UIInputPanel
+  m_Name: UIInputView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1976,6 +1977,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ffa5251e2e4bd8a55ad068a71f670f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &158845065
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158845062}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &168187743
 GameObject:
   m_ObjectHideFlags: 0
@@ -11239,6 +11252,50 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0117507, y: 3.6498697, z: 0.90438503}
   m_Center: {x: 2.5294417e-10, y: 1.8249348, z: 0.0140593955}
+--- !u!1 &1023144835
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1023144837}
+  - component: {fileID: 1023144836}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1023144836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023144835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19db75889d6372145b1fb24dac671ac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1023144837
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023144835}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 351, y: 254, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1025380992
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14325,7 +14382,7 @@ GameObject:
   - component: {fileID: 1353780795}
   - component: {fileID: 1353780794}
   m_Layer: 5
-  m_Name: DeathPanel
+  m_Name: DeathScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14369,12 +14426,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterFrameView: {fileID: 702296316}
   _pauseButton: {fileID: 351204353}
-  _keyboardInputPanel: {fileID: 2126071940}
-  _uiInputPanel: {fileID: 158845064}
+  _keyboardInputView: {fileID: 2126071940}
+  _uiInputView: {fileID: 158845064}
   _skillViews:
-  - {fileID: 812318259}
-  - {fileID: 1465728700}
-  - {fileID: 1439466264}
   - {fileID: 789406758}
   - {fileID: 907826272}
   - {fileID: 1437725726}
@@ -21117,9 +21171,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2126071939}
+  - component: {fileID: 2126071941}
   - component: {fileID: 2126071940}
   m_Layer: 5
-  m_Name: KeyboardInputPanel
+  m_Name: KeyboardInputView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21160,6 +21215,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c5250de0554e8eab1572a225c24000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &2126071941
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2126071938}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2131830994
 GameObject:
   m_ObjectHideFlags: 0

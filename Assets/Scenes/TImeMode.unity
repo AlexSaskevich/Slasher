@@ -2695,9 +2695,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 648765075}
+  - component: {fileID: 648765077}
   - component: {fileID: 648765076}
   m_Layer: 5
-  m_Name: KeyboardInputPanel
+  m_Name: KeyboardInputView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2738,6 +2739,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c5250de0554e8eab1572a225c24000, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &648765077
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648765074}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &655781460
 GameObject:
   m_ObjectHideFlags: 0
@@ -3943,9 +3956,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 852700859}
+  - component: {fileID: 852700861}
   - component: {fileID: 852700860}
   m_Layer: 5
-  m_Name: UIInputPanel
+  m_Name: UIInputView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3988,6 +4002,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ffa5251e2e4bd8a55ad068a71f670f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &852700861
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 852700858}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &855265670
 GameObject:
   m_ObjectHideFlags: 0
@@ -4560,7 +4586,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015843503}
   m_LocalRotation: {x: 0.46174863, y: 0, z: 0, w: 0.8870109}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -28.3, y: 7, z: 9.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8195,8 +8221,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _characterFrameView: {fileID: 1486600109}
   _pauseButton: {fileID: 1842976214}
-  _keyboardInputPanel: {fileID: 648765076}
-  _uiInputPanel: {fileID: 852700860}
+  _keyboardInputView: {fileID: 648765076}
+  _uiInputView: {fileID: 852700860}
   _skillViews:
   - {fileID: 939813690}
   - {fileID: 47767979}
@@ -10726,7 +10752,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8cd32357d8438ab806d89eab7970be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _time: 60
+  _time: 30
 --- !u!114 &1691351846
 MonoBehaviour:
   m_ObjectHideFlags: 0

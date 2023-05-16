@@ -1,9 +1,9 @@
-﻿using Source.GameLogic;
+﻿using Source.Enums;
+using Source.GameLogic;
 using Source.InputSource;
 using Source.Interfaces;
-using System;
-using Source.Enums;
 using Source.Yandex;
+using System;
 using UnityEngine;
 
 namespace Source.Player
@@ -66,7 +66,7 @@ namespace Source.Player
         protected override void Die()
         {
             _inputSource.Disable();
-            //_adShower.Show();
+            _adShower.Show();
         }
 
         public override void TryTakeDamage(float damage)
