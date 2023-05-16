@@ -14376,6 +14376,9 @@ MonoBehaviour:
   - {fileID: 812318259}
   - {fileID: 1465728700}
   - {fileID: 1439466264}
+  - {fileID: 789406758}
+  - {fileID: 907826272}
+  - {fileID: 1437725726}
   _restartButton: {fileID: 1104611447}
   _regenerationButton: {fileID: 1563030415}
   _exitButton: {fileID: 809469750}

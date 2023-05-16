@@ -5,7 +5,7 @@ namespace Source.UI.Buttons.UIButtons
 {
     public sealed class PauseButton : UIButton
     {
-        [SerializeField] private PausePanel _pausePanel;
+        [SerializeField] private PauseScreen _pausePanel;
 
         protected override void OnEnable()
         {
