@@ -9,19 +9,28 @@ namespace Source.UI.Panels
         [SerializeField] private AdShower _adShower;
         [SerializeField] private FirstGameModeBlinder _firstGameModeBlinder;
 
+        private FirstGameModeTimer _firstGameModeTimer;
+
         private void OnEnable()
         {
-            _firstGameModeBlinder.FirstGameModeTimer.Ended += OnEnded;
+            _firstGameModeBlinder.Initialized += OnInitialized;
         }
 
         private void OnDisable()
         {
-            _firstGameModeBlinder.FirstGameModeTimer.Ended -= OnEnded;
+            _firstGameModeBlinder.Initialized -= OnInitialized;
+            _firstGameModeTimer.Ended -= OnEnded;
         }
 
         private void Start()
         {
             CanvasGroup.interactable = false;
+        }
+
+        private void OnInitialized(FirstGameModeTimer firstGameModeTimer)
+        {
+            _firstGameModeTimer = firstGameModeTimer;
+            _firstGameModeTimer.Ended += OnEnded;
         }
 
         private void OnEnded()

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Source.GameLogic.Timers
 {
@@ -6,11 +7,14 @@ namespace Source.GameLogic.Timers
     {
         [SerializeField] private float _time;
 
+        public event Action<FirstGameModeTimer> Initialized;
+        
         public FirstGameModeTimer FirstGameModeTimer { get; private set; }
 
-        private void Awake()
+        private void Start()
         {
             FirstGameModeTimer = new FirstGameModeTimer(_time);
+            Initialized?.Invoke(FirstGameModeTimer);
         }
 
         private void Update()

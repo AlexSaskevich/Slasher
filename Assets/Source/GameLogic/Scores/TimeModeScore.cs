@@ -17,13 +17,13 @@ namespace Source.GameLogic.Scores
 
         private void OnEnable()
         {
-            if (_firstGameModeBlinder != null)
+            if (_firstGameModeBlinder != null && _firstGameModeBlinder.FirstGameModeTimer != null)
                 _firstGameModeBlinder.FirstGameModeTimer.Ended += OnEnded;
         }
 
         private void OnDisable()
         {
-            if (_firstGameModeBlinder != null)
+            if (_firstGameModeBlinder != null && _firstGameModeBlinder.FirstGameModeTimer != null)
                 _firstGameModeBlinder.FirstGameModeTimer.Ended -= OnEnded;
         }
 
