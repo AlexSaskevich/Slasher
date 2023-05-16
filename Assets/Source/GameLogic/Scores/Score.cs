@@ -1,4 +1,5 @@
 ﻿using System;
+using Source.Enums;
 using Source.Player;
 using UnityEngine;
 
@@ -7,6 +8,8 @@ namespace Source.GameLogic.Scores
     [RequireComponent(typeof(PlayerHealth))]
     public abstract class Score : MonoBehaviour
     {
+        [field: SerializeField] protected LeaderboardName LeaderboardName { get; private set; }
+
         public event Action<int> ScoreChanged;
         
         public int CurrentScore { get; private set; }

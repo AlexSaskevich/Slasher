@@ -1,4 +1,5 @@
 ﻿using Source.Player;
+using Source.Yandex;
 using UnityEngine;
 
 namespace Source.GameLogic.Scores
@@ -28,7 +29,10 @@ namespace Source.GameLogic.Scores
         private void OnDied()
         {
             if (CurrentScore > HighestScore)
+            {
                 GameProgressSaver.SetZombieScore(CurrentScore);
+                Leaderboard.AddPlayer(CurrentScore, LeaderboardName.ToString());
+            }
         }
     }
 }

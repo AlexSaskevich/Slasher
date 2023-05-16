@@ -1,4 +1,4 @@
-﻿using Assets.Source.UI.Views;
+﻿using Source.UI.Views;
 using UnityEngine;
 
 namespace Source.UI.Buttons.UIButtons

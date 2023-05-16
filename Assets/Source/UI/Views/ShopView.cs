@@ -1,7 +1,6 @@
-﻿using Source.UI.Views;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Source.UI.Views
+namespace Source.UI.Views
 {
     [RequireComponent(typeof(CanvasGroup))]
 
