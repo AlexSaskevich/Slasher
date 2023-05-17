@@ -568,6 +568,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d566b0b60a04c9582a0c51ca24d5f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hitEffects:
+  - {fileID: 1637094525758831790, guid: a02559488b2bbd94a875433c45660713, type: 3}
+  - {fileID: 4653844038683380406, guid: 5e34710fc17426341861d5b367aa3cb1, type: 3}
   <MaxHealth>k__BackingField: 100
   <CharacteristicStatus>k__BackingField: 0
 --- !u!114 &807465450795034210

@@ -1,10 +1,13 @@
 ﻿using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Source.GameLogic
 {
     public abstract class Health : MonoBehaviour
     {
+        [SerializeField] private ParticleSystem[] _hitEffects;
+        
         public event Action HealthChanged;
         public event Action Died;
 
@@ -30,6 +33,7 @@ namespace Source.GameLogic
             }
 
             HealthChanged?.Invoke();
+            Instantiate(GetRandomParticleSystem(), transform.position, GetRandomQuaternion(), null);
         }
         
         public void ResetHealth()
@@ -61,6 +65,20 @@ namespace Source.GameLogic
                 return;
 
             MaxHealth = value;
+        }
+        
+        private Quaternion GetRandomQuaternion()
+        {
+            const int Angle = 360;
+            const int WAngle = 1;
+
+            return new Quaternion(Random.Range(-Angle, Angle), Random.Range(-Angle, Angle), Random.Range(-Angle, Angle),
+                WAngle);
+        }
+        
+        private ParticleSystem GetRandomParticleSystem()
+        {
+            return _hitEffects[Random.Range(0, _hitEffects.Length)];
         }
 
         protected abstract void Die();

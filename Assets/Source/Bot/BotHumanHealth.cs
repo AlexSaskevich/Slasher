@@ -16,7 +16,7 @@ namespace Source.Bot
         protected override void Die()
         {
             BotTarget.ClearTargets();
-
+            
             if (_isGameModeTimeMode)
                 _timeModeScore.SetScore(_timeModeScore.CurrentScore + 1);
             

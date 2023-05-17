@@ -2545,6 +2545,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 55
+  _hitEffects:
+  - {fileID: 1637094525758831790, guid: c485e7c1d8e1adf4dba4e0b3a2257dac, type: 3}
+  - {fileID: 4653844038683380406, guid: 3cc0aefe28126a8498c76295abec4550, type: 3}
 --- !u!114 &-4201488116553895674
 MonoBehaviour:
   m_ObjectHideFlags: 0

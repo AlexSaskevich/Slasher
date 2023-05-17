@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1351777790571804}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.000000022788, y: -0.000000072630456, z: -0.0000003035599}
-  m_LocalScale: {x: 4.058473, y: 4.058473, z: 4.058473}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 20
   _speed: 20
-  _shootingEffect: {fileID: 1324096491429974614, guid: 279ce07bf983c274985108669fb1cb8e, type: 3}
+  _shootingEffect: {fileID: 3787028587808181442, guid: f443fa6cc165a6b4eaeea3b9542bb815, type: 3}
 --- !u!54 &3093883142055117323
 Rigidbody:
   m_ObjectHideFlags: 0
