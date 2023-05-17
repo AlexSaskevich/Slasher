@@ -31,6 +31,8 @@ namespace Source.UI.Views
         {
             _button.onClick.AddListener(OnClick);
             _buyCharacterButton.CharacterSet += OnCharacterSet;
+            
+            Activate();
         }
 
         private void OnDisable()
@@ -66,7 +68,6 @@ namespace Source.UI.Views
         private void OnClick()
         {
             _boostBlinder.Boost.TryBuy();
-
             Activate();
         }
 
@@ -80,10 +81,11 @@ namespace Source.UI.Views
 
         private void ShowCharacteristic()
         {
-            _currentValue.text = _boostBlinder.Boost.IsMaxLevel()
-                ? $"{_boostBlinder.Boost.Upgradeable.MaxValue}"
-                : $"{_boostBlinder.Boost.Upgradeable.MaxValue}";
-            _increasedValue.text = $"+{_boostBlinder.Boost.IncreasedValue}";
+            _currentValue.text = $"{_boostBlinder.Boost.Upgradeable.MaxValue}";
+
+            _increasedValue.text = _boostBlinder.Boost.Level == 0
+                ? $"+{_boostBlinder.Boost.IncreasedValue}"
+                : $"+{_boostBlinder.Boost.UIIncreasedValue}";
         }
 
         private void ShowPrice()

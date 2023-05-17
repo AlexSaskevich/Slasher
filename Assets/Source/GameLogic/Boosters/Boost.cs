@@ -10,12 +10,14 @@ namespace Source.GameLogic.Boosters
 
         private readonly GoodStatus _goodStatus;
         private readonly PlayerCharacterName _playerCharacterName;
+        private readonly int _startIncreasedValue;
 
         public Boost(int level, int increasedValue, IUpgradeable upgradeable, int price, PlayerWallet playerWallet,
             GoodStatus goodStatus, PlayerCharacterName playerCharacterName)
         {
             Level = level;
             IncreasedValue = increasedValue;
+            _startIncreasedValue = increasedValue;
             Upgradeable = upgradeable;
             Price = price;
             Wallet = playerWallet;
@@ -25,8 +27,10 @@ namespace Source.GameLogic.Boosters
         
         public PlayerWallet Wallet { get; }
         public int Price { get; }
+        public int IncreasedValue { get; private set; }
+        public int UIIncreasedValue { get; private set; }
         public IUpgradeable Upgradeable { get; }
-        public int IncreasedValue { get; }
+
         public int Level { get; private set; }
         
         public void TryBuy()
@@ -35,7 +39,12 @@ namespace Source.GameLogic.Boosters
                 return;
             
             Wallet.TrySpendMoney(Price);
-            Upgradeable.TryUpgrade(IncreasedValue + IncreasedValue * Level);
+            
+            IncreasedValue = _startIncreasedValue + _startIncreasedValue * Level;
+            
+            UIIncreasedValue = IncreasedValue + _startIncreasedValue;
+            
+            Upgradeable.TryUpgrade(IncreasedValue);
                 
             Level++;
             GameProgressSaver.SetBoosterLevel(_playerCharacterName, _goodStatus, Level);
