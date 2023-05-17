@@ -8,6 +8,7 @@ namespace Source.Infrastructure
     {
         [SerializeField] private float _damage;
         [SerializeField] private float _speed;
+        [SerializeField] private GameObject _shootingEffect;
         
         private Transform _target;
         private Vector3 _targetPosition;
@@ -21,6 +22,7 @@ namespace Source.Infrastructure
             const int TargetYPosition = 1;
 
             _targetPosition = new Vector3(targetPosition.x, TargetYPosition, targetPosition.z);
+            Instantiate(_shootingEffect, transform.position, Quaternion.identity, null);
         }
 
         private void Update()

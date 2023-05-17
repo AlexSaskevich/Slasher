@@ -100,6 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 20
   _speed: 20
+  _shootingEffect: {fileID: 1324096491429974614, guid: 279ce07bf983c274985108669fb1cb8e, type: 3}
 --- !u!54 &3093883142055117323
 Rigidbody:
   m_ObjectHideFlags: 0
