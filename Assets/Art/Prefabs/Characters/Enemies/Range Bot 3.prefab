@@ -2665,7 +2665,7 @@ MonoBehaviour:
   _attackingRadius: 10
   _attackingTrigger: {fileID: 6339430049585826398}
   <Delay>k__BackingField: 2
-  _bullet: {fileID: 9207523144466313191, guid: b250fe641f22bc34bb4b10f382453ba9, type: 3}
+  _bullet: {fileID: 382436650762655265, guid: 8142f86de3d1a724b97c5aa432aba6b6, type: 3}
   _bulletSpawnPoint: {fileID: 8237396943586691774}
 --- !u!114 &3688060154943802774
 MonoBehaviour:
@@ -3758,7 +3758,6 @@ GameObject:
   - component: {fileID: 1858399143767516947}
   - component: {fileID: 1852010567902944891}
   - component: {fileID: 1844203694833439471}
-  - component: {fileID: 43812796}
   - component: {fileID: 3205856787832809480}
   m_Layer: 0
   m_Name: Pistol
@@ -3835,19 +3834,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &43812796
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1855845561366145889}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.04321936, y: 0.16774617, z: 0.27920833}
-  m_Center: {x: 0.00000025147622, y: -0.010889238, z: 0.075094275}
 --- !u!114 &3205856787832809480
 MonoBehaviour:
   m_ObjectHideFlags: 0

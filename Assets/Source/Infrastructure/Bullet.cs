@@ -25,7 +25,7 @@ namespace Source.Infrastructure
 
         private void Update()
         {
-            if(_target.gameObject.activeSelf == false || _target == null)
+            if (_target.gameObject.activeSelf == false || _target == null)
                 Destroy(gameObject);
             
             transform.position =
