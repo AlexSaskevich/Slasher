@@ -7,13 +7,15 @@ using UnityEngine.UI;
 
 namespace Source.UI.Views
 {
-    [RequireComponent(typeof(BoostBlinder),typeof(Button))]
+    [RequireComponent(typeof(BoostBlinder), typeof(Button))]
     public sealed class BoostView : MonoBehaviour
     {
         [SerializeField] private TMP_Text _level;
-        [SerializeField] private TMP_Text _characteristic;
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
         [SerializeField] private TMP_Text _price;
+        [SerializeField] private TMP_Text _currentValue;
+        [SerializeField] private TMP_Text _increasedValue;
+        [SerializeField] private Image[] _levelIcons;
 
         private BoostBlinder _boostBlinder;
         private Button _button;
@@ -35,7 +37,7 @@ namespace Source.UI.Views
         {
             _button.onClick.RemoveListener(OnClick);
             _buyCharacterButton.CharacterSet -= OnCharacterSet;
-            
+
             _playerWallet.MoneyChanged -= OnMoneyChanged;
         }
 
@@ -78,19 +80,42 @@ namespace Source.UI.Views
 
         private void ShowCharacteristic()
         {
-            _characteristic.text = _boostBlinder.Boost.IsMaxLevel()
+            _currentValue.text = _boostBlinder.Boost.IsMaxLevel()
                 ? $"{_boostBlinder.Boost.Upgradeable.MaxValue}"
-                : $"{_boostBlinder.Boost.Upgradeable.MaxValue} / +{_boostBlinder.Boost.IncreasedValue}";
+                : $"{_boostBlinder.Boost.Upgradeable.MaxValue}";
+            _increasedValue.text = $"+{_boostBlinder.Boost.IncreasedValue}";
         }
 
         private void ShowPrice()
         {
-            _price.text = _boostBlinder.Boost.IsMaxLevel() ? null : _boostBlinder.Boost.Price.ToString();
+            if (_boostBlinder.Boost.IsMaxLevel())
+            {
+                _price.text = "MAX";
+                return;
+            }
+
+            var price = _boostBlinder.Boost.IsMaxLevel() ? null : _boostBlinder.Boost.Price.ToString();
+
+            _price.text = $" PRICE {price}";
         }
 
         private void ShowLevel()
         {
             _level.text = _boostBlinder.Boost.Level.ToString();
+
+            SetLevelIcons(_boostBlinder.Boost.Level);
+        }
+
+        private void SetLevelIcons(int level)
+        {
+            for (int i = 0; i < _levelIcons.Length; i++)
+            {
+                var tempColor = _levelIcons[i].color;
+
+                tempColor.a = i <= level - 1 ? 1f : 0.5f;
+
+                _levelIcons[i].color = tempColor;
+            }
         }
 
         private void TryTurnOff()
