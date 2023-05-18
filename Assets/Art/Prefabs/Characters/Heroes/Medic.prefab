@@ -2195,6 +2195,7 @@ MonoBehaviour:
   <Duration>k__BackingField: 5
   <Cost>k__BackingField: 30
   <Cooldown>k__BackingField: 10
+  <Effect>k__BackingField: {fileID: 198471522382378610, guid: bf349bc841bd43d4db53eac7c887a423, type: 3}
 --- !u!114 &1153311788141393848
 MonoBehaviour:
   m_ObjectHideFlags: 0

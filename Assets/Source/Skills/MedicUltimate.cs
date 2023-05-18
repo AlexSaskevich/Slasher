@@ -53,9 +53,13 @@ namespace Source.Skills
         {
             Animator.SetTrigger(AnimationConstants.Ultimate);
             InputSource.Disable();
+            Instantiate(Effect, transform.position, Quaternion.identity, transform);
+
             yield return new WaitUntil(CheckCurrentAnimationEnd);
+            
             InputSource.Enable();
             _playerHealth.StartAvoidDamage();
+            
             base.TryActivate();
         }
     }

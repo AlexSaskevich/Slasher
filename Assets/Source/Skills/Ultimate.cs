@@ -9,28 +9,31 @@ namespace Source.Skills
     [RequireComponent(typeof(PlayerMana), typeof(InputSwitcher))]
     public abstract class Ultimate : Skill
     {
-        public override bool CanUsed => PlayerMana.CurrentValue >= Cost;
+        private PlayerMana _playerMana;
+        private InputSwitcher _inputSwitcher;
+        
+        [field: SerializeField] protected ParticleSystem Effect { get; private set; }
+        
+        public override bool CanUsed => _playerMana.CurrentValue >= Cost;
         public bool IsActive { get; protected set; }
-        protected PlayerMana PlayerMana { get; private set; }
-        protected InputSwitcher InputSwitcher { get; private set; }
         protected IInputSource InputSource { get; private set; }
 
         protected override void Awake()
         {
             base.Awake();
-            PlayerMana = GetComponent<PlayerMana>();
-            InputSwitcher = GetComponent<InputSwitcher>();
+            _playerMana = GetComponent<PlayerMana>();
+            _inputSwitcher = GetComponent<InputSwitcher>();
         }
 
         protected override void Start()
         {
             base.Start();
-            InputSource = InputSwitcher.InputSource;
+            InputSource = _inputSwitcher.InputSource;
         }
 
         public override void TryActivate()
         {
-            PlayerMana.DecreaseMana(Cost);
+            _playerMana.DecreaseMana(Cost);
             StartTimer();
         }
 

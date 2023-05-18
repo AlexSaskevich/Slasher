@@ -63,7 +63,9 @@ namespace Source.Skills
         {
             Animator.SetTrigger(AnimationConstants.Ultimate);
             InputSource.Disable();
-            yield return new WaitUntil(() => CheckCurrentAnimationEnd());
+            Instantiate(Effect, transform.position, Quaternion.identity, transform);
+            
+            yield return new WaitUntil(CheckCurrentAnimationEnd);
             InputSource.Enable();
             _playerMovement.AddModifier(_speedModifier);
             _playerAgility.AddModifier(Mathf.Epsilon);

@@ -54,7 +54,10 @@ namespace Source.Skills
             Animator.SetBool(AnimationConstants.IsUltimate, true);
             IsActive = true;
             base.TryActivate();
+            Instantiate(Effect, transform.position, Quaternion.identity, transform);
+            
             yield return new WaitUntil(() => ElapsedTime <= Cooldown - Duration);
+            
             Animator.SetBool(AnimationConstants.IsUltimate, false);
             IsActive = false;
         }

@@ -652,6 +652,7 @@ MonoBehaviour:
   <Duration>k__BackingField: 5
   <Cost>k__BackingField: 20
   <Cooldown>k__BackingField: 10
+  <Effect>k__BackingField: {fileID: 198632928144088838, guid: ce702580c646c5645983b9806ec14df3, type: 3}
   _playerWeapon: {fileID: 8410004351193275394}
   _speedModifier: 1.5
   _damageModifier: 2
