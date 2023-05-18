@@ -2,6 +2,7 @@
 using Source.Enums;
 using Source.GameLogic.Boosters;
 using Source.GameLogic.BotsSpawners;
+using Source.GameLogic.Scores;
 using Source.GameLogic.Timers;
 using Source.InputSource;
 using Source.Player;
@@ -11,14 +12,13 @@ using Source.UI.Buttons.ControlButtons;
 using Source.UI.Buttons.UIButtons;
 using Source.UI.Panels;
 using Source.UI.Views;
+using Source.UI.Views.ScoreViews;
 using Source.UI.Views.SkillViews.CooldownViews;
 using Source.UI.Views.SkillViews.DurationViews;
 using Source.Yandex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Source.GameLogic.Scores;
-using Source.UI.Views.ScoreViews;
 using UnityEngine;
 using DeviceType = Agava.YandexGames.DeviceType;
 
@@ -173,7 +173,7 @@ namespace Source.GameLogic
 
                 if (_firstGameModeBlinder != null)
                     timeModeScore.Init(_firstGameModeBlinder);
-                    
+
                 if (_joystick != null && _controlButtons != null)
                     uiInput.Init(_joystick, _controlButtons);
 
@@ -255,7 +255,7 @@ namespace Source.GameLogic
 
             if (_endScreen != null)
                 _endScreen.Init(inputSwitcher);
-            
+
             if (_regenerationButton != null)
             {
                 _regenerationButton.Init(playerHealth, playerCombo, inputSwitcher.InputSource, animator, playerMana,
@@ -269,17 +269,17 @@ namespace Source.GameLogic
                 {
                     if (scoreView == null)
                         return;
-                    
+
                     switch (scoreView)
                     {
                         case ZombieCurrentScoreView or ZombieHighestScoreView:
                             scoreView.Init(score);
                             break;
-                    
+
                         case TimeModeCurrentScoreView or TimeModeHighestScoreView:
                             scoreView.Init(timeScore);
                             break;
-                    
+
                         default:
                             throw new ArgumentNullException();
                     }
@@ -320,17 +320,17 @@ namespace Source.GameLogic
                 switch (boostBlinder.GoodStatus)
                 {
                     case GoodStatus.HealthUpgradeable:
-                            boostBlinder.Init(playerWallet, playerHealth, playerCharacter.PlayerCharacterName);
-                            break;
-                    
+                        boostBlinder.Init(playerWallet, playerHealth, playerCharacter.PlayerCharacterName);
+                        break;
+
                     case GoodStatus.ManaUpgradeable:
-                            boostBlinder.Init(playerWallet, playerMana, playerCharacter.PlayerCharacterName);
-                            break;
-                    
+                        boostBlinder.Init(playerWallet, playerMana, playerCharacter.PlayerCharacterName);
+                        break;
+
                     case GoodStatus.AgilityUpgradeable:
-                            boostBlinder.Init(playerWallet, playerAgility, playerCharacter.PlayerCharacterName);
-                            break;
-                    
+                        boostBlinder.Init(playerWallet, playerAgility, playerCharacter.PlayerCharacterName);
+                        break;
+
                     default:
                         throw new ArgumentNullException();
                 }
