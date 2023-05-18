@@ -637,6 +637,8 @@ MonoBehaviour:
   <Cooldown>k__BackingField: 10
   _buffableBehaviour: {fileID: 807465450795034208}
   _modifier: 0.3
+  _effectPrefab: {fileID: 19887752, guid: 02d51b870121c764ca0be67be79a8ed4, type: 3}
+  _effectSpawnPoint: {fileID: 807465450795334331}
 --- !u!114 &1161594663
 MonoBehaviour:
   m_ObjectHideFlags: 0

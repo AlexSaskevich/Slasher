@@ -12,10 +12,13 @@ namespace Source.Skills
     {
         [SerializeField] private MonoBehaviour _buffableBehaviour;
         [SerializeField] private float _modifier;
+        [SerializeField] private ParticleSystem _effectPrefab;
+        [SerializeField] private Transform _effectSpawnPoint;
 
         private IBuffable _buffable;
         private PlayerMana _playerMana;
         private Coroutine _coroutine;
+        private ParticleSystem _effect;
 
         public override bool CanUsed { get => _playerMana.CurrentValue >= Cost; }
         public bool IsActive { get; private set; }
@@ -34,11 +37,6 @@ namespace Source.Skills
             base.Awake();
             _buffable = (IBuffable)_buffableBehaviour;
             _playerMana = GetComponent<PlayerMana>();
-        }
-
-        protected override void Start()
-        {
-            base.Start();
         }
 
         private void Update()
@@ -64,6 +62,16 @@ namespace Source.Skills
             StartBuff();
         }
 
+        public void CreateBuffEffect()
+        {
+            _effect = Instantiate(_effectPrefab, _effectSpawnPoint.position, Quaternion.identity, transform);
+        }
+
+        public void DestroyBuffEffect()
+        {
+            _effect.gameObject.SetActive(false);
+        }
+
         private void StartBuff()
         {
             if (_coroutine != null)
@@ -72,23 +80,27 @@ namespace Source.Skills
             _coroutine = StartCoroutine(ActivateBuff());
         }
 
+        private bool CheckCurrentAnimationEnd()
+        {
+            var currentAnimationName = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.TopLayer)
+                .IsName(AnimationConstants.Buff);
+            
+            var isCurrentAnimationEnd =
+                Animator.GetCurrentAnimatorStateInfo(AnimationConstants.TopLayer).normalizedTime >=
+                AnimationConstants.EndAnimationTime;
+
+            return currentAnimationName && isCurrentAnimationEnd;
+        }
+
         private IEnumerator ActivateBuff()
         {
             Animator.SetTrigger(AnimationConstants.Buff);
             IsActive = true;
-            yield return new WaitUntil(() => CheckCurrentAnimationEnd());
+            yield return new WaitUntil(CheckCurrentAnimationEnd);
             IsActive = false;
             _playerMana.DecreaseMana(Cost);
             _buffable.AddModifier(_modifier);
             StartTimer();
-        }
-
-        private bool CheckCurrentAnimationEnd()
-        {
-            var currentAnimationName = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.TopLayer).IsName(AnimationConstants.Buff);
-            var isCurrentAnimationEnd = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.TopLayer).normalizedTime >= AnimationConstants.EndAnimationTime;
-
-            return currentAnimationName && isCurrentAnimationEnd;
         }
     }
 }
