@@ -1,4 +1,5 @@
-﻿using Source.UI.Views;
+﻿using Agava.YandexGames;
+using Source.UI.Views;
 using UnityEngine;
 
 namespace Source.UI.Buttons.UIButtons
@@ -8,7 +9,6 @@ namespace Source.UI.Buttons.UIButtons
         [SerializeField] private LoginPanelView _loginPanelView;
         [SerializeField] private LoginAcceptButton _loginAcceptButton;
         [SerializeField] private MenuView _menuView;
-        [SerializeField] private bool _isAutthorized;
 
         private void Start()
         {
@@ -22,12 +22,7 @@ namespace Source.UI.Buttons.UIButtons
 
         private void TryOpenLeaderboards()
         {
-            //if (PlayerAccount.IsAuthorized == false)
-            //    _loginPanelView.Show();
-            //else
-            //    _loginAcceptButton.OpenChoosingLeaderboardPanel();
-
-            if (_isAutthorized == false)
+            if (PlayerAccount.IsAuthorized == false)
                 _loginPanelView.Show();
             else
                 _loginAcceptButton.OpenChoosingLeaderboardPanel();
