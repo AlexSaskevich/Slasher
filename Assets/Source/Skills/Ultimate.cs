@@ -37,10 +37,13 @@ namespace Source.Skills
             StartTimer();
         }
 
-        protected virtual bool CheckCurrentAnimationEnd()
+        protected bool CheckCurrentAnimationEnd()
         {
-            var currentAnimationName = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.BaseLayer).IsName(AnimationConstants.Ultimate);
-            var isCurrentAnimationEnd = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.BaseLayer).normalizedTime >= AnimationConstants.EndAnimationTime;
+            var currentAnimationName = Animator.GetCurrentAnimatorStateInfo(AnimationConstants.BaseLayer)
+                .IsName(AnimationConstants.Ultimate);
+            var isCurrentAnimationEnd =
+                Animator.GetCurrentAnimatorStateInfo(AnimationConstants.BaseLayer).normalizedTime >=
+                AnimationConstants.EndAnimationTime;
 
             return currentAnimationName && isCurrentAnimationEnd;
         }

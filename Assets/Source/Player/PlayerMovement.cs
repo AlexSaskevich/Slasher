@@ -2,10 +2,12 @@
 using Source.InputSource;
 using Source.Interfaces;
 using System;
+using Source.SoundTurntables;
 using UnityEngine;
 
 namespace Source.Player
 {
+    [RequireComponent(typeof(StepSoundTurntable))]
     [RequireComponent(typeof(PlayerCombo), typeof(CharacterController))]
     public sealed class PlayerMovement : MonoBehaviour, IBuffable
     {
@@ -13,6 +15,7 @@ namespace Source.Player
         private CharacterController _characterController;
         private InputSwitcher _inputSwitcher;
         private IInputSource _inputSource;
+        private StepSoundTurntable _stepSoundTurntable;
         private float _buffedSpeed;
 
         [field: SerializeField] public float DefaultSpeed { get; private set; }
@@ -21,6 +24,7 @@ namespace Source.Player
 
         private void Awake()
         {
+            _stepSoundTurntable = GetComponent<StepSoundTurntable>();
             _inputSwitcher = GetComponent<InputSwitcher>();
             _playerCombo = GetComponent<PlayerCombo>();
             _characterController = GetComponent<CharacterController>();
@@ -76,13 +80,17 @@ namespace Source.Player
         {
             var direction = new Vector3(_inputSource.MovementInput.x, 0, _inputSource.MovementInput.z);
             direction = Vector3.Normalize(direction);
-
-            _characterController.Move(direction * FinalSpeed * Time.deltaTime);
+            
+            _characterController.Move(direction * (FinalSpeed * Time.deltaTime));
+            _stepSoundTurntable.PlayStepAudioClip();
+            
+            if (_inputSource.MovementInput is { x: 0, z: 0 })
+                _stepSoundTurntable.StopStepsSound();
         }
 
         private void OnStateChanged()
         {
-            if (_playerCombo.CurrentState is MoveState || _playerCombo.CurrentState is EntryState)
+            if (_playerCombo.CurrentState is MoveState or EntryState)
             {
                 FinalSpeed = IsBuffed ? _buffedSpeed : DefaultSpeed;
                 return;
