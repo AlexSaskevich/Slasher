@@ -30,7 +30,7 @@ namespace Source.GameLogic.Boosters
         public int IncreasedValue { get; private set; }
         public int UIIncreasedValue { get; private set; }
         public IUpgradeable Upgradeable { get; }
-
+        public PlayerCharacterName PlayerCharacterName => _playerCharacterName;
         public int Level { get; private set; }
         
         public void TryBuy()
