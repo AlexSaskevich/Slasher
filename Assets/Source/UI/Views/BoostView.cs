@@ -10,7 +10,9 @@ namespace Source.UI.Views
     [RequireComponent(typeof(BoostBlinder), typeof(Button))]
     public sealed class BoostView : MonoBehaviour
     {
-        [SerializeField] private TMP_Text _level;
+        private const float MaxIconAlpha = 1f;
+        private const float MinIconAlpha = 0.5f;
+
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
         [SerializeField] private TMP_Text _price;
         [SerializeField] private TMP_Text _currentValue;
@@ -31,7 +33,7 @@ namespace Source.UI.Views
         {
             _button.onClick.AddListener(OnClick);
             _buyCharacterButton.CharacterSet += OnCharacterSet;
-            
+
             Activate();
         }
 
@@ -83,6 +85,12 @@ namespace Source.UI.Views
         {
             _currentValue.text = $"{_boostBlinder.Boost.Upgradeable.MaxValue}";
 
+            if (_boostBlinder.Boost.IsMaxLevel())
+            {
+                _increasedValue.text = string.Empty;
+                return;
+            }
+
             _increasedValue.text = _boostBlinder.Boost.Level == 0
                 ? $"+{_boostBlinder.Boost.IncreasedValue}"
                 : $"+{_boostBlinder.Boost.UIIncreasedValue}";
@@ -103,8 +111,6 @@ namespace Source.UI.Views
 
         private void ShowLevel()
         {
-            _level.text = _boostBlinder.Boost.Level.ToString();
-
             SetLevelIcons(_boostBlinder.Boost.Level);
         }
 
@@ -114,7 +120,7 @@ namespace Source.UI.Views
             {
                 var tempColor = _levelIcons[i].color;
 
-                tempColor.a = i <= level - 1 ? 1f : 0.5f;
+                tempColor.a = i <= level - 1 ? MaxIconAlpha : MinIconAlpha;
 
                 _levelIcons[i].color = tempColor;
             }

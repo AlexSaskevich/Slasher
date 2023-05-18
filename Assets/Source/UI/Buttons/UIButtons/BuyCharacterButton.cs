@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Source.GameLogic;
+﻿using Source.GameLogic;
 using Source.Player;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using Action = System.Action;
@@ -9,11 +9,10 @@ namespace Source.UI.Buttons.UIButtons
 {
     public sealed class BuyCharacterButton : UIButton
     {
-        private const string BuyCommand = "Buy";
-        private const string SelectCommand = "Select";
-        
         [SerializeField] private List<CharacterButton> _characterButtons;
         [SerializeField] private TMP_Text _text;
+        [SerializeField] private TMP_Text _buyText;
+        [SerializeField] private TMP_Text _selectText;
         
         private PlayerWallet _playerWallet;
         private PlayerCharacter _playerCharacter;
@@ -56,7 +55,8 @@ namespace Source.UI.Buttons.UIButtons
 
             GameProgressSaver.SetCharacterBoughtStatus(_playerCharacter.PlayerCharacterName, true);
             
-            _text.text = SelectCommand;
+            _selectText.gameObject.SetActive(true);
+            _buyText.gameObject.SetActive(false);
         }
 
         private void Select()
@@ -73,14 +73,17 @@ namespace Source.UI.Buttons.UIButtons
 
             if (_playerCharacter.IsBought)
             {
-                _text.text = SelectCommand;
+                _selectText.gameObject.SetActive(true);
+                _buyText.gameObject.SetActive(false);
+
                 Button.interactable = GameProgressSaver.GetCurrentCharacterIndex() !=
                                       (int)playerCharacter.PlayerCharacterName;
             }
             else
             {
-                _text.text = BuyCommand;
-                
+                _selectText.gameObject.SetActive(false);
+                _buyText.gameObject.SetActive(true);
+
                 if (_playerWallet.CurrentMoney < _playerCharacter.Price)
                 {
                     Button.interactable = false;
