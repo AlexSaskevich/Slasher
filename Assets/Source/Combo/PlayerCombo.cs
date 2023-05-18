@@ -10,6 +10,8 @@ namespace Source.Combo
     public sealed class PlayerCombo : MonoBehaviour
     {
         [SerializeField] private PlayerWeapon _weapon;
+        [SerializeField] private ParticleSystem _hitEffect;
+        [SerializeField] private Transform _effectSpawnPoint;
 
         private PlayerHealth _playerHealth;
         private InputSwitcher _inputSwitcher;
@@ -103,6 +105,11 @@ namespace Source.Combo
         {
             _weapon.StopDetectCollisions();
             _weapon.ApplyDamage(_weapon.MaxDamage);
+        }
+
+        public void CreateEffect()
+        {
+            Instantiate(_hitEffect, _effectSpawnPoint.position, Quaternion.identity, null);
         }
     }
 }
