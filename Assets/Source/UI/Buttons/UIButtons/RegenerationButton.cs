@@ -58,7 +58,9 @@ namespace Source.UI.Buttons.UIButtons
             _inputSource.Enable();
 
             _animator.Rebind();
-            _timerBlinder.SetPlayerAlive();
+
+            if (_timerBlinder != null)
+                _timerBlinder.SetPlayerAlive();
 
             PlayerRegenerated?.Invoke();
             _adShower.Show();
