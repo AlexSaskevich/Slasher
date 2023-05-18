@@ -49,7 +49,7 @@ namespace Source.Yandex
                     _leaderboardPlayers.Add(new LeaderboardPlayer(playerName, score));
                 }
 
-                _leaderboardView.Create(_leaderboardPlayers);
+                _leaderboardView.Create(_leaderboardPlayers, leaderboardName);
             });
         }
     }
