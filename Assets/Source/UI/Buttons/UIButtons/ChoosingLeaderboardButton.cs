@@ -26,7 +26,7 @@ namespace Source.UI.Buttons.UIButtons
                 _loginPanelView.Show();
             else
                 _loginAcceptButton.OpenChoosingLeaderboardPanel();
-
+            
             _menuView.Hide();
         }
     }
