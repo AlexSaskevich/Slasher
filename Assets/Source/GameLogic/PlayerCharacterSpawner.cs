@@ -171,12 +171,12 @@ namespace Source.GameLogic
                 if (character.TryGetComponent(out TimeModeScore timeModeScore) == false)
                     throw new ArgumentNullException();
 
-                if (_firstGameModeBlinder != null)
-                    timeModeScore.Init(_firstGameModeBlinder);
-
                 if (_joystick != null && _controlButtons != null)
                     uiInput.Init(_joystick, _controlButtons);
 
+                if (_firstGameModeBlinder != null)
+                    _firstGameModeBlinder.Init(timeModeScore);
+                
                 inputSwitcher.Init(_device);
                 //inputSwitcher.Init(Agava.YandexGames.Device.Type);
 
