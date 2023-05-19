@@ -1,5 +1,4 @@
-﻿using System;
-using Source.GameLogic.Scores;
+﻿using Source.GameLogic.Scores;
 using Source.UI.Panels;
 using UnityEngine;
 
