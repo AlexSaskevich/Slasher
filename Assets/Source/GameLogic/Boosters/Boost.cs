@@ -18,6 +18,7 @@ namespace Source.GameLogic.Boosters
             Level = level;
             IncreasedValue = increasedValue;
             _startIncreasedValue = increasedValue;
+            UIIncreasedValue = _startIncreasedValue + _startIncreasedValue * Level;
             Upgradeable = upgradeable;
             Price = price;
             Wallet = playerWallet;
@@ -30,7 +31,6 @@ namespace Source.GameLogic.Boosters
         public int IncreasedValue { get; private set; }
         public int UIIncreasedValue { get; private set; }
         public IUpgradeable Upgradeable { get; }
-        public PlayerCharacterName PlayerCharacterName => _playerCharacterName;
         public int Level { get; private set; }
         
         public void TryBuy()
