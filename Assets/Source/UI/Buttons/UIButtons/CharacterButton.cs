@@ -11,7 +11,9 @@ namespace Source.UI.Buttons.UIButtons
     public abstract class CharacterButton : UIButton
     {
         [SerializeField] private PlayerCharacterSpawner _playerCharacterSpawner;
-
+        [SerializeField] private PlayerDescription[] _playerDescriptions;
+        [SerializeField] private MonoBehaviour _boosters;
+ 
         public event Action<PlayerCharacter> PlayerCharacterChanged;
 
         protected override void OnEnable()
@@ -24,6 +26,12 @@ namespace Source.UI.Buttons.UIButtons
             PlayerCharacterChanged?.Invoke(currentPlayerCharacter);
         }
 
+        private void Start()
+        {
+            foreach (var playerDescription in _playerDescriptions)
+                playerDescription.gameObject.SetActive(false);
+        }
+
         protected void ChooseCharacter(bool isScrollingForward)
         {
             var playerCharacters = _playerCharacterSpawner.GetPlayerCharacters();
@@ -31,7 +39,6 @@ namespace Source.UI.Buttons.UIButtons
             var playerCharacterNames = new List<int>
             {
                 (int)PlayerCharacterName.Biker, (int)PlayerCharacterName.Medic, (int)PlayerCharacterName.Ninja,
-                (int)PlayerCharacterName.Death
             };
 
             var currentPlayerCharacter = playerCharacters.FirstOrDefault(character => character.gameObject.activeSelf);
@@ -58,6 +65,19 @@ namespace Source.UI.Buttons.UIButtons
             
             currentPlayerCharacter.gameObject.SetActive(false);
             newPlayerCharacter.gameObject.SetActive(true);
+
+            _boosters.gameObject.SetActive(false);
+            
+            foreach (var playerDescription in _playerDescriptions)
+            {
+                if (newPlayerCharacter.PlayerCharacterName == playerDescription.PlayerCharacterName)
+                {
+                    playerDescription.gameObject.SetActive(true);
+                    continue;
+                }
+
+                playerDescription.gameObject.SetActive(false);
+            }            
             
             PlayerCharacterChanged?.Invoke(newPlayerCharacter);
         }

@@ -5,6 +5,5 @@
         Biker,
         Medic,
         Ninja,
-        Death
     }
 }
