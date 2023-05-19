@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Source.GameLogic;
+using UnityEngine;
 
 namespace Source.Yandex
 {
@@ -36,6 +37,7 @@ namespace Source.Yandex
             Time.timeScale = 1;
 
             _audioListener.enabled = true;
+            SoundMuter.Unmute();
         }
 
         private void PauseGame()
@@ -43,6 +45,7 @@ namespace Source.Yandex
             Time.timeScale = 0;
 
             _audioListener.enabled = false;
+            SoundMuter.Mute();
         }
 
         public abstract void Show();

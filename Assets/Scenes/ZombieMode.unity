@@ -1327,6 +1327,7 @@ GameObject:
   - component: {fileID: 110342560}
   - component: {fileID: 110342559}
   - component: {fileID: 110342562}
+  - component: {fileID: 110342563}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -1414,6 +1415,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _offset: {x: 0, y: 7, z: -5}
   <DefaultSpeed>k__BackingField: 5
+--- !u!114 &110342563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110342558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 951efabc9a74475a9c43f20f9bce5fe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioSources:
+  - {fileID: 983645886}
+  - {fileID: 398916152}
 --- !u!65 &112228874
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4190,7 +4206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03eab9ca84a1470c996366c67108bf62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pausePanel: {fileID: 0}
+  _pausePanel: {fileID: 1375806413}
 --- !u!114 &351204354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11847,6 +11863,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioListener: {fileID: 110342559}
+  _imageToHide: {fileID: 1514558177}
+  _imageToShow: {fileID: 333214931}
 --- !u!114 &1070594696
 MonoBehaviour:
   m_ObjectHideFlags: 0
