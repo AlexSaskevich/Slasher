@@ -6,28 +6,43 @@ namespace Source.Yandex
     {
         [SerializeField] private AudioListener _audioListener;
         
-        protected void OnOpenCallBack()
+        protected void OnOpenCallback()
+        {
+            PauseGame();
+        }
+
+        protected void OnCloseCallback(bool isClosed)
+        {
+            ContinueGame();
+        }
+
+        protected void OnCloseCallback()
+        {
+            ContinueGame();
+        }
+
+        protected void OnErrorCallback(string errorMessage)
+        {
+            ContinueGame();
+        }
+
+        protected void OnOfflineCallback()
+        {
+            ContinueGame();
+        }
+
+        private void ContinueGame()
+        {
+            Time.timeScale = 1;
+
+            _audioListener.enabled = true;
+        }
+
+        private void PauseGame()
         {
             Time.timeScale = 0;
-            
+
             _audioListener.enabled = false;
-        }
-
-        protected void OnCloseCallBack()
-        {
-            Time.timeScale = 1;
-
-            _audioListener.enabled = true;
-        }
-
-        protected void OnCloseCallBack(bool state)
-        {
-            if (state)
-                return;
-
-            Time.timeScale = 1;
-
-            _audioListener.enabled = true;
         }
 
         public abstract void Show();

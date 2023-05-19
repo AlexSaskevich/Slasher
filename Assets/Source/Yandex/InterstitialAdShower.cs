@@ -6,7 +6,7 @@ namespace Source.Yandex
     {
         public override void Show()
         {
-            InterstitialAd.Show(OnOpenCallBack, OnCloseCallBack);
+            InterstitialAd.Show(OnOpenCallback, OnCloseCallback, OnErrorCallback, OnOfflineCallback);
         }
     }
 }
