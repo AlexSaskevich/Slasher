@@ -13,6 +13,8 @@ namespace Source.UI.Buttons.UIButtons
         [SerializeField] private TMP_Text _text;
         [SerializeField] private TMP_Text _buyText;
         [SerializeField] private TMP_Text _selectText;
+        [SerializeField] private PlayerDescription[] _playerDescriptions;
+        [SerializeField] private MonoBehaviour _boosters;
         
         private PlayerWallet _playerWallet;
         private PlayerCharacter _playerCharacter;
@@ -34,7 +36,7 @@ namespace Source.UI.Buttons.UIButtons
             foreach (var characterButton in _characterButtons)
                 characterButton.PlayerCharacterChanged -= OnPlayerCharacterButtonChanged;
         }
-        
+
         public void Init(PlayerWallet playerWallet)
         {
             _playerWallet = playerWallet;
@@ -62,7 +64,12 @@ namespace Source.UI.Buttons.UIButtons
         private void Select()
         {
             GameProgressSaver.SetCurrentCharacterIndex((int)_playerCharacter.PlayerCharacterName);
+            
+            foreach (var playerDescription in _playerDescriptions)
+                playerDescription.gameObject.SetActive(false);
 
+            _boosters.gameObject.SetActive(true);
+            
             Button.interactable = false;
             CharacterSet?.Invoke();
         }
