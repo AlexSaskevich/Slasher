@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
-using Agava.YandexGames;
+﻿using Agava.YandexGames;
 using Source.UI.Views;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Source.Yandex
@@ -12,7 +12,7 @@ namespace Source.Yandex
         private const int MaxPlayersCount = 5;
 
         [SerializeField] private LeaderboardView _leaderboardView;
-        
+
         private readonly List<LeaderboardPlayer> _leaderboardPlayers = new();
 
         public static void AddPlayer(int score, string leaderboardName)
@@ -25,14 +25,14 @@ namespace Source.Yandex
                 Agava.YandexGames.Leaderboard.SetScore(leaderboardName, score);
             });
         }
-        
+
         public void Fill(string leaderboardName)
         {
             _leaderboardPlayers.Clear();
 
             if (PlayerAccount.IsAuthorized == false)
                 return;
-            
+
             Agava.YandexGames.Leaderboard.GetEntries(leaderboardName, result =>
             {
                 var results = result.entries.Length;
@@ -40,13 +40,14 @@ namespace Source.Yandex
 
                 for (var i = 0; i < results; i++)
                 {
+                    var rank = result.entries[i].rank;
                     var score = result.entries[i].score;
-                    var playerName = result.entries[i].player.publicName;
+                    var name = result.entries[i].player.publicName;
 
-                    if (string.IsNullOrEmpty(playerName))
-                        playerName = AnonymousName;
+                    if (string.IsNullOrEmpty(name))
+                        name = AnonymousName;
 
-                    _leaderboardPlayers.Add(new LeaderboardPlayer(playerName, score));
+                    _leaderboardPlayers.Add(new LeaderboardPlayer(rank, name, score));
                 }
 
                 _leaderboardView.Create(_leaderboardPlayers, leaderboardName);

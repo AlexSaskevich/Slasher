@@ -11,6 +11,7 @@ namespace Source.UI.Buttons.UIButtons
         [SerializeField] private LeaderboardName _leaderboardName;
         [SerializeField] private Leaderboard _leaderboard;
         [SerializeField] private LeaderboardView _leaderboardView;
+        [SerializeField] private ChoosingLeaderboardPanel _choosingLeaderboardPanel;
 
         private void Start()
         {
@@ -28,10 +29,11 @@ namespace Source.UI.Buttons.UIButtons
 
             if (PlayerAccount.IsAuthorized)
                 PlayerAccount.RequestPersonalProfileDataPermission();
-            
-            if(PlayerAccount.IsAuthorized == false)
+
+            if (PlayerAccount.IsAuthorized == false)
                 return;
-            
+
+            _choosingLeaderboardPanel.Hide();
             _leaderboardView.Show();
             _leaderboard.Fill(_leaderboardName.ToString());
         }

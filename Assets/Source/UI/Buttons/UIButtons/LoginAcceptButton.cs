@@ -1,4 +1,5 @@
-﻿using Source.UI.Views;
+﻿using Agava.YandexGames;
+using Source.UI.Views;
 using UnityEngine;
 
 namespace Source.UI.Buttons.UIButtons
@@ -18,9 +19,17 @@ namespace Source.UI.Buttons.UIButtons
             _choosingLeaderboardPanel.Show();
             _loginPanelView.Hide();
         }
-        
+
         protected override void OnButtonClick()
         {
+            PlayerAccount.Authorize();
+
+            if (PlayerAccount.IsAuthorized)
+                PlayerAccount.RequestPersonalProfileDataPermission();
+
+            if (PlayerAccount.IsAuthorized == false)
+                return;
+
             OpenChoosingLeaderboardPanel();
         }
     }
