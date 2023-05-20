@@ -41,8 +41,8 @@ namespace Source.GameLogic.Timers
         
         private void OnEnded()
         {
-            _endScreen.End();
             _timeModeScore.TrySetScore();
+            _endScreen.End();
         }
     }
 }

@@ -28,11 +28,11 @@ namespace Source.GameLogic.Scores
 
         private void OnDied()
         {
-            if (CurrentScore > HighestScore)
-            {
-                GameProgressSaver.SetZombieScore(CurrentScore);
-                Leaderboard.AddPlayer(CurrentScore, LeaderboardName.ToString());
-            }
+            if (CurrentScore <= HighestScore) 
+                return;
+            
+            GameProgressSaver.SetZombieScore(CurrentScore);
+            Leaderboard.AddPlayer(CurrentScore, LeaderboardName.ToString());
         }
     }
 }
