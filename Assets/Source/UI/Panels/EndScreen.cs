@@ -1,5 +1,4 @@
-﻿using Source.GameLogic.Timers;
-using Source.Yandex;
+﻿using Source.Yandex;
 using UnityEngine;
 
 namespace Source.UI.Panels
@@ -7,8 +6,6 @@ namespace Source.UI.Panels
     public sealed class EndScreen : GameScreen
     {
         [SerializeField] private AdShower _adShower;
-
-        private FirstGameModeTimer _firstGameModeTimer;
 
         private void Start()
         {

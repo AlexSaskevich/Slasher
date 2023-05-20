@@ -33,15 +33,10 @@ namespace Source.UI.Panels
 
         protected void SetObjectsActiveState(bool state)
         {
-            switch (state)
-            {
-                case true:
-                    ShowObjects();
-                    break;
-                case false:
-                    HideObjects();
-                    break;
-            }
+            if (state)
+                ShowObjects();
+            else 
+                HideObjects();
         }
 
         private void ShowObjects()
@@ -50,6 +45,8 @@ namespace Source.UI.Panels
                 _uiInputView.Show();
             else
                 _keyboardInputView.Show();
+            
+            _inputSwitcher.InputSource.Enable();
 
             foreach (var skillView in _skillViews)
                 skillView.Show();
@@ -65,6 +62,8 @@ namespace Source.UI.Panels
                 _uiInputView.Hide();
             else
                 _keyboardInputView.Hide();
+            
+            _inputSwitcher.InputSource.Disable();
 
             foreach (var skillView in _skillViews)
                 skillView.Hide();
