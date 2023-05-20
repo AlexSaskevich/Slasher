@@ -70,7 +70,6 @@ namespace Source.UI.Buttons.UIButtons
 
             if ((int)newPlayerCharacter.PlayerCharacterName != GameProgressSaver.GetCurrentCharacterIndex())
             {
-                print("ADLALAKHJDFKLAD");
                 foreach (var playerDescription in _playerDescriptions)
                 {
                     if (newPlayerCharacter.PlayerCharacterName == playerDescription.PlayerCharacterName)
