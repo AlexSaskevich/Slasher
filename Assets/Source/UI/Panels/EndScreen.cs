@@ -21,7 +21,7 @@ namespace Source.UI.Panels
             
             SetObjectsActiveState(false);
             
-            //_adShower.Show();
+            _adShower.Show();
         }
     }
 }

@@ -1,20 +1,10 @@
-﻿using Source.Combo;
-using Source.Enums;
-using Source.GameLogic.Boosters;
-using Source.GameLogic.BotsSpawners;
+﻿using Source.Enums;
 using Source.GameLogic.Scores;
 using Source.GameLogic.Timers;
 using Source.InputSource;
 using Source.Player;
-using Source.Skills;
-using Source.UI.Bars;
 using Source.UI.Buttons.ControlButtons;
 using Source.UI.Buttons.UIButtons;
-using Source.UI.Panels;
-using Source.UI.Views;
-using Source.UI.Views.ScoreViews;
-using Source.UI.Views.SkillViews.CooldownViews;
-using Source.UI.Views.SkillViews.DurationViews;
 using Source.Yandex;
 using System;
 using System.Collections.Generic;
@@ -26,40 +16,18 @@ namespace Source.GameLogic
 {
     public sealed class PlayerCharacterSpawner : MonoBehaviour
     {
+        [SerializeField] private ObjectsInitializer _objectsInitializer;
+        [SerializeField] private SpawnerInitializer _spawnerInitializer;
         [SerializeField] private DeviceType _device;
         [SerializeField] private List<PlayerCharacter> _prefabs;
         [SerializeField] private Joystick _joystick;
         [SerializeField] private List<ControlButton> _controlButtons;
         [SerializeField] private AdShower _adShower;
-        [SerializeField] private PlayerFollower _playerFollower;
-        [SerializeField] private PlayerAgilityBar _playerAgilityBar;
-        [SerializeField] private PlayerHealthBar _playerHealthBar;
-        [SerializeField] private PlayerManaBar _playerManaBar;
-        [SerializeField] private PlayerWalletView _playerWalletView;
-        [SerializeField] private BuffCooldownPCView _buffCooldownPCView;
-        [SerializeField] private UltimateCooldownPCView _ultimateCooldownPCView;
-        [SerializeField] private RollCooldownPCView _rollCooldownPCView;
-        [SerializeField] private BuffCooldownMobileView _buffCooldownMobileView;
-        [SerializeField] private UltimateCooldownMobileView _ultimateCooldownMobileView;
-        [SerializeField] private RollCooldownMobileView _rollCooldownMobileView;
-        [SerializeField] private BuffDurationView _buffDurationView;
-        [SerializeField] private UltimateDurationView _ultimateDurationView;
-        [SerializeField] private RollDurationView _rollDurationView;
-        [SerializeField] private List<BotsSpawner> _botsSpawners;
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
-        [SerializeField] private List<BoostBlinder> _boostBlinders;
-        [SerializeField] private MoneyButton _moneyButton;
-        [SerializeField] private TimerBlinder _timerBlinder;
-        [SerializeField] private RangeSpawnersSwitcher _rangeSpawnersSwitcher;
         [SerializeField] private Transform _playerSpawnPoint;
-        [SerializeField] private List<ScoreView> _scoreViews;
-        [SerializeField] private DeathScreen _deathScreen;
-        [SerializeField] private RegenerationButton _regenerationButton;
-        [SerializeField] private EndScreen _endScreen;
         [SerializeField] private FirstGameModeBlinder _firstGameModeBlinder;
         [SerializeField] private Vector3 _lookingPosition;
         [SerializeField] private bool _isSceneMainMenu;
-        [SerializeField] private bool _isGameModeIsTimeMode;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -128,8 +96,8 @@ namespace Source.GameLogic
 
             _currentCharacter = playerCharacter;
 
-            InitObjects(playerCharacter);
-
+            _objectsInitializer.InitObjects(playerCharacter);
+            
             if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
                 throw new ArgumentNullException();
 
@@ -154,7 +122,7 @@ namespace Source.GameLogic
 
         private void OnInitialized()
         {
-            InitSpawners(_currentCharacter);
+            _spawnerInitializer.InitSpawners(_currentCharacter);
         }
         
         private void OnCharacterSet()
@@ -196,182 +164,6 @@ namespace Source.GameLogic
 
                 _playerCharacters.Add(character);
                 character.gameObject.SetActive(false);
-            }
-        }
-
-        private void InitObjects(PlayerCharacter playerCharacter)
-        {
-            if (playerCharacter.TryGetComponent(out PlayerAgility playerAgility) == false)
-                throw new ArgumentNullException();
-
-            if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
-                throw new ArgumentNullException();
-
-            if (playerCharacter.TryGetComponent(out PlayerMana playerMana) == false)
-                throw new ArgumentNullException();
-
-            if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
-                throw new ArgumentNullException();
-
-            if (playerCharacter.TryGetComponent(out Buff buff) == false)
-                throw new ArgumentNullException();
-
-            if (playerCharacter.TryGetComponent(out Ultimate ultimate) == false)
-                throw new ArgumentNullException();
-
-            if (playerCharacter.TryGetComponent(out Roll roll) == false)
-                throw new ArgumentNullException();
-
-            if (playerCharacter.TryGetComponent(out InputSwitcher inputSwitcher) == false)
-                throw new ArgumentNullException();
-
-            if (playerCharacter.TryGetComponent(out PlayerCombo playerCombo) == false)
-                throw new ArgumentNullException();
-
-            if (playerCharacter.TryGetComponent(out Animator animator) == false)
-                throw new ArgumentNullException();
-
-            if (playerCharacter.TryGetComponent(out PlayerDeathAnimation playerDeathAnimation) == false)
-                throw new ArgumentNullException();
-
-            if (_playerFollower != null)
-                _playerFollower.Init(playerCharacter.transform);
-
-            if (_playerAgilityBar != null)
-                _playerAgilityBar.Init(playerHealth, playerAgility);
-
-            if (_playerHealthBar != null)
-                _playerHealthBar.Init(playerHealth);
-
-            if (_playerManaBar != null)
-                _playerManaBar.Init(playerHealth, playerMana);
-
-            if (_playerWalletView != null)
-                _playerWalletView.Init(playerWallet);
-
-            if (_buyCharacterButton != null)
-                _buyCharacterButton.Init(playerWallet);
-
-            if (_moneyButton != null)
-                _moneyButton.Init(playerWallet);
-
-            if (_timerBlinder != null && _rangeSpawnersSwitcher != null)
-                _timerBlinder.Init(_rangeSpawnersSwitcher.Delay, playerHealth);
-
-            if (_deathScreen != null)
-                _deathScreen.Init(inputSwitcher, playerHealth, playerDeathAnimation.GetLenght());
-
-            if (_endScreen != null)
-                _endScreen.Init(inputSwitcher);
-
-            if (_regenerationButton != null)
-            {
-                _regenerationButton.Init(playerHealth, playerCombo, inputSwitcher.InputSource, animator, playerMana,
-                    playerAgility);
-            }
-
-            if (playerCharacter.TryGetComponent(out ZombieScore score) &&
-                playerCharacter.TryGetComponent(out TimeModeScore timeScore) && _scoreViews.Count > 0)
-            {
-                foreach (var scoreView in _scoreViews)
-                {
-                    if (scoreView == null)
-                        return;
-
-                    switch (scoreView)
-                    {
-                        case ZombieCurrentScoreView or ZombieHighestScoreView:
-                            scoreView.Init(score);
-                            break;
-
-                        case TimeModeCurrentScoreView or TimeModeHighestScoreView:
-                            scoreView.Init(timeScore);
-                            break;
-
-                        default:
-                            throw new ArgumentNullException();
-                    }
-                }
-            }
-
-            if (_buffCooldownPCView != null && _buffDurationView != null)
-            {
-                _buffCooldownMobileView.Init(buff, inputSwitcher.InputSource, ultimate, buff, roll);
-                _buffCooldownPCView.Init(buff, inputSwitcher.InputSource, ultimate, buff, roll);
-                _buffDurationView.Init(buff, inputSwitcher.InputSource, ultimate, buff, roll);
-            }
-
-            if (_ultimateCooldownPCView != null && _ultimateDurationView != null)
-            {
-                _ultimateCooldownMobileView.Init(ultimate, inputSwitcher.InputSource, ultimate, buff, roll);
-                _ultimateCooldownPCView.Init(ultimate, inputSwitcher.InputSource, ultimate, buff, roll);
-                _ultimateDurationView.Init(ultimate, inputSwitcher.InputSource, ultimate, buff, roll);
-            }
-
-            if (_rollCooldownPCView != null && _rollDurationView != null)
-            {
-                _rollCooldownMobileView.Init(roll, inputSwitcher.InputSource, ultimate, buff, roll);
-                _rollCooldownPCView.Init(roll, inputSwitcher.InputSource, ultimate, buff, roll);
-                _rollDurationView.Init(roll, inputSwitcher.InputSource, ultimate, buff, roll);
-            }
-
-            if (_controlButtons != null)
-            {
-                var attackButton = (AttackButton)_controlButtons.Find(controlButton => controlButton is AttackButton);
-
-                if (attackButton != null)
-                    attackButton.Init(ultimate, buff, roll, playerCombo);
-            }
-
-            foreach (var boostBlinder in _boostBlinders)
-            {
-                switch (boostBlinder.GoodStatus)
-                {
-                    case GoodStatus.HealthUpgradeable:
-                        boostBlinder.Init(playerWallet, playerHealth, playerCharacter.PlayerCharacterName);
-                        break;
-
-                    case GoodStatus.ManaUpgradeable:
-                        boostBlinder.Init(playerWallet, playerMana, playerCharacter.PlayerCharacterName);
-                        break;
-
-                    case GoodStatus.AgilityUpgradeable:
-                        boostBlinder.Init(playerWallet, playerAgility, playerCharacter.PlayerCharacterName);
-                        break;
-
-                    default:
-                        throw new ArgumentNullException();
-                }
-
-                if (boostBlinder.TryGetComponent(out BoostView boostView) == false)
-                    throw new ArgumentNullException();
-
-                boostView.Init(playerWallet);
-            }
-
-            InitSpawners(playerCharacter);
-        }
-
-        private void InitSpawners(PlayerCharacter playerCharacter)
-        {
-            if (playerCharacter.TryGetComponent(out PlayerMovement playerMovement) == false)
-                throw new ArgumentNullException();
-            
-            if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
-                throw new ArgumentNullException();
-            
-            if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
-                throw new ArgumentNullException();
-            
-            foreach (var botsSpawner in _botsSpawners.Where(botsSpawner => botsSpawner != null))
-            {
-                if (_firstGameModeBlinder.FirstGameModeTimer == null)
-                    return;
-
-                botsSpawner.Init(playerMovement, playerHealth, playerWallet,
-                    playerCharacter.TryGetComponent(out ZombieScore zombieScore) ? zombieScore : null,
-                    playerCharacter.TryGetComponent(out TimeModeScore timeModeScore) ? timeModeScore : null,
-                    _isGameModeIsTimeMode, _firstGameModeBlinder.FirstGameModeTimer);
             }
         }
     }
