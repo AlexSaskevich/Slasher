@@ -10560,7 +10560,6 @@ MonoBehaviour:
   _characterButtons:
   - {fileID: 439069074}
   - {fileID: 1700492640}
-  _text: {fileID: 157623560}
   _buyText: {fileID: 157623560}
   _selectText: {fileID: 1194600256}
   _playerDescriptions:
@@ -13186,6 +13185,7 @@ GameObject:
   - component: {fileID: 1965499795}
   - component: {fileID: 1965499794}
   - component: {fileID: 1965499793}
+  - component: {fileID: 1965499797}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -13310,6 +13310,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965499791}
   m_CullTransparentMesh: 1
+--- !u!114 &1965499797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1965499791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 981cc08caec04b8c930a659f2a221c80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCharacterSpawner: {fileID: 41835385}
+  _characterButton: {fileID: 1700492640}
 --- !u!1 &2111610851
 GameObject:
   m_ObjectHideFlags: 0
