@@ -10,7 +10,6 @@ namespace Source.UI.Buttons.UIButtons
     public sealed class BuyCharacterButton : UIButton
     {
         [SerializeField] private List<CharacterButton> _characterButtons;
-        [SerializeField] private TMP_Text _text;
         [SerializeField] private TMP_Text _buyText;
         [SerializeField] private TMP_Text _selectText;
         [SerializeField] private PlayerDescription[] _playerDescriptions;
