@@ -10,7 +10,14 @@ namespace Source.GameLogic.Scores
         protected override void Awake()
         {
             TrySetHighestScore(GameProgressSaver.GetTimeModeScore());
+            
             base.Awake();
+        }
+
+        public override void SetScore(int newScore)
+        {
+            base.SetScore(newScore);
+            TrySetScore();
         }
 
         public void TrySetScore()
@@ -19,6 +26,7 @@ namespace Source.GameLogic.Scores
                 return;
             
             GameProgressSaver.SetTimeModeScore(CurrentScore);
+            TrySetHighestScore(CurrentScore);
             Leaderboard.AddPlayer(CurrentScore, LeaderboardName.ToString());
         }
     }

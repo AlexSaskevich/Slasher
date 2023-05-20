@@ -19,8 +19,8 @@ namespace Source.GameLogic.Scores
         {
             ScoreChanged?.Invoke(CurrentScore);
         }
-        
-        public void SetScore(int newScore)
+
+        public virtual void SetScore(int newScore)
         {
             if (CurrentScore >= newScore)
                 return;
@@ -28,7 +28,7 @@ namespace Source.GameLogic.Scores
             CurrentScore = newScore;
             ScoreChanged?.Invoke(CurrentScore);
         }
-
+        
         protected void TrySetHighestScore(int score)
         {
             if (score < 0)
