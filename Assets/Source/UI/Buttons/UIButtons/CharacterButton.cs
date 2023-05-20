@@ -67,17 +67,28 @@ namespace Source.UI.Buttons.UIButtons
             newPlayerCharacter.gameObject.SetActive(true);
 
             _boosters.gameObject.SetActive(false);
-            
-            foreach (var playerDescription in _playerDescriptions)
-            {
-                if (newPlayerCharacter.PlayerCharacterName == playerDescription.PlayerCharacterName)
-                {
-                    playerDescription.gameObject.SetActive(true);
-                    continue;
-                }
 
-                playerDescription.gameObject.SetActive(false);
-            }            
+            if ((int)newPlayerCharacter.PlayerCharacterName != GameProgressSaver.GetCurrentCharacterIndex())
+            {
+                print("ADLALAKHJDFKLAD");
+                foreach (var playerDescription in _playerDescriptions)
+                {
+                    if (newPlayerCharacter.PlayerCharacterName == playerDescription.PlayerCharacterName)
+                    {
+                        playerDescription.gameObject.SetActive(true);
+                        continue;
+                    }
+
+                    playerDescription.gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                foreach (var playerDescription in _playerDescriptions)
+                    playerDescription.gameObject.SetActive(false);
+                
+                _boosters.gameObject.SetActive(true);
+            }
             
             PlayerCharacterChanged?.Invoke(newPlayerCharacter);
         }
