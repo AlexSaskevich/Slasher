@@ -8,7 +8,7 @@ namespace Source.UI.Views
 {
     public sealed class LeaderboardView : UIView
     {
-        private const int MaxCharacterCount = 14;
+        private const int MaxCharacterCount = 11;
         private const string AbbreviationSymbol = "...";
 
         [SerializeField] private LeaderboardPlayerView _prefab;
