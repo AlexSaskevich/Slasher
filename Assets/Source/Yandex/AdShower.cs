@@ -6,6 +6,8 @@ namespace Source.Yandex
     public abstract class AdShower : MonoBehaviour
     {
         [SerializeField] private AudioListener _audioListener;
+
+        private bool _isMuted;
         
         protected void OnOpenCallback()
         {
@@ -36,6 +38,9 @@ namespace Source.Yandex
         {
             Time.timeScale = 1;
 
+            if (_isMuted)
+                return;
+            
             _audioListener.enabled = true;
             SoundMuter.Unmute();
         }
@@ -44,6 +49,8 @@ namespace Source.Yandex
         {
             Time.timeScale = 0;
 
+            _isMuted = SoundMuter.IsMuted;
+            
             _audioListener.enabled = false;
             SoundMuter.Mute();
         }
