@@ -5,6 +5,7 @@ using System.Linq;
 using Source.Bot;
 using Source.Enums;
 using Source.GameLogic.Scores;
+using Source.GameLogic.Timers;
 using Source.Player;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -27,6 +28,7 @@ namespace Source.GameLogic.BotsSpawners
         private float _timeAfterLastBotSpawned;
         private Coroutine _coroutine;
         private TimeModeScore _timeModeScore;
+        private FirstGameModeTimer _firstGameModeTimer;
         private bool _isGameModeTimeMode;
         
         public event Action TurnedOff;
@@ -87,7 +89,8 @@ namespace Source.GameLogic.BotsSpawners
         }
 
         public void Init(PlayerMovement playerMovement, PlayerHealth playerHealth, PlayerWallet playerWallet,
-            ZombieScore zombieScore, TimeModeScore timeModeScore, bool isGameModeIsTimeMode)
+            ZombieScore zombieScore, TimeModeScore timeModeScore, bool isGameModeIsTimeMode,
+            FirstGameModeTimer firstGameModeTimer)
         {
             _playerMovement = playerMovement;
             _playerHealth = playerHealth;
@@ -95,6 +98,7 @@ namespace Source.GameLogic.BotsSpawners
             _zombieScore = zombieScore;
             _timeModeScore = timeModeScore;
             _isGameModeTimeMode = isGameModeIsTimeMode;
+            _firstGameModeTimer = firstGameModeTimer;
         }
         
         public void ResetOptions()
@@ -151,7 +155,7 @@ namespace Source.GameLogic.BotsSpawners
                 botZombieHealth.Init(_zombieScore);
 
             if (botMovement.TryGetComponent(out BotHumanHealth botHumanHealth))
-                botHumanHealth.Init(_timeModeScore, _isGameModeTimeMode);             
+                botHumanHealth.Init(_timeModeScore, _isGameModeTimeMode, _firstGameModeTimer);            
 
             if (botMovement.TryGetComponent(out BotReward botReward) == false)
                 throw new ArgumentNullException();

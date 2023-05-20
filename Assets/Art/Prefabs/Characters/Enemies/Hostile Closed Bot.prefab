@@ -1954,10 +1954,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b1399b1b864e6aa8eb290d2ea03554, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 55
   _hitEffects:
   - {fileID: 1637094525758831790, guid: c485e7c1d8e1adf4dba4e0b3a2257dac, type: 3}
   - {fileID: 4653844038683380406, guid: 3cc0aefe28126a8498c76295abec4550, type: 3}
+  <MaxHealth>k__BackingField: 55
+  _increasedSeconds: 2
 --- !u!114 &-1992423325666666745
 MonoBehaviour:
   m_ObjectHideFlags: 0

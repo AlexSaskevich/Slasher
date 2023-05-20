@@ -77,12 +77,18 @@ namespace Source.GameLogic
         {
             if (_buyCharacterButton != null)
                 _buyCharacterButton.CharacterSet += OnCharacterSet;
+
+            if (_firstGameModeBlinder != null)
+                _firstGameModeBlinder.Initialized += OnInitialized;
         }
 
         private void OnDisable()
         {
             if (_buyCharacterButton != null)
                 _buyCharacterButton.CharacterSet -= OnCharacterSet;
+            
+            if (_firstGameModeBlinder != null)
+                _firstGameModeBlinder.Initialized -= OnInitialized;
         }
 
         public IEnumerable<PlayerCharacter> GetPlayerCharacters()
@@ -146,6 +152,11 @@ namespace Source.GameLogic
             GameProgressSaver.SetCurrentCharacterIndex((int)playerCharacter.PlayerCharacterName);
         }
 
+        private void OnInitialized()
+        {
+            InitSpawners(_currentCharacter);
+        }
+        
         private void OnCharacterSet()
         {
             SetCurrentPlayer();
@@ -209,9 +220,6 @@ namespace Source.GameLogic
                 throw new ArgumentNullException();
 
             if (playerCharacter.TryGetComponent(out Roll roll) == false)
-                throw new ArgumentNullException();
-
-            if (playerCharacter.TryGetComponent(out PlayerMovement playerMovement) == false)
                 throw new ArgumentNullException();
 
             if (playerCharacter.TryGetComponent(out InputSwitcher inputSwitcher) == false)
@@ -341,12 +349,29 @@ namespace Source.GameLogic
                 boostView.Init(playerWallet);
             }
 
+            InitSpawners(playerCharacter);
+        }
+
+        private void InitSpawners(PlayerCharacter playerCharacter)
+        {
+            if (playerCharacter.TryGetComponent(out PlayerMovement playerMovement) == false)
+                throw new ArgumentNullException();
+            
+            if (playerCharacter.TryGetComponent(out PlayerHealth playerHealth) == false)
+                throw new ArgumentNullException();
+            
+            if (playerCharacter.TryGetComponent(out PlayerWallet playerWallet) == false)
+                throw new ArgumentNullException();
+            
             foreach (var botsSpawner in _botsSpawners.Where(botsSpawner => botsSpawner != null))
             {
+                if (_firstGameModeBlinder.FirstGameModeTimer == null)
+                    return;
+
                 botsSpawner.Init(playerMovement, playerHealth, playerWallet,
                     playerCharacter.TryGetComponent(out ZombieScore zombieScore) ? zombieScore : null,
                     playerCharacter.TryGetComponent(out TimeModeScore timeModeScore) ? timeModeScore : null,
-                    _isGameModeIsTimeMode);
+                    _isGameModeIsTimeMode, _firstGameModeBlinder.FirstGameModeTimer);
             }
         }
     }

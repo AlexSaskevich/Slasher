@@ -28,5 +28,13 @@ namespace Source.GameLogic.Timers
             _isEnded = true;
             Ended?.Invoke();
         }
+
+        public void TryIncreaseSeconds(int value)
+        {
+            if (value <= 0)
+                return;
+            
+            _time += value;
+        }
     }
 }

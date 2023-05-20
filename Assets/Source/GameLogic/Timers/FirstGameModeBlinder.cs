@@ -1,4 +1,5 @@
-﻿using Source.GameLogic.Scores;
+﻿using System;
+using Source.GameLogic.Scores;
 using Source.UI.Panels;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ namespace Source.GameLogic.Timers
         
         private TimeModeScore _timeModeScore;
 
+        public event Action Initialized;
+        
         public FirstGameModeTimer FirstGameModeTimer { get; private set; }
 
         private void OnDisable()
@@ -21,6 +24,8 @@ namespace Source.GameLogic.Timers
         private void Start()
         {
             FirstGameModeTimer = new FirstGameModeTimer(_time);
+            Initialized?.Invoke();
+            
             FirstGameModeTimer.Ended += OnEnded;
         }
 
