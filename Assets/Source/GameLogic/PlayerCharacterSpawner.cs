@@ -106,7 +106,7 @@ namespace Source.GameLogic
                 new Quaternion(_lookingPosition.x, _lookingPosition.y, _lookingPosition.z, WRotation);
         }
 
-        private void SetCurrentPlayer()
+        public void SetCurrentPlayer()
         {
             if (_currentCharacter != null)
                 _currentCharacter.gameObject.SetActive(false);

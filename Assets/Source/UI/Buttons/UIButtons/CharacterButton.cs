@@ -32,6 +32,14 @@ namespace Source.UI.Buttons.UIButtons
                 playerDescription.gameObject.SetActive(false);
         }
 
+        public void EnableBoosters()
+        {
+            foreach (var playerDescription in _playerDescriptions)
+                playerDescription.gameObject.SetActive(false);
+
+            _boosters.gameObject.SetActive(true);
+        }
+
         protected void ChooseCharacter(bool isScrollingForward)
         {
             var playerCharacters = _playerCharacterSpawner.GetPlayerCharacters();
@@ -83,10 +91,7 @@ namespace Source.UI.Buttons.UIButtons
             }
             else
             {
-                foreach (var playerDescription in _playerDescriptions)
-                    playerDescription.gameObject.SetActive(false);
-                
-                _boosters.gameObject.SetActive(true);
+                EnableBoosters();
             }
             
             PlayerCharacterChanged?.Invoke(newPlayerCharacter);
