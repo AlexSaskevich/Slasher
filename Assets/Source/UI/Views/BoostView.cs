@@ -16,9 +16,11 @@ namespace Source.UI.Views
 
         [SerializeField] private ButtonTurntable _buttonTurntable;
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
-        [SerializeField] private TMP_Text _price;
+        [SerializeField] private TMP_Text _priceValue;
         [SerializeField] private TMP_Text _currentValue;
         [SerializeField] private TMP_Text _increasedValue;
+        [SerializeField] private TMP_Text _maxText;
+        [SerializeField] private TMP_Text _priceText;
         [SerializeField] private Image[] _levelIcons;
 
         private BoostBlinder _boostBlinder;
@@ -72,7 +74,7 @@ namespace Source.UI.Views
         private void OnClick()
         {
             _buttonTurntable.PlayButtonSound();
-            
+
             _boostBlinder.Boost.TryBuy();
             Activate();
         }
@@ -102,15 +104,15 @@ namespace Source.UI.Views
 
         private void ShowPrice()
         {
-            if (_boostBlinder.Boost.IsMaxLevel())
-            {
-                _price.text = "MAX";
-                return;
-            }
+            var isMaxLevel = _boostBlinder.Boost.IsMaxLevel();
+
+            _maxText.gameObject.SetActive(isMaxLevel);
+            _priceValue.gameObject.SetActive(!isMaxLevel);
+            _priceText.gameObject.SetActive(!isMaxLevel);
 
             var price = _boostBlinder.Boost.IsMaxLevel() ? null : _boostBlinder.Boost.Price.ToString();
 
-            _price.text = $" PRICE {price}";
+            _priceValue.text = price;
         }
 
         private void ShowLevel()

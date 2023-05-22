@@ -23,10 +23,15 @@ namespace Source.UI.Views
                 button.PlayerCharacterChanged -= OnPlayerCharacterChanged;
         }
 
-        private void OnPlayerCharacterChanged(PlayerCharacter playerCharacter)
+        public void Set(PlayerCharacter playerCharacter)
         {
             _playerCharacterName.text = playerCharacter.PlayerCharacterName.ToString().ToUpper();
             _playerCharacterPrice.text = playerCharacter.Price.ToString();
+        }
+
+        private void OnPlayerCharacterChanged(PlayerCharacter playerCharacter)
+        {
+            Set(playerCharacter);
         }
     }
 }
