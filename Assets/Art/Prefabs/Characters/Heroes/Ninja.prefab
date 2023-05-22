@@ -578,7 +578,7 @@ MonoBehaviour:
   _hitEffects:
   - {fileID: 1637094525758831790, guid: a02559488b2bbd94a875433c45660713, type: 3}
   - {fileID: 4653844038683380406, guid: 5e34710fc17426341861d5b367aa3cb1, type: 3}
-  <MaxHealth>k__BackingField: 100
+  <MaxHealth>k__BackingField: 120
   <CharacteristicStatus>k__BackingField: 0
 --- !u!114 &807465450795034210
 MonoBehaviour:
@@ -592,8 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6235bcbceff44d7e92cd23a203c09752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increasingAgility: 10
-  <MaxValue>k__BackingField: 100
+  _increasingAgility: 15
+  <MaxValue>k__BackingField: 150
   <CharacteristicStatus>k__BackingField: 2
 --- !u!114 &807465450795034213
 MonoBehaviour:
@@ -607,9 +607,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d42a91a04ae473db055271c31f4403d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increasingMana: 10
+  _increasingMana: 3
   <CharacteristicStatus>k__BackingField: 1
-  <MaxValue>k__BackingField: 100
+  <MaxValue>k__BackingField: 70
 --- !u!114 &807465450795034212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -639,7 +639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Duration>k__BackingField: 7
   <Cost>k__BackingField: 20
-  <Cooldown>k__BackingField: 10
+  <Cooldown>k__BackingField: 25
   _buffableBehaviour: {fileID: 807465450795034208}
   _modifier: 0.3
   _effectPrefab: {fileID: 19887752, guid: 02d51b870121c764ca0be67be79a8ed4, type: 3}
@@ -658,7 +658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Duration>k__BackingField: 5
   <Cost>k__BackingField: 20
-  <Cooldown>k__BackingField: 10
+  <Cooldown>k__BackingField: 40
   <Effect>k__BackingField: {fileID: 198632928144088838, guid: ce702580c646c5645983b9806ec14df3, type: 3}
   _playerWeapon: {fileID: 8410004351193275394}
   _speedModifier: 1.5
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerCharacterName>k__BackingField: 2
-  <Price>k__BackingField: 650
+  <Price>k__BackingField: 1500
 --- !u!114 &3829767947446394798
 MonoBehaviour:
   m_ObjectHideFlags: 0

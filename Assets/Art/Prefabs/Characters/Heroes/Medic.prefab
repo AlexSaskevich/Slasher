@@ -2153,7 +2153,7 @@ MonoBehaviour:
   _hitEffects:
   - {fileID: 1637094525758831790, guid: a02559488b2bbd94a875433c45660713, type: 3}
   - {fileID: 4653844038683380406, guid: 5e34710fc17426341861d5b367aa3cb1, type: 3}
-  <MaxHealth>k__BackingField: 100
+  <MaxHealth>k__BackingField: 150
   <CharacteristicStatus>k__BackingField: 0
 --- !u!114 &5732483610280614473
 MonoBehaviour:
@@ -2167,8 +2167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6235bcbceff44d7e92cd23a203c09752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increasingAgility: 10
-  <MaxValue>k__BackingField: 100
+  _increasingAgility: 15
+  <MaxValue>k__BackingField: 80
   <CharacteristicStatus>k__BackingField: 2
 --- !u!114 &5732483610280614472
 MonoBehaviour:
@@ -2182,9 +2182,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d42a91a04ae473db055271c31f4403d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increasingMana: 7.5
+  _increasingMana: 5
   <CharacteristicStatus>k__BackingField: 1
-  <MaxValue>k__BackingField: 100
+  <MaxValue>k__BackingField: 50
 --- !u!114 &5732483610280614478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2214,7 +2214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Duration>k__BackingField: 5
   <Cost>k__BackingField: 30
-  <Cooldown>k__BackingField: 6
+  <Cooldown>k__BackingField: 30
   _buffableBehaviour: {fileID: 5732483610280614470}
   _modifier: 5
   _effectPrefab: {fileID: 198379657351348926, guid: 36ec478573ed11f449b93071b21383dd, type: 3}
@@ -2233,7 +2233,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Duration>k__BackingField: 5
   <Cost>k__BackingField: 30
-  <Cooldown>k__BackingField: 10
+  <Cooldown>k__BackingField: 60
   <Effect>k__BackingField: {fileID: 198471522382378610, guid: bf349bc841bd43d4db53eac7c887a423, type: 3}
 --- !u!114 &1153311788141393848
 MonoBehaviour:
@@ -2248,7 +2248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerCharacterName>k__BackingField: 1
-  <Price>k__BackingField: 100
+  <Price>k__BackingField: 750
 --- !u!114 &1497334505472578510
 MonoBehaviour:
   m_ObjectHideFlags: 0
