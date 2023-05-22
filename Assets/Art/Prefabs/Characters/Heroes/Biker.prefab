@@ -422,7 +422,7 @@ MonoBehaviour:
   <Duration>k__BackingField: 3
   <Cost>k__BackingField: 60
   <Cooldown>k__BackingField: 6
-  <Effect>k__BackingField: {fileID: 198021685756472922, guid: f30d7b0e4972e864cb0134d1b406bfc2, type: 3}
+  <Effect>k__BackingField: {fileID: 198376203879067600, guid: 9e00c75684b6b1e4caae7fb8894b9b55, type: 3}
 --- !u!114 &1677530840
 MonoBehaviour:
   m_ObjectHideFlags: 0
