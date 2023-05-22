@@ -9,6 +9,7 @@ using Source.Yandex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Source.UI;
 using UnityEngine;
 using DeviceType = Agava.YandexGames.DeviceType;
 
@@ -28,6 +29,7 @@ namespace Source.GameLogic
         [SerializeField] private FirstGameModeBlinder _firstGameModeBlinder;
         [SerializeField] private Vector3 _lookingPosition;
         [SerializeField] private bool _isSceneMainMenu;
+        [SerializeField] private List<Tutorial> _tutorials;
 
         private readonly List<PlayerCharacter> _playerCharacters = new();
 
@@ -158,6 +160,14 @@ namespace Source.GameLogic
                 
                 inputSwitcher.Init(_device);
                 //inputSwitcher.Init(Agava.YandexGames.Device.Type);
+
+                foreach (var tutorial in _tutorials)
+                    tutorial.gameObject.SetActive(false);
+                
+                if (inputSwitcher.InputSource is UIInput)
+                    _tutorials.FirstOrDefault(tutorial => tutorial is UITutorial)?.gameObject.SetActive(true);
+                else
+                    _tutorials.FirstOrDefault(tutorial => tutorial is KeyboardTutorial)?.gameObject.SetActive(true);
 
                 if (_adShower != null)
                     playerHealth.Init(_adShower);
