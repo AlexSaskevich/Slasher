@@ -115150,6 +115150,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 1.0333333
+    functionName: PlaySwordSound
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 1.3333334
     functionName: StopDealingDamage
     data: 
@@ -115159,6 +115166,13 @@ AnimationClip:
     messageOptions: 0
   - time: 2.2
     functionName: StartDealingDamage
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 2.2
+    functionName: PlaySwordSound
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
