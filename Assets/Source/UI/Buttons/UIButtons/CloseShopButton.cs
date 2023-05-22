@@ -10,6 +10,7 @@ namespace Source.UI.Buttons.UIButtons
         
         protected override void OnButtonClick()
         {
+            base.OnButtonClick();
             CloseShop();
         }
 

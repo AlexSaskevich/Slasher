@@ -4,6 +4,8 @@
     {
         protected override void OnButtonClick()
         {
+            base.OnButtonClick();
+            
             ChooseCharacter(false);
         }
     }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Source.Turntables;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Source.UI.Buttons.UIButtons
@@ -6,6 +7,8 @@ namespace Source.UI.Buttons.UIButtons
     [RequireComponent(typeof(Button))]
     public abstract class UIButton : MonoBehaviour
     {
+        [SerializeField] private ButtonTurntable _buttonTurntable;
+        
         protected Button Button { get; private set; }
 
         private void Awake()
@@ -23,6 +26,9 @@ namespace Source.UI.Buttons.UIButtons
             Button.onClick.RemoveListener(OnButtonClick);
         }
 
-        protected abstract void OnButtonClick();
+        protected virtual void OnButtonClick()
+        {
+            _buttonTurntable.PlayButtonSound();
+        }
     }
 }

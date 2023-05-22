@@ -10,6 +10,8 @@ namespace Source.UI.Buttons.UIButtons
 
         protected override void OnButtonClick()
         {
+            base.OnButtonClick();
+            
             _uiViewToHide.Hide();
             _uiViewToShow.Show();
         }

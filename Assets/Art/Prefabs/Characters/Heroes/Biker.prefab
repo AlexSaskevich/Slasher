@@ -603,7 +603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _minPitch: 0.5
   _maxPitch: 0.8
-  _volume: 0.2
+  _volume: 0.05
   _sound: {fileID: 8300000, guid: a2c4f70a76bc4e74cb1cb834df817c31, type: 3}
 --- !u!114 &1367851155646690596
 MonoBehaviour:
