@@ -1,4 +1,5 @@
 ﻿using Source.GameLogic;
+using Source.UI.Views;
 using UnityEngine;
 
 namespace Source.UI.Buttons.UIButtons
@@ -7,7 +8,8 @@ namespace Source.UI.Buttons.UIButtons
     {
         [SerializeField] private PlayerCharacterSpawner _playerCharacterSpawner;
         [SerializeField] private CharacterButton _characterButton;
-        
+        [SerializeField] private PlayerCharacterView _playerCharacterView;
+
         protected override void OnButtonClick()
         {
             base.OnButtonClick();
@@ -23,6 +25,7 @@ namespace Source.UI.Buttons.UIButtons
                 if (currentCharacterIndex == (int)playerCharacter.PlayerCharacterName)
                 {
                     _playerCharacterSpawner.SetCurrentPlayer();
+                    _playerCharacterView.Set(playerCharacter);
                     continue;
                 }
                 
