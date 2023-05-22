@@ -462,7 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935520f95098b5d419bbb30ce2a575e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
 --- !u!114 &29693810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,8 +566,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ayr\u0131lan s\xFCrede m\xFCmk\xFCn oldu\u011Funca \xE7ok sivili \xF6ld\xFCrmek
-    i\xE7in zaman ay\u0131r\u0131n"
+  m_text: Have time to kill as many civilians as possible in the allotted time
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -1590,7 +1589,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ALMAK
+  m_text: BUY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -1725,6 +1724,151 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &175836696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 175836699}
+  - component: {fileID: 175836698}
+  - component: {fileID: 175836697}
+  m_Layer: 0
+  m_Name: ButtonTurntable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &175836697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175836696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f41b83cda1c4f998a1eb3447766f04d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minPitch: 0.6
+  _maxPitch: 1.4
+  _volume: 0.3
+  _sound: {fileID: 8300000, guid: 7ca7dd32d1b788c4790ba0d8f6453b25, type: 3}
+--- !u!82 &175836698
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175836696}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &175836699
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175836696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.805946, y: 8.106173, z: 2.2904809}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &208249840
 GameObject:
@@ -1993,7 +2137,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FIYAT
+  m_text: PRICE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -2278,7 +2422,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FIYAT
+  m_text: PRICE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -2651,7 +2795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _uiViewToHide: {fileID: 799977857}
   _uiViewToShow: {fileID: 513237100}
 --- !u!114 &335422104
@@ -2790,7 +2934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82747fe571e649608d9f3fdb7cdb8a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _audioListener: {fileID: 963194226}
   _imageToHide: {fileID: 13325165}
   _imageToShow: {fileID: 1650959116}
@@ -3011,7 +3155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3cf24224b32434c89e80369c0705dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _shopView: {fileID: 662130349}
   _menuView: {fileID: 1369425418}
 --- !u!1 &359806045
@@ -3271,7 +3415,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: KABUL ETMEK
+  m_text: ACCEPT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -3528,6 +3672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a36d56d9474ea985723d55b899247a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 175836697}
   _buyCharacterButton: {fileID: 1524641843}
   _price: {fileID: 866803770}
   _currentValue: {fileID: 563002165}
@@ -3717,7 +3862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55436e6bbc941eeaa794b6da8c0eba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _playerCharacterSpawner: {fileID: 41835385}
   _playerDescriptions:
   - {fileID: 1870716288}
@@ -3835,7 +3980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcffd5c0269540f889436d749fe5ca9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _money: 20
   _adShower: {fileID: 166770393}
   _moneyText: {fileID: 528459607}
@@ -5237,7 +5382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Turkish
+  currentLanguage: 
   detectLanguage: 0
   defaultLanguage: 
   saveLoad: 1
@@ -5892,7 +6037,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "ZOMB\u0130 MODU"
+  m_text: ZOMBIE MODE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -7004,7 +7149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _uiViewToHide: {fileID: 1185321693}
   _uiViewToShow: {fileID: 1369425418}
 --- !u!114 &804400540
@@ -7300,7 +7445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab092f35439740828e39c2ff9afdb60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _leaderboardName: 1
   _leaderboard: {fileID: 2111610852}
   _leaderboardView: {fileID: 799977857}
@@ -7368,7 +7513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FIYAT
+  m_text: PRICE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -7653,7 +7798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HAYATTA KALMA MODU
+  m_text: SURVIVAL MODE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -8110,7 +8255,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: AYARLAR
+  m_text: SETTINGS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -8493,6 +8638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a36d56d9474ea985723d55b899247a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 175836697}
   _buyCharacterButton: {fileID: 1524641843}
   _price: {fileID: 251224134}
   _currentValue: {fileID: 272755657}
@@ -8682,7 +8828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d80d496d8c1aa24f865fc8d79389c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _gameModeView: {fileID: 83269775}
   _menuView: {fileID: 1369425418}
 --- !u!1 &933411152
@@ -8838,7 +8984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: KAPAT
+  m_text: CLOSE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -9056,7 +9202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "L\u0130DERL\u0130K TABLOSUNU SE\xC7\u0130N"
+  m_text: CHOOSE LEADERBOARD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -9747,7 +9893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab092f35439740828e39c2ff9afdb60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _leaderboardName: 0
   _leaderboard: {fileID: 2111610852}
   _leaderboardView: {fileID: 799977857}
@@ -9815,7 +9961,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZAMAN MODU
+  m_text: TIME MODE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -10117,7 +10263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6372fc3e31da3bd498eab5fe53c6419b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _menuView: {fileID: 1369425418}
   _settingsView: {fileID: 1185321693}
 --- !u!1 &1161867783
@@ -10179,7 +10325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "SA\u011ELIK"
+  m_text: HEALTH
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -10402,7 +10548,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZAMAN MODU
+  m_text: TIME MODE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -10559,7 +10705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _uiViewToHide: {fileID: 1479333592}
   _uiViewToShow: {fileID: 1369425418}
 --- !u!114 &1184974043
@@ -10801,7 +10947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b128c2df946d94caa4fb97144dc01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
 --- !u!114 &1188716385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10905,7 +11051,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "SE\xC7MEK"
+  m_text: SELECT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -11308,7 +11454,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "ZOMB\u0130 MODU"
+  m_text: ZOMBIE MODE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -12006,7 +12152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _uiViewToHide: {fileID: 513237100}
   _uiViewToShow: {fileID: 1369425418}
 --- !u!1 &1352367014
@@ -12452,7 +12598,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Liderlik tablosuna eri\u015Fmek i\xE7in giri\u015F yapman\u0131z gerekir"
+  m_text: TO ACCESS THE LEADERBOARD, YOU NEED TO LOG IN
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -12857,7 +13003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab092f35439740828e39c2ff9afdb60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _leaderboardName: 2
   _leaderboard: {fileID: 2111610852}
   _leaderboardView: {fileID: 799977857}
@@ -13080,8 +13226,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "              D\xFC\u015Fmanlar\u0131 \xF6ld\xFCrerek m\xFCmk\xFCn oldu\u011Funca
-    uzun s\xFCre tutun"
+  m_text: Hold out as long as possible by killing enemies
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -13309,8 +13454,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Zaman s\u0131n\u0131r\u0131 olmadan m\xFCmk\xFCn oldu\u011Funca \xE7ok
-    zombi \xF6ld\xFCr"
+  m_text: Kill as many zombies as possible without time limits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -13888,7 +14032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e77636d2944095b6c5877c24f63392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _loginPanelView: {fileID: 1479333592}
   _loginAcceptButton: {fileID: 1564351534}
   _menuView: {fileID: 1369425418}
@@ -14150,7 +14294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb563bcd568d4ad3924edfeddb1f712d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _characterButtons:
   - {fileID: 439069074}
   - {fileID: 1700492640}
@@ -14380,7 +14524,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "ZOMB\u0130 MODU"
+  m_text: ZOMBIE MODE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -14697,7 +14841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: USTALIK
+  m_text: AGILITY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -14841,7 +14985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bce6569506427691962430e55377bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _choosingLeaderboardPanel: {fileID: 513237100}
   _loginPanelView: {fileID: 1479333592}
 --- !u!114 &1564351535
@@ -15037,6 +15181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1a36d56d9474ea985723d55b899247a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 175836697}
   _buyCharacterButton: {fileID: 1524641843}
   _price: {fileID: 273387955}
   _currentValue: {fileID: 63779895}
@@ -15228,7 +15373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ac52e618d3d264eb8831b762b470d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
 --- !u!1 &1594911051
 GameObject:
   m_ObjectHideFlags: 0
@@ -15382,7 +15527,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZAMAN MODU
+  m_text: TIME MODE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -15739,7 +15884,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HAYATTA KALMA MODU
+  m_text: SURVIVAL MODE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -15965,7 +16110,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: OYUNA
+  m_text: PLAY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -16116,7 +16261,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HAYATTA KALMA MODU
+  m_text: SURVIVAL MODE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -16401,7 +16546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e6bb085f86454bba2c519b5d1c35da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _playerCharacterSpawner: {fileID: 41835385}
   _playerDescriptions:
   - {fileID: 1870716288}
@@ -17269,7 +17414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _uiViewToHide: {fileID: 83269775}
   _uiViewToShow: {fileID: 1369425418}
 --- !u!1 &1900270584
@@ -17399,7 +17544,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: REDDET
+  m_text: DECLINE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -18057,7 +18202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _uiViewToHide: {fileID: 662130349}
   _uiViewToShow: {fileID: 1369425418}
 --- !u!114 &1965499794
@@ -18154,7 +18299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 981cc08caec04b8c930a659f2a221c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonTurntable: {fileID: 0}
+  _buttonTurntable: {fileID: 175836697}
   _playerCharacterSpawner: {fileID: 41835385}
   _characterButton: {fileID: 1700492640}
 --- !u!1 &1980209623

@@ -1,5 +1,6 @@
 ﻿using Source.GameLogic.Boosters;
 using Source.Player;
+using Source.Turntables;
 using Source.UI.Buttons.UIButtons;
 using TMPro;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace Source.UI.Views
         private const float MaxIconAlpha = 1f;
         private const float MinIconAlpha = 0.5f;
 
+        [SerializeField] private ButtonTurntable _buttonTurntable;
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
         [SerializeField] private TMP_Text _price;
         [SerializeField] private TMP_Text _currentValue;
@@ -69,6 +71,8 @@ namespace Source.UI.Views
 
         private void OnClick()
         {
+            _buttonTurntable.PlayButtonSound();
+            
             _boostBlinder.Boost.TryBuy();
             Activate();
         }
