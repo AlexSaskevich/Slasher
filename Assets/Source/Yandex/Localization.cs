@@ -1,5 +1,6 @@
 using Agava.YandexGames;
 using Lean.Localization;
+using Source.Enums;
 using UnityEngine;
 
 namespace Source.Yandex
@@ -9,13 +10,12 @@ namespace Source.Yandex
         private const string EnglishCode = "en";
         private const string RussianCode = "ru";
         private const string TurkishCode = "tr";
-        private const string English = "English";
-        private const string Russian = "Russian";
-        private const string Turkish = "Turkish";
 
         private void Awake()
         {
+#if UNITY_WEBGL && !UNITY_EDITOR
             ChangeLanguage();
+#endif
         }
 
         private void ChangeLanguage()
@@ -24,10 +24,10 @@ namespace Source.Yandex
 
             string language = languageCode switch
             {
-                EnglishCode => English,
-                RussianCode => Russian,
-                TurkishCode => Turkish,
-                _ => English
+                EnglishCode => Language.English.ToString(),
+                RussianCode => Language.Russian.ToString(),
+                TurkishCode => Language.Turkish.ToString(),
+                _ => Language.English.ToString()
             };
 
             LeanLocalization.SetCurrentLanguageAll(language);
