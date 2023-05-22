@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 5089818944854826155}
   - component: {fileID: 1367851155646690596}
   - component: {fileID: 446105374228937823}
+  - component: {fileID: 5842318782245566060}
   m_Layer: 0
   m_Name: Biker
   m_TagString: Untagged
@@ -636,6 +637,22 @@ MonoBehaviour:
   _maxPitch: 1
   _volume: 0.05
   _sound: {fileID: 8300000, guid: 31e40c87b5fc88b498d25abbe5353919, type: 3}
+--- !u!114 &5842318782245566060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8014045145754614815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d115e1d314c143aaa3bd3b5ce49a43a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minPitch: 1
+  _maxPitch: 1
+  _volume: 0.05
+  _sound: {fileID: 8300000, guid: a5aed2aab8b8a4f40acf905d47744809, type: 3}
 --- !u!1 &8014045145764493197
 GameObject:
   m_ObjectHideFlags: 0

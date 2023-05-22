@@ -2,15 +2,17 @@
 using Source.Constants;
 using Source.Enums;
 using Source.Player;
+using Source.Turntables;
 using UnityEngine;
 
 namespace Source.Skills
 {
-    [RequireComponent(typeof(PlayerHealth), typeof(PlayerAgility))]
+    [RequireComponent(typeof(PlayerHealth), typeof(PlayerAgility), typeof(RollTurntable))]
     public sealed class Roll : Skill
     {
         private PlayerHealth _playerHealth;
         private PlayerAgility _playerAgility;
+        private RollTurntable _rollTurntable;
 
         public override bool CanUsed { get => _playerAgility.CurrentAgility >= Cost; }
         public bool IsActive { get; private set; }
@@ -26,6 +28,7 @@ namespace Source.Skills
             base.Awake();
             _playerHealth = GetComponent<PlayerHealth>();
             _playerAgility = GetComponent<PlayerAgility>();
+            _rollTurntable = GetComponent<RollTurntable>();
         }
 
         protected  override void Start()
@@ -53,6 +56,7 @@ namespace Source.Skills
             Animator.SetTrigger(AnimationConstants.Roll);
 
             _playerAgility.DecreaseAgility(Cost);
+            _rollTurntable.PlayRollSound();
 
             StartTimer();
         }

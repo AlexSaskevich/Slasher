@@ -1996,6 +1996,7 @@ GameObject:
   - component: {fileID: -34102872148321300}
   - component: {fileID: 1141860894024326786}
   - component: {fileID: 507835650097660459}
+  - component: {fileID: 5833912502728238655}
   m_Layer: 0
   m_Name: Medic
   m_TagString: Untagged
@@ -2443,6 +2444,22 @@ MonoBehaviour:
   _maxPitch: 1
   _volume: 0.05
   _sound: {fileID: 8300000, guid: 31e40c87b5fc88b498d25abbe5353919, type: 3}
+--- !u!114 &5833912502728238655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683448164920136173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d115e1d314c143aaa3bd3b5ce49a43a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minPitch: 1
+  _maxPitch: 1
+  _volume: 0.05
+  _sound: {fileID: 8300000, guid: a5aed2aab8b8a4f40acf905d47744809, type: 3}
 --- !u!1 &5683467216692641245
 GameObject:
   m_ObjectHideFlags: 0
