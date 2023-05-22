@@ -420,6 +420,8 @@ GameObject:
   - component: {fileID: -8945839962314051881}
   - component: {fileID: 2026630996131504663}
   - component: {fileID: -663717603668112659}
+  - component: {fileID: 1272562927288769151}
+  - component: {fileID: 549778105398213765}
   m_Layer: 0
   m_Name: Ninja
   m_TagString: Untagged
@@ -833,10 +835,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd563396adb749d3ab834b8bcb91028d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _swordSound: {fileID: 8300000, guid: a2c4f70a76bc4e74cb1cb834df817c31, type: 3}
   _minPitch: 0.5
   _maxPitch: 0.8
   _volume: 0.2
+  _sound: {fileID: 8300000, guid: a2c4f70a76bc4e74cb1cb834df817c31, type: 3}
+--- !u!114 &1272562927288769151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807465450795034267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65adfd77c67e40959abf545e385e1c45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minPitch: 1
+  _maxPitch: 1
+  _volume: 0.05
+  _sound: {fileID: 8300000, guid: a4b52181b4ec4fd4c8739e57cd702ee6, type: 3}
+--- !u!114 &549778105398213765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807465450795034267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 552f75683a014791996f6f9e642db71c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _minPitch: 1
+  _maxPitch: 1
+  _volume: 0.05
+  _sound: {fileID: 8300000, guid: 31e40c87b5fc88b498d25abbe5353919, type: 3}
 --- !u!1 &807465450795034309
 GameObject:
   m_ObjectHideFlags: 0

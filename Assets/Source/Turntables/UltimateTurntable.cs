@@ -1,8 +1,8 @@
 ﻿namespace Source.Turntables
 {
-    public sealed class SwordSoundTurntable : Turntable
+    public sealed class UltimateTurntable : Turntable
     {
-        public void PlaySwordSound()
+        public void PlayBoostSound()
         {
             SetRandomPitch();
             SetVolume();

@@ -2,15 +2,17 @@
 using Source.InputSource;
 using Source.Interfaces;
 using Source.Player;
+using Source.Turntables;
 using UnityEngine;
 
 namespace Source.Skills
 {
-    [RequireComponent(typeof(PlayerMana), typeof(InputSwitcher))]
+    [RequireComponent(typeof(PlayerMana), typeof(InputSwitcher),typeof(UltimateTurntable))]
     public abstract class Ultimate : Skill
     {
         private PlayerMana _playerMana;
         private InputSwitcher _inputSwitcher;
+        private UltimateTurntable _ultimateTurntable;
         
         [field: SerializeField] protected ParticleSystem Effect { get; private set; }
         
@@ -20,6 +22,7 @@ namespace Source.Skills
 
         protected override void Awake()
         {
+            _ultimateTurntable = GetComponent<UltimateTurntable>();
             base.Awake();
             _playerMana = GetComponent<PlayerMana>();
             _inputSwitcher = GetComponent<InputSwitcher>();
@@ -34,6 +37,7 @@ namespace Source.Skills
         public override void TryActivate()
         {
             _playerMana.DecreaseMana(Cost);
+            _ultimateTurntable.PlayBoostSound();
             StartTimer();
         }
 

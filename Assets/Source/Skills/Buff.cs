@@ -3,11 +3,12 @@ using Source.Constants;
 using Source.Interfaces;
 using Source.Player;
 using System.Collections;
+using Source.Turntables;
 using UnityEngine;
 
 namespace Source.Skills
 {
-    [RequireComponent(typeof(PlayerMana))]
+    [RequireComponent(typeof(PlayerMana), typeof(BuffTurntable))]
     public sealed class Buff : Skill
     {
         [SerializeField] private MonoBehaviour _buffableBehaviour;
@@ -16,6 +17,7 @@ namespace Source.Skills
         [SerializeField] private Transform _effectSpawnPoint;
 
         private IBuffable _buffable;
+        private BuffTurntable _buffTurntable;
         private PlayerMana _playerMana;
         private Coroutine _coroutine;
         private ParticleSystem _effect;
@@ -37,6 +39,7 @@ namespace Source.Skills
             base.Awake();
             _buffable = (IBuffable)_buffableBehaviour;
             _playerMana = GetComponent<PlayerMana>();
+            _buffTurntable = GetComponent<BuffTurntable>();
         }
 
         private void Update()
@@ -78,6 +81,7 @@ namespace Source.Skills
                 StopCoroutine(_coroutine);
 
             _coroutine = StartCoroutine(ActivateBuff());
+            _buffTurntable.PlayBuffSound();
         }
 
         private bool CheckCurrentAnimationEnd()
