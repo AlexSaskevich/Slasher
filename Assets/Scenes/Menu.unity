@@ -462,6 +462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935520f95098b5d419bbb30ce2a575e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
 --- !u!114 &29693810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,10 +566,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0423\u0441\u043F\u0435\u0439 \u0443\u0431\u0438\u0442\u044C \u043A\u0430\u043A
-    \u043C\u043E\u0436\u043D\u043E \u0431\u043E\u043B\u044C\u0448\u0435 \u043C\u0438\u0440\u043D\u044B\u0445
-    \u0436\u0438\u0442\u0435\u043B\u0435\u0439 \u0437\u0430 \u043E\u0442\u0432\u0435\u0434\u0435\u043D\u043D\u043E\u0435
-    \u0432\u0440\u0435\u043C\u044F"
+  m_text: "Ayr\u0131lan s\xFCrede m\xFCmk\xFCn oldu\u011Funca \xE7ok sivili \xF6ld\xFCrmek
+    i\xE7in zaman ay\u0131r\u0131n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -1591,7 +1590,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041A\u0423\u041F\u0418\u0422\u042C"
+  m_text: ALMAK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -1994,7 +1993,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0426\u0415\u041D\u0410"
+  m_text: FIYAT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -2279,7 +2278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0426\u0415\u041D\u0410"
+  m_text: FIYAT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -2652,6 +2651,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _uiViewToHide: {fileID: 799977857}
   _uiViewToShow: {fileID: 513237100}
 --- !u!114 &335422104
@@ -2790,6 +2790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82747fe571e649608d9f3fdb7cdb8a3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _audioListener: {fileID: 963194226}
   _imageToHide: {fileID: 13325165}
   _imageToShow: {fileID: 1650959116}
@@ -3010,6 +3011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd3cf24224b32434c89e80369c0705dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _shopView: {fileID: 662130349}
   _menuView: {fileID: 1369425418}
 --- !u!1 &359806045
@@ -3269,7 +3271,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0420\u0418\u041D\u042F\u0422\u042C"
+  m_text: KABUL ETMEK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -3296,8 +3298,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3715,6 +3717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55436e6bbc941eeaa794b6da8c0eba2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _playerCharacterSpawner: {fileID: 41835385}
   _playerDescriptions:
   - {fileID: 1870716288}
@@ -3832,6 +3835,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcffd5c0269540f889436d749fe5ca9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _money: 20
   _adShower: {fileID: 166770393}
   _moneyText: {fileID: 528459607}
@@ -5233,7 +5237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Russian
+  currentLanguage: Turkish
   detectLanguage: 0
   defaultLanguage: 
   saveLoad: 1
@@ -5888,7 +5892,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u041E\u041C\u0411\u0418 \u0420\u0415\u0416\u0418\u041C"
+  m_text: "ZOMB\u0130 MODU"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -7000,6 +7004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _uiViewToHide: {fileID: 1185321693}
   _uiViewToShow: {fileID: 1369425418}
 --- !u!114 &804400540
@@ -7295,6 +7300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab092f35439740828e39c2ff9afdb60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _leaderboardName: 1
   _leaderboard: {fileID: 2111610852}
   _leaderboardView: {fileID: 799977857}
@@ -7362,7 +7368,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0426\u0415\u041D\u0410"
+  m_text: FIYAT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -7647,7 +7653,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0420\u0415\u0416\u0418\u041C \u0412\u042B\u0416\u0418\u0412\u0410\u041D\u0418\u042F"
+  m_text: HAYATTA KALMA MODU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -8104,7 +8110,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+  m_text: AYARLAR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -8676,6 +8682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d80d496d8c1aa24f865fc8d79389c95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _gameModeView: {fileID: 83269775}
   _menuView: {fileID: 1369425418}
 --- !u!1 &933411152
@@ -8831,7 +8838,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u0410\u041A\u0420\u042B\u0422\u042C"
+  m_text: KAPAT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -9049,8 +9056,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u042B\u0411\u0415\u0420\u0418\u0422\u0415 \u0422\u0410\u0411\u041B\u0418\u0426\u0423
-    \u041B\u0418\u0414\u0415\u0420\u041E\u0412"
+  m_text: "L\u0130DERL\u0130K TABLOSUNU SE\xC7\u0130N"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -9741,6 +9747,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab092f35439740828e39c2ff9afdb60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _leaderboardName: 0
   _leaderboard: {fileID: 2111610852}
   _leaderboardView: {fileID: 799977857}
@@ -9808,7 +9815,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0418\u0413\u0420\u0410 \u041D\u0410 \u0412\u0420\u0415\u041C\u042F"
+  m_text: ZAMAN MODU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -10110,6 +10117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6372fc3e31da3bd498eab5fe53c6419b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _menuView: {fileID: 1369425418}
   _settingsView: {fileID: 1185321693}
 --- !u!1 &1161867783
@@ -10171,7 +10179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u0414\u041E\u0420\u041E\u0412\u042C\u0415"
+  m_text: "SA\u011ELIK"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -10394,7 +10402,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0418\u0413\u0420\u0410 \u041D\u0410 \u0412\u0420\u0415\u041C\u042F"
+  m_text: ZAMAN MODU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -10551,6 +10559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _uiViewToHide: {fileID: 1479333592}
   _uiViewToShow: {fileID: 1369425418}
 --- !u!114 &1184974043
@@ -10792,6 +10801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85b128c2df946d94caa4fb97144dc01f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
 --- !u!114 &1188716385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10895,7 +10905,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u042B\u0411\u0420\u0410\u0422\u042C"
+  m_text: "SE\xC7MEK"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -11298,7 +11308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u041E\u041C\u0411\u0418 \u0420\u0415\u0416\u0418\u041C"
+  m_text: "ZOMB\u0130 MODU"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -11459,12 +11469,11 @@ MonoBehaviour:
       \u0432\u0440\u0430\u0433\u0430."
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "\u0130lk bak\u0131\u015Fta, \xF6n\xFCn\xFCzde sevimli bir k\u0131z var.
-      Ancak, cephaneli\u011Finde \xE7ok fazla ilac\u0131 olan bir katille kar\u015F\u0131
-      kar\u015F\u0131yas\u0131n\u0131z. Nihai s\u0131ras\u0131nda iyile\u015Fme ve
-      \xF6l\xFCmden ka\xE7\u0131nma yetene\u011Fi, daha uzun s\xFCre hayatta kalmas\u0131n\u0131
-      sa\u011Flar. G\xFCc\xFCn\xFC geri kazand\u0131ktan sonra, herhangi bir d\xFC\u015Fman\u0131
-      \xF6ld\xFCrecek."
+    Text: "\u0130lk bak\u0131\u015Fta g\xFCzel bir k\u0131z\u0131n var. Ancak, cephaneli\u011Finde
+      \xE7ok fazla ila\xE7 bulunan bir katil ile kar\u015F\u0131 kar\u015F\u0131yas\u0131n\u0131z.
+      Nihai s\u0131ras\u0131nda iyile\u015Fme ve \xF6l\xFCmden ka\xE7\u0131nma yetene\u011Fi,
+      daha uzun s\xFCre hayatta kalmas\u0131n\u0131 sa\u011Flar. G\xFCc\xFCn\xFC
+      geri kazanmak herhangi bir d\xFC\u015Fman\u0131 \xF6ld\xFCrecek."
     Object: {fileID: 0}
 --- !u!1 &1293004916
 GameObject:
@@ -11526,12 +11535,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0130lk bak\u0131\u015Fta, \xF6n\xFCn\xFCzde sevimli bir k\u0131z var.
-    Ancak, cephaneli\u011Finde \xE7ok fazla ilac\u0131 olan bir katille kar\u015F\u0131
-    kar\u015F\u0131yas\u0131n\u0131z. Nihai s\u0131ras\u0131nda iyile\u015Fme ve
-    \xF6l\xFCmden ka\xE7\u0131nma yetene\u011Fi, daha uzun s\xFCre hayatta kalmas\u0131n\u0131
-    sa\u011Flar. G\xFCc\xFCn\xFC geri kazand\u0131ktan sonra, herhangi bir d\xFC\u015Fman\u0131
-    \xF6ld\xFCrecek."
+  m_text: "\u0130lk bak\u0131\u015Fta g\xFCzel bir k\u0131z\u0131n var. Ancak, cephaneli\u011Finde
+    \xE7ok fazla ila\xE7 bulunan bir katil ile kar\u015F\u0131 kar\u015F\u0131yas\u0131n\u0131z.
+    Nihai s\u0131ras\u0131nda iyile\u015Fme ve \xF6l\xFCmden ka\xE7\u0131nma yetene\u011Fi,
+    daha uzun s\xFCre hayatta kalmas\u0131n\u0131 sa\u011Flar. G\xFCc\xFCn\xFC geri
+    kazanmak herhangi bir d\xFC\u015Fman\u0131 \xF6ld\xFCrecek."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -11998,6 +12006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _uiViewToHide: {fileID: 513237100}
   _uiViewToShow: {fileID: 1369425418}
 --- !u!1 &1352367014
@@ -12443,10 +12452,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0427\u0422\u041E\u0411\u042B \u041F\u041E\u041B\u0423\u0427\u0418\u0422\u042C
-    \u0414\u041E\u0421\u0422\u0423\u041F \u041A \u0422\u0410\u0411\u041B\u0418\u0426\u0415
-    \u041B\u0418\u0414\u0415\u0420\u041E\u0412, \u0412\u0410\u041C \u041D\u0415\u041E\u0411\u0425\u041E\u0414\u0418\u041C\u041E
-    \u0410\u0412\u0422\u041E\u0420\u0418\u0417\u041E\u0412\u0410\u0422\u042C\u0421\u042F"
+  m_text: "Liderlik tablosuna eri\u015Fmek i\xE7in giri\u015F yapman\u0131z gerekir"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -12480,7 +12486,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -12851,6 +12857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab092f35439740828e39c2ff9afdb60d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _leaderboardName: 2
   _leaderboard: {fileID: 2111610852}
   _leaderboardView: {fileID: 799977857}
@@ -13073,9 +13080,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041F\u0440\u043E\u0434\u0435\u0440\u0436\u0438\u0441\u044C \u043A\u0430\u043A
-    \u043C\u043E\u0436\u043D\u043E \u0434\u043E\u043B\u044C\u0448\u0435, \u0443\u0431\u0438\u0432\u0430\u044F
-    \u0432\u0440\u0430\u0433\u043E\u0432"
+  m_text: "              D\xFC\u015Fmanlar\u0131 \xF6ld\xFCrerek m\xFCmk\xFCn oldu\u011Funca
+    uzun s\xFCre tutun"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -13303,10 +13309,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0423\u0431\u0435\u0439 \u043A\u0430\u043A \u043C\u043E\u0436\u043D\u043E
-    \u0431\u043E\u043B\u044C\u0448\u0435 \u0437\u043E\u043C\u0431\u0438 \u0431\u0435\u0437
-    \u043E\u0433\u0440\u0430\u043D\u0438\u0447\u0435\u043D\u0438\u0439 \u043F\u043E
-    \u0432\u0440\u0435\u043C\u0435\u043D\u0438"
+  m_text: "Zaman s\u0131n\u0131r\u0131 olmadan m\xFCmk\xFCn oldu\u011Funca \xE7ok
+    zombi \xF6ld\xFCr"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -13884,6 +13888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12e77636d2944095b6c5877c24f63392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _loginPanelView: {fileID: 1479333592}
   _loginAcceptButton: {fileID: 1564351534}
   _menuView: {fileID: 1369425418}
@@ -14145,6 +14150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb563bcd568d4ad3924edfeddb1f712d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _characterButtons:
   - {fileID: 439069074}
   - {fileID: 1700492640}
@@ -14374,7 +14380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0417\u041E\u041C\u0411\u0418 \u0420\u0415\u0416\u0418\u041C"
+  m_text: "ZOMB\u0130 MODU"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -14691,7 +14697,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041B\u041E\u0412\u041A\u041E\u0421\u0422\u042C"
+  m_text: USTALIK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -14835,6 +14841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62bce6569506427691962430e55377bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _choosingLeaderboardPanel: {fileID: 513237100}
   _loginPanelView: {fileID: 1479333592}
 --- !u!114 &1564351535
@@ -15221,6 +15228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ac52e618d3d264eb8831b762b470d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
 --- !u!1 &1594911051
 GameObject:
   m_ObjectHideFlags: 0
@@ -15374,7 +15382,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0418\u0413\u0420\u0410 \u041D\u0410 \u0412\u0420\u0415\u041C\u042F"
+  m_text: ZAMAN MODU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -15731,7 +15739,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0420\u0415\u0416\u0418\u041C \u0412\u042B\u0416\u0418\u0412\u0410\u041D\u0418\u042F"
+  m_text: HAYATTA KALMA MODU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -15758,8 +15766,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -15957,7 +15965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0418\u0413\u0420\u0410\u0422\u042C"
+  m_text: OYUNA
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -16108,7 +16116,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0420\u0415\u0416\u0418\u041C \u0412\u042B\u0416\u0418\u0412\u0410\u041D\u0418\u042F"
+  m_text: HAYATTA KALMA MODU
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -16393,6 +16401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e6bb085f86454bba2c519b5d1c35da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _playerCharacterSpawner: {fileID: 41835385}
   _playerDescriptions:
   - {fileID: 1870716288}
@@ -16741,8 +16750,8 @@ MonoBehaviour:
       \u0432\u0440\u0430\u0433\u043E\u0432"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "D\xFC\u015Fmanlar\u0131 \xF6ld\xFCrerek m\xFCmk\xFCn oldu\u011Funca uzun
-      s\xFCre tutun"
+    Text: "              D\xFC\u015Fmanlar\u0131 \xF6ld\xFCrerek m\xFCmk\xFCn oldu\u011Funca
+      uzun s\xFCre tutun"
     Object: {fileID: 0}
 --- !u!1 &1860759112
 GameObject:
@@ -17260,6 +17269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _uiViewToHide: {fileID: 83269775}
   _uiViewToShow: {fileID: 1369425418}
 --- !u!1 &1900270584
@@ -17389,7 +17399,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041E\u0422\u041A\u041B\u041E\u041D\u0418\u0422\u042C"
+  m_text: REDDET
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -17416,8 +17426,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -17902,7 +17912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041C\u0410\u041D\u0410"
+  m_text: MANA
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -18047,6 +18057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d21c687e45e20d845a77754804c527b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _uiViewToHide: {fileID: 662130349}
   _uiViewToShow: {fileID: 1369425418}
 --- !u!114 &1965499794
@@ -18143,6 +18154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 981cc08caec04b8c930a659f2a221c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _buttonTurntable: {fileID: 0}
   _playerCharacterSpawner: {fileID: 41835385}
   _characterButton: {fileID: 1700492640}
 --- !u!1 &1980209623
@@ -18324,17 +18336,16 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: English
-    Text: TO ACCESS THE LEADERBOARD, YOU NEED TO LOG IN
+    Text: To access the leaderboard, you need to log in
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0427\u0422\u041E\u0411\u042B \u041F\u041E\u041B\u0423\u0427\u0418\u0422\u042C
-      \u0414\u041E\u0421\u0422\u0423\u041F \u041A \u0422\u0410\u0411\u041B\u0418\u0426\u0415
-      \u041B\u0418\u0414\u0415\u0420\u041E\u0412, \u0412\u0410\u041C \u041D\u0415\u041E\u0411\u0425\u041E\u0414\u0418\u041C\u041E
-      \u0410\u0412\u0422\u041E\u0420\u0418\u0417\u041E\u0412\u0410\u0422\u042C\u0421\u042F"
+    Text: "\u0427\u0442\u043E\u0431\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C
+      \u0434\u043E\u0441\u0442\u0443\u043F \u043A \u0442\u0430\u0431\u043B\u0438\u0446\u0435
+      \u043B\u0438\u0434\u0435\u0440\u043E\u0432, \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E
+      \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F"
     Object: {fileID: 0}
   - Language: Turkish
-    Text: "SKOR TABLOSUNA ER\u0130\u015EMEK \u0130\xC7\u0130N G\u0130R\u0130\u015E
-      YAPMANIZ GEREK\u0130R"
+    Text: "Liderlik tablosuna eri\u015Fmek i\xE7in giri\u015F yapman\u0131z gerekir"
     Object: {fileID: 0}
 --- !u!1 &2111610851
 GameObject:
