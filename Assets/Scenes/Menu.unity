@@ -251,7 +251,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 524433621}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -517,6 +517,7 @@ GameObject:
   - component: {fileID: 31001451}
   - component: {fileID: 31001453}
   - component: {fileID: 31001452}
+  - component: {fileID: 31001454}
   m_Layer: 5
   m_Name: TimeModeDescriptionText
   m_TagString: Untagged
@@ -644,6 +645,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 31001450}
   m_CullTransparentMesh: 1
+--- !u!114 &31001454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31001450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: TimeModeDescription
+  FallbackText: Have time to kill as many civilians as possible in the allotted time
 --- !u!1 &41835383
 GameObject:
   m_ObjectHideFlags: 0
@@ -938,7 +953,7 @@ RectTransform:
   - {fileID: 1585378209}
   - {fileID: 29693806}
   m_Father: {fileID: 524433621}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1214,8 +1229,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1386,6 +1401,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 137850049}
   m_CullTransparentMesh: 1
+--- !u!1 &141857017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 141857018}
+  - component: {fileID: 141857019}
+  m_Layer: 0
+  m_Name: Select
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &141857018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141857017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141857019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141857017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: SELECT
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0412\u042B\u0411\u0420\u0410\u0422\u042C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "SE\xC7MEK"
+    Object: {fileID: 0}
 --- !u!1 &150199028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,6 +1543,7 @@ GameObject:
   - component: {fileID: 157623559}
   - component: {fileID: 157623561}
   - component: {fileID: 157623560}
+  - component: {fileID: 157623562}
   m_Layer: 5
   m_Name: BuyText
   m_TagString: Untagged
@@ -1520,7 +1591,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BUY
+  m_text: "\u041A\u0423\u041F\u0418\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -1597,6 +1668,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 157623558}
   m_CullTransparentMesh: 1
+--- !u!114 &157623562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157623558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Buy
+  FallbackText: BUY
 --- !u!1 &166770392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1642,6 +1727,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &208249840
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 208249841}
+  - component: {fileID: 208249842}
+  m_Layer: 0
+  m_Name: Close
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &208249841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208249840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &208249842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208249840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: CLOSE
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0417\u0410\u041A\u0420\u042B\u0422\u042C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: KAPAT
+    Object: {fileID: 0}
 --- !u!1 &231983325
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,6 +1946,7 @@ GameObject:
   - component: {fileID: 251224133}
   - component: {fileID: 251224135}
   - component: {fileID: 251224134}
+  - component: {fileID: 251224136}
   m_Layer: 5
   m_Name: PriceText
   m_TagString: Untagged
@@ -1853,7 +1994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PRICE
+  m_text: "\u0426\u0415\u041D\u0410"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -1930,6 +2071,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251224132}
   m_CullTransparentMesh: 1
+--- !u!114 &251224136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251224132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Price
+  FallbackText: PRICE
 --- !u!1 &272755655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2076,6 +2231,7 @@ GameObject:
   - component: {fileID: 273387954}
   - component: {fileID: 273387956}
   - component: {fileID: 273387955}
+  - component: {fileID: 273387957}
   m_Layer: 5
   m_Name: PriceText
   m_TagString: Untagged
@@ -2123,7 +2279,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PRICE
+  m_text: "\u0426\u0415\u041D\u0410"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -2200,6 +2356,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273387953}
   m_CullTransparentMesh: 1
+--- !u!114 &273387957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273387953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Price
+  FallbackText: PRICE
 --- !u!1 &310877156
 GameObject:
   m_ObjectHideFlags: 0
@@ -2908,6 +3078,62 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &366710298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 366710299}
+  - component: {fileID: 366710300}
+  m_Layer: 0
+  m_Name: ChooseLeaderboard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &366710299
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366710298}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &366710300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366710298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: CHOOSE LEADERBOARD
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0412\u042B\u0411\u0415\u0420\u0418\u0422\u0415 \u0422\u0410\u0411\u041B\u0418\u0426\u0423
+      \u041B\u0418\u0414\u0415\u0420\u041E\u0412"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "L\u0130DERL\u0130K TABLOSUNU SE\xC7\u0130N"
+    Object: {fileID: 0}
 --- !u!1 &369648929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2995,6 +3221,7 @@ GameObject:
   - component: {fileID: 385683675}
   - component: {fileID: 385683677}
   - component: {fileID: 385683676}
+  - component: {fileID: 385683678}
   m_Layer: 5
   m_Name: AcceptText
   m_TagString: Untagged
@@ -3042,7 +3269,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ACCEPT
+  m_text: "\u041F\u0420\u0418\u041D\u042F\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -3119,6 +3346,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385683674}
   m_CullTransparentMesh: 1
+--- !u!114 &385683678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385683674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Accept
+  FallbackText: ACCEPT
+--- !u!1 &386171133
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 386171134}
+  - component: {fileID: 386171135}
+  m_Layer: 0
+  m_Name: Agility
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &386171134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386171133}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &386171135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 386171133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: AGILITY
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041B\u041E\u0412\u041A\u041E\u0421\u0422\u042C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: USTALIK
+    Object: {fileID: 0}
 --- !u!1 &422381578
 GameObject:
   m_ObjectHideFlags: 0
@@ -3425,6 +3721,61 @@ MonoBehaviour:
   - {fileID: 1293004920}
   - {fileID: 543211758}
   _boosters: {fileID: 359806047}
+--- !u!1 &491248013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 491248014}
+  - component: {fileID: 491248015}
+  m_Layer: 0
+  m_Name: Decline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &491248014
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491248013}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &491248015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491248013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: DECLINE
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041E\u0422\u041A\u041B\u041E\u041D\u0418\u0422\u042C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: REDDET
+    Object: {fileID: 0}
 --- !u!1 &503596936
 GameObject:
   m_ObjectHideFlags: 0
@@ -3884,7 +4235,7 @@ RectTransform:
   m_Children:
   - {fileID: 1412482563}
   m_Father: {fileID: 524433621}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4170,6 +4521,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1387999415}
   - {fileID: 1369425415}
   - {fileID: 83269772}
   - {fileID: 662130346}
@@ -4333,6 +4685,7 @@ GameObject:
   - component: {fileID: 543211757}
   - component: {fileID: 543211756}
   - component: {fileID: 543211758}
+  - component: {fileID: 543211759}
   m_Layer: 5
   m_Name: NInjaDescription
   m_TagString: Untagged
@@ -4380,18 +4733,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0438\u043D\u0434\u0437\u044F \u043E\u0442\u043B\u0438\u0447\u0430\u0435\u0442\u0441\u044F
-    \u0441\u0432\u043E\u0435\u0439 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C\u044E
-    \u0438 \u043B\u043E\u0432\u043A\u043E\u0441\u0442\u044C\u044E. \u0415\u0441\u043B\u0438
-    \u0442\u044B \u0445\u043E\u0447\u0435\u0448\u044C \u0434\u043E\u0433\u043E\u043D\u044F\u0442\u044C
-    \u0441\u0432\u043E\u0438\u0445 \u0436\u0435\u0440\u0442\u0432, \u0442\u043E \u0442\u0435\u0431\u0435
-    \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C
-    \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0442\u044C \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
-    \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F. \u0422\u0430\u043A\u0436\u0435
-    \u043D\u0438\u043D\u0434\u0437\u044F \u0441\u043F\u043E\u0441\u043E\u0431\u0435\u043D
-    \u0430\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0443\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435
-    \u0438 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u0448\u0430\u043D\u0441
-    \u0438\u0437\u0431\u0435\u0436\u0430\u0442\u044C \u0443\u0440\u043E\u043D\u0430."
+  m_text: "Ninja h\u0131z\u0131 ve \xE7evikli\u011Fi ile ay\u0131rt edilir. Kurbanlar\u0131n\u0131z\u0131
+    yakalamak istiyorsan\u0131z, hareket h\u0131z\u0131n\u0131 art\u0131rma yetene\u011Fi
+    size yard\u0131mc\u0131 olacakt\u0131r. Ninja ayr\u0131ca ka\xE7may\u0131 etkinle\u015Ftirebilir
+    ve hasar\u0131 \xF6nleme \u015Fans\u0131 yakalayabilir."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -4481,6 +4826,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerCharacterName>k__BackingField: 2
+--- !u!114 &543211759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543211754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: NinjaDescription
+  FallbackText: Ninja is distinguished by its speed and agility. If you want to catch
+    up with your victims, then the ability to increase the speed of movement will
+    help you. The ninja is also able to activate evasion and get a chance to avoid
+    damage.
 --- !u!1 &552596825
 GameObject:
   m_ObjectHideFlags: 0
@@ -4732,6 +5094,190 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 563002163}
   m_CullTransparentMesh: 1
+--- !u!1 &563092365
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 563092366}
+  - component: {fileID: 563092367}
+  m_Layer: 0
+  m_Name: ZombieMode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &563092366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563092365}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &563092367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563092365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: ZOMBIE MODE
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0417\u041E\u041C\u0411\u0418 \u0420\u0415\u0416\u0418\u041C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "ZOMB\u0130 MODU"
+    Object: {fileID: 0}
+--- !u!1 &574886109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 574886110}
+  - component: {fileID: 574886111}
+  m_Layer: 0
+  m_Name: Accept
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &574886110
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574886109}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &574886111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574886109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: ACCEPT
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u0420\u0418\u041D\u042F\u0422\u042C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: KABUL ETMEK
+    Object: {fileID: 0}
+--- !u!1 &600457254
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 600457256}
+  - component: {fileID: 600457255}
+  m_Layer: 0
+  m_Name: LeanLocalization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &600457255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600457254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLanguage: Russian
+  detectLanguage: 0
+  defaultLanguage: 
+  saveLoad: 1
+  prefabs: []
+--- !u!4 &600457256
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600457254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1693353655}
+  - {fileID: 1402589430}
+  - {fileID: 907287964}
+  - {fileID: 1980209624}
+  - {fileID: 1214945613}
+  - {fileID: 1442291738}
+  - {fileID: 610636356}
+  - {fileID: 563092366}
+  - {fileID: 1544858900}
+  - {fileID: 1837785663}
+  - {fileID: 1045087599}
+  - {fileID: 1599352390}
+  - {fileID: 141857018}
+  - {fileID: 792845240}
+  - {fileID: 386171134}
+  - {fileID: 1761993986}
+  - {fileID: 676559494}
+  - {fileID: 956158575}
+  - {fileID: 1246836558}
+  - {fileID: 1173784746}
+  - {fileID: 2081795812}
+  - {fileID: 574886110}
+  - {fileID: 491248014}
+  - {fileID: 366710299}
+  - {fileID: 208249841}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &604019583
 GameObject:
   m_ObjectHideFlags: 0
@@ -4808,6 +5354,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604019583}
   m_CullTransparentMesh: 1
+--- !u!1 &610636355
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 610636356}
+  - component: {fileID: 610636357}
+  m_Layer: 0
+  m_Name: SurvivalMode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &610636356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610636355}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &610636357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610636355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: SURVIVAL MODE
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0420\u0415\u0416\u0418\u041C \u0412\u042B\u0416\u0418\u0412\u0410\u041D\u0418\u042F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: HAYATTA KALMA MODU
+    Object: {fileID: 0}
 --- !u!1 &632453486
 GameObject:
   m_ObjectHideFlags: 0
@@ -5133,7 +5734,7 @@ RectTransform:
   - {fileID: 503596937}
   - {fileID: 1524641842}
   m_Father: {fileID: 524433621}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -5172,6 +5773,61 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!1 &676559493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 676559494}
+  - component: {fileID: 676559495}
+  m_Layer: 0
+  m_Name: Price
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &676559494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676559493}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &676559495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676559493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: PRICE
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0426\u0415\u041D\u0410"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: FIYAT
+    Object: {fileID: 0}
 --- !u!1 &687113652
 GameObject:
   m_ObjectHideFlags: 0
@@ -5184,6 +5840,7 @@ GameObject:
   - component: {fileID: 687113655}
   - component: {fileID: 687113654}
   - component: {fileID: 687113656}
+  - component: {fileID: 687113657}
   m_Layer: 5
   m_Name: ZombieModeText
   m_TagString: Untagged
@@ -5231,7 +5888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZOMBIE MODE
+  m_text: "\u0417\u041E\u041C\u0411\u0418 \u0420\u0415\u0416\u0418\u041C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -5321,6 +5978,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <LeaderboardName>k__BackingField: 2
+--- !u!114 &687113657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687113652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: ZombieMode
+  FallbackText: ZOMBIE MODE
 --- !u!1 &689639262
 GameObject:
   m_ObjectHideFlags: 0
@@ -6154,6 +6825,61 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792397160}
   m_CullTransparentMesh: 1
+--- !u!1 &792845239
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 792845240}
+  - component: {fileID: 792845241}
+  m_Layer: 0
+  m_Name: Health
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &792845240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792845239}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &792845241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 792845239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: HEALTH
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0417\u0414\u041E\u0420\u041E\u0412\u042C\u0415"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "SA\u011ELIK"
+    Object: {fileID: 0}
 --- !u!1 &799977855
 GameObject:
   m_ObjectHideFlags: 0
@@ -6188,7 +6914,7 @@ RectTransform:
   - {fileID: 877145694}
   - {fileID: 734113594}
   m_Father: {fileID: 524433621}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -6588,6 +7314,7 @@ GameObject:
   - component: {fileID: 866803769}
   - component: {fileID: 866803771}
   - component: {fileID: 866803770}
+  - component: {fileID: 866803772}
   m_Layer: 5
   m_Name: PriceText
   m_TagString: Untagged
@@ -6635,7 +7362,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PRICE
+  m_text: "\u0426\u0415\u041D\u0410"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -6712,6 +7439,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 866803768}
   m_CullTransparentMesh: 1
+--- !u!114 &866803772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 866803768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Price
+  FallbackText: PRICE
 --- !u!1 &868239095
 GameObject:
   m_ObjectHideFlags: 0
@@ -6770,7 +7511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RU
+  m_text: "\u0420\u0423\u0421"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -6797,8 +7538,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6858,6 +7599,7 @@ GameObject:
   - component: {fileID: 869207033}
   - component: {fileID: 869207035}
   - component: {fileID: 869207034}
+  - component: {fileID: 869207036}
   m_Layer: 5
   m_Name: SurvivalModeText
   m_TagString: Untagged
@@ -6982,6 +7724,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869207032}
   m_CullTransparentMesh: 1
+--- !u!114 &869207036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 869207032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: SurvivalMode
+  FallbackText: SURVIVAL MODE
 --- !u!1 &877145693
 GameObject:
   m_ObjectHideFlags: 0
@@ -7300,6 +8056,7 @@ GameObject:
   - component: {fileID: 888693711}
   - component: {fileID: 888693713}
   - component: {fileID: 888693712}
+  - component: {fileID: 888693714}
   m_Layer: 5
   m_Name: SettingsText
   m_TagString: Untagged
@@ -7347,7 +8104,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SETTINGS
+  m_text: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -7424,6 +8181,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 888693710}
   m_CullTransparentMesh: 1
+--- !u!114 &888693714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888693710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Settings
+  FallbackText: SETTINGS
+--- !u!1 &907287963
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 907287964}
+  - component: {fileID: 907287965}
+  m_Layer: 0
+  m_Name: Turkish
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &907287964
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907287963}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &907287965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907287963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225ec97158446a94d9cb40a9f742a8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationCode: tr
+  cultures: []
 --- !u!1 &909011956
 GameObject:
   m_ObjectHideFlags: 0
@@ -7966,6 +8783,7 @@ GameObject:
   - component: {fileID: 935048327}
   - component: {fileID: 935048329}
   - component: {fileID: 935048328}
+  - component: {fileID: 935048330}
   m_Layer: 5
   m_Name: CloseText
   m_TagString: Untagged
@@ -8013,7 +8831,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CLOSE
+  m_text: "\u0417\u0410\u041A\u0420\u042B\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -8090,6 +8908,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935048326}
   m_CullTransparentMesh: 1
+--- !u!114 &935048330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 935048326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Close
+  FallbackText: CLOSE
 --- !u!1 &935650045
 GameObject:
   m_ObjectHideFlags: 0
@@ -8169,6 +9001,7 @@ GameObject:
   - component: {fileID: 949798691}
   - component: {fileID: 949798693}
   - component: {fileID: 949798692}
+  - component: {fileID: 949798694}
   m_Layer: 5
   m_Name: Description
   m_TagString: Untagged
@@ -8216,7 +9049,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHOOSE LEADERBOARD
+  m_text: "\u0412\u042B\u0411\u0415\u0420\u0418\u0422\u0415 \u0422\u0410\u0411\u041B\u0418\u0426\u0423
+    \u041B\u0418\u0414\u0415\u0420\u041E\u0412"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -8293,6 +9127,95 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 949798690}
   m_CullTransparentMesh: 1
+--- !u!114 &949798694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949798690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: ChooseLeaderboard
+  FallbackText: CHOOSE LEADERBOARD
+--- !u!1 &956158574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 956158575}
+  - component: {fileID: 956158576}
+  m_Layer: 0
+  m_Name: BikerDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &956158575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956158574}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &956158576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 956158574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: A biker who has picked up a sword craves murder and blood. He has the ability
+      to increase the damage done for a while, as well as a rapid rotation with a
+      sword, which will not leave his enemies a chance. The character can also avoid
+      taking damage by rolling.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0411\u0430\u0439\u043A\u0435\u0440, \u0432\u0437\u044F\u0432\u0448\u0438\u0439
+      \u0432 \u0440\u0443\u043A\u0438 \u043C\u0435\u0447, \u0436\u0430\u0436\u0434\u0438\u0442
+      \u0443\u0431\u0438\u0439\u0441\u0442\u0432 \u0438 \u043A\u0440\u043E\u0432\u0438.
+      \u0423 \u043D\u0435\u0433\u043E \u0432 \u0440\u0430\u0441\u043F\u043E\u0440\u044F\u0436\u0435\u043D\u0438\u0438
+      \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0442\u044C
+      \u043D\u0430\u043D\u043E\u0441\u0438\u043C\u044B\u0439 \u0443\u0440\u043E\u043D
+      \u043D\u0430 \u0432\u0440\u0435\u043C\u044F, \u0430 \u0442\u0430\u043A\u0436\u0435
+      \u0441\u0442\u0440\u0435\u043C\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0435
+      \u0432\u0440\u0430\u0449\u0435\u043D\u0438\u0435 \u0441 \u043C\u0435\u0447\u043E\u043C,
+      \u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u043D\u0435 \u043E\u0441\u0442\u0430\u0432\u0438\u0442
+      \u0448\u0430\u043D\u0441\u043E\u0432 \u0435\u0433\u043E \u0432\u0440\u0430\u0433\u0430\u043C.
+      \u0422\u0430\u043A\u0436\u0435 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436
+      \u043C\u043E\u0436\u0435\u0442 \u0438\u0437\u0431\u0435\u0436\u0430\u0442\u044C
+      \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u044F \u0443\u0440\u043E\u043D\u0430
+      \u0441 \u043F\u043E\u043C\u043E\u0449\u044C\u044E \u043F\u0435\u0440\u0435\u043A\u0430\u0442\u0430."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "K\u0131l\u0131c\u0131 eline alm\u0131\u015F bir motorcu cinayet ve kan
+      ister. Bir s\xFCre verilen hasar\u0131 art\u0131rma yetene\u011Fine ve d\xFC\u015Fmanlar\u0131na
+      \u015Fans b\u0131rakmayacak bir k\u0131l\u0131\xE7la h\u0131zl\u0131 bir d\xF6n\xFC\u015Fe
+      sahip. Karakter ayr\u0131ca yuvarlanarak hasar almaktan da ka\xE7\u0131nabilir."
+    Object: {fileID: 0}
 --- !u!1 &961531048
 GameObject:
   m_ObjectHideFlags: 0
@@ -8546,6 +9469,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992506768}
   m_CullTransparentMesh: 1
+--- !u!1 &1045087598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1045087599}
+  - component: {fileID: 1045087600}
+  m_Layer: 0
+  m_Name: ZombieModeDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1045087599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045087598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1045087600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045087598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Kill as many zombies as possible without time limits
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0423\u0431\u0435\u0439 \u043A\u0430\u043A \u043C\u043E\u0436\u043D\u043E
+      \u0431\u043E\u043B\u044C\u0448\u0435 \u0437\u043E\u043C\u0431\u0438 \u0431\u0435\u0437
+      \u043E\u0433\u0440\u0430\u043D\u0438\u0447\u0435\u043D\u0438\u0439 \u043F\u043E
+      \u0432\u0440\u0435\u043C\u0435\u043D\u0438"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Zaman s\u0131n\u0131r\u0131 olmadan m\xFCmk\xFCn oldu\u011Funca \xE7ok
+      zombi \xF6ld\xFCr"
+    Object: {fileID: 0}
 --- !u!1 &1047983411
 GameObject:
   m_ObjectHideFlags: 0
@@ -8778,6 +9760,7 @@ GameObject:
   - component: {fileID: 1093728888}
   - component: {fileID: 1093728890}
   - component: {fileID: 1093728889}
+  - component: {fileID: 1093728891}
   m_Layer: 5
   m_Name: TimeModeText
   m_TagString: Untagged
@@ -8825,7 +9808,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TIME MODE
+  m_text: "\u0418\u0413\u0420\u0410 \u041D\u0410 \u0412\u0420\u0415\u041C\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -8902,6 +9885,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093728887}
   m_CullTransparentMesh: 1
+--- !u!114 &1093728891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093728887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: TimeMode
+  FallbackText: TIME MODE
 --- !u!1 &1101823528
 GameObject:
   m_ObjectHideFlags: 0
@@ -9126,6 +10123,7 @@ GameObject:
   - component: {fileID: 1161867784}
   - component: {fileID: 1161867786}
   - component: {fileID: 1161867785}
+  - component: {fileID: 1161867787}
   m_Layer: 5
   m_Name: HealthText
   m_TagString: Untagged
@@ -9173,7 +10171,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HEALTH
+  m_text: "\u0417\u0414\u041E\u0420\u041E\u0412\u042C\u0415"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -9250,6 +10248,92 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161867783}
   m_CullTransparentMesh: 1
+--- !u!114 &1161867787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161867783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Health
+  FallbackText: HEALTH
+--- !u!1 &1173784745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1173784746}
+  - component: {fileID: 1173784747}
+  m_Layer: 0
+  m_Name: NinjaDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1173784746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173784745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1173784747
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1173784745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Ninja is distinguished by its speed and agility. If you want to catch up
+      with your victims, then the ability to increase the speed of movement will
+      help you. The ninja is also able to activate evasion and get a chance to avoid
+      damage.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041D\u0438\u043D\u0434\u0437\u044F \u043E\u0442\u043B\u0438\u0447\u0430\u0435\u0442\u0441\u044F
+      \u0441\u0432\u043E\u0435\u0439 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C\u044E
+      \u0438 \u043B\u043E\u0432\u043A\u043E\u0441\u0442\u044C\u044E. \u0415\u0441\u043B\u0438
+      \u0442\u044B \u0445\u043E\u0447\u0435\u0448\u044C \u0434\u043E\u0433\u043E\u043D\u044F\u0442\u044C
+      \u0441\u0432\u043E\u0438\u0445 \u0436\u0435\u0440\u0442\u0432, \u0442\u043E
+      \u0442\u0435\u0431\u0435 \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C
+      \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0442\u044C \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C
+      \u043F\u0435\u0440\u0435\u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F. \u0422\u0430\u043A\u0436\u0435
+      \u043D\u0438\u043D\u0434\u0437\u044F \u0441\u043F\u043E\u0441\u043E\u0431\u0435\u043D
+      \u0430\u043A\u0442\u0438\u0432\u0438\u0440\u043E\u0432\u0430\u0442\u044C \u0443\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u0435
+      \u0438 \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C \u0448\u0430\u043D\u0441
+      \u0438\u0437\u0431\u0435\u0436\u0430\u0442\u044C \u0443\u0440\u043E\u043D\u0430."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ninja h\u0131z\u0131 ve \xE7evikli\u011Fi ile ay\u0131rt edilir. Kurbanlar\u0131n\u0131z\u0131
+      yakalamak istiyorsan\u0131z, hareket h\u0131z\u0131n\u0131 art\u0131rma yetene\u011Fi
+      size yard\u0131mc\u0131 olacakt\u0131r. Ninja ayr\u0131ca ka\xE7may\u0131 etkinle\u015Ftirebilir
+      ve hasar\u0131 \xF6nleme \u015Fans\u0131 yakalayabilir."
+    Object: {fileID: 0}
 --- !u!1 &1178594495
 GameObject:
   m_ObjectHideFlags: 0
@@ -9262,6 +10346,7 @@ GameObject:
   - component: {fileID: 1178594498}
   - component: {fileID: 1178594497}
   - component: {fileID: 1178594499}
+  - component: {fileID: 1178594500}
   m_Layer: 5
   m_Name: TimeModeText
   m_TagString: Untagged
@@ -9309,7 +10394,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TIME MODE
+  m_text: "\u0418\u0413\u0420\u0410 \u041D\u0410 \u0412\u0420\u0415\u041C\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -9399,6 +10484,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <LeaderboardName>k__BackingField: 0
+--- !u!114 &1178594500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178594495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: TimeMode
+  FallbackText: TIME MODE
 --- !u!1 &1184974040
 GameObject:
   m_ObjectHideFlags: 0
@@ -9569,7 +10668,7 @@ RectTransform:
   - {fileID: 804400537}
   - {fileID: 1528171460}
   m_Father: {fileID: 524433621}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -9748,6 +10847,7 @@ GameObject:
   - component: {fileID: 1194600255}
   - component: {fileID: 1194600257}
   - component: {fileID: 1194600256}
+  - component: {fileID: 1194600258}
   m_Layer: 5
   m_Name: SelectText
   m_TagString: Untagged
@@ -9795,7 +10895,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SELECT
+  m_text: "\u0412\u042B\u0411\u0420\u0410\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -9872,6 +10972,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1194600254}
   m_CullTransparentMesh: 1
+--- !u!114 &1194600258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194600254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Select
+  FallbackText: SELECT
+--- !u!1 &1214945612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1214945613}
+  - component: {fileID: 1214945614}
+  m_Layer: 0
+  m_Name: Settings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1214945613
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214945612}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1214945614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1214945612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: SETTINGS
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: AYARLAR
+    Object: {fileID: 0}
 --- !u!1 &1223423368
 GameObject:
   m_ObjectHideFlags: 0
@@ -10081,6 +11250,7 @@ GameObject:
   - component: {fileID: 1228703953}
   - component: {fileID: 1228703955}
   - component: {fileID: 1228703954}
+  - component: {fileID: 1228703956}
   m_Layer: 5
   m_Name: ZombieModeText
   m_TagString: Untagged
@@ -10205,6 +11375,97 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1228703952}
   m_CullTransparentMesh: 1
+--- !u!114 &1228703956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228703952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: ZombieMode
+  FallbackText: ZOMBIE MODE
+--- !u!1 &1246836557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1246836558}
+  - component: {fileID: 1246836559}
+  m_Layer: 0
+  m_Name: MedicDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1246836558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246836557}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1246836559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1246836557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: At first glance, you have a cute girl in front of you. However, you are
+      facing a killer who has a lot of medicines in her arsenal. The ability to heal
+      and avoid death during the ultimate allows her to survive longer. After regaining
+      her strength, she will kill any enemy.
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041D\u0430 \u043F\u0435\u0440\u0432\u044B\u0439 \u0432\u0437\u0433\u043B\u044F\u0434
+      \u043F\u0435\u0440\u0435\u0434 \u0432\u0430\u043C\u0438 \u043C\u0438\u043B\u0430\u044F
+      \u0434\u0435\u0432\u043E\u0447\u043A\u0430. \u041E\u0434\u043D\u0430\u043A\u043E
+      \u043F\u0435\u0440\u0435\u0434 \u0432\u0430\u043C\u0438 \u0441\u0442\u043E\u0438\u0442
+      \u0443\u0431\u0438\u0439\u0446\u0430, \u043A\u043E\u0442\u043E\u0440\u0430\u044F
+      \u0438\u043C\u0435\u0435\u0442 \u0432 \u0441\u0432\u043E\u0435\u043C \u0430\u0440\u0441\u0435\u043D\u0430\u043B\u0435
+      \u043C\u043D\u043E\u0433\u043E \u043C\u0435\u0434\u0438\u043A\u0430\u043C\u0435\u043D\u0442\u043E\u0432.
+      \u0421\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C \u0438\u0441\u0446\u0435\u043B\u044F\u0442\u044C\u0441\u044F
+      \u0438 \u0438\u0437\u0431\u0435\u0433\u0430\u0442\u044C \u0441\u043C\u0435\u0440\u0442\u0438
+      \u0432\u043E \u0432\u0440\u0435\u043C\u044F \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F
+      \u0443\u043B\u044C\u0442\u0438\u043C\u0435\u0439\u0442\u0430 \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u044E\u0442
+      \u0435\u0439 \u0432\u044B\u0436\u0438\u0432\u0430\u0442\u044C \u0434\u043E\u043B\u044C\u0448\u0435.
+      \u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0432 \u0441\u0438\u043B\u044B,
+      \u043E\u043D\u0430 \u0443\u0431\u044C\u0435\u0442 \u043B\u044E\u0431\u043E\u0433\u043E
+      \u0432\u0440\u0430\u0433\u0430."
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "\u0130lk bak\u0131\u015Fta, \xF6n\xFCn\xFCzde sevimli bir k\u0131z var.
+      Ancak, cephaneli\u011Finde \xE7ok fazla ilac\u0131 olan bir katille kar\u015F\u0131
+      kar\u015F\u0131yas\u0131n\u0131z. Nihai s\u0131ras\u0131nda iyile\u015Fme ve
+      \xF6l\xFCmden ka\xE7\u0131nma yetene\u011Fi, daha uzun s\xFCre hayatta kalmas\u0131n\u0131
+      sa\u011Flar. G\xFCc\xFCn\xFC geri kazand\u0131ktan sonra, herhangi bir d\xFC\u015Fman\u0131
+      \xF6ld\xFCrecek."
+    Object: {fileID: 0}
 --- !u!1 &1293004916
 GameObject:
   m_ObjectHideFlags: 0
@@ -10217,6 +11478,7 @@ GameObject:
   - component: {fileID: 1293004919}
   - component: {fileID: 1293004918}
   - component: {fileID: 1293004920}
+  - component: {fileID: 1293004921}
   m_Layer: 5
   m_Name: MedicDescription
   m_TagString: Untagged
@@ -10264,21 +11526,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0430 \u043F\u0435\u0440\u0432\u044B\u0439 \u0432\u0437\u0433\u043B\u044F\u0434
-    \u043F\u0435\u0440\u0435\u0434 \u0432\u0430\u043C\u0438 \u043C\u0438\u043B\u0430\u044F
-    \u0434\u0435\u0432\u043E\u0447\u043A\u0430. \u041E\u0434\u043D\u0430\u043A\u043E
-    \u043F\u0435\u0440\u0435\u0434 \u0432\u0430\u043C\u0438 \u0441\u0442\u043E\u0438\u0442
-    \u0443\u0431\u0438\u0439\u0446\u0430, \u043A\u043E\u0442\u043E\u0440\u0430\u044F
-    \u0438\u043C\u0435\u0435\u0442 \u0432 \u0441\u0432\u043E\u0435\u043C \u0430\u0440\u0441\u0435\u043D\u0430\u043B\u0435
-    \u043C\u043D\u043E\u0433\u043E \u043C\u0435\u0434\u0438\u043A\u0430\u043C\u0435\u043D\u0442\u043E\u0432.
-    \u0421\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C \u0438\u0441\u0446\u0435\u043B\u044F\u0442\u044C\u0441\u044F
-    \u0438 \u0438\u0437\u0431\u0435\u0433\u0430\u0442\u044C \u0441\u043C\u0435\u0440\u0442\u0438
-    \u0432\u043E \u0432\u0440\u0435\u043C\u044F \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F
-    \u0443\u043B\u044C\u0442\u0438\u043C\u0435\u0439\u0442\u0430 \u043F\u043E\u0437\u0432\u043E\u043B\u044F\u044E\u0442
-    \u0435\u0439 \u0432\u044B\u0436\u0438\u0432\u0430\u0442\u044C \u0434\u043E\u043B\u044C\u0448\u0435.
-    \u0412\u043E\u0441\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0432 \u0441\u0438\u043B\u044B,
-    \u043E\u043D\u0430 \u0443\u0431\u044C\u0435\u0442 \u043B\u044E\u0431\u043E\u0433\u043E
-    \u0432\u0440\u0430\u0433\u0430."
+  m_text: "\u0130lk bak\u0131\u015Fta, \xF6n\xFCn\xFCzde sevimli bir k\u0131z var.
+    Ancak, cephaneli\u011Finde \xE7ok fazla ilac\u0131 olan bir katille kar\u015F\u0131
+    kar\u015F\u0131yas\u0131n\u0131z. Nihai s\u0131ras\u0131nda iyile\u015Fme ve
+    \xF6l\xFCmden ka\xE7\u0131nma yetene\u011Fi, daha uzun s\xFCre hayatta kalmas\u0131n\u0131
+    sa\u011Flar. G\xFCc\xFCn\xFC geri kazand\u0131ktan sonra, herhangi bir d\xFC\u015Fman\u0131
+    \xF6ld\xFCrecek."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -10368,6 +11621,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerCharacterName>k__BackingField: 1
+--- !u!114 &1293004921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293004916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: MedicDescription
+  FallbackText: At first glance, you have a cute girl in front of you. However, you
+    are facing a killer who has a lot of medicines in her arsenal. The ability to
+    heal and avoid death during the ultimate allows her to survive longer. After
+    regaining her strength, she will kill any enemy.
 --- !u!1 &1300111864
 GameObject:
   m_ObjectHideFlags: 0
@@ -10923,7 +12193,7 @@ RectTransform:
   - {fileID: 1300111865}
   - {fileID: 511413024}
   m_Father: {fileID: 524433621}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11125,6 +12395,7 @@ GameObject:
   - component: {fileID: 1385367191}
   - component: {fileID: 1385367193}
   - component: {fileID: 1385367192}
+  - component: {fileID: 1385367194}
   m_Layer: 5
   m_Name: AuthorizationText
   m_TagString: Untagged
@@ -11172,7 +12443,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TO ACCESS THE LEADERBOARD, YOU NEED TO LOG IN
+  m_text: "\u0427\u0422\u041E\u0411\u042B \u041F\u041E\u041B\u0423\u0427\u0418\u0422\u042C
+    \u0414\u041E\u0421\u0422\u0423\u041F \u041A \u0422\u0410\u0411\u041B\u0418\u0426\u0415
+    \u041B\u0418\u0414\u0415\u0420\u041E\u0412, \u0412\u0410\u041C \u041D\u0415\u041E\u0411\u0425\u041E\u0414\u0418\u041C\u041E
+    \u0410\u0412\u0422\u041E\u0420\u0418\u0417\u041E\u0412\u0410\u0422\u042C\u0421\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -11249,7 +12523,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1385367190}
   m_CullTransparentMesh: 1
---- !u!1 &1393497517
+--- !u!114 &1385367194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385367190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Authorization
+  FallbackText: TO ACCESS THE LEADERBOARD, YOU NEED TO LOG IN
+--- !u!1 &1387999414
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11257,46 +12545,103 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1393497518}
-  - component: {fileID: 1393497520}
-  - component: {fileID: 1393497519}
+  - component: {fileID: 1387999415}
+  - component: {fileID: 1387999418}
+  - component: {fileID: 1387999417}
+  - component: {fileID: 1387999416}
   m_Layer: 5
-  m_Name: NinjaDescription
+  m_Name: TestButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!224 &1393497518
+  m_IsActive: 1
+--- !u!224 &1387999415
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393497517}
+  m_GameObject: {fileID: 1387999414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1448003135}
-  m_RootOrder: 5
+  m_Father: {fileID: 524433621}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.9855957, y: -88.047}
-  m_SizeDelta: {x: -105.97, y: -176.09}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 256, y: 256}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1393497519
+--- !u!114 &1387999416
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393497517}
+  m_GameObject: {fileID: 1387999414}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1387999417}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 600457255}
+        m_TargetAssemblyTypeName: Lean.Localization.LeanLocalization, LeanLocalization
+        m_MethodName: SetCurrentLanguageAll
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Turkish
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1387999417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387999414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -11307,93 +12652,70 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0438\u043D\u0434\u0437\u044F \u043E\u0442\u043B\u0438\u0447\u0430\u0435\u0442\u0441\u044F
-    \u0441\u0432\u043E\u0435\u0439 \u0441\u043A\u043E\u0440\u043E\u0441\u0442\u044C\u044E
-    \u0438 \u043B\u043E\u0432\u043A\u043E\u0441\u0442\u044C\u044E. \u0415\u0441\u043B\u0438
-    \u0442\u044B \u0445\u043E\u0447\u0435\u0448\u044C \u0434\u043E\u0433\u043E\u043D\u044F\u0442\u044C
-    \u0441\u0432\u043E\u0438\u0445 \u0436\u0435\u0440\u0442\u0432, \u0442\u043E \u0443\u043B\u044C\u0442\u0430
-    \u0442\u0435\u0431\u0435 \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E
-    \u0432 \u044D\u0442\u043E\u043C \u043F\u043E\u043C\u043E\u0436\u0435\u0442, \u0442\u0430\u043A\u0436\u0435
-    \u0435\u0441\u043B\u0438 \u0443 \u0442\u0435\u0431\u044F \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C
-    \u043C\u0430\u043B\u043E \u0437\u0434\u043E\u0440\u043E\u0432\u044C\u044F, \u0441\u043A\u0438\u043B\u043B
-    \u0443\u043A\u043B\u043E\u043D\u0435\u043D\u0438\u044F \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u043D\u043E
-    \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0442\u0435\u0431\u0435 \u0432 \u044D\u0442\u043E\u043C"
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
-  m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 16
-  m_VerticalAlignment: 512
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1393497520
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1387999418
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1393497517}
+  m_GameObject: {fileID: 1387999414}
   m_CullTransparentMesh: 1
+--- !u!1 &1402589429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1402589430}
+  - component: {fileID: 1402589431}
+  m_Layer: 0
+  m_Name: Russian
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1402589430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402589429}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1402589431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402589429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225ec97158446a94d9cb40a9f742a8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationCode: ru
+  cultures: []
 --- !u!1 &1406614486
 GameObject:
   m_ObjectHideFlags: 0
@@ -11703,6 +13025,7 @@ GameObject:
   - component: {fileID: 1420271610}
   - component: {fileID: 1420271612}
   - component: {fileID: 1420271611}
+  - component: {fileID: 1420271613}
   m_Layer: 5
   m_Name: SurvivalModeDescriptionText
   m_TagString: Untagged
@@ -11727,8 +13050,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -82.5}
-  m_SizeDelta: {x: 340.02, y: 385}
+  m_AnchoredPosition: {x: 0, y: -86.419945}
+  m_SizeDelta: {x: 340.02, y: 377.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1420271611
 MonoBehaviour:
@@ -11829,6 +13152,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420271609}
   m_CullTransparentMesh: 1
+--- !u!114 &1420271613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420271609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: SurvivalModeDescription
+  FallbackText: Hold out as long as possible by killing enemies
 --- !u!1 &1428308446
 GameObject:
   m_ObjectHideFlags: 0
@@ -11918,6 +13255,7 @@ GameObject:
   - component: {fileID: 1435370097}
   - component: {fileID: 1435370099}
   - component: {fileID: 1435370098}
+  - component: {fileID: 1435370100}
   m_Layer: 5
   m_Name: ZombieModeDescriptionText
   m_TagString: Untagged
@@ -12045,6 +13383,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435370096}
   m_CullTransparentMesh: 1
+--- !u!114 &1435370100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435370096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: ZombieModeDescription
+  FallbackText: Kill as many zombies as possible without time limits
+--- !u!1 &1442291737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1442291738}
+  - component: {fileID: 1442291739}
+  m_Layer: 0
+  m_Name: TimeMode
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1442291738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442291737}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1442291739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442291737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: TIME MODE
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0418\u0413\u0420\u0410 \u041D\u0410 \u0412\u0420\u0415\u041C\u042F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: ZAMAN MODU
+    Object: {fileID: 0}
 --- !u!1 &1448003134
 GameObject:
   m_ObjectHideFlags: 0
@@ -12080,7 +13487,6 @@ RectTransform:
   - {fileID: 1870716285}
   - {fileID: 1293004917}
   - {fileID: 543211755}
-  - {fileID: 1393497518}
   m_Father: {fileID: 662130346}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12228,7 +13634,7 @@ RectTransform:
   m_Children:
   - {fileID: 517476249}
   m_Father: {fileID: 524433621}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -12920,6 +14326,7 @@ GameObject:
   - component: {fileID: 1541004793}
   - component: {fileID: 1541004795}
   - component: {fileID: 1541004794}
+  - component: {fileID: 1541004796}
   m_Layer: 5
   m_Name: ZombieModeText
   m_TagString: Untagged
@@ -12967,7 +14374,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZOMBIE MODE
+  m_text: "\u0417\u041E\u041C\u0411\u0418 \u0420\u0415\u0416\u0418\u041C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -13044,6 +14451,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541004792}
   m_CullTransparentMesh: 1
+--- !u!114 &1541004796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541004792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: ZombieMode
+  FallbackText: ZOMBIE MODE
 --- !u!1 &1542672076
 GameObject:
   m_ObjectHideFlags: 0
@@ -13075,6 +14496,65 @@ Transform:
   m_Father: {fileID: 41835384}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1544858899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1544858900}
+  - component: {fileID: 1544858901}
+  m_Layer: 0
+  m_Name: TimeModeDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1544858900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544858899}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1544858901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1544858899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: Russian
+    Text: "\u0423\u0441\u043F\u0435\u0439 \u0443\u0431\u0438\u0442\u044C \u043A\u0430\u043A
+      \u043C\u043E\u0436\u043D\u043E \u0431\u043E\u043B\u044C\u0448\u0435 \u043C\u0438\u0440\u043D\u044B\u0445
+      \u0436\u0438\u0442\u0435\u043B\u0435\u0439 \u0437\u0430 \u043E\u0442\u0432\u0435\u0434\u0435\u043D\u043D\u043E\u0435
+      \u0432\u0440\u0435\u043C\u044F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "Ayr\u0131lan s\xFCrede m\xFCmk\xFCn oldu\u011Funca \xE7ok sivili \xF6ld\xFCrmek
+      i\xE7in zaman ay\u0131r\u0131n"
+    Object: {fileID: 0}
+  - Language: English
+    Text: Have time to kill as many civilians as possible in the allotted time
+    Object: {fileID: 0}
 --- !u!1 &1546020498
 GameObject:
   m_ObjectHideFlags: 0
@@ -13163,6 +14643,7 @@ GameObject:
   - component: {fileID: 1553574311}
   - component: {fileID: 1553574313}
   - component: {fileID: 1553574312}
+  - component: {fileID: 1553574314}
   m_Layer: 5
   m_Name: AgilityText
   m_TagString: Untagged
@@ -13187,8 +14668,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -163.81, y: 20}
-  m_SizeDelta: {x: -417.62, y: -90}
+  m_AnchoredPosition: {x: -150.787, y: 20}
+  m_SizeDelta: {x: -391.575, y: -90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1553574312
 MonoBehaviour:
@@ -13210,7 +14691,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: AGILITY
+  m_text: "\u041B\u041E\u0412\u041A\u041E\u0421\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -13287,6 +14768,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553574310}
   m_CullTransparentMesh: 1
+--- !u!114 &1553574314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553574310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Agility
+  FallbackText: AGILITY
 --- !u!1 &1564351532
 GameObject:
   m_ObjectHideFlags: 0
@@ -13831,6 +15326,7 @@ GameObject:
   - component: {fileID: 1595947738}
   - component: {fileID: 1595947740}
   - component: {fileID: 1595947739}
+  - component: {fileID: 1595947741}
   m_Layer: 5
   m_Name: TimeModeText
   m_TagString: Untagged
@@ -13955,6 +15451,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595947737}
   m_CullTransparentMesh: 1
+--- !u!114 &1595947741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595947737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: TimeMode
+  FallbackText: TIME MODE
+--- !u!1 &1599352389
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599352390}
+  - component: {fileID: 1599352391}
+  m_Layer: 0
+  m_Name: Buy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1599352390
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599352389}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1599352391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599352389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: BUY
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041A\u0423\u041F\u0418\u0422\u042C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: ALMAK
+    Object: {fileID: 0}
 --- !u!1 &1650959114
 GameObject:
   m_ObjectHideFlags: 0
@@ -14118,6 +15683,7 @@ GameObject:
   - component: {fileID: 1658618753}
   - component: {fileID: 1658618755}
   - component: {fileID: 1658618754}
+  - component: {fileID: 1658618756}
   m_Layer: 5
   m_Name: SurvivalModeText
   m_TagString: Untagged
@@ -14165,7 +15731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SURVIVAL MODE
+  m_text: "\u0420\u0415\u0416\u0418\u041C \u0412\u042B\u0416\u0418\u0412\u0410\u041D\u0418\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -14242,6 +15808,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1658618752}
   m_CullTransparentMesh: 1
+--- !u!114 &1658618756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1658618752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: SurvivalMode
+  FallbackText: SURVIVAL MODE
 --- !u!1 &1660024623
 GameObject:
   m_ObjectHideFlags: 0
@@ -14329,6 +15909,7 @@ GameObject:
   - component: {fileID: 1666695342}
   - component: {fileID: 1666695344}
   - component: {fileID: 1666695343}
+  - component: {fileID: 1666695345}
   m_Layer: 5
   m_Name: PlayText
   m_TagString: Untagged
@@ -14376,7 +15957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: "\u0418\u0413\u0420\u0410\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -14453,6 +16034,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1666695341}
   m_CullTransparentMesh: 1
+--- !u!114 &1666695345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666695341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Play
+  FallbackText: PLAY
 --- !u!1 &1669888492
 GameObject:
   m_ObjectHideFlags: 0
@@ -14465,6 +16060,7 @@ GameObject:
   - component: {fileID: 1669888495}
   - component: {fileID: 1669888494}
   - component: {fileID: 1669888496}
+  - component: {fileID: 1669888497}
   m_Layer: 5
   m_Name: SurvivalModeText
   m_TagString: Untagged
@@ -14512,7 +16108,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SURVIVAL MODE
+  m_text: "\u0420\u0415\u0416\u0418\u041C \u0412\u042B\u0416\u0418\u0412\u0410\u041D\u0418\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -14602,6 +16198,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <LeaderboardName>k__BackingField: 1
+--- !u!114 &1669888497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669888492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: SurvivalMode
+  FallbackText: SURVIVAL MODE
+--- !u!1 &1693353654
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1693353655}
+  - component: {fileID: 1693353656}
+  m_Layer: 0
+  m_Name: English
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1693353655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693353654}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1693353656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693353654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225ec97158446a94d9cb40a9f742a8b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationCode: en
+  cultures: []
 --- !u!1 &1700492634
 GameObject:
   m_ObjectHideFlags: 0
@@ -14743,6 +16399,105 @@ MonoBehaviour:
   - {fileID: 1293004920}
   - {fileID: 543211758}
   _boosters: {fileID: 359806047}
+--- !u!1 &1724452198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1724452199}
+  - component: {fileID: 1724452200}
+  m_Layer: 0
+  m_Name: Localization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1724452199
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724452198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 291.8651, y: 149.37775, z: 2.075181}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1724452200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724452198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1af9229098adca46a69a41dcc690841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1761993985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1761993986}
+  - component: {fileID: 1761993987}
+  m_Layer: 0
+  m_Name: Mana
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1761993986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761993985}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1761993987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1761993985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: MANA
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041C\u0410\u041D\u0410"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: MANA
+    Object: {fileID: 0}
 --- !u!1 &1769914706
 GameObject:
   m_ObjectHideFlags: 0
@@ -14931,6 +16686,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802165649}
   m_CullTransparentMesh: 1
+--- !u!1 &1837785662
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1837785663}
+  - component: {fileID: 1837785664}
+  m_Layer: 0
+  m_Name: SurvivalModeDescription
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1837785663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837785662}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1837785664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837785662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: Hold out as long as possible by killing enemies
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u041F\u0440\u043E\u0434\u0435\u0440\u0436\u0438\u0441\u044C \u043A\u0430\u043A
+      \u043C\u043E\u0436\u043D\u043E \u0434\u043E\u043B\u044C\u0448\u0435, \u0443\u0431\u0438\u0432\u0430\u044F
+      \u0432\u0440\u0430\u0433\u043E\u0432"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "D\xFC\u015Fmanlar\u0131 \xF6ld\xFCrerek m\xFCmk\xFCn oldu\u011Funca uzun
+      s\xFCre tutun"
+    Object: {fileID: 0}
 --- !u!1 &1860759112
 GameObject:
   m_ObjectHideFlags: 0
@@ -15154,6 +16967,7 @@ GameObject:
   - component: {fileID: 1870716287}
   - component: {fileID: 1870716286}
   - component: {fileID: 1870716288}
+  - component: {fileID: 1870716289}
   m_Layer: 5
   m_Name: BikerDescription
   m_TagString: Untagged
@@ -15201,21 +17015,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0411\u0430\u0439\u043A\u0435\u0440, \u0432\u0437\u044F\u0432\u0448\u0438\u0439
-    \u0432 \u0440\u0443\u043A\u0438 \u043C\u0435\u0447, \u0436\u0430\u0436\u0434\u0438\u0442
-    \u0443\u0431\u0438\u0439\u0441\u0442\u0432 \u0438 \u043A\u0440\u043E\u0432\u0438.
-    \u0423 \u043D\u0435\u0433\u043E \u0432 \u0440\u0430\u0441\u043F\u043E\u0440\u044F\u0436\u0435\u043D\u0438\u0438
-    \u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u044C \u0443\u0432\u0435\u043B\u0438\u0447\u0438\u0432\u0430\u0442\u044C
-    \u043D\u0430\u043D\u043E\u0441\u0438\u043C\u044B\u0439 \u0443\u0440\u043E\u043D
-    \u043D\u0430 \u0432\u0440\u0435\u043C\u044F, \u0430 \u0442\u0430\u043A\u0436\u0435
-    \u0441\u0442\u0440\u0435\u043C\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0435
-    \u0432\u0440\u0430\u0449\u0435\u043D\u0438\u0435 \u0441 \u043C\u0435\u0447\u043E\u043C,
-    \u043A\u043E\u0442\u043E\u0440\u043E\u0435 \u043D\u0435 \u043E\u0441\u0442\u0430\u0432\u0438\u0442
-    \u0448\u0430\u043D\u0441\u043E\u0432 \u0435\u0433\u043E \u0432\u0440\u0430\u0433\u0430\u043C.
-    \u0422\u0430\u043A\u0436\u0435 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u0436
-    \u043C\u043E\u0436\u0435\u0442 \u0438\u0437\u0431\u0435\u0436\u0430\u0442\u044C
-    \u043F\u043E\u043B\u0443\u0447\u0435\u043D\u0438\u044F \u0443\u0440\u043E\u043D\u0430
-    \u0441 \u043F\u043E\u043C\u043E\u0449\u044C\u044E \u043F\u0435\u0440\u0435\u043A\u0430\u0442\u0430."
+  m_text: "K\u0131l\u0131c\u0131 eline alm\u0131\u015F bir motorcu cinayet ve kan
+    ister. Bir s\xFCre verilen hasar\u0131 art\u0131rma yetene\u011Fine ve d\xFC\u015Fmanlar\u0131na
+    \u015Fans b\u0131rakmayacak bir k\u0131l\u0131\xE7la h\u0131zl\u0131 bir d\xF6n\xFC\u015Fe
+    sahip. Karakter ayr\u0131ca yuvarlanarak hasar almaktan da ka\xE7\u0131nabilir."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -15305,6 +17108,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <PlayerCharacterName>k__BackingField: 0
+--- !u!114 &1870716289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870716284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: BikerDescription
+  FallbackText: A biker who has picked up a sword craves murder and blood. He has
+    the ability to increase the damage done for a while, as well as a rapid rotation
+    with a sword, which will not leave his enemies a chance. The character can also
+    avoid taking damage by rolling.
 --- !u!1 &1887061768
 GameObject:
   m_ObjectHideFlags: 0
@@ -15521,6 +17341,7 @@ GameObject:
   - component: {fileID: 1908392879}
   - component: {fileID: 1908392881}
   - component: {fileID: 1908392880}
+  - component: {fileID: 1908392882}
   m_Layer: 5
   m_Name: DeclineText
   m_TagString: Untagged
@@ -15568,7 +17389,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DECLINE
+  m_text: "\u041E\u0422\u041A\u041B\u041E\u041D\u0418\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -15645,6 +17466,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1908392878}
   m_CullTransparentMesh: 1
+--- !u!114 &1908392882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908392878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Decline
+  FallbackText: DECLINE
 --- !u!1 &1908452306
 GameObject:
   m_ObjectHideFlags: 0
@@ -15806,8 +17641,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 55
-  m_fontSizeBase: 55
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16019,6 +17854,7 @@ GameObject:
   - component: {fileID: 1956757599}
   - component: {fileID: 1956757601}
   - component: {fileID: 1956757600}
+  - component: {fileID: 1956757602}
   m_Layer: 5
   m_Name: ManaText
   m_TagString: Untagged
@@ -16066,7 +17902,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MANA
+  m_text: "\u041C\u0410\u041D\u0410"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -16143,6 +17979,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956757598}
   m_CullTransparentMesh: 1
+--- !u!114 &1956757602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956757598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf51be86e70d7941bd40914206e4ddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  translationName: Mana
+  FallbackText: MANA
 --- !u!1 &1965499791
 GameObject:
   m_ObjectHideFlags: 0
@@ -16295,6 +18145,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerCharacterSpawner: {fileID: 41835385}
   _characterButton: {fileID: 1700492640}
+--- !u!1 &1980209623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1980209624}
+  - component: {fileID: 1980209625}
+  m_Layer: 0
+  m_Name: Play
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1980209624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980209623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1980209625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980209623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: PLAY
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0418\u0413\u0420\u0410\u0422\u042C"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: OYUNA
+    Object: {fileID: 0}
 --- !u!1 &2021186282
 GameObject:
   m_ObjectHideFlags: 0
@@ -16372,6 +18277,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2021186282}
   m_CullTransparentMesh: 1
+--- !u!1 &2081795811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2081795812}
+  - component: {fileID: 2081795813}
+  m_Layer: 0
+  m_Name: Authorization
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2081795812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081795811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 600457256}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2081795813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081795811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb15fa0e7301ff849bf4d6dcede7c12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: 0
+  entries:
+  - Language: English
+    Text: TO ACCESS THE LEADERBOARD, YOU NEED TO LOG IN
+    Object: {fileID: 0}
+  - Language: Russian
+    Text: "\u0427\u0422\u041E\u0411\u042B \u041F\u041E\u041B\u0423\u0427\u0418\u0422\u042C
+      \u0414\u041E\u0421\u0422\u0423\u041F \u041A \u0422\u0410\u0411\u041B\u0418\u0426\u0415
+      \u041B\u0418\u0414\u0415\u0420\u041E\u0412, \u0412\u0410\u041C \u041D\u0415\u041E\u0411\u0425\u041E\u0414\u0418\u041C\u041E
+      \u0410\u0412\u0422\u041E\u0420\u0418\u0417\u041E\u0412\u0410\u0422\u042C\u0421\u042F"
+    Object: {fileID: 0}
+  - Language: Turkish
+    Text: "SKOR TABLOSUNA ER\u0130\u015EMEK \u0130\xC7\u0130N G\u0130R\u0130\u015E
+      YAPMANIZ GEREK\u0130R"
+    Object: {fileID: 0}
 --- !u!1 &2111610851
 GameObject:
   m_ObjectHideFlags: 0
