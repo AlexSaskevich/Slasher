@@ -1166,7 +1166,7 @@ MonoBehaviour:
     Text: SURVIVAL MODE
     Object: {fileID: 0}
   - Language: Russian
-    Text: "\u0420\u0415\u0416\u0418\u041C \u0412\u042B\u0416\u0418\u0412\u0410\u041D\u0418\u042F"
+    Text: "\u0420\u0415\u0416\u0418\u041C  \u0412\u042B\u0416\u0418\u0412\u0410\u041D\u0418\u042F"
     Object: {fileID: 0}
   - Language: Turkish
     Text: HAYATTA KALMA MODU
@@ -1308,7 +1308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 806f0696300aeac44a0e17efee222854, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLanguage: Turkish
+  currentLanguage: Russian
   detectLanguage: 0
   defaultLanguage: 
   saveLoad: 1
