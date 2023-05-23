@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Duration>k__BackingField: 7
-  <Cost>k__BackingField: 20
+  <Cost>k__BackingField: 40
   <Cooldown>k__BackingField: 25
   _buffableBehaviour: {fileID: 807465450795034208}
   _modifier: 0.3
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Duration>k__BackingField: 5
-  <Cost>k__BackingField: 20
+  <Cost>k__BackingField: 60
   <Cooldown>k__BackingField: 40
   <Effect>k__BackingField: {fileID: 198632928144088838, guid: ce702580c646c5645983b9806ec14df3, type: 3}
   _playerWeapon: {fileID: 8410004351193275394}

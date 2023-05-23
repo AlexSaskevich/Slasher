@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Duration>k__BackingField: 7
-  <Cost>k__BackingField: 30
+  <Cost>k__BackingField: 45
   <Cooldown>k__BackingField: 20
   _buffableBehaviour: {fileID: 8014045146609878632}
   _modifier: 2

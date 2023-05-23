@@ -2182,7 +2182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d42a91a04ae473db055271c31f4403d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _increasingMana: 5
+  _increasingMana: 2
   <CharacteristicStatus>k__BackingField: 1
   <MaxValue>k__BackingField: 50
 --- !u!114 &5732483610280614478
