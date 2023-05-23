@@ -1,4 +1,5 @@
-﻿using Source.GameLogic;
+﻿using Cinemachine;
+using Source.GameLogic;
 using Source.UI.Views;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace Source.UI.Buttons.UIButtons
         [SerializeField] private PlayerCharacterSpawner _playerCharacterSpawner;
         [SerializeField] private CharacterButton _characterButton;
         [SerializeField] private PlayerCharacterView _playerCharacterView;
+        [SerializeField] private CinemachineVirtualCamera _shopVirtualCamera;
 
         protected override void OnButtonClick()
         {
@@ -18,6 +20,8 @@ namespace Source.UI.Buttons.UIButtons
 
         private void CloseShop()
         {
+            _shopVirtualCamera.Priority = 0;
+
             var currentCharacterIndex = GameProgressSaver.GetCurrentCharacterIndex();
 
             foreach (var playerCharacter in _playerCharacterSpawner.GetPlayerCharacters())
