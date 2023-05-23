@@ -1,4 +1,5 @@
-﻿using Source.Player;
+﻿using Cinemachine;
+using Source.Player;
 using UnityEngine;
 
 namespace Source.GameLogic
@@ -7,12 +8,15 @@ namespace Source.GameLogic
     {
         [SerializeField] private SpawnerInitializer _spawnerInitializer;
         [SerializeField] private UIInitializer _uiInitializer;
-        [SerializeField] private PlayerFollower _playerFollower;
-        
+        [SerializeField] private CinemachineVirtualCamera _virtualCamera;
+
         public void InitObjects(PlayerCharacter playerCharacter)
         {
-            if (_playerFollower != null)
-                _playerFollower.Init(playerCharacter.transform);
+            if (_virtualCamera != null)
+            {
+                _virtualCamera.Follow = playerCharacter.transform;
+                _virtualCamera.LookAt = playerCharacter.transform;
+            }
 
             _uiInitializer.Init(playerCharacter);
             _spawnerInitializer.InitSpawners(playerCharacter);
