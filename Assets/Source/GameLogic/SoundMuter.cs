@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Agava.WebUtility;
 using UnityEngine;
 
 namespace Source.GameLogic
@@ -25,6 +26,16 @@ namespace Source.GameLogic
             foreach (var audioSource in s_audioSources)
                 Volumes.Add(audioSource.volume);
         }
+        
+        private void OnEnable()
+        {
+            WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
+        }
+
+        private void OnDisable()
+        {
+            WebApplication.InBackgroundChangeEvent -= OnInBackgroundChange;
+        }
 
         private void Start()
         {
@@ -40,6 +51,14 @@ namespace Source.GameLogic
                 for (var i = 0; i < s_audioSources.Length; i++)
                     s_audioSources[i].volume = Volumes[i];
             }   
+        }
+
+        private void OnInBackgroundChange(bool inBackground)
+        {
+            if (inBackground)
+                Mute();
+            else
+                Unmute();
         }
 
         public static void Mute()
