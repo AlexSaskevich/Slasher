@@ -1,8 +1,8 @@
 ﻿using Source.Combo;
-using Source.Interfaces;
-using System;
 using Source.Enums;
 using Source.GameLogic;
+using Source.Interfaces;
+using System;
 using UnityEngine;
 
 namespace Source.Player
@@ -63,12 +63,6 @@ namespace Source.Player
             AgilityChanged?.Invoke();
         }
 
-        private void IncreaseAgility()
-        {
-            CurrentAgility = Mathf.Clamp(CurrentAgility + _increasingAgility * Time.deltaTime, 0, MaxValue);
-            AgilityChanged?.Invoke();
-        }
-
         public void AddModifier(float modifier)
         {
             if (modifier <= 0)
@@ -97,6 +91,12 @@ namespace Source.Player
         public float GetUpgradedCharacteristic()
         {
             return MaxValue;
+        }
+
+        private void IncreaseAgility()
+        {
+            CurrentAgility = Mathf.Clamp(CurrentAgility + _increasingAgility * Time.deltaTime, 0, MaxValue);
+            AgilityChanged?.Invoke();
         }
     }
 }
