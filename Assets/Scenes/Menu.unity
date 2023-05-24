@@ -654,7 +654,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Have time to kill as many civilians as possible in the allotted time
+  m_text: "\u0423\u0441\u043F\u0435\u0439 \u0443\u0431\u0438\u0442\u044C \u043A\u0430\u043A
+    \u043C\u043E\u0436\u043D\u043E \u0431\u043E\u043B\u044C\u0448\u0435 \u043C\u0438\u0440\u043D\u044B\u0445
+    \u0436\u0438\u0442\u0435\u043B\u0435\u0439 \u0437\u0430 \u043E\u0442\u0432\u0435\u0434\u0435\u043D\u043D\u043E\u0435
+    \u0432\u0440\u0435\u043C\u044F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -1822,7 +1825,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BUY
+  m_text: "\u041A\u0423\u041F\u0418\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -2481,7 +2484,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PRICE
+  m_text: "\u0426\u0415\u041D\u0410"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -2766,7 +2769,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PRICE
+  m_text: "\u0426\u0415\u041D\u0410"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -3871,7 +3874,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ACCEPT
+  m_text: "\u041F\u0420\u0418\u041D\u042F\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -5984,7 +5987,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BIKER
+  m_text: "\u0411\u0410\u0419\u041A\u0415\u0420"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -6617,7 +6620,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZOMBIE MODE
+  m_text: "\u0417\u041E\u041C\u0411\u0418 \u0420\u0415\u0416\u0418\u041C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -8424,7 +8427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PRICE
+  m_text: "\u0426\u0415\u041D\u0410"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -8709,7 +8712,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SURVIVAL MODE
+  m_text: "\u0420\u0415\u0416\u0418\u041C  \u0412\u042B\u0416\u0418\u0412\u0410\u041D\u0418\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -9166,7 +9169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SETTINGS
+  m_text: "\u041D\u0410\u0421\u0422\u0420\u041E\u0419\u041A\u0418"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -9853,7 +9856,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CLOSE
+  m_text: "\u0417\u0410\u041A\u0420\u042B\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -10071,7 +10074,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CHOOSE LEADERBOARD
+  m_text: "\u0412\u042B\u0411\u0415\u0420\u0418\u0422\u0415 \u0422\u0410\u0411\u041B\u0418\u0426\u0423
+    \u041B\u0418\u0414\u0415\u0420\u041E\u0412"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -10336,9 +10340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951efabc9a74475a9c43f20f9bce5fe3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSources:
-  - {fileID: 1512873862}
-  - {fileID: 175836698}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10612,7 +10613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MEDIC
+  m_text: "\u041C\u0415\u0414\u0418\u041A"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -11311,7 +11312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TIME MODE
+  m_text: "\u0418\u0413\u0420\u0410 \u041D\u0410 \u0412\u0420\u0415\u041C\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -11758,7 +11759,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HEALTH
+  m_text: "\u0417\u0414\u041E\u0420\u041E\u0412\u042C\u0415"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -11909,7 +11910,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TIME MODE
+  m_text: "\u0418\u0413\u0420\u0410 \u041D\u0410 \u0412\u0420\u0415\u041C\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -12412,7 +12413,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SELECT
+  m_text: "\u0412\u042B\u0411\u0420\u0410\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -12775,7 +12776,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZOMBIE MODE
+  m_text: "\u0417\u041E\u041C\u0411\u0418 \u0420\u0415\u0416\u0418\u041C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -14273,7 +14274,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: To access the leaderboard, you need to log in
+  m_text: "\u0427\u0442\u043E\u0431\u044B \u043F\u043E\u043B\u0443\u0447\u0438\u0442\u044C
+    \u0434\u043E\u0441\u0442\u0443\u043F \u043A \u0442\u0430\u0431\u043B\u0438\u0446\u0435
+    \u043B\u0438\u0434\u0435\u0440\u043E\u0432, \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u043E
+    \u0430\u0432\u0442\u043E\u0440\u0438\u0437\u043E\u0432\u0430\u0442\u044C\u0441\u044F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -14722,7 +14726,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hold out as long as possible by killing enemies
+  m_text: "\u041F\u0440\u043E\u0434\u0435\u0440\u0436\u0438\u0441\u044C \u043A\u0430\u043A
+    \u043C\u043E\u0436\u043D\u043E \u0434\u043E\u043B\u044C\u0448\u0435, \u0443\u0431\u0438\u0432\u0430\u044F
+    \u0432\u0440\u0430\u0433\u043E\u0432"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -15035,7 +15041,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: NINJA
+  m_text: "\u041D\u0418\u041D\u0414\u0417\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -15185,7 +15191,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kill as many zombies as possible without time limits
+  m_text: "\u0423\u0431\u0435\u0439 \u043A\u0430\u043A \u043C\u043E\u0436\u043D\u043E
+    \u0431\u043E\u043B\u044C\u0448\u0435 \u0437\u043E\u043C\u0431\u0438 \u0431\u0435\u0437
+    \u043E\u0433\u0440\u0430\u043D\u0438\u0447\u0435\u043D\u0438\u0439 \u043F\u043E
+    \u0432\u0440\u0435\u043C\u0435\u043D\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -16450,7 +16459,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ZOMBIE MODE
+  m_text: "\u0417\u041E\u041C\u0411\u0418 \u0420\u0415\u0416\u0418\u041C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -16708,7 +16717,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: AGILITY
+  m_text: "\u041B\u041E\u0412\u041A\u041E\u0421\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -17398,7 +17407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TIME MODE
+  m_text: "\u0418\u0413\u0420\u0410 \u041D\u0410 \u0412\u0420\u0415\u041C\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -17949,7 +17958,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SURVIVAL MODE
+  m_text: "\u0420\u0415\u0416\u0418\u041C  \u0412\u042B\u0416\u0418\u0412\u0410\u041D\u0418\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -18175,7 +18184,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: PLAY
+  m_text: "\u0418\u0413\u0420\u0410\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -18326,7 +18335,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SURVIVAL MODE
+  m_text: "\u0420\u0415\u0416\u0418\u041C  \u0412\u042B\u0416\u0418\u0412\u0410\u041D\u0418\u042F"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -19999,7 +20008,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: DECLINE
+  m_text: "\u041E\u0422\u041A\u041B\u041E\u041D\u0418\u0422\u042C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}
@@ -20595,7 +20604,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MANA
+  m_text: "\u041C\u0410\u041D\u0410"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fe396d774f58d774484726be56f6cacd, type: 2}
   m_sharedMaterial: {fileID: 460882184761179533, guid: fe396d774f58d774484726be56f6cacd, type: 2}

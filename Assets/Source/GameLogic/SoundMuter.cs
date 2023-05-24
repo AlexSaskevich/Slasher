@@ -1,32 +1,12 @@
-﻿using System.Collections.Generic;
-using Agava.WebUtility;
+﻿using Agava.WebUtility;
 using UnityEngine;
 
 namespace Source.GameLogic
 {
-    [RequireComponent(typeof(AudioListener))]
     public sealed class SoundMuter : MonoBehaviour
     {
-        [SerializeField] private AudioSource[] _audioSources;
-        
-        private static readonly List<float> Volumes = new();
-
-        private static AudioSource[] s_audioSources;
-        
-        private AudioListener _audioListener;
-
         public static bool IsMuted { get; private set; }
 
-        private void Awake()
-        {
-            _audioListener = GetComponent<AudioListener>();
-
-            s_audioSources = _audioSources;
-
-            foreach (var audioSource in s_audioSources)
-                Volumes.Add(audioSource.volume);
-        }
-        
         private void OnEnable()
         {
             WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
@@ -37,44 +17,30 @@ namespace Source.GameLogic
             WebApplication.InBackgroundChangeEvent -= OnInBackgroundChange;
         }
 
-        private void Start()
-        {
-            _audioListener.enabled = !IsMuted;
-            
-            if(IsMuted)
-            {
-                foreach (var audioSource in s_audioSources)
-                    audioSource.volume = 0;
-            }
-            else
-            {
-                for (var i = 0; i < s_audioSources.Length; i++)
-                    s_audioSources[i].volume = Volumes[i];
-            }   
-        }
-
-        private void OnInBackgroundChange(bool inBackground)
-        {
-            if (inBackground)
-                Mute();
-            else
-                Unmute();
-        }
-
         public static void Mute()
         {
             IsMuted = true;
-
-            foreach (var audioSource in s_audioSources)
-                audioSource.volume = 0;
+            AudioListener.volume = IsMuted ? 0f : 1f;
         }
 
         public static void Unmute()
         {
             IsMuted = false;
+            AudioListener.volume = IsMuted ? 0f : 1f;
+        }
 
-            for (var i = 0; i < s_audioSources.Length; i++)
-                s_audioSources[i].volume = Volumes[i];
+        private void OnInBackgroundChange(bool inBackground)
+        {
+            if (IsMuted)
+                return;
+
+            Pause(inBackground);
+        }
+
+        private static void Pause(bool isMuted)
+        {
+            AudioListener.pause = isMuted;
+            AudioListener.volume = isMuted ? 0f : 1f;
         }
     }
 }

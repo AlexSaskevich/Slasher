@@ -15,6 +15,7 @@ namespace Source.Turntables
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
+            SetVolume();
         }
 
         protected void SetRandomPitch()
