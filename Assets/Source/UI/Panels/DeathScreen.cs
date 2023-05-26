@@ -2,6 +2,7 @@
 using Source.InputSource;
 using Source.Player;
 using Source.UI.Buttons.UIButtons;
+using Source.Yandex;
 using UnityEngine;
 
 namespace Source.UI.Panels
@@ -12,6 +13,7 @@ namespace Source.UI.Panels
         [SerializeField] private RestartButton _restartButton;
         [SerializeField] private RegenerationButton _regenerationButton;
         [SerializeField] private ExitButton _exitButton;
+        [SerializeField] private AdShower _adShower;
 
         private PlayerHealth _playerHealth;
         private float _delay;
@@ -76,8 +78,10 @@ namespace Source.UI.Panels
 
             _regenerationButton.SetInteractableState(_regenerationButton.IsClicked == false);
             SetObjectsActiveState(false);
-
+            
             _isCoroutineStarted = false;
+
+            _adShower.Show();
         }
     }
 }

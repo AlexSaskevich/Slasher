@@ -5,7 +5,6 @@ using Source.InputSource;
 using Source.Player;
 using Source.UI.Buttons.ControlButtons;
 using Source.UI.Buttons.UIButtons;
-using Source.Yandex;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +22,6 @@ namespace Source.GameLogic
         [SerializeField] private List<PlayerCharacter> _prefabs;
         [SerializeField] private Joystick _joystick;
         [SerializeField] private List<ControlButton> _controlButtons;
-        [SerializeField] private AdShower _adShower;
         [SerializeField] private BuyCharacterButton _buyCharacterButton;
         [SerializeField] private Transform _playerSpawnPoint;
         [SerializeField] private FirstGameModeBlinder _firstGameModeBlinder;
@@ -146,9 +144,6 @@ namespace Source.GameLogic
                 if (character.TryGetComponent(out UIInput uiInput) == false)
                     throw new ArgumentNullException();
 
-                if (character.TryGetComponent(out PlayerHealth playerHealth) == false)
-                    throw new ArgumentNullException();
-
                 if (character.TryGetComponent(out TimeModeScore timeModeScore) == false)
                     throw new ArgumentNullException();
 
@@ -168,9 +163,6 @@ namespace Source.GameLogic
                     _tutorials.FirstOrDefault(tutorial => tutorial is UITutorial)?.gameObject.SetActive(true);
                 else
                     _tutorials.FirstOrDefault(tutorial => tutorial is KeyboardTutorial)?.gameObject.SetActive(true);
-
-                if (_adShower != null)
-                    playerHealth.Init(_adShower);
 
                 _playerCharacters.Add(character);
                 character.gameObject.SetActive(false);

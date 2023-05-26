@@ -2,7 +2,6 @@
 using Source.GameLogic;
 using Source.InputSource;
 using Source.Interfaces;
-using Source.Yandex;
 using System;
 using UnityEngine;
 
@@ -17,7 +16,6 @@ namespace Source.Player
         private InputSwitcher _inputSwitcher;
         private IInputSource _inputSource;
         private PlayerCharacter _playerCharacter;
-        private AdShower _adShower;
         private float _healModifier;
 
         [field: SerializeField] public CharacteristicStatus CharacteristicStatus { get; private set; }
@@ -57,16 +55,10 @@ namespace Source.Player
             if (_healModifier > 0)
                 TryHeal(_healModifier);
         }
-
-        public void Init(AdShower adShower)
-        {
-            _adShower = adShower;
-        }
-
+        
         protected override void Die()
         {
             _inputSource.Disable();
-            _adShower.Show();
         }
 
         public override void TryTakeDamage(float damage)
