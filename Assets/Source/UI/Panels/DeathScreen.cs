@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using Source.InputSource;
+﻿using Source.InputSource;
 using Source.Player;
 using Source.UI.Buttons.UIButtons;
 using Source.Yandex;
+using System.Collections;
 using UnityEngine;
 
 namespace Source.UI.Panels
@@ -48,7 +48,7 @@ namespace Source.UI.Panels
 
             _playerHealth.Died += OnDied;
         }
-        
+
         private void OnPlayerRegenerated()
         {
             Time.timeScale = 1;
@@ -58,7 +58,7 @@ namespace Source.UI.Panels
 
             SetObjectsActiveState(true);
         }
-        
+
         private void OnDied()
         {
             if (_isCoroutineStarted == false)
@@ -68,9 +68,9 @@ namespace Source.UI.Panels
         private IEnumerator WaitTimeToOpen()
         {
             _isCoroutineStarted = true;
-            
+
             yield return new WaitForSeconds(_delay);
-            
+
             Time.timeScale = 0;
             CanvasGroup.alpha = 1;
 
@@ -78,7 +78,7 @@ namespace Source.UI.Panels
 
             _regenerationButton.SetInteractableState(_regenerationButton.IsClicked == false);
             SetObjectsActiveState(false);
-            
+
             _isCoroutineStarted = false;
 
             _adShower.Show();

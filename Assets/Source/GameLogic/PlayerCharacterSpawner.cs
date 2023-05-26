@@ -152,9 +152,9 @@ namespace Source.GameLogic
 
                 if (_firstGameModeBlinder != null)
                     _firstGameModeBlinder.Init(timeModeScore);
-                
-                inputSwitcher.Init(_device);
-                //inputSwitcher.Init(Agava.YandexGames.Device.Type);
+
+                //inputSwitcher.Init(_device);
+                inputSwitcher.Init(Agava.YandexGames.Device.Type);
 
                 foreach (var tutorial in _tutorials)
                     tutorial.gameObject.SetActive(false);

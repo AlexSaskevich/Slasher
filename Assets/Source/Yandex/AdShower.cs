@@ -1,4 +1,5 @@
 ﻿using Source.GameLogic;
+using System;
 using UnityEngine;
 
 namespace Source.Yandex
@@ -8,34 +9,35 @@ namespace Source.Yandex
         [SerializeField] private AudioListener _audioListener;
 
         private bool _isMuted;
-        
+
+        public event Action AdvertisementClosed;
+
         protected void OnOpenCallback()
         {
-            Debug.LogWarning("Открылась реклама!!!");
             PauseGame();
         }
 
         protected void OnCloseCallback(bool isClosed)
         {
-            Debug.LogWarning("Реклама закрылась!!!");
             ContinueGame();
+
+            Time.timeScale = 0;
         }
 
         protected void OnCloseCallback()
         {
-            Debug.LogWarning("Реклама закрылась!!!");
             ContinueGame();
+
+            AdvertisementClosed?.Invoke();
         }
 
         protected void OnErrorCallback(string errorMessage)
         {
-            Debug.LogWarning("Сработал OnErrorCallback!!!");
             ContinueGame();
         }
 
         protected void OnOfflineCallback()
         {
-            Debug.LogWarning("Сработал OnOfflineCallback!!!");
             ContinueGame();
         }
 
@@ -45,7 +47,7 @@ namespace Source.Yandex
 
             if (_isMuted)
                 return;
-            
+
             _audioListener.enabled = true;
             SoundMuter.Unmute();
         }
@@ -55,7 +57,7 @@ namespace Source.Yandex
             Time.timeScale = 0;
 
             _isMuted = SoundMuter.IsMuted;
-            
+
             _audioListener.enabled = false;
             SoundMuter.Mute();
         }

@@ -24,11 +24,25 @@ namespace Source.UI.Buttons.UIButtons
 
         public bool IsClicked { get; private set; }
 
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
+            _adShower.AdvertisementClosed += OnAdvertisementClosed;
+        }
+
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+
+            _adShower.AdvertisementClosed -= OnAdvertisementClosed;
+        }
+
         protected override void OnButtonClick()
         {
             base.OnButtonClick();
-            
-            RegeneratePlayer();
+
+            _adShower.Show();
         }
 
         public void Init(PlayerHealth playerHealth, PlayerCombo playerCombo, IInputSource inputSource,
@@ -47,7 +61,12 @@ namespace Source.UI.Buttons.UIButtons
             Button.interactable = state;
         }
 
-        private void RegeneratePlayer()
+        private void OnAdvertisementClosed()
+        {
+            Regenerate();
+        }
+
+        private void Regenerate()
         {
             IsClicked = true;
 
@@ -65,7 +84,6 @@ namespace Source.UI.Buttons.UIButtons
                 _timerBlinder.SetPlayerAlive();
 
             PlayerRegenerated?.Invoke();
-            _adShower.Show();
         }
     }
 }
