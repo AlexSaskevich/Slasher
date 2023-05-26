@@ -6,7 +6,7 @@ namespace Source.Yandex
     {
         public override void Show()
         {
-            VideoAd.Show(OnOpenCallback, OnCloseCallback, onErrorCallback: OnErrorCallback);
+            VideoAd.Show(OnOpenCallback, null, OnCloseCallback, onErrorCallback: OnErrorCallback);
         }
     }
 }

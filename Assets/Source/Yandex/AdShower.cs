@@ -11,26 +11,31 @@ namespace Source.Yandex
         
         protected void OnOpenCallback()
         {
+            Debug.LogWarning("Открылась реклама!!!");
             PauseGame();
         }
 
         protected void OnCloseCallback(bool isClosed)
         {
+            Debug.LogWarning("Реклама закрылась!!!");
             ContinueGame();
         }
 
         protected void OnCloseCallback()
         {
+            Debug.LogWarning("Реклама закрылась!!!");
             ContinueGame();
         }
 
         protected void OnErrorCallback(string errorMessage)
         {
+            Debug.LogWarning("Сработал OnErrorCallback!!!");
             ContinueGame();
         }
 
         protected void OnOfflineCallback()
         {
+            Debug.LogWarning("Сработал OnOfflineCallback!!!");
             ContinueGame();
         }
 
